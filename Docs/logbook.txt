@@ -1,0 +1,22 @@
+Backend:
+
+npm init -> létrehozza a package.json-t amiben leírja a függőségeket és beállításokat
+    package.json -> "type": "module" -> hogy lehessen használni importot és ne require(commonjs)
+
+npm install express -> telepíti az expresst (node_modules)
+
+npm install --save-dev nodemon -> ez felel a "hotreload"-ért fejlesztéshez nem kell mindíg újraindítani
+    package.json ->   "scripts": {"devStart": "nodemon server.js"} futtatás dev-ben (npm run devStart)
+
+npm install ejs -> (view engine) hogy backend tudjon renderelni html-t
+npm install dotenv -> a kornyezeti valtozok beltoltesere szolgalo fajl
+npm install mysql2 -> mysql adatbázis kezeléséhez
+npm install cors -> Cross-Origin Resource Sharing lehetővé teszi az eltérő domainek kommunikációját
+npm install jsonwebtoken -> token authentikációhoz
+
+Sql beállítások:
+	mysql -u root -p // belépés mysqlbe
+	create user `username`@`localhost` identified by `password`; // létrehozza a usert apphoz
+	grant all privileges on database.* to `username`@`localhost`; // minden jogosultság az adott adatbázisra
+	flush privileges // jogosultságok érvényesítése
+	show grants for 'username@'localhost' // jogosultságok ellenőrzése
