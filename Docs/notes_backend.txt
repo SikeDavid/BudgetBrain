@@ -1,0 +1,16 @@
+útvonalak:
+    public
+        post login
+        post registration
+        post feedback
+    private
+        get/add/delete/modify category
+        get/add/delete/modify entry
+        ad monthly plan
+    admin
+        get/modify users
+        get/modify feedback
+
+Entries lekérdezésnél a date -1 nappal adja vissza adatokat:
+    Adatbázisban jól van tárolva de mikor frontendre kerül json-ben akkor időzóna miatt visszacsúszik
+    megoldás hogy adatbázis kapcsolatban "dateStrings: true" így a date mező nem objectum hanem sima stringként jön

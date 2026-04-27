@@ -91,6 +91,76 @@ app.post('/api/public/registration', async(req, res) => {
     
 });
 
+// ====================
+// private routes
+// ====================
+// authenticate middleware
+app.use((req, res, next) => {
+    // Here we check the token exist and valid
+    req.userid = 2
+    if (!req.userid) return res.status(401).json({message: "You are not loged in"});
+    next();
+});
+
+// dashboard
+app.get('/api/private/dashboard', async(req, res) => {
+    const id = req.userid;
+    const month = new Date().getMonth() + 1;
+
+    const sqlBalance = `SELECT
+                            SUM(
+                                CASE
+                                    WHEN c.type = 'income' THEN e.amount
+                                    WHEN c.type = 'expense' THEN -e.amount
+                                END
+                            ) AS monthly_balance
+                        FROM entries e
+                        JOIN categories c on e.category_id =c.category_id
+                        WHERE e.user_id = ?
+                        AND MONTH (e.date) = ?;`;
+    const [balance] = await db.query(sqlBalance, [id, month]);
+
+    const sqlEntries = `SELECT 
+                    e.entry_id,
+                    CASE
+	                    WHEN c.type = 'expense' THEN -e.amount
+		                ELSE e.amount
+	                END AS amount,
+                    e.description,
+                    e.date,
+                    e.completed,
+                    e.planned_entry_id,
+                    c.name AS category_name,
+                    c.type
+                FROM entries e
+                JOIN categories c ON e.category_id = c.category_id
+                WHERE e.user_id = ?
+                    AND YEAR(e.date) = 2026
+                    AND MONTH(e.date) = ?
+                ORDER BY
+                    CASE
+                        WHEN e.planned_entry_id IS NOT NULL AND e.completed = false THEN 0
+                        ELSE 1
+                    END,
+                e.date ASC;`;
+    const [entries] = await db.query(sqlEntries, [id, month]);
+    return res.status(200).json({
+        balance: balance,
+        entries: entries
+        })
+    
+});
+// GET /api/private/entries
+// POST /api/private/entries
+// PUT /api/private/entries/:id
+// DELETE /api/private/entries/:id
+
+// GET /api/private/categories
+
+// ====================
+// admin routes
+// ====================
+
 app.listen(port, async() => {
     console.log(`Server is running on port: ${port}`);
     await databaseTest();

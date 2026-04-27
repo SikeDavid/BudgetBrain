@@ -1,8 +1,8 @@
 -- ====================
 -- 1. Database
 -- ====================
-CREATE DATABASE IF NOT EXISTS teszt_db;
-USE teszt_db;
+CREATE DATABASE IF NOT EXISTS budgetbrain_db;
+USE budgetbrain_db;
 
 -- ====================
 -- 2. Users
