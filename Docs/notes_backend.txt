@@ -14,3 +14,7 @@
 Entries lekérdezésnél a date -1 nappal adja vissza adatokat:
     Adatbázisban jól van tárolva de mikor frontendre kerül json-ben akkor időzóna miatt visszacsúszik
     megoldás hogy adatbázis kapcsolatban "dateStrings: true" így a date mező nem objectum hanem sima stringként jön
+
+A tárolt eljárás (generate_entry_planner) a bejelentkezéskor valamint az entries lekérésnél kellen meghívni 
+viszont át kell írni a dashboardon a lekérést hogy csak a teljesítetteket adja vissza különben a planned lesz a listában 
+

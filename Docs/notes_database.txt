@@ -1,0 +1,2 @@
+COALESCE(query, 0) függvény az első nem null értéket adja vissza lekérdezésben.
+    Kell ahhoz hogyha valamelyik érték nincs akkor se fusson hibára NULL
