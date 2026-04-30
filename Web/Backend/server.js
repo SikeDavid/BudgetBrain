@@ -109,7 +109,7 @@ app.post('/api/public/password-reset-request', async(req, res) => {
     const sqlfeedback = 'INSERT INTO feedback (title, message, user_id) VALUES (?, ?, ?);'
     await db.query(sqlfeedback, ['Password reset request', `${user.username} requested a password reset`, `${user.user_id}`]);
     return res.status(201).json({message: "Password reset request sent"});
-})
+});
 // delete user
 
 // ====================
@@ -123,7 +123,8 @@ app.use((req, res, next) => {
     next();
 });
 
-// dashboard
+
+// dashboard - Monthly balace, income, expense, last 5 entry
 app.get('/api/private/dashboard', async(req, res) => {
     const id = req.userid;
     const year = new Date().getFullYear();
@@ -181,8 +182,87 @@ app.get('/api/private/dashboard', async(req, res) => {
         });
 });
 
+// categories
+app.get('/api/private/categories', async(req, res) => {
+    const id = req.userid;
+
+    const sql = ` SELECT
+        c.category_id,
+        c.name,
+        c.type
+        FROM categories c
+        JOIN users u ON c.user_id = u.user_id
+        WHERE c.user_id = ?
+        AND c.in_use = true;`
+
+    const [categories] = await db.query(sql, id);
+
+    return res.status(200).json({categories});
+});
+
+app.post('/api/private/categories', async(req, res) => {
+    const id = req.userid;
+    const {name, type} = req.body;
+    const in_use = true;
+
+    const sql = `INSERT INTO categories (user_id, name, type, in_use) VALUES (?, ?, ?, ?);`
+
+    await db.query(sql, [id, name, type, in_use]);
+
+    return res.status(201).json({message: "category created"});
+});
+
+app.patch('/api/private/categories/:categoryid/status', async(req, res) => {
+    const id = req.userid;
+    const categoryid = req.params.categoryid;
+    const { status } = req.body;
+    
+    if (typeof status !== "boolean") return res.status(400).json({ message: "status must be boolean"});
+    
+    Number(status); // convert status to 1:0
+
+    const sql = `UPDATE
+        categories 
+        SET in_use = ? 
+        WHERE category_id = ?
+        AND user_id = ?;`
+
+    await db.query(sql, [status, categoryid, id]);
+
+    return res.status(200).json({message: "category removed from active use"});
+});
+
 // GET /api/private/entries
+app.get('/api/private/entries/:year/:month', async(req, res) => {
+    const id = req.userid
+    const {year, month} = req.params;
+
+    const sql = `SELECT
+        e.entry_id,
+        c.name,
+        e.description,
+        CASE
+            WHEN c.type = 'expense' THEN -e.amount
+            ELSE e.amount
+        END AS amount,
+        e.date,
+        e.completed
+        
+    FROM entries e
+    JOIN categories c ON e.category_id = c.category_id
+    WHERE e.user_id = ?
+        AND YEAR(e.date) = ?
+        AND MONTH(e.date) = ?;`
+    const [result] = await db.query(sql, [id, year, month])
+    return res.status(200).json({result})
+});
+
 // POST /api/private/entries
+// app.post('/api/private/entries', (req, res) => {
+//     const id = req.userid;
+
+//     const sql = 'INSERT '
+// })
 // PATCH /api/private/entries/:id
 // DELETE /api/private/entries/:id
 // PATCH /api/private/entries/:id/complete
