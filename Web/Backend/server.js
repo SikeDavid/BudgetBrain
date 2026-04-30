@@ -258,14 +258,80 @@ app.get('/api/private/entries/:year/:month', async(req, res) => {
 });
 
 // POST /api/private/entries
-// app.post('/api/private/entries', (req, res) => {
-//     const id = req.userid;
+app.post('/api/private/entries', async(req, res) => {
+    const id = req.userid;
+    const {categoryid, amount, description, date} = req.body;
 
-//     const sql = 'INSERT '
-// })
+    const sql = `INSERT 
+        INTO entries (user_id, category_id, amount, description, date, completed) VALUES 
+        (?, ?, ?, ?, ?, ?);`
+    await db.query(sql, [id, categoryid, amount, description, date, true]);
+
+    return res.status(201).json({message: "entry created"});
+});
 // PATCH /api/private/entries/:id
-// DELETE /api/private/entries/:id
+app.patch('/api/private/entries/:id', async(req, res) => {
+    const id = req.userid;
+    const entryid = req.params.id;
+    console.log(req.body)
+    const {categoryid, amount, description, date, completed} = req.body;
+
+    const sql = `UPDATE entries
+        SET category_id = ?,
+            amount = ?,
+            description = ?,
+            date = ?,
+            completed = ?
+        WHERE entry_id = ?
+        AND user_id = ?;`;
+
+    const [result] = await db.query(sql, [categoryid, amount, description, date, Number(completed), entryid, id]);
+
+    if (result.affectedRows === 0) {
+        return res.status(404).json({message: "Entry not found"});
+    }
+
+    return res.status(200).json({message: "entry updated"});
+});
+
 // PATCH /api/private/entries/:id/complete
+app.patch('/api/private/entries/:id/complete', async(req, res) => {
+    const id = req.userid;
+    const entryid = req.params.id;
+
+    const sql = `UPDATE entries
+        SET completed = NOT completed
+        WHERE entry_id = ?
+        AND user_id = ?;`;
+
+    const [result] = await db.query(sql, [entryid, userid]);
+
+    if (result.affectedRows === 0) {
+        return res.status(404).json({message: "entry not found"});
+    }
+
+    return res.status(200).json({message: "entry changed"});
+});
+
+// DELETE /api/private/entries/:id
+app.delete('/api/private/entries/:id', async(req, res) => {
+    const id = req.userid;
+    const entryid = req.params.id;
+
+    const sql = `DELETE
+        FROM entries
+        WHERE entry_id = ?
+        AND user_id = ?;`;
+
+    const [result] = await db.query(sql, [entryid, userid]);
+
+    if (result.affectedRows === 0) {
+        return res.status(404).json({message: "Entry not found"});
+    }
+
+    return res.status(200).json({message: "Entry deleted"});
+    
+});
 
 // GET /api/private/categories
 // POST /api/private/categories
