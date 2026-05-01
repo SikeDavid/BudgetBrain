@@ -29,7 +29,39 @@ app.use((req, res, next) => {
 // ====================
 
 app.get('/', (req, res) => {
-    res.status(200).send('Backend server running...');
+    res.status(200).json({
+        app: "BudgetBrain API",
+        version: "0.1.0",
+        status: "running...",
+        endpoints: {
+            public: {
+                login: "POST /api/public/login",
+                registration: "POST /api/public/registration",
+                passwordResetRequest: "POST /api/public/password-reset-request"
+            },
+            private: {
+                dashboard: "GET /api/private/dashboard",
+                entries: {
+                    list: "GET /api/private/entries",
+                    create: "POST /api/private/entries",
+                    update: "PATCH /api/private/entries/:id",
+                    complete: "PATCH /api/private/entries/:id/complete",
+                    delete: "DELETE /api/private/entries/:id"
+                },
+                categories: {
+                    list: "GET /api/private/categories",
+                    create: "POST /api/private/categories",
+                    updateStatus: "PATCH /api/private/categories/:id/status"
+                },
+                plannedEntries: {
+                    list: "GET /api/private/planned-entries",
+                    create: "POST /api/private/planned-entries",
+                    update: "PATCH /api/private/planned-entries/:id",
+                    delete: "DELETE /api/private/planned-entries/:id"
+                }
+            }
+        }
+    });
 });
 
 // Login
