@@ -182,7 +182,7 @@ app.get('/api/private/dashboard', async(req, res) => {
         });
 });
 
-// categories
+// GET /api/private/categories
 app.get('/api/private/categories', async(req, res) => {
     const id = req.userid;
 
@@ -200,6 +200,7 @@ app.get('/api/private/categories', async(req, res) => {
     return res.status(200).json({categories});
 });
 
+// POST /api/private/categories
 app.post('/api/private/categories', async(req, res) => {
     const id = req.userid;
     const {name, type} = req.body;
@@ -211,7 +212,9 @@ app.post('/api/private/categories', async(req, res) => {
 
     return res.status(201).json({message: "category created"});
 });
+// PATCH /api/private/categories/:id
 
+// DELETE /api/private/categories/:id
 app.patch('/api/private/categories/:categoryid/status', async(req, res) => {
     const id = req.userid;
     const categoryid = req.params.categoryid;
@@ -333,13 +336,44 @@ app.delete('/api/private/entries/:id', async(req, res) => {
     
 });
 
-// GET /api/private/categories
-// POST /api/private/categories
-// PATCH /api/private/categories/:id
-// DELETE /api/private/categories/:id
-
 // GET /api/private/planned-entries
+app.get('/api/private/planned-entries', async(req, res) => {
+    const userid = req.userid;
+
+    const sql = ` SELECT
+            c.name AS category_name,
+            c.type,
+            p.name AS entry_name,
+            ( CASE
+                WHEN c.type = 'income' THEN p.amount
+                WHEN c.type = 'expense' THEN -p.amount
+                END
+            ) AS amount,
+            p.day_of_month,
+            p.active
+        FROM entry_planner p
+        JOIN categories c ON p.category_id = c.category_id
+        WHERE
+            p.user_id = ?;`;
+
+    const [result] = await db.query(sql, userid);
+
+    return res.status(200).json({result});
+});
+
 // POST /api/private/planned-entries
+app.post('/api/private/planned-entries', async(req, res) => {
+    const userid = req.userid;
+    const {categoryid, name, amount, dayOfMonth} = req.body;
+
+    const sql = `INSERT INTO entry_planner
+            (user_id, category_id, name, amount, day_of_month)
+        VALUES (?, ?, ?, ?, ?);`;
+
+    await db.query(sql, [userid, categoryid, name, amount, dayOfMonth]);
+
+    return res.status(201).json({message: "planned entry created"});
+});
 // PATCH /api/private/planned-entries/:id
 // DELETE /api/private/planned-entries/:id
 

@@ -18,3 +18,6 @@ Entries lekérdezésnél a date -1 nappal adja vissza adatokat:
 A tárolt eljárás (generate_entry_planner) a bejelentkezéskor valamint az entries lekérésnél kellen meghívni 
 viszont át kell írni a dashboardon a lekérést hogy csak a teljesítetteket adja vissza különben a planned lesz a listában 
 
+categories delete/inactive-ot az entries/complete mintára át lehet írni
+
+post categories in_use felesleges beállítani mert default true
