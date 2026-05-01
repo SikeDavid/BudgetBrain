@@ -40,14 +40,22 @@ app.post('/api/public/login', async(req, res) => {
         return res.status(400).json({message: "Missing data"});
     }
     try {
-        const sql = "SELECT user_id, username, user_status FROM users WHERE username=? and password=?";
-        const [row] = await db.query(sql, [username, password]);
+        const sql = `SELECT 
+                user_id,
+                username,
+                user_status 
+            FROM users
+            WHERE username=?
+            AND password=?
+        `;
 
-        if(!row || row.length === 0) {
+        const [result] = await db.query(sql, [username, password]);
+
+        if(!result || result.length === 0) {
             return res.status(401).json({message: "Username or Password not match"});
         };
 
-        const user = row[0];
+        const user = result[0];
         switch(user.user_status) {
             case "active":
                 return res.status(200).json({user});
@@ -58,13 +66,12 @@ app.post('/api/public/login', async(req, res) => {
             case "suspended":
                 return res.status(403).json({message: "User is suspended"});
                 break
-        }
+        };
     }
     catch (err) {
         console.error("Database error", err);
         return res.status(500).json({message: "Database error"});
     };
-
 });
 
 // Registration
@@ -75,20 +82,30 @@ app.post('/api/public/registration', async(req, res) => {
         return res.status(400).json({message: "Missing data"});
     }
     try {
-        const sql = "SELECT * FROM users where username=? or email=?";
-        const [row] = await db.query(sql, [username, email]);
-        if(row.length > 0) {
+        const sql = `SELECT
+                *
+            FROM users
+            WHERE username=?
+            OR email=?
+            `;
+
+        const [resultSelect] = await db.query(sql, [username, email]);
+        if(resultSelect.length > 0) {
             return res.status(409).json({message: "Username or Email already registrated"});
         };
-        const registration = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
-        const [result] = await db.query(registration, [username, password, email]);
+        const registration = `INSERT
+            INTO
+                users (username, password, email)
+            VALUES (?, ?, ?)
+            `;
+
+        const [resultInsert] = await db.query(registration, [username, password, email]);
         return res.status(201).json({message: "Successful registration", userid: result.insertId});
     }
     catch (err) {
         console.error("Registration failed", err);
         return res.status(500).json({message: "Server error"});
     }
-    
 });
 
 // reset password
@@ -97,20 +114,40 @@ app.post('/api/public/password-reset-request', async(req, res) => {
 
     if (!username || !password) return res.status(400).json({message: "Missing data"});
 
-    const sql = "SELECT user_id, username, password FROM users WHERE username=? and password=?";
-    const [row] = await db.query(sql, [username, password]);
+    try{
+    const sql = `SELECT
+            user_id,
+            username,
+            password
+        FROM users
+        WHERE username=?
+        AND password=?
+        `;
 
-    if(!row || row.length === 0) {
+    const [result] = await db.query(sql, [username, password]);
+
+    if(!result || result.length === 0) {
         return res.status(401).json({message: "Username or Password not match"});
     };
 
-    const user = row[0];
+    const user = result[0];
     
-    const sqlfeedback = 'INSERT INTO feedback (title, message, user_id) VALUES (?, ?, ?);'
+    const sqlfeedback = `INSERT
+        INTO
+            feedback (title, message, user_id)
+        VALUES (?, ?, ?)
+        `;
+
     await db.query(sqlfeedback, ['Password reset request', `${user.username} requested a password reset`, `${user.user_id}`]);
     return res.status(201).json({message: "Password reset request sent"});
+    }
+    catch (err) {
+        return res.status(500).json({message: "Server error"});
+    }
 });
+
 // delete user
+// this will be a private route
 
 // ====================
 // private routes
@@ -128,7 +165,7 @@ app.use((req, res, next) => {
 app.get('/api/private/dashboard', async(req, res) => {
     const id = req.userid;
     const year = new Date().getFullYear();
-    const month = new Date().getMonth() + 1;
+    const month = new Date().getMonth() + 2;
 
     const sqlGenerateEntryPlanner = `CALL generate_entry_planner(?, ?, ?);`;
     await db.query(sqlGenerateEntryPlanner, [id, year, month]);
@@ -151,8 +188,11 @@ app.get('/api/private/dashboard', async(req, res) => {
         JOIN categories c on e.category_id =c.category_id
         WHERE e.user_id = ?
         AND YEAR(e.date) = ?
-        AND MONTH(e.date) = ?;`;
+        AND MONTH(e.date) = ?
+    `;
+
     const [balance] = await db.query(sqlBalance, [id, year, month]);
+    const summary = balance[0];
 
     const sqlEntries = `SELECT 
                     e.entry_id,
@@ -174,17 +214,21 @@ app.get('/api/private/dashboard', async(req, res) => {
                     AND MONTH(e.date) = ?
                 ORDER BY
                     e.date DESC, e.entry_id DESC
-                LIMIT 5;`;
+                LIMIT 5
+    `;
+
     const [entries] = await db.query(sqlEntries, [id, year, month]);
     return res.status(200).json({
-        balance: balance,
+        balance: summary.monthly_balance,
+        income: summary.monthly_income,
+        expense: summary.monthly_expense,
         entries: entries
         });
 });
 
 // GET /api/private/categories
 app.get('/api/private/categories', async(req, res) => {
-    const id = req.userid;
+    const userid = req.userid;
 
     const sql = ` SELECT
         c.category_id,
@@ -193,11 +237,12 @@ app.get('/api/private/categories', async(req, res) => {
         FROM categories c
         JOIN users u ON c.user_id = u.user_id
         WHERE c.user_id = ?
-        AND c.in_use = true;`
+        AND c.in_use = true
+    `;
 
-    const [categories] = await db.query(sql, id);
+    const [result] = await db.query(sql, [userid]);
 
-    return res.status(200).json({categories});
+    return res.status(200).json({result});
 });
 
 // POST /api/private/categories
@@ -206,7 +251,7 @@ app.post('/api/private/categories', async(req, res) => {
     const {name, type} = req.body;
     const in_use = true;
 
-    const sql = `INSERT INTO categories (user_id, name, type, in_use) VALUES (?, ?, ?, ?);`
+    const sql = `INSERT INTO categories (user_id, name, type, in_use) VALUES (?, ?, ?, ?)`;
 
     await db.query(sql, [id, name, type, in_use]);
 
@@ -221,16 +266,14 @@ app.patch('/api/private/categories/:categoryid/status', async(req, res) => {
     const { status } = req.body;
     
     if (typeof status !== "boolean") return res.status(400).json({ message: "status must be boolean"});
-    
-    Number(status); // convert status to 1:0
 
-    const sql = `UPDATE
-        categories 
-        SET in_use = ? 
+    const sql = `UPDATE categories
+        SET in_use = NOT in_use
         WHERE category_id = ?
-        AND user_id = ?;`
+        AND user_id = ?
+        `;
 
-    await db.query(sql, [status, categoryid, id]);
+    await db.query(sql, [Number(status), categoryid, id]);
 
     return res.status(200).json({message: "category removed from active use"});
 });
@@ -255,7 +298,9 @@ app.get('/api/private/entries/:year/:month', async(req, res) => {
     JOIN categories c ON e.category_id = c.category_id
     WHERE e.user_id = ?
         AND YEAR(e.date) = ?
-        AND MONTH(e.date) = ?;`
+        AND MONTH(e.date) = ?
+    `;
+
     const [result] = await db.query(sql, [id, year, month])
     return res.status(200).json({result})
 });
@@ -266,8 +311,11 @@ app.post('/api/private/entries', async(req, res) => {
     const {categoryid, amount, description, date} = req.body;
 
     const sql = `INSERT 
-        INTO entries (user_id, category_id, amount, description, date, completed) VALUES 
-        (?, ?, ?, ?, ?, ?);`
+        INTO 
+            entries (user_id, category_id, amount, description, date, completed)
+        VALUES (?, ?, ?, ?, ?, ?)
+    `;
+
     await db.query(sql, [id, categoryid, amount, description, date, true]);
 
     return res.status(201).json({message: "entry created"});
@@ -276,7 +324,6 @@ app.post('/api/private/entries', async(req, res) => {
 app.patch('/api/private/entries/:id', async(req, res) => {
     const id = req.userid;
     const entryid = req.params.id;
-    console.log(req.body)
     const {categoryid, amount, description, date, completed} = req.body;
 
     const sql = `UPDATE entries
@@ -286,7 +333,8 @@ app.patch('/api/private/entries/:id', async(req, res) => {
             date = ?,
             completed = ?
         WHERE entry_id = ?
-        AND user_id = ?;`;
+        AND user_id = ?
+    `;
 
     const [result] = await db.query(sql, [categoryid, amount, description, date, Number(completed), entryid, id]);
 
@@ -299,13 +347,14 @@ app.patch('/api/private/entries/:id', async(req, res) => {
 
 // PATCH /api/private/entries/:id/complete
 app.patch('/api/private/entries/:id/complete', async(req, res) => {
-    const id = req.userid;
+    const userid = req.userid;
     const entryid = req.params.id;
 
     const sql = `UPDATE entries
         SET completed = NOT completed
         WHERE entry_id = ?
-        AND user_id = ?;`;
+        AND user_id = ?
+    `;
 
     const [result] = await db.query(sql, [entryid, userid]);
 
@@ -324,7 +373,8 @@ app.delete('/api/private/entries/:id', async(req, res) => {
     const sql = `DELETE
         FROM entries
         WHERE entry_id = ?
-        AND user_id = ?;`;
+        AND user_id = ?
+    `;
 
     const [result] = await db.query(sql, [entryid, userid]);
 
@@ -354,9 +404,10 @@ app.get('/api/private/planned-entries', async(req, res) => {
         FROM entry_planner p
         JOIN categories c ON p.category_id = c.category_id
         WHERE
-            p.user_id = ?;`;
+            p.user_id = ?
+    `;
 
-    const [result] = await db.query(sql, userid);
+    const [result] = await db.query(sql, [userid]);
 
     return res.status(200).json({result});
 });
@@ -368,7 +419,8 @@ app.post('/api/private/planned-entries', async(req, res) => {
 
     const sql = `INSERT INTO entry_planner
             (user_id, category_id, name, amount, day_of_month)
-        VALUES (?, ?, ?, ?, ?);`;
+        VALUES (?, ?, ?, ?, ?)
+    `;
 
     await db.query(sql, [userid, categoryid, name, amount, dayOfMonth]);
 
@@ -387,7 +439,7 @@ app.patch('/api/private/planned-entries/:id', async(req, res) => {
             amount = ?,
             day_of_month = ?
         WHERE id = ?
-        AND user_id = ?;
+        AND user_id = ?
     `;
 
     const [result] = await db.query(sql, [categoryid, name, amount, dayOfMonth, id, userid]);
@@ -404,7 +456,7 @@ app.patch('/api/private/planned-entries/:id/use', async(req, res) => {
     const sql = `UPDATE entry_planner
         SET active = NOT active
         WHERE id = ?
-        AND user_id = ?;
+        AND user_id = ?
     `;
 
     const [result] = await db.query(sql, [id, userid]);

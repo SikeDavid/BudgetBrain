@@ -21,3 +21,5 @@ viszont át kell írni a dashboardon a lekérést hogy csak a teljesítetteket a
 categories delete/inactive-ot az entries/complete mintára át lehet írni
 
 post categories in_use felesleges beállítani mert default true
+
+dashboardnál tömbként megy a balance, érdemes lenne szétszedni (frontenden jobban használható) -> KÉSZ
