@@ -374,8 +374,45 @@ app.post('/api/private/planned-entries', async(req, res) => {
 
     return res.status(201).json({message: "planned entry created"});
 });
+
 // PATCH /api/private/planned-entries/:id
+app.patch('/api/private/planned-entries/:id', async(req, res) => {
+    const userid = req.userid;
+    const id = req.params.id;
+    const {categoryid, name, amount, dayOfMonth} = req.body;
+
+    const sql =  `UPDATE entry_planner
+        SET category_id = ?,
+			name = ?,
+            amount = ?,
+            day_of_month = ?
+        WHERE id = ?
+        AND user_id = ?;
+    `;
+
+    const [result] = await db.query(sql, [categoryid, name, amount, dayOfMonth, id, userid]);
+
+    if (result.affectedRows === 0) return res.status(404).json({message: "Entry not found"});
+
+    return res.status(201).json({message: "Planned entry modified"});
+});
 // DELETE /api/private/planned-entries/:id
+app.patch('/api/private/planned-entries/:id/use', async(req, res) => {
+    const userid = req.userid;
+    const id = req.params.id;
+
+    const sql = `UPDATE entry_planner
+        SET active = NOT active
+        WHERE id = ?
+        AND user_id = ?;
+    `;
+
+    const [result] = await db.query(sql, [id, userid]);
+
+    if (result.affectedRows === 0) return res.status(404).json({message: "entry not found"});
+
+    return res.status(200).json({message: "planned entry activated/deactivated"});
+});
 
 
 // ====================
