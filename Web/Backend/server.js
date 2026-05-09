@@ -5,6 +5,10 @@ import cors from 'cors';
 import db from './database.js';
 import { databaseTest } from './database.js';
 
+import authRoutes from './routes/authRoutes.js';
+import authMiddleware from './middleware/authMiddleware.js';
+import entryRoutes from './routes/entryRoutes.js';
+
 dotenv.config();
 const app = express();
 const port = process.env.PORT;
@@ -12,9 +16,6 @@ const port = process.env.PORT;
 app.use(cors());
 app.use(express.json())
 
-// ====================
-// logger
-// ====================
 app.use((req, res, next) => {
     console.log(`${new Date().toISOString()}`);
     console.log(`\t${req.method} ${req.path}`);
@@ -24,566 +25,42 @@ app.use((req, res, next) => {
     next();
 });
 
-// ====================
-// public routes
-// ====================
-
 app.get('/', (req, res) => {
     res.status(200).json({
         app: "BudgetBrain API",
         version: "0.1.0",
         status: "running...",
         endpoints: {
-            public: {
-                login: "POST /api/public/login",
-                registration: "POST /api/public/registration",
-                passwordResetRequest: "POST /api/public/password-reset-request"
+            auth: {
+                login: "POST /api/auth/login",
+                registration: "POST /api/auth/registration",
             },
-            private: {
-                dashboard: "GET /api/private/dashboard",
+            entries: {
                 entries: {
-                    list: "GET /api/private/entries",
-                    create: "POST /api/private/entries",
-                    update: "PATCH /api/private/entries/:id",
-                    complete: "PATCH /api/private/entries/:id/complete",
-                    delete: "DELETE /api/private/entries/:id"
+                    list: "GET /api/entries/:year/:month",
+                    add: "POST /api/entries/add",
+                    status: "PATCH /api/entries/complete/:id",
+                    update: "PATCH /api/entries/update/:id",
+                    delete: "DELETE /api/entries/delete/:id"
                 },
                 categories: {
-                    list: "GET /api/private/categories",
-                    create: "POST /api/private/categories",
-                    updateStatus: "PATCH /api/private/categories/:id/status"
+
                 },
                 plannedEntries: {
-                    list: "GET /api/private/planned-entries",
-                    create: "POST /api/private/planned-entries",
-                    update: "PATCH /api/private/planned-entries/:id",
-                    delete: "DELETE /api/private/planned-entries/:id"
+
                 }
             }
         }
     });
 });
 
-// Login
-app.post('/api/public/login', async(req, res) => {
-    const { username, password } = req.body;
-
-    if(!username || !password) {
-        return res.status(400).json({message: "Missing data"});
-    }
-    try {
-        const sql = `SELECT 
-                user_id,
-                username,
-                user_status 
-            FROM users
-            WHERE username=?
-            AND password=?
-        `;
-
-        const [result] = await db.query(sql, [username, password]);
-
-        if(!result || result.length === 0) {
-            return res.status(401).json({message: "Username or Password not match"});
-        };
-
-        const user = result[0];
-        switch(user.user_status) {
-            case "active":
-                return res.status(200).json({user});
-                break
-            case "pending":
-                return res.status(403).json({message: "User is not yet activated"});
-                break
-            case "suspended":
-                return res.status(403).json({message: "User is suspended"});
-                break
-        };
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-
-// Registration
-app.post('/api/public/registration', async(req, res) => {
-    const { username, password, email } = req.body;
-
-    if(!username || !password || !email) {
-        return res.status(400).json({message: "Missing data"});
-    }
-    try {
-        const sql = `SELECT
-                *
-            FROM users
-            WHERE username=?
-            OR email=?
-            `;
-
-        const [resultSelect] = await db.query(sql, [username, email]);
-        if(resultSelect.length > 0) {
-            return res.status(409).json({message: "Username or Email already registrated"});
-        };
-        const registration = `INSERT
-            INTO
-                users (username, password, email)
-            VALUES (?, ?, ?)
-            `;
-
-        const [resultInsert] = await db.query(registration, [username, password, email]);
-        return res.status(201).json({message: "Successful registration", userid: result.insertId});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    }
-});
-
-// reset password
-app.post('/api/public/password-reset-request', async(req, res) => {
-    const { username, password} = req.body;
-
-    if (!username || !password) return res.status(400).json({message: "Missing data"});
-
-    try{
-    const sql = `SELECT
-            user_id,
-            username,
-            password
-        FROM users
-        WHERE username=?
-        AND password=?
-        `;
-
-    const [result] = await db.query(sql, [username, password]);
-
-    if(!result || result.length === 0) {
-        return res.status(401).json({message: "Username or Password not match"});
-    };
-
-    const user = result[0];
-    
-    const sqlfeedback = `INSERT
-        INTO
-            feedback (title, message, user_id)
-        VALUES (?, ?, ?)
-        `;
-
-    await db.query(sqlfeedback, ['Password reset request', `${user.username} requested a password reset`, `${user.user_id}`]);
-    return res.status(201).json({message: "Password reset request sent"});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-
-// delete user
-// this will be a private route
-
-// ====================
-// private routes
-// ====================
-// authenticate middleware
-app.use((req, res, next) => {
-    // Here we check the token exist and valid
-    req.userid = 2
-    if (!req.userid) return res.status(401).json({message: "You are not loged in"});
-    next();
-});
-
-
-// dashboard - Monthly balace, income, expense, last 5 entry
-app.get('/api/private/dashboard', async(req, res) => {
-    const id = req.userid;
-    const year = new Date().getFullYear();
-    const month = new Date().getMonth() + 2;
-
-    try {
-        const sqlGenerateEntryPlanner = `CALL generate_entry_planner(?, ?, ?);`;
-        await db.query(sqlGenerateEntryPlanner, [id, year, month]);
-
-        const sqlBalance = `
-            SELECT
-                COALESCE(SUM(
-                    CASE
-                        WHEN c.type = 'income' THEN e.amount
-                        WHEN c.type = 'expense' THEN -e.amount
-                    END
-                ), 0) AS monthly_balance,
-                COALESCE(SUM(
-                    CASE WHEN c.type = 'income'THEN e.amount ELSE 0 END
-                ), 0) AS monthly_income,
-                COALESCE(SUM(
-                    CASE WHEN c.type = 'expense'THEN -e.amount ELSE 0 END
-                ), 0) AS monthly_expense
-            FROM entries e
-            JOIN categories c on e.category_id =c.category_id
-            WHERE e.user_id = ?
-            AND YEAR(e.date) = ?
-            AND MONTH(e.date) = ?
-        `;
-
-        const [balance] = await db.query(sqlBalance, [id, year, month]);
-        const summary = balance[0];
-
-        const sqlEntries = `SELECT 
-                        e.entry_id,
-                        CASE
-                            WHEN c.type = 'expense' THEN -e.amount
-                            ELSE e.amount
-                        END AS amount,
-                        e.description,
-                        e.date,
-                        e.completed,
-                        e.planned_entry_id,
-                        c.name AS category_name,
-                        c.type
-                    FROM entries e
-                    JOIN categories c ON e.category_id = c.category_id
-                    WHERE e.user_id = ?
-                        AND e.completed = true
-                        AND YEAR(e.date) = ?
-                        AND MONTH(e.date) = ?
-                    ORDER BY
-                        e.date DESC, e.entry_id DESC
-                    LIMIT 5
-        `;
-
-        const [entries] = await db.query(sqlEntries, [id, year, month]);
-        return res.status(200).json({
-            balance: summary.monthly_balance,
-            income: summary.monthly_income,
-            expense: summary.monthly_expense,
-            entries: entries
-            });
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-
-// GET /api/private/categories
-app.get('/api/private/categories', async(req, res) => {
-    const userid = req.userid;
-    try {
-        const sql = ` SELECT
-            c.category_id,
-            c.name,
-            c.type
-            FROM categories c
-            JOIN users u ON c.user_id = u.user_id
-            WHERE c.user_id = ?
-            AND c.in_use = true
-        `;
-
-        const [result] = await db.query(sql, [userid]);
-
-        return res.status(200).json({result});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-
-// POST /api/private/categories
-app.post('/api/private/categories', async(req, res) => {
-    const id = req.userid;
-    const {name, type} = req.body;
-    const in_use = true;
-    try {
-        const sql = `INSERT INTO categories (user_id, name, type, in_use) VALUES (?, ?, ?, ?)`;
-
-        await db.query(sql, [id, name, type, in_use]);
-
-        return res.status(201).json({message: "category created"});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-// PATCH /api/private/categories/:id
-
-// DELETE /api/private/categories/:id
-app.patch('/api/private/categories/:categoryid/status', async(req, res) => {
-    const id = req.userid;
-    const categoryid = req.params.categoryid;
-    const { status } = req.body;
-
-    if (typeof status !== "boolean") return res.status(400).json({ message: "status must be boolean"});
-
-    try {
-        const sql = `UPDATE categories
-            SET in_use = NOT in_use
-            WHERE category_id = ?
-            AND user_id = ?
-            `;
-
-        await db.query(sql, [Number(status), categoryid, id]);
-
-        return res.status(200).json({message: "category removed from active use"});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-
-// GET /api/private/entries
-app.get('/api/private/entries/:year/:month', async(req, res) => {
-    const id = req.userid
-    const {year, month} = req.params;
-
-    try {
-        const sql = `SELECT
-            e.entry_id,
-            c.name,
-            e.description,
-            CASE
-                WHEN c.type = 'expense' THEN -e.amount
-                ELSE e.amount
-            END AS amount,
-            e.date,
-            e.completed
-            
-        FROM entries e
-        JOIN categories c ON e.category_id = c.category_id
-        WHERE e.user_id = ?
-            AND YEAR(e.date) = ?
-            AND MONTH(e.date) = ?
-        `;
-
-        const [result] = await db.query(sql, [id, year, month])
-        return res.status(200).json({result});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-
-// POST /api/private/entries
-app.post('/api/private/entries', async(req, res) => {
-    const id = req.userid;
-    const {categoryid, amount, description, date} = req.body;
-
-    try {
-        const sql = `INSERT 
-            INTO 
-                entries (user_id, category_id, amount, description, date, completed)
-            VALUES (?, ?, ?, ?, ?, ?)
-        `;
-
-        await db.query(sql, [id, categoryid, amount, description, date, true]);
-
-        return res.status(201).json({message: "entry created"});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-// PATCH /api/private/entries/:id
-app.patch('/api/private/entries/:id', async(req, res) => {
-    const id = req.userid;
-    const entryid = req.params.id;
-    const {categoryid, amount, description, date, completed} = req.body;
-
-    try {
-        const sql = `UPDATE entries
-            SET category_id = ?,
-                amount = ?,
-                description = ?,
-                date = ?,
-                completed = ?
-            WHERE entry_id = ?
-            AND user_id = ?
-        `;
-
-        const [result] = await db.query(sql, [categoryid, amount, description, date, Number(completed), entryid, id]);
-
-        if (result.affectedRows === 0) {
-            return res.status(404).json({message: "Entry not found"});
-        }
-
-        return res.status(200).json({message: "entry updated"});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-
-// PATCH /api/private/entries/:id/complete
-app.patch('/api/private/entries/:id/complete', async(req, res) => {
-    const userid = req.userid;
-    const entryid = req.params.id;
-
-    try {
-        const sql = `UPDATE entries
-            SET completed = NOT completed
-            WHERE entry_id = ?
-            AND user_id = ?
-        `;
-
-        const [result] = await db.query(sql, [entryid, userid]);
-
-        if (result.affectedRows === 0) {
-            return res.status(404).json({message: "entry not found"});
-        }
-
-        return res.status(200).json({message: "entry changed"});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-
-// DELETE /api/private/entries/:id
-app.delete('/api/private/entries/:id', async(req, res) => {
-    const id = req.userid;
-    const entryid = req.params.id;
-
-    try {
-        const sql = `DELETE
-            FROM entries
-            WHERE entry_id = ?
-            AND user_id = ?
-        `;
-
-        const [result] = await db.query(sql, [entryid, userid]);
-
-        if (result.affectedRows === 0) {
-            return res.status(404).json({message: "Entry not found"});
-        }
-
-        return res.status(200).json({message: "Entry deleted"});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-
-// GET /api/private/planned-entries
-app.get('/api/private/planned-entries', async(req, res) => {
-    const userid = req.userid;
-
-    try {
-        const sql = ` SELECT
-                c.name AS category_name,
-                c.type,
-                p.name AS entry_name,
-                ( CASE
-                    WHEN c.type = 'income' THEN p.amount
-                    WHEN c.type = 'expense' THEN -p.amount
-                    END
-                ) AS amount,
-                p.day_of_month,
-                p.active
-            FROM entry_planner p
-            JOIN categories c ON p.category_id = c.category_id
-            WHERE
-                p.user_id = ?
-        `;
-
-        const [result] = await db.query(sql, [userid]);
-
-        return res.status(200).json({result});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-
-// POST /api/private/planned-entries
-app.post('/api/private/planned-entries', async(req, res) => {
-    const userid = req.userid;
-    const {categoryid, name, amount, dayOfMonth} = req.body;
-
-    try {
-        const sql = `INSERT INTO entry_planner
-                (user_id, category_id, name, amount, day_of_month)
-            VALUES (?, ?, ?, ?, ?)
-        `;
-
-        await db.query(sql, [userid, categoryid, name, amount, dayOfMonth]);
-
-        return res.status(201).json({message: "planned entry created"});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-
-// PATCH /api/private/planned-entries/:id
-app.patch('/api/private/planned-entries/:id', async(req, res) => {
-    const userid = req.userid;
-    const id = req.params.id;
-    const {categoryid, name, amount, dayOfMonth} = req.body;
-
-    try {
-        const sql =  `UPDATE entry_planner
-            SET category_id = ?,
-                name = ?,
-                amount = ?,
-                day_of_month = ?
-            WHERE id = ?
-            AND user_id = ?
-        `;
-
-        const [result] = await db.query(sql, [categoryid, name, amount, dayOfMonth, id, userid]);
-
-        if (result.affectedRows === 0) return res.status(404).json({message: "Entry not found"});
-
-        return res.status(201).json({message: "Planned entry modified"});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-// DELETE /api/private/planned-entries/:id
-app.patch('/api/private/planned-entries/:id/use', async(req, res) => {
-    const userid = req.userid;
-    const id = req.params.id;
-
-    try {
-        const sql = `UPDATE entry_planner
-            SET active = NOT active
-            WHERE id = ?
-            AND user_id = ?
-        `;
-
-        const [result] = await db.query(sql, [id, userid]);
-
-        if (result.affectedRows === 0) return res.status(404).json({message: "entry not found"});
-
-        return res.status(200).json({message: "planned entry activated/deactivated"});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    };
-});
-
-
-// ====================
-// admin routes
-// ====================
+app.use('/api/auth', authRoutes);
+app.use('/api/entries', authMiddleware, entryRoutes);
 
 app.listen(port, async() => {
     console.log(`Server is running on port: ${port}`);
     await databaseTest();
 });
-
 
 /*
 Methods:
