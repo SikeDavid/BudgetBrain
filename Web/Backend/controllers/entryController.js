@@ -17,7 +17,8 @@ async function controllerEntryQuery(req, res) {
         return res.status(200).json(data);
     }
     catch (err) {
-
+        console.error("Server error", err);
+        return res.status(500).json({message: "Server error"});
     }
 }
 
@@ -25,8 +26,18 @@ async function controllerEntryCreate(req, res) {
     const userid = req.userid;
     const {categoryid, amount, description, date} = req.body;
 
-    await modelEntryAdd(userid, categoryid, amount, description, date);
-    return res.status(201).json({message: "Entry created"});
+    try {
+        const result = await modelEntryAdd(userid, categoryid, amount, description, date);
+
+        if (result.affectedRows === 0) {
+            return res.status(400).json({message: "Error"});
+        }
+        return res.status(201).json({message: "Entry created", entryid: result.insertId});
+    }
+    catch (err) {
+        console.error("Server error", err);
+        return res.status(500).json({message: "Server error"});
+    }
 }
 
 async function controllerEntryToggleComplete(req, res) {

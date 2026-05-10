@@ -8,6 +8,7 @@ import { databaseTest } from './database.js';
 import authRoutes from './routes/authRoutes.js';
 import authMiddleware from './middleware/authMiddleware.js';
 import entryRoutes from './routes/entryRoutes.js';
+import categoryRoutes from './routes/categoryRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -44,7 +45,10 @@ app.get('/', (req, res) => {
                     delete: "DELETE /api/entries/delete/:id"
                 },
                 categories: {
-
+                    list: "GET /api/categories/",
+                    add: "POST /api/categories/add",
+                    update: "PATCH /api/categories/update/:id",
+                    status: "PATCH /api/categories/status/:id"
                 },
                 plannedEntries: {
 
@@ -56,6 +60,8 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/entries', authMiddleware, entryRoutes);
+
+app.use('/api/categories', authMiddleware, categoryRoutes);
 
 app.listen(port, async() => {
     console.log(`Server is running on port: ${port}`);

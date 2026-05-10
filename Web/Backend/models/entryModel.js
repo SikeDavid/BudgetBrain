@@ -32,7 +32,9 @@ async function modelEntryAdd(userid, categoryid, amount,description, date) {
         VALUES (?, ?, ?, ?, ?)
     `;
 
-    await db.query(sql, [userid, categoryid, amount, description, date]);
+    const [result] = await db.query(sql, [userid, categoryid, amount, description, date]);
+
+    return result;
 }
 
 async function modelEntryComplete(userid, entryid) {
