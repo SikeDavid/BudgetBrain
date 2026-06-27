@@ -6,10 +6,9 @@ import {
     modelEntryUpdate
 } from "../models/entryModel.js";
 
-async function controllerEntryQuery(req, res) {
-    const userid = req.userid;
+export async function controllerEntryQuery(req, res) {
+    const userid = req.user.id;
     const {year, month} = req.params;
-
     try {
     const data = await modelEntriesGet(userid, year, month);
         if (data.length === 0) return res.status(404).json({message: "no entry"});
@@ -22,8 +21,8 @@ async function controllerEntryQuery(req, res) {
     }
 }
 
-async function controllerEntryCreate(req, res) {
-    const userid = req.userid;
+export async function controllerEntryCreate(req, res) {
+    const userid = req.user.id;
     const {categoryid, amount, description, date} = req.body;
 
     try {
@@ -40,8 +39,8 @@ async function controllerEntryCreate(req, res) {
     }
 }
 
-async function controllerEntryToggleComplete(req, res) {
-    const userid = req.userid;
+export async function controllerEntryToggleComplete(req, res) {
+    const userid = req.user.id;
     const entryid = req.params.id;
 
     try{
@@ -60,8 +59,8 @@ async function controllerEntryToggleComplete(req, res) {
     }
 }
 
-async function controllerEntryDelete(req, res) {
-    const userid = req.userid;
+export async function controllerEntryDelete(req, res) {
+    const userid = req.user.id;
     const entryid = req.params.id;
 
     try{
@@ -80,8 +79,8 @@ async function controllerEntryDelete(req, res) {
     }
 }
 
-async function controllerEntryUpdate(req, res) {
-    const userid = req.userid;
+export async function controllerEntryUpdate(req, res) {
+    const userid = req.user.id;
     const entryid = req.params.id;
     const data = req.body;
 
@@ -100,10 +99,3 @@ async function controllerEntryUpdate(req, res) {
     }
 }
 
-export {
-    controllerEntryQuery,
-    controllerEntryCreate,
-    controllerEntryToggleComplete,
-    controllerEntryDelete,
-    controllerEntryUpdate
-};

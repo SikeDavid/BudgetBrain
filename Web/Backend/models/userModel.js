@@ -1,6 +1,6 @@
 import db from '../database.js';
 
-async function findById(userId) {
+export async function findUserById(userId) {
     const sql = `
         SELECT user_id, username, user_status
         FROM users
@@ -11,7 +11,7 @@ async function findById(userId) {
     return rows[0];
 }
 
-async function findUserByUsernamePassword(username, password) {
+export async function findUserByUsernamePassword(username, password) {
     const sql = `
         SELECT
             user_id,
@@ -28,7 +28,7 @@ async function findUserByUsernamePassword(username, password) {
 }
 
 // createUser()
-async function findUserByUsernameEmail(username, email) {
+export async function findUserByUsernameEmail(username, email) {
     const sql = `
         SELECT
             username,
@@ -43,7 +43,7 @@ async function findUserByUsernameEmail(username, email) {
     return row[0];
 }
 
-async function createUser(username, password, email) {
+export async function createUser(username, password, email) {
     const sql = `
         INSERT INTO users
             (username, password, email)
@@ -56,46 +56,7 @@ async function createUser(username, password, email) {
 }
 
 // Tokens
-async function saveRefreshToken(userId, refreshToken) {
-    const sql = `
-        INSERT INTO refresh_token (user_id, token)
-        VALUES (?, ?)
-    `;
 
-    const [result] = await db.query(sql, [userId, refreshToken]);
-    return result;
-}
-
-async function findRefreshToken(refreshToken) {
-    const sql = `
-        SELECT *
-        FROM refresh_token
-        WHERE token = ?
-    `;
-
-    const [rows] = await db.query(sql, [refreshToken]);
-    return rows[0];
-}
-
-async function deleteRefreshToken(refreshToken) {
-    const sql = `
-        DELETE FROM refresh_token
-        WHERE token = ?
-    `;
-
-    const [result] = await db.query(sql, [refreshToken]);
-    return result;
-}
 // updateUserStatus()
 // reset password
 // delete user
-
-export {
-    findById,
-    findUserByUsernamePassword,
-    findUserByUsernameEmail,
-    createUser,
-    saveRefreshToken,
-    findRefreshToken,
-    deleteRefreshToken
-};

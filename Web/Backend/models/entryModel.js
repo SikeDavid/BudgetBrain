@@ -1,6 +1,6 @@
 import db from "../database.js";
 
-async function modelEntriesGet(userid, year, month) {
+export async function modelEntriesGet(userid, year, month) {
     const sql = `
         SELECT
             e.entry_id,
@@ -25,7 +25,7 @@ async function modelEntriesGet(userid, year, month) {
     return result;
 }
 
-async function modelEntryAdd(userid, categoryid, amount,description, date) {
+export async function modelEntryAdd(userid, categoryid, amount,description, date) {
     const sql = `
         INSERT INTO entries
             (user_id, category_id, amount, description, date)
@@ -37,7 +37,7 @@ async function modelEntryAdd(userid, categoryid, amount,description, date) {
     return result;
 }
 
-async function modelEntryComplete(userid, entryid) {
+export async function modelEntryComplete(userid, entryid) {
     const sql = `
         UPDATE entries
             SET completed = NOT completed
@@ -50,7 +50,7 @@ async function modelEntryComplete(userid, entryid) {
     return result;
 }
 
-async function modelEntryDelete(userid, entryid) {
+export async function modelEntryDelete(userid, entryid) {
     const sql = `
         DELETE
             FROM entries
@@ -63,7 +63,7 @@ async function modelEntryDelete(userid, entryid) {
     return result;
 }
 
-async function modelEntryUpdate(userid, entryid, data) {
+export async function modelEntryUpdate(userid, entryid, data) {
     const fields = [];
     const values = [];
 
@@ -109,11 +109,4 @@ async function modelEntryUpdate(userid, entryid, data) {
     return result;
 }
 
-export {
-    modelEntriesGet,
-    modelEntryAdd,
-    modelEntryComplete,
-    modelEntryDelete,
-    modelEntryUpdate
-}
 

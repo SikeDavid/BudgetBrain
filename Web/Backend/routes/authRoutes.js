@@ -14,8 +14,8 @@ router.post('/registration', registration);
 router.post('/logout', logout)
 // refresh token
 router.post('/refreshtoken', refreshToken);
-// activate account
-// forget password
+// activate account -> admin
+// forget password -> user request
 
 
 export default router;

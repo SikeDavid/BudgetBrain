@@ -1,4 +1,3 @@
-import { response } from 'express';
 import jwt from 'jsonwebtoken';
 
 function authMiddleware(req, res, next) {
@@ -18,9 +17,9 @@ function authMiddleware(req, res, next) {
             id: decoded.userId,
             username: decoded.username
         };
-
         next();
     } catch (err) {
+        console.error("Server error", err);
         return res.status(500).json({message: "Invalid or expired token"});
     }
     // req.userid = 2

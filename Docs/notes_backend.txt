@@ -47,5 +47,5 @@ Tokenek:
     Minden védett útvonalhoz headerben kell küldeni accesstoken-t
         Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3ODI1NTI3OTEsImV4cCI6MTc4MjU1MzY5MX0.nB9F1vjLiAJZBDqTSg89QIQA_iRpWtvkQzuMGTD-C0s
     Ha lejárat/elutasít accesstoken-t akkor meghívni /api/auth/refresh-token
-        itt elküldeni backendnek a refreshtokent ami ellenőrzi és ha valid kiad egy új acces tokent
+        itt elküldeni backendnek a refreshtokent body-ban ami ellenőrzi és ha valid kiad egy új access tokent
         refreshtoken rotáció még nincs!!!!!!!!!!!!

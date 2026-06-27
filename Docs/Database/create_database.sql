@@ -131,6 +131,19 @@ END //
 
 DELIMITER ;
 
+-- ====================
+-- 9. Authorization
+-- ====================
+
+CREATE TABLE refresh_token (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    token VARCHAR(500) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
 -- userid INT NOT NULL
 --  	minden usernek saját kategóriái vannak
 -- type ENUM('income', 'expense')
