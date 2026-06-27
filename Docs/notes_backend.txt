@@ -24,3 +24,28 @@ categories delete/inactive-ot az entries/complete mintára át lehet írni -> K�
 post categories in_use felesleges beállítani mert default true -> KÉSZ
 
 dashboardnál tömbként megy a balance, érdemes lenne szétszedni (frontenden jobban használható) -> KÉSZ
+
+Endpoints:
+    Authentication:
+        Login: api/auth/login
+            {
+                "username" : "User",
+                "password" : "Password"
+            }
+        Registration: api/auth/registration
+            {
+                "username" : "User",
+                "email" : "email@email.com",
+                "password" : "Password"
+            }
+
+Tokenek:
+    Loginnál ad access és refresh tokent.
+        accesstoken-t memóriába elég menteni. (const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3ODI1NTI3OTEsImV4cCI6MTc4MjU1MzY5MX0.nB9F1vjLiAJZBDqTSg89QIQA_iRpWtvkQzuMGTD-C0s")
+        refreshtoken-t localstorage
+    
+    Minden védett útvonalhoz headerben kell küldeni accesstoken-t
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3ODI1NTI3OTEsImV4cCI6MTc4MjU1MzY5MX0.nB9F1vjLiAJZBDqTSg89QIQA_iRpWtvkQzuMGTD-C0s
+    Ha lejárat/elutasít accesstoken-t akkor meghívni /api/auth/refresh-token
+        itt elküldeni backendnek a refreshtokent ami ellenőrzi és ha valid kiad egy új acces tokent
+        refreshtoken rotáció még nincs!!!!!!!!!!!!

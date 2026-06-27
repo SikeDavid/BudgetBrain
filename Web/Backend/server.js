@@ -58,7 +58,19 @@ app.get('/', (req, res) => {
     });
 });
 
+// Login, Registration
 app.use('/api/auth', authRoutes);
+
+// Token test
+app.get('/test/token', authMiddleware, (req, res) => {
+    return res.status(418).json({
+        message: "success accestoken validation",
+        userid: req.user.id,
+        username: req.user.username
+    });
+});
+
+
 app.use('/api/entries', authMiddleware, entryRoutes);
 
 app.use('/api/categories', authMiddleware, categoryRoutes);

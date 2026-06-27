@@ -1,68 +1,74 @@
 import {
+    findById,
     findUserByUsernamePassword,
     findUserByUsernameEmail,
-    createUser    
+    createUser,
+    saveRefreshToken,
+    findRefreshToken,
+    deleteRefreshToken    
 } from '../models/userModel.js';
+import { createAccessToken, createRefreshToken } from '../utils/token.js';
+
+import jwt from 'jsonwebtoken';
 
 async function login(req, res) {
-    const {username, password} = req.body;
+    if (!req.body) return res.status(404).json({
+        message: "Missing body",
+        requirements: "username, password"
+    });
 
-    if (!username || !password) {
-        return res.status(400).json({
-            message: "Missing data"
-        });
-    }
+    const {username, password} = req.body;
+    if (!username || !password) return res.status(400).json({message: "Missing data"});
 
     try {
         const user = await findUserByUsernamePassword(username, password);
 
-        if(!user) {
-            return res.status(401).json({
-                message: "Username or Password not match"
-            });
-        }
+        if(!user) return res.status(401).json({message: "Username or Password not match"});
 
         switch (user.user_status) {
             case "active":
-                return res.status(200).json({user});
+                const accessToken = createAccessToken(user);
+                const refreshToken = createRefreshToken(user);
+                await saveRefreshToken(user.user_id, refreshToken);
+                return res.status(200).json({
+                    user: {
+                        user_id: user.user_id,
+                        username: user.username
+                    },
+                    accessToken,
+                    refreshToken
+                });
                 break
             case "pending":
-                return res.status(403).json({
-                    message: "User is not yet activated"
-                });
+                return res.status(403).json({message: "User is not yet activated"});
                 break
             case "suspended":
-                return res.status(403).json({
-                    message: "Invalid user status"
-                });
+                return res.status(403).json({message: "Invalid user status"});
         }
     }
     catch (err)
     {
         console.error("Server error", err);
-
-        return res.status(500).json({
-            message: "Server error"
-        });
+        return res.status(500).json({message: "Server error"});
     }
 }
 
 async function registration(req, res) {
+        if (!req.body) return res.status(404).json({
+        message: "Missing body",
+        requirements: "username, email, password"
+    });
     const {username, password, email} = req.body;
 
     if(!username || !password || !email) {
-        return res.status(400).json({
-            message: "Missing data"
-        });
+        return res.status(400).json({message: "Missing data"});
     }
 
     try {
         const existingUser = await findUserByUsernameEmail(username, email);
 
         if (existingUser) {
-            return res.status(409).json({
-                message: "Username or Email already in use"
-            });
+            return res.status(409).json({message: "Username or Email already in use"});
         }
 
         const userId = await createUser(username, password, email);
@@ -75,13 +81,56 @@ async function registration(req, res) {
     catch (err) {
         console.error("Server error", err);
 
-        return res.status(500).json({
-            message: "Server error"
-        });
+        return res.status(500).json({message: "Server error"});
+    }
+}
+
+async function logout(req, res) {
+    const { refreshToken} = req.body;
+
+    if (!refreshToken) return res.status(403).json({message: "Missing refreshtoken"});
+
+    try {
+        const result = await deleteRefreshToken(refreshToken);
+        return res.status(200).json({message: "Logout success"});
+    } catch (err) {
+        console.error("Logout error", err);
+        return res.status(500).json({message: "Server error"});
+    }
+}
+
+async function refreshToken(req, res) {
+    const { refreshToken } = req.body;
+
+    if (!refreshToken) return res.status(400).json({message: "Missing refresh token"});
+
+    try {
+        const storedToken = await findRefreshToken(refreshToken);
+
+        if (!storedToken) return res.status(403).json({message: "Refresh token not found"});
+
+        const decoded = jwt.verify(
+            refreshToken,
+            process.env.REFRESH_TOKEN_SECRET
+        );
+
+        const user = await findById(decoded.userId);
+
+        if (!user) return res.status(403).json({message: "User not found"});
+        if (user.user_status != "active") return res.status(403).json({message: "User is not active"});
+
+        const accessToken = createAccessToken(user);
+        return res.status(201).json({accesstoken: accessToken});
+
+    } catch (err) {
+        console.error(err)
+        return res.status(500).json({message: "Server error"});
     }
 }
 
 export {
     login,
-    registration
+    registration,
+    logout,
+    refreshToken
 };
