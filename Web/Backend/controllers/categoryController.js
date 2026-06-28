@@ -3,10 +3,12 @@ import {
     modelCategoryAdd,
     modelCategoryUpdate,
     modelCategoryStatus,
+    modelCategoriesGetByName,
 } from '../models/categoryModel.js';
 
-async function controllerCategoriesGet(req, res) {
-    const userid = req.userid;
+export async function controllerCategoriesGet(req, res) {
+    const userid = req.user.id;
+    console.log(userid)
 
     try {
         const data = await modelCategoriesGet(userid);
@@ -22,11 +24,14 @@ async function controllerCategoriesGet(req, res) {
     }
 }
 
-async function controllerCategoryAdd(req, res) {
-    const userid = req.userid;
+export async function controllerCategoryAdd(req, res) {
+    const userid = req.user.id;
     const {name, type, in_use} = req.body;
 
     try {
+        const search = await modelCategoriesGetByName(userid, name);
+        if (search) return res.status(409).json({message: "Category already exist"});
+
         const data = await modelCategoryAdd(userid, name, type, in_use);
 
         if(data.affectedRows === 0) {
@@ -41,8 +46,8 @@ async function controllerCategoryAdd(req, res) {
     }
 }
 
-async function controllerCategoryUpdate(req, res) {
-    const userid = req.userid;
+export async function controllerCategoryUpdate(req, res) {
+    const userid = req.user.id;
     const categoryid = req.params.id;
     const data = req.body;
 
@@ -61,8 +66,8 @@ async function controllerCategoryUpdate(req, res) {
     }
 }
 
-async function controllerCategoryStatus(req, res) {
-    const userid = req.userid;
+export async function controllerCategoryStatus(req, res) {
+    const userid = req.user.id;
     const categoryid = req.params.id;
 
     try{
@@ -78,11 +83,4 @@ async function controllerCategoryStatus(req, res) {
         console.error("Server error", err);
         return res.status(500).json({message: "Server error"});
     }
-}
-
-export {
-    controllerCategoriesGet,
-    controllerCategoryAdd,
-    controllerCategoryUpdate,
-    controllerCategoryStatus,
 }

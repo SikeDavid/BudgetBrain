@@ -16,6 +16,14 @@ async function modelCategoriesGet(userid) {
     return result;
 }
 
+export async function modelCategoriesGetByName (userid, name) {
+    const sql = `
+        SELECT * FROM categories WHERE user_id = ? AND name = ?
+    `;
+    const [result] = await db.query(sql, [userid, name]);
+
+    return result[0];
+}
 async function modelCategoryAdd(userid, name, type, in_use) {
     const sql = `
         INSERT INTO categories

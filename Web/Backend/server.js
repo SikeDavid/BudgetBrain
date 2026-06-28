@@ -151,7 +151,43 @@ app.get('/', (req, res) => {
                     }
                 }
             },
-            categories: {},  
+            categories: {
+                categories: {
+                    route: "GET /api/categories/",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    response: "list of categories"
+                },
+                add: {
+                    route: "POST /api/categories/add",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    body: {
+                        name: "Valami",
+                        type : "expense/income",
+                        in_use : 0/1
+                    }
+                },
+                update: {
+                    route: "PATCH /api/categories/update/:id",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    body: {
+                        name: "something",
+                        type : "expense/income",
+                        in_use : 0/1
+                    }
+                },
+                status: {
+                    route: "PATCH /api/categories/status/:id",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    }
+                }
+            },  
         }
     });
 });
