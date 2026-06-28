@@ -7,11 +7,30 @@ import {
     modelEntryUpdate
 } from "../models/entryModel.js";
 
+// export async function controllerEntryQuery(req, res) {
+//     const userid = req.user.id;
+//     const {year, month} = req.params;
+//     try {
+//     const data = await modelEntriesGet(userid, year, month);
+
+//     if (data.length === 0) return res.status(404).json({message: "no entry"});
+
+//         return res.status(200).json(data);
+//     }
+//     catch (err) {
+//         console.error("Server error", err);
+//         return res.status(500).json({message: "Server error"});
+//     }
+// }
 export async function controllerEntryQuery(req, res) {
     const userid = req.user.id;
-    const {year, month} = req.params;
+    const now = new Date();
+    const year = Number(req.query.year) || now.getFullYear();
+    const month = Number(req.query.month) || now.getMonth + 1;
+
     try {
-    const data = await modelEntriesGet(userid, year, month);
+        const data = await modelEntriesGet(userid, year, month);
+
         if (data.length === 0) return res.status(404).json({message: "no entry"});
 
         return res.status(200).json(data);

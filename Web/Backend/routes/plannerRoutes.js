@@ -1,3 +1,9 @@
+//planner
+// router.get('/planner/', controllerEntryPlannerGet);
+// router.post('/planner/', controllerEntryPlannerAdd);
+// router.patch('/planner/', controllerEntryPlannerEdit);
+// router.delete('/planner/', controllerEntryPlannerDel);
+
 // // GET /api/private/planned-entries
 // app.get('/api/private/planned-entries', async(req, res) => {
 //     const userid = req.userid;

@@ -96,14 +96,14 @@ app.get('/', (req, res) => {
                     }
                 },
                 entries: {
-                    route: "GET /api/entries/bymonth/:year/:month",
+                    route: "GET /api/entries?year=2026&month=4",
                     header: {
                         authorization: "Bearer: (token)"
                     },
                     response: "list of entries"
                 },
                 add: {
-                    route: "POST /api/entries/add",
+                    route: "POST /api/entries/",
                     header: {
                         authorization: "Bearer: (token)"
                     },
@@ -118,26 +118,8 @@ app.get('/', (req, res) => {
                         entryid: id
                     }
                 },
-                complete: {
-                    route: "PATCH /api/entries/complete/:id",
-                    header: {
-                        authorization: "Bearer: (token)"
-                    },
-                    response: {
-                        message: "Entry status changed"
-                    },
-                },
-                delete: {
-                    route: "DELETE /api/entries/delete/:id",
-                    header: {
-                        authorization: "Bearer: (token)"
-                    },
-                    response: {
-                        message: "Entry deleted"
-                    }
-                },
                 update: {
-                    route: "PATCH /api/entries/update/:id",
+                    route: "PATCH /api/entries/:id",
                     header: {
                         authorization: "Bearer: (token)"
                     },
@@ -148,6 +130,24 @@ app.get('/', (req, res) => {
                         amount: 999,
                         date: "2026-04-01",
                         completed: 1
+                    }
+                },
+                complete: {
+                    route: "PATCH /api/entries/:id/complete",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    response: {
+                        message: "Entry status changed"
+                    },
+                },
+                delete: {
+                    route: "DELETE /api/entries/:id",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    response: {
+                        message: "Entry deleted"
                     }
                 }
             },

@@ -4,7 +4,8 @@ export async function modelEntriesGet(userid, year, month) {
     const sql = `
         SELECT
             e.entry_id,
-            c.name,
+            c.category_id,
+            c.name AS category,
             e.description,
             CASE
                 WHEN c.type = 'expense' THEN -e.amount
@@ -21,16 +22,23 @@ export async function modelEntriesGet(userid, year, month) {
     `;
 
     const [result] = await db.query(sql, [userid, year, month]);
-
     return result;
 }
 
 export async function modelEntryGet(userid, entryid) {
     const sql = `
-        SELECT e.entry_id, c.name, e.description, CASE WHEN c.type = 'expense' THEN -e.amount ELSE e.amount END AS amount,
+        SELECT
+            e.entry_id,
+            c.category_id,
+            c.name AS category,
+            e.description,
+            CASE
+                WHEN c.type = 'expense' THEN -e.amount
+                ELSE e.amount END AS amount,
         e.date,
         e.completed
-        FROM entries e JOIN categories c ON e.category_id = c.category_id
+        FROM entries e
+        JOIN categories c ON e.category_id = c.category_id
         WHERE e.user_id = ? AND e.entry_id = ?
     `;
     const [result] = await db.query(sql, [userid, entryid]);
@@ -120,5 +128,3 @@ export async function modelEntryUpdate(userid, entryid, data) {
     const [result] = await db.query(sql, values);
     return result;
 }
-
-

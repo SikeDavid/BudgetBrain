@@ -9,8 +9,8 @@ import {
 const router = express.Router();
 
 router.get('/', controllerCategoriesGet);
-router.post('/add', controllerCategoryAdd);
-router.patch('/update/:id', controllerCategoryUpdate);
-router.patch('/status/:id', controllerCategoryStatus);
+router.post('/', controllerCategoryAdd);
+router.patch('/:id', controllerCategoryUpdate);
+router.patch('/:id/status', controllerCategoryStatus);
 
 export default router;
