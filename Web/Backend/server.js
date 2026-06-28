@@ -1,4 +1,4 @@
-import express, { json } from 'express';
+import express, { json, response } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
@@ -9,6 +9,7 @@ import authRoutes from './routes/authRoutes.js';
 import authMiddleware from './middleware/authMiddleware.js';
 import entryRoutes from './routes/entryRoutes.js';
 import categoryRoutes from './routes/categoryRoutes.js';
+import { refreshToken } from './controllers/authController.js';
 
 dotenv.config();
 const app = express();
@@ -33,27 +34,124 @@ app.get('/', (req, res) => {
         status: "running...",
         endpoints: {
             auth: {
-                login: "POST /api/auth/login",
-                registration: "POST /api/auth/registration",
+                login: {
+                    route: "POST /api/auth/login",
+                    body: {
+                        username: "username",
+                        password: "password"
+                    },
+                    response: {
+                        user: {
+                            userId: "user_id",
+                            username: "username"
+                        },
+                        accesToken: "accessToken",
+                        refreshToken: "refreshtoken"
+                    }
+                },
+                registration: {
+                    route: "POST /api/auth/registration",
+                    body: {
+                        username: "username",
+                        email: "email",
+                        password: "password"
+                    },
+                    response: {
+                        message: "Registration successful",
+                        userid: "userId"
+                    }
+                },
+                logout: {
+                    route: "POST /api/auth/logout",
+                    body: {
+                        refreshToken: "refreshtoken"
+                    },
+                    response: {
+                        message: "Logout success"
+                    }
+                },
+                refreshToken: {
+                    route: "POST /api/auth/refreshtoken",
+                    body: {
+                        refreshToken: "refreshToken"
+                    },
+                    response: {
+                        accesstoken: "accessToken"
+                    }
+                }
             },
             entries: {
+                entry: {
+                    route: "GET /api/entries/:id",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    response: {
+                        "entry_id": 1,
+                        "name": "Élelmiszer",
+                        "description": "Bolt",
+                        "amount": -12000,
+                        "date": "2026-04-03",
+                        "completed": 1
+                    }
+                },
                 entries: {
-                    list: "GET /api/entries/:year/:month",
-                    add: "POST /api/entries/add",
-                    status: "PATCH /api/entries/complete/:id",
-                    update: "PATCH /api/entries/update/:id",
-                    delete: "DELETE /api/entries/delete/:id"
+                    route: "GET /api/entries/bymonth/:year/:month",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    response: "list of entries"
                 },
-                categories: {
-                    list: "GET /api/categories/",
-                    add: "POST /api/categories/add",
-                    update: "PATCH /api/categories/update/:id",
-                    status: "PATCH /api/categories/status/:id"
+                add: {
+                    route: "POST /api/entries/add",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    body: {
+                        categoryid: "id", 
+                        amount: "number", 
+                        description: "text", 
+                        date: "date"
+                    },
+                    response: {
+                        message: "Entry created",
+                        entryid: id
+                    }
                 },
-                plannedEntries: {
-
+                complete: {
+                    route: "PATCH /api/entries/complete/:id",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    response: {
+                        message: "Entry status changed"
+                    },
+                },
+                delete: {
+                    route: "DELETE /api/entries/delete/:id",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    response: {
+                        message: "Entry deleted"
+                    }
+                },
+                update: {
+                    route: "PATCH /api/entries/update/:id",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    body: {
+                        category_id: "id",
+                        name: "Fizetés",
+                        description: "Fizetés",
+                        amount: 999,
+                        date: "2026-04-01",
+                        completed: 1
+                    }
                 }
-            }
+            },
+            categories: {},  
         }
     });
 });

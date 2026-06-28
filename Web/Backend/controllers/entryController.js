@@ -1,5 +1,6 @@
 import {
     modelEntriesGet,
+    modelEntryGet,
     modelEntryAdd,
     modelEntryComplete,
     modelEntryDelete,
@@ -16,6 +17,20 @@ export async function controllerEntryQuery(req, res) {
         return res.status(200).json(data);
     }
     catch (err) {
+        console.error("Server error", err);
+        return res.status(500).json({message: "Server error"});
+    }
+}
+
+export async function controllerEntryGet(req, res) {
+    const userid = req.user.id;
+    const entryid = req.params.id;
+    try {
+        const data = await modelEntryGet(userid, entryid);
+        if (data.length === 0) return res.status(404).json({message: "Entry not found"});
+
+        return res.status(200).json(data);
+    } catch (err) {
         console.error("Server error", err);
         return res.status(500).json({message: "Server error"});
     }

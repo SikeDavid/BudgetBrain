@@ -1,6 +1,7 @@
 import express from 'express';
 import {
     controllerEntryQuery,
+    controllerEntryGet,
     controllerEntryCreate,
     controllerEntryToggleComplete,
     controllerEntryDelete,
@@ -9,7 +10,8 @@ import {
 
 const router = express.Router();
 
-router.get('/:year/:month', controllerEntryQuery);
+router.get('/:id', controllerEntryGet);
+router.get('/bymonth/:year/:month', controllerEntryQuery);
 router.post('/add', controllerEntryCreate);
 router.patch('/complete/:id', controllerEntryToggleComplete);
 router.delete('/delete/:id', controllerEntryDelete);

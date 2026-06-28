@@ -34,7 +34,7 @@ export async function login(req, res) {
                 await saveRefreshToken(user.user_id, refreshToken);
                 return res.status(200).json({
                     user: {
-                        user_id: user.user_id,
+                        userId: user.user_id,
                         username: user.username
                     },
                     accessToken,
@@ -77,7 +77,7 @@ export async function registration(req, res) {
 
         return res.status(201).json({
             message: "Registration successful",
-            userId
+            userId: userId
         });
     }
     catch (err) {
