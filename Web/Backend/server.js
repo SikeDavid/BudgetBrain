@@ -7,9 +7,10 @@ import { databaseTest } from './database.js';
 
 import authRoutes from './routes/authRoutes.js';
 import authMiddleware from './middleware/authMiddleware.js';
+import { refreshToken } from './controllers/authController.js';
 import entryRoutes from './routes/entryRoutes.js';
 import categoryRoutes from './routes/categoryRoutes.js';
-import { refreshToken } from './controllers/authController.js';
+import plannerRouter from './routes/plannerRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -187,7 +188,34 @@ app.get('/', (req, res) => {
                         authorization: "Bearer: (token)"
                     }
                 }
-            },  
+            },
+            plannedEntries: {
+                plannedEntries: {
+                    route: "GET /api/planner/",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    response: "list of planned entries"
+                },
+                add: {
+                    route: "POST /api/planner",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    body: {
+                        categoryid: 2,
+                        name: "valami teszt",
+                        amount: 3000000,
+                        dayofmonth: 30
+                    }  
+                },
+                status: {
+                    route: "GET /api/planner/:id/status",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                }
+            }
         }
     });
 });
@@ -207,6 +235,7 @@ app.get('/test/token', authMiddleware, (req, res) => {
 app.use('/api/entries', authMiddleware, entryRoutes);
 
 app.use('/api/categories', authMiddleware, categoryRoutes);
+app.use('/api/planner', authMiddleware, plannerRouter);
 
 app.listen(port, async() => {
     console.log(`Server is running on port: ${port}`);
