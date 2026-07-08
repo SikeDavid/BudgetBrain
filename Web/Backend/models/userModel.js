@@ -27,6 +27,21 @@ export async function findUserByUsernamePassword(username, password) {
     return row[0];
 }
 
+export async function findUserByUsername(username) {
+    const sql = `
+        SELECT
+            user_id,
+            password,
+            user_status
+        FROM users
+        WHERE username = ?
+    `;
+
+    const [row] = await db.query(sql, [username]);
+
+    return row[0];
+}
+
 // createUser()
 export async function findUserByUsernameEmail(username, email) {
     const sql = `

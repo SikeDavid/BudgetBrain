@@ -1,6 +1,7 @@
 import {
     findUserById,
     findUserByUsernamePassword,
+    findUserByUsername,
     findUserByUsernameEmail,
     createUser,   
 } from '../models/userModel.js';
@@ -12,6 +13,7 @@ import {
     deleteRefreshToken } from '../utils/token.js';
 
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 
 export async function login(req, res) {
     if (!req.body) return res.status(404).json({
@@ -23,9 +25,12 @@ export async function login(req, res) {
     if (!username || !password) return res.status(400).json({message: "Missing data"});
 
     try {
-        const user = await findUserByUsernamePassword(username, password);
+        const user = await findUserByUsername(username);
 
         if(!user) return res.status(401).json({message: "Username or Password not match"});
+
+        const validPassword = await bcrypt.compare(password, user.password);
+        if (!validPassword) return res.status(401).json({message: "Username or Password not match"});
 
         switch (user.user_status) {
             case "active":
@@ -66,6 +71,11 @@ export async function registration(req, res) {
         return res.status(400).json({message: "Missing data"});
     }
 
+    const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*+-]).{8,}$/;
+    if (!passwordRegex.test(password)) return res.status(418).json({
+        message: "Password -> min 8 char, Uppercase, digit, special char"
+    });
+
     try {
         const existingUser = await findUserByUsernameEmail(username, email);
 
@@ -73,7 +83,9 @@ export async function registration(req, res) {
             return res.status(409).json({message: "Username or Email already in use"});
         }
 
-        const userId = await createUser(username, password, email);
+        const hash = await bcrypt.hash(password, 11);
+
+        const userId = await createUser(username, hash, email);
 
         return res.status(201).json({
             message: "Registration successful",
