@@ -71,7 +71,7 @@ export async function registration(req, res) {
         return res.status(400).json({message: "Missing data"});
     }
 
-    const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*+-]).{8,}$/;
+    const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*+-]).{8,64}$/;
     if (!passwordRegex.test(password)) return res.status(418).json({
         message: "Password -> min 8 char, Uppercase, digit, special char"
     });

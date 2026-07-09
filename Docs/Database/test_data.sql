@@ -2,13 +2,13 @@
 -- USERS
 -- ====================
 INSERT INTO users (username, password, email, user_status) VALUES
-('admin', 'Almafa123', 'admin@test.com', 'active'),
-('user1', 'Almafa123', 'user1@test.com', 'active'),
-('user2', 'Almafa123', 'user2@test.com', 'active'),
-('user3', 'Almafa123', 'user3@test.com', 'active'),
-('user4', 'Almafa123', 'user4@test.com', 'pending'),
-('user5', 'Almafa123', 'user5@test.com', 'suspended');
-
+('admin', '$2b$11$H//ol9aiIQhS8lw7bbmUzOXTvEELqXpkBqY7mLLY5Klij9yMMBF4G', 'admin@test.com', 'active'),
+('user1', '$2b$11$H//ol9aiIQhS8lw7bbmUzOXTvEELqXpkBqY7mLLY5Klij9yMMBF4G', 'user1@test.com', 'active'),
+('user2', '$2b$11$H//ol9aiIQhS8lw7bbmUzOXTvEELqXpkBqY7mLLY5Klij9yMMBF4G', 'user2@test.com', 'active'),
+('user3', '$2b$11$H//ol9aiIQhS8lw7bbmUzOXTvEELqXpkBqY7mLLY5Klij9yMMBF4G', 'user3@test.com', 'active'),
+('user4', '$2b$11$H//ol9aiIQhS8lw7bbmUzOXTvEELqXpkBqY7mLLY5Klij9yMMBF4G', 'user4@test.com', 'pending'),
+('user5', '$2b$11$H//ol9aiIQhS8lw7bbmUzOXTvEELqXpkBqY7mLLY5Klij9yMMBF4G', 'user5@test.com', 'suspended');
+-- password: Almafa123-
 -- ====================
 -- CATEGORIES (minden usernek saját!)
 -- ====================

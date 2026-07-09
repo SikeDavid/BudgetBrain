@@ -1,18 +1,17 @@
 import express from 'express';
 
 import {
+    controllerEntryPlannerCreate,
     controllerEntryPlannerGet,
-    controllerEntryPlannerAdd,
+    controllerEntryPlannerUpdate,
     controllerEntryPlannerStatus
 } from '../controllers/plannerController.js';
 
 const router = express.Router();
 
+router.post('/', controllerEntryPlannerCreate);
 router.get('/', controllerEntryPlannerGet);
-router.post('/', controllerEntryPlannerAdd);
-router.patch('/:id/status', controllerEntryPlannerStatus)
-// router.post('/planner/', controllerEntryPlannerAdd);
-// router.patch('/planner/', controllerEntryPlannerEdit);
-// router.delete('/planner/', controllerEntryPlannerDel);
+router.patch('/:id', controllerEntryPlannerUpdate);
+router.patch('/:id/status', controllerEntryPlannerStatus);
 
 export default router;
