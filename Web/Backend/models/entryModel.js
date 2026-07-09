@@ -1,5 +1,42 @@
 import db from "../database.js";
 
+// Create
+export async function modelEntryCreate(userid, categoryid, amount,description, date) {
+    const sql = `
+        INSERT INTO entries
+            (user_id, category_id, amount, description, date)
+        VALUES (?, ?, ?, ?, ?)
+    `;
+
+    const [result] = await db.query(sql, [userid, categoryid, amount, description, date]);
+
+    return result;
+}
+// Read
+export async function modelEntryDashboard(userid, year, month) {
+    const sql = `
+        SELECT
+	        e.entry_id,
+            c.category_id,
+            c.name AS category,
+            description,
+            CASE
+		        WHEN c.type = 'expense' THEN -e.amount
+                ELSE e.amount
+	        END AS amount,
+            e.date
+        FROM entries e
+        JOIN categories c ON e.category_id = c.category_id
+        WHERE e.user_id = ?
+            AND completed = true
+            AND YEAR(e.date) = ?
+            AND MONTH(e.date) = ?
+    `;
+
+    const [result] = await db.query(sql, [userid, year, month]);
+    return result;
+}
+// Read
 export async function modelEntriesGet(userid, year, month) {
     const sql = `
         SELECT
@@ -24,7 +61,7 @@ export async function modelEntriesGet(userid, year, month) {
     const [result] = await db.query(sql, [userid, year, month]);
     return result;
 }
-
+// Read
 export async function modelEntryGet(userid, entryid) {
     const sql = `
         SELECT
@@ -44,45 +81,7 @@ export async function modelEntryGet(userid, entryid) {
     const [result] = await db.query(sql, [userid, entryid]);
     return result;
 }
-
-export async function modelEntryAdd(userid, categoryid, amount,description, date) {
-    const sql = `
-        INSERT INTO entries
-            (user_id, category_id, amount, description, date)
-        VALUES (?, ?, ?, ?, ?)
-    `;
-
-    const [result] = await db.query(sql, [userid, categoryid, amount, description, date]);
-
-    return result;
-}
-
-export async function modelEntryComplete(userid, entryid) {
-    const sql = `
-        UPDATE entries
-            SET completed = NOT completed
-            WHERE user_id = ?
-            AND entry_id = ?
-        `;
-
-    const [result] = await db.query(sql, [userid, entryid]);
-
-    return result;
-}
-
-export async function modelEntryDelete(userid, entryid) {
-    const sql = `
-        DELETE
-            FROM entries
-            WHERE user_id = ?
-            AND entry_id = ?
-        `;
-
-    const [result] = await db.query(sql, [userid, entryid]);
-
-    return result;
-}
-
+// Update
 export async function modelEntryUpdate(userid, entryid, data) {
     const fields = [];
     const values = [];
@@ -128,3 +127,30 @@ export async function modelEntryUpdate(userid, entryid, data) {
     const [result] = await db.query(sql, values);
     return result;
 }
+// Update
+export async function modelEntryComplete(userid, entryid) {
+    const sql = `
+        UPDATE entries
+            SET completed = NOT completed
+            WHERE user_id = ?
+            AND entry_id = ?
+        `;
+
+    const [result] = await db.query(sql, [userid, entryid]);
+
+    return result;
+}
+// Delete
+export async function modelEntryDelete(userid, entryid) {
+    const sql = `
+        DELETE
+            FROM entries
+            WHERE user_id = ?
+            AND entry_id = ?
+        `;
+
+    const [result] = await db.query(sql, [userid, entryid]);
+
+    return result;
+}
+

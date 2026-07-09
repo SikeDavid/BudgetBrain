@@ -1,5 +1,6 @@
 import express from 'express';
 import {
+    controllerEntryDashboard,
     controllerEntryQuery,
     controllerEntryGet,
     controllerEntryCreate,
@@ -9,6 +10,8 @@ import {
 } from '../controllers/entryController.js';
 
 const router = express.Router();
+
+router.get('/dashboard', controllerEntryDashboard);
 
 router.get('/', controllerEntryQuery);
 router.get('/:id', controllerEntryGet);

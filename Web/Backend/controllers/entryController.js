@@ -1,32 +1,56 @@
 import {
+    modelEntryDashboard,
     modelEntriesGet,
     modelEntryGet,
-    modelEntryAdd,
+    modelEntryCreate,
     modelEntryComplete,
     modelEntryDelete,
     modelEntryUpdate
 } from "../models/entryModel.js";
 
-// export async function controllerEntryQuery(req, res) {
-//     const userid = req.user.id;
-//     const {year, month} = req.params;
-//     try {
-//     const data = await modelEntriesGet(userid, year, month);
+// Create
+export async function controllerEntryCreate(req, res) {
+    const userid = req.user.id;
+    const {categoryid, amount, description, date} = req.body;
 
-//     if (data.length === 0) return res.status(404).json({message: "no entry"});
+    try {
+        const result = await modelEntryCreate(userid, categoryid, amount, description, date);
 
-//         return res.status(200).json(data);
-//     }
-//     catch (err) {
-//         console.error("Server error", err);
-//         return res.status(500).json({message: "Server error"});
-//     }
-// }
+        if (result.affectedRows === 0) {
+            return res.status(400).json({message: "Error"});
+        }
+        return res.status(201).json({message: "Entry created", entryid: result.insertId});
+    }
+    catch (err) {
+        console.error("Server error", err);
+        return res.status(500).json({message: "Server error"});
+    }
+}
+// Read
+export async function controllerEntryDashboard(req, res) {
+    const userid = req.user.id;
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+
+    try {
+        const data = await modelEntryDashboard(userid, year, month);
+
+        if (data.length === 0) return res.status(404).json({message: "no entries"});
+
+        return res.status(200).json(data);
+    }
+    catch (err) {
+        console.error("Server error", err);
+        return res.status(500).json({message: "Server error"});
+    }
+}
+// Read
 export async function controllerEntryQuery(req, res) {
     const userid = req.user.id;
     const now = new Date();
     const year = Number(req.query.year) || now.getFullYear();
-    const month = Number(req.query.month) || now.getMonth + 1;
+    const month = Number(req.query.month) || now.getMonth() + 1;
 
     try {
         const data = await modelEntriesGet(userid, year, month);
@@ -40,7 +64,7 @@ export async function controllerEntryQuery(req, res) {
         return res.status(500).json({message: "Server error"});
     }
 }
-
+// Read
 export async function controllerEntryGet(req, res) {
     const userid = req.user.id;
     const entryid = req.params.id;
@@ -54,25 +78,27 @@ export async function controllerEntryGet(req, res) {
         return res.status(500).json({message: "Server error"});
     }
 }
-
-export async function controllerEntryCreate(req, res) {
+// Update
+export async function controllerEntryUpdate(req, res) {
     const userid = req.user.id;
-    const {categoryid, amount, description, date} = req.body;
+    const entryid = req.params.id;
+    const data = req.body;
 
     try {
-        const result = await modelEntryAdd(userid, categoryid, amount, description, date);
+        const result = await modelEntryUpdate(userid, entryid, data);
 
         if (result.affectedRows === 0) {
-            return res.status(400).json({message: "Error"});
+            return res.status(404).json({message: "Entry not found"});
         }
-        return res.status(201).json({message: "Entry created", entryid: result.insertId});
+
+        return res.status(200).json({message: "Entry updated"});
     }
     catch (err) {
         console.error("Server error", err);
         return res.status(500).json({message: "Server error"});
     }
 }
-
+// Update
 export async function controllerEntryToggleComplete(req, res) {
     const userid = req.user.id;
     const entryid = req.params.id;
@@ -92,7 +118,7 @@ export async function controllerEntryToggleComplete(req, res) {
         return res.status(500).json({message: "Server error"});
     }
 }
-
+// Delete
 export async function controllerEntryDelete(req, res) {
     const userid = req.user.id;
     const entryid = req.params.id;
@@ -113,23 +139,5 @@ export async function controllerEntryDelete(req, res) {
     }
 }
 
-export async function controllerEntryUpdate(req, res) {
-    const userid = req.user.id;
-    const entryid = req.params.id;
-    const data = req.body;
 
-    try {
-        const result = await modelEntryUpdate(userid, entryid, data);
-
-        if (result.affectedRows === 0) {
-            return res.status(404).json({message: "Entry not found"});
-        }
-
-        return res.status(200).json({message: "Entry updated"});
-    }
-    catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: "Server error"});
-    }
-}
 
