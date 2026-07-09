@@ -1,11 +1,13 @@
 import {
+    modelEntryCreate,
     modelEntryDashboard,
     modelEntriesGet,
     modelEntryGet,
-    modelEntryCreate,
+    modelEntryPlannerGenerate,
+    modelEntryUpdate,
     modelEntryComplete,
-    modelEntryDelete,
-    modelEntryUpdate
+    modelEntryDelete
+
 } from "../models/entryModel.js";
 
 // Create
@@ -46,13 +48,24 @@ export async function controllerEntryDashboard(req, res) {
     }
 }
 // Read
-export async function controllerEntryQuery(req, res) {
+export async function controllerEntriesGet(req, res) {
     const userid = req.user.id;
     const now = new Date();
     const year = Number(req.query.year) || now.getFullYear();
     const month = Number(req.query.month) || now.getMonth() + 1;
 
+    if (month < 1 || month > 12) {
+        return res.status.status(400).json({message: "Invalid month"});
+    }
+
+    const currentDate = now.getFullYear() * 12 + now.getMonth() + 1;
+    const requestDate = year * 12 + month;
+
     try {
+        if (requestDate >= currentDate) {
+            await modelEntryPlannerGenerate(userid, year, month);
+        }
+
         const data = await modelEntriesGet(userid, year, month);
 
         if (data.length === 0) return res.status(404).json({message: "no entry"});

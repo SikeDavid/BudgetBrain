@@ -1,7 +1,7 @@
 import express from 'express';
 import {
     controllerEntryDashboard,
-    controllerEntryQuery,
+    controllerEntriesGet,
     controllerEntryGet,
     controllerEntryCreate,
     controllerEntryToggleComplete,
@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.get('/dashboard', controllerEntryDashboard);
 
-router.get('/', controllerEntryQuery);
+router.get('/', controllerEntriesGet);
 router.get('/:id', controllerEntryGet);
 router.post('/', controllerEntryCreate);
 router.patch('/:id', controllerEntryUpdate);

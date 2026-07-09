@@ -57,7 +57,7 @@ CREATE TABLE entry_planner (
 	amount INT NOT NULL CHECK (amount > 0),
 	description VARCHAR(100),
 	date DATE NOT NULL,
-	completed BOOLEAN DEFAULT false,
+	completed BOOLEAN DEFAULT true,
     
 	planned_entry_id INT NULL,
     

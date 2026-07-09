@@ -12,6 +12,16 @@ export async function modelEntryCreate(userid, categoryid, amount,description, d
 
     return result;
 }
+// Create
+export async function modelEntryPlannerGenerate(userid, year, month) {
+    const sql = `
+        CALL generate_entry_planner(?, ?, ?)
+    `;
+
+    const [result] = await db.query(sql, [userid, year, month]);
+
+    return result;
+}
 // Read
 export async function modelEntryDashboard(userid, year, month) {
     const sql = `
