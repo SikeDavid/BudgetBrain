@@ -3,7 +3,8 @@ import {
     findUserByUsernamePassword,
     findUserByUsername,
     findUserByUsernameEmail,
-    createUser,   
+    createUser,
+    modelUserRegistration  
 } from '../models/userModel.js';
 import {
     createAccessToken,
@@ -85,7 +86,8 @@ export async function registration(req, res) {
 
         const hash = await bcrypt.hash(password, 11);
 
-        const userId = await createUser(username, hash, email);
+        // const userId = await createUser(username, hash, email);
+        const userId = await modelUserRegistration(username, hash, email);
 
         return res.status(201).json({
             message: "Registration successful",
