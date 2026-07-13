@@ -31,8 +31,10 @@ export async function findUserByUsername(username) {
     const sql = `
         SELECT
             user_id,
+            username,
             password,
-            user_status
+            user_status,
+            role
         FROM users
         WHERE username = ?
     `;

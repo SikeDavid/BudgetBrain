@@ -13,7 +13,8 @@ CREATE TABLE users (
 	password VARCHAR(255) NOT NULL,
 	email VARCHAR(100) UNIQUE NOT NULL,
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    user_status ENUM('active', 'pending', 'suspended') NOT NULL DEFAULT 'pending'
+    user_status ENUM('active', 'pending', 'suspended') NOT NULL DEFAULT 'pending',
+    role ENUM('admin', 'moderator', 'user') NOT NULL DEFAULT 'user'
 );
 
 -- ====================
