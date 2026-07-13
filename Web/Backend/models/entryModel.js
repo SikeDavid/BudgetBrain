@@ -24,12 +24,54 @@ export async function modelEntryPlannerGenerate(userid, year, month) {
 }
 // Read
 export async function modelEntryDashboard(userid, year, month) {
-    const sql = `
+    const balanceSql = `
+        SELECT
+            COALESCE(
+                SUM(
+                    CASE
+                        WHEN c.type = 'income' THEN e.amount
+                        WHEN c.type = 'expense' THEN -e.amount
+                        ELSE 0
+                    END
+                ),
+                0
+            ) AS monthly_balance,
+
+            COALESCE(
+                SUM(
+                    CASE
+                        WHEN c.type = 'income' THEN e.amount
+                        ELSE 0
+                    END
+                ),
+                0
+            ) AS total_income,
+
+            COALESCE(
+                SUM(
+                    CASE
+                        WHEN c.type = 'expense' THEN e.amount
+                        ELSE 0
+                    END
+                ),
+                0
+            ) AS total_expense
+
+        FROM entries e
+        JOIN categories c
+            ON e.category_id = c.category_id
+        WHERE e.user_id = ?
+            AND e.completed = true
+            AND YEAR(e.date) = ?
+            AND MONTH(e.date) = ?
+    `;
+    
+    const entriesSql = `
         SELECT
 	        e.entry_id,
             c.category_id,
             c.name AS category,
-            description,
+            e.description,
             CASE
 		        WHEN c.type = 'expense' THEN -e.amount
                 ELSE e.amount
@@ -38,13 +80,21 @@ export async function modelEntryDashboard(userid, year, month) {
         FROM entries e
         JOIN categories c ON e.category_id = c.category_id
         WHERE e.user_id = ?
-            AND completed = true
+            AND e.completed = true
             AND YEAR(e.date) = ?
             AND MONTH(e.date) = ?
+        ORDER BY e.date DESC, e.entry_id DESC
+        LIMIT 5
     `;
 
-    const [result] = await db.query(sql, [userid, year, month]);
-    return result;
+    const [balance] = await db.query(balanceSql, [userid, year, month]);
+    const [entries] = await db.query(entriesSql, [userid, year, month]);
+    return {
+        balance: balance[0].monthly_balance,
+        income: balance[0].total_income,
+        expense: balance[0].total_expense,
+        entries: entries
+    };
 }
 // Read
 export async function modelEntriesGet(userid, year, month) {
