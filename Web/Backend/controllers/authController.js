@@ -1,6 +1,5 @@
 import {
     findUserById,
-    findUserByUsernamePassword,
     findUserByUsername,
     findUserByUsernameEmail,
     createUser,

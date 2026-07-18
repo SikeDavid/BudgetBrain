@@ -11,7 +11,7 @@ export function allowRoles(...allowedRoles) {
                 message: "Insufficient permission"
             });
         }
-
+        
         next();
     }
 }

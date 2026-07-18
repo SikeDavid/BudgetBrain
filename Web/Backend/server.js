@@ -12,6 +12,7 @@ import entryRoutes from './routes/entryRoutes.js';
 import categoryRoutes from './routes/categoryRoutes.js';
 import plannerRouter from './routes/plannerRoutes.js';
 import { allowRoles } from './middleware/adminMiddleware.js';
+import adminRouter from './routes/adminRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -234,13 +235,10 @@ app.get('/test/token', authMiddleware, (req, res) => {
 });
 
 app.use('/api/entries', authMiddleware, entryRoutes);
-
 app.use('/api/categories', authMiddleware, categoryRoutes);
 app.use('/api/planner', authMiddleware, plannerRouter);
 
-app.get('/test/admin', authMiddleware, allowRoles("admin"), (req, res) => {
-    return res.status(418).json({message: "ok"})
-})
+app.use('/api/admin', authMiddleware, allowRoles("admin"), adminRouter);
 
 app.listen(port, async() => {
     console.log(`Server is running on port: ${port}`);

@@ -45,7 +45,7 @@ CREATE TABLE entry_planner (
     CHECK (day_of_month BETWEEN 1 AND 31),
     
 	FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-	FOREIGN KEY (category_id) REFERENCES categories(category_id)
+	FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE CASCADE
 );
 
 -- ====================
@@ -65,8 +65,8 @@ CREATE TABLE entry_planner (
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
 	FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-	FOREIGN KEY (category_id) REFERENCES categories(category_id),
-	FOREIGN KEY (planned_entry_id) REFERENCES entry_planner(id)
+	FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE CASCADE,
+	FOREIGN KEY (planned_entry_id) REFERENCES entry_planner(id) ON DELETE SET NULL
 );
 
 -- ====================
