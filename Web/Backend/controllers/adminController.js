@@ -68,14 +68,14 @@ export async function controllerSetUserPassword(req, res) {
 
 export async function controllerUserDelete(req, res) {
     const userId = Number(req.params.id);
-    console.log(req.user);
+    // console.log(req.user);
 
     if (req.user.id === userId) {
         return res.status(403).json({message: "You cannot delete your own account"});
     }
 
-    if (req.user.role === "admin") {
-        return res.status(403).json({message: "You cannot delete admin accounts"});
+    if (req.user.role !== "admin") {
+        return res.status(403).json({message: "You dont have permission for deleting a user account"});
     }
 
     if (!Number.isInteger(userId) || userId <=0) {

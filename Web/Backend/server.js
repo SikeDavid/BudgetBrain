@@ -118,7 +118,7 @@ app.get('/', (req, res) => {
                     },
                     response: {
                         message: "Entry created",
-                        entryid: id
+                        entryid: "id"
                     }
                 },
                 update: {
