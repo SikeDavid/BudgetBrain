@@ -13,14 +13,39 @@ export async function modelEntryPlannerCreate(userid, categoryid, name, amount, 
     return result;
 }
 // Read
+// export async function modelEntryPlannerGet(userid) {
+//     const sql = `
+//         SELECT * FROM entry_planner WHERE user_id = ?
+//     `;
+
+//     const [result] = await db.query(sql, userid);
+//     return result;
+// }
 export async function modelEntryPlannerGet(userid) {
     const sql = `
-        SELECT * FROM entry_planner WHERE user_id = ?
+        SELECT
+            p.id,
+            c.category_id,
+            c.name as category,
+            c.type,
+            p.name,
+            CASE
+                WHEN c.type = 'expense' THEN -p.amount
+                    ELSE p.amount
+            END AS amount,
+            p.day_of_month,
+            p.active
+        FROM entry_planner p
+        JOIN categories c ON c.category_id = p.category_id
+        WHERE p.user_id = ?
+        ORDER BY p.day_of_month Asc;
     `;
 
     const [result] = await db.query(sql, userid);
-
-    return result;
+    
+    return result.map(plan => ({
+        ...plan, active: plan.active === 1
+    }));
 }
 // Update
 export async function modelEntryPlannerUpdate(userid, plannedEntryId, data) {
