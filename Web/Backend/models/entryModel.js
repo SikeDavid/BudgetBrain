@@ -50,7 +50,7 @@ export async function modelEntryDashboard(userid, year, month) {
             COALESCE(
                 SUM(
                     CASE
-                        WHEN c.type = 'expense' THEN e.amount
+                        WHEN c.type = 'expense' THEN -e.amount
                         ELSE 0
                     END
                 ),
@@ -76,7 +76,8 @@ export async function modelEntryDashboard(userid, year, month) {
 		        WHEN c.type = 'expense' THEN -e.amount
                 ELSE e.amount
 	        END AS amount,
-            e.date
+            e.date,
+            e.completed
         FROM entries e
         JOIN categories c ON e.category_id = c.category_id
         WHERE e.user_id = ?
@@ -108,6 +109,7 @@ export async function modelEntriesGet(userid, year, month) {
                 WHEN c.type = 'expense' THEN -e.amount
                 ELSE e.amount
             END AS amount,
+            c.type,
             e.date,
             e.completed
             
@@ -116,6 +118,7 @@ export async function modelEntriesGet(userid, year, month) {
         WHERE e.user_id = ?
             AND YEAR(e.date) = ?
             AND MONTH(e.date) = ?
+        ORDER BY e.date ASC
     `;
 
     const [result] = await db.query(sql, [userid, year, month]);

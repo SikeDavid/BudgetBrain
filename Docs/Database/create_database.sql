@@ -109,7 +109,8 @@ BEGIN
         amount,
         description,
         date,
-        planned_entry_id
+        planned_entry_id,
+        completed
 	)
     SELECT
 		r.user_id,
@@ -117,7 +118,8 @@ BEGIN
         r.amount,
         r.name,
         DATE(CONCAT(p_year, '-', p_month, '-', r.day_of_month)),
-        r.id
+        r.id,
+        false
 	FROM entry_planner r
     WHERE r.user_id = p_user_id
 	AND r.active = true
