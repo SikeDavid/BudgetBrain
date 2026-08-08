@@ -8,7 +8,6 @@ import {
 
 export async function controllerCategoriesGet(req, res) {
     const userid = req.user.id;
-    console.log(userid)
 
     try {
         const data = await modelCategoriesGet(userid);
@@ -16,7 +15,7 @@ export async function controllerCategoriesGet(req, res) {
             return res.status(404).json({message: "Categories not found"});
         }
 
-        return res.status(200).json({data});
+        return res.status(200).json(data);
     }
     catch (err) {
         console.error("Server error", err);

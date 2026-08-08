@@ -1,9 +1,9 @@
 import {
     findUserById,
-    findUserByUsernamePassword,
     findUserByUsername,
     findUserByUsernameEmail,
-    createUser,   
+    createUser,
+    modelUserRegistration  
 } from '../models/userModel.js';
 import {
     createAccessToken,
@@ -40,7 +40,8 @@ export async function login(req, res) {
                 return res.status(200).json({
                     user: {
                         userId: user.user_id,
-                        username: user.username
+                        username: user.username,
+                        role: user.role
                     },
                     accessToken,
                     refreshToken
@@ -85,7 +86,8 @@ export async function registration(req, res) {
 
         const hash = await bcrypt.hash(password, 11);
 
-        const userId = await createUser(username, hash, email);
+        // const userId = await createUser(username, hash, email);
+        const userId = await modelUserRegistration(username, hash, email);
 
         return res.status(201).json({
             message: "Registration successful",

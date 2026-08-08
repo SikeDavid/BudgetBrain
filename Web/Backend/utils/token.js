@@ -5,7 +5,8 @@ export function createAccessToken(user) {
     return jwt.sign(
         {
             userId: user.user_id,
-            username: user.username
+            username: user.username,
+            role: user.role
         },
         process.env.ACCESS_TOKEN_SECRET,
         { expiresIn: process.env.ACCESS_TOKEN_EXPIRES || "15m" }

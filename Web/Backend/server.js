@@ -11,6 +11,8 @@ import { refreshToken } from './controllers/authController.js';
 import entryRoutes from './routes/entryRoutes.js';
 import categoryRoutes from './routes/categoryRoutes.js';
 import plannerRouter from './routes/plannerRoutes.js';
+import { allowRoles } from './middleware/adminMiddleware.js';
+import adminRouter from './routes/adminRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -116,7 +118,7 @@ app.get('/', (req, res) => {
                     },
                     response: {
                         message: "Entry created",
-                        entryid: id
+                        entryid: "id"
                     }
                 },
                 update: {
@@ -233,9 +235,10 @@ app.get('/test/token', authMiddleware, (req, res) => {
 });
 
 app.use('/api/entries', authMiddleware, entryRoutes);
-
 app.use('/api/categories', authMiddleware, categoryRoutes);
 app.use('/api/planner', authMiddleware, plannerRouter);
+
+app.use('/api/admin', authMiddleware, allowRoles("admin"), adminRouter);
 
 app.listen(port, async() => {
     console.log(`Server is running on port: ${port}`);
