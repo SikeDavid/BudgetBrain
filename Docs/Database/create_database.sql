@@ -13,7 +13,8 @@ CREATE TABLE users (
 	password VARCHAR(255) NOT NULL,
 	email VARCHAR(100) UNIQUE NOT NULL,
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    user_status ENUM('active', 'pending', 'suspended') NOT NULL DEFAULT 'pending'
+    user_status ENUM('active', 'pending', 'suspended') NOT NULL DEFAULT 'pending',
+    role ENUM('admin', 'moderator', 'user') NOT NULL DEFAULT 'user'
 );
 
 -- ====================
@@ -44,7 +45,7 @@ CREATE TABLE entry_planner (
     CHECK (day_of_month BETWEEN 1 AND 31),
     
 	FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-	FOREIGN KEY (category_id) REFERENCES categories(category_id)
+	FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE CASCADE
 );
 
 -- ====================
@@ -64,8 +65,8 @@ CREATE TABLE entry_planner (
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
 	FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-	FOREIGN KEY (category_id) REFERENCES categories(category_id),
-	FOREIGN KEY (planned_entry_id) REFERENCES entry_planner(id)
+	FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE CASCADE,
+	FOREIGN KEY (planned_entry_id) REFERENCES entry_planner(id) ON DELETE SET NULL
 );
 
 -- ====================
@@ -108,7 +109,8 @@ BEGIN
         amount,
         description,
         date,
-        planned_entry_id
+        planned_entry_id,
+        completed
 	)
     SELECT
 		r.user_id,
@@ -116,7 +118,8 @@ BEGIN
         r.amount,
         r.name,
         DATE(CONCAT(p_year, '-', p_month, '-', r.day_of_month)),
-        r.id
+        r.id,
+        false
 	FROM entry_planner r
     WHERE r.user_id = p_user_id
 	AND r.active = true
