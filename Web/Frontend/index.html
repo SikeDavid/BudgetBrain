@@ -12,10 +12,43 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
         <link rel="icon" type="image/x-icon" href="data:,">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script type="text/javascript" src="js/script.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/auth.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/categories.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/entries.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/planned-entries.js" defer></script>
+        <script type="text/javascript" src="js/element-variables.js" defer></script>
         <title>BudgetBrain - Budge Your Brain!</title>
     </head>
 
     <body>
-        Test!
+        <button onclick="registration()">Registration</button>
+        <br>
+        <input id="id_reg_userName" value="TestUser01">
+        <br>
+        <input id="id_reg_email" value="testuser01@email.com">
+        <br>
+        <input id="id_reg_password" value="Password01!">
+
+        <br>
+        <br>
+        <button onclick="login()">Login</button>
+        <br>
+        <input id="id_login_userName" value="TestUser01">
+        <br>
+        <input id="id_login_password" type="password" value="Password01!">
+        <br>
+        <input id="id_login_accessToken" placeholder="Access token" readonly>
+        <br>
+        <input id="id_login_refreshToken" placeholder="Refresh token" readonly>
+
+        <br>
+        <br>
+        <button onclick="logout()">Logout</button>
+
+        <br>
+        <br>
+        <button onclick="refreshToken()">Refresh token</button>
+        <br>
+        <input id="id_login_refreshToken" placeholder="Refresh token" readonly>
     </body>
 </html>

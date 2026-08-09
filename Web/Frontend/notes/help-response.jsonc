@@ -1,0 +1,190 @@
+// @260809-6-2200
+{
+  "app": "BudgetBrain API",
+  "version": "0.1.0",
+  "status": "running...",
+  "endpoints": {
+    "auth": {
+      "login": {
+        "route": "POST /api/auth/login",
+        "body": {
+          "username": "username",
+          "password": "password"
+        },
+        "response": {
+          "user": {
+            "userId": "user_id",
+            "username": "username"
+          },
+          "accesToken": "accessToken",
+          "refreshToken": "refreshtoken"
+        }
+      },
+      "registration": {
+        "route": "POST /api/auth/registration",
+        "body": {
+          "username": "username",
+          "email": "email",
+          "password": "password"
+        },
+        "response": {
+          "message": "Registration successful",
+          "userid": "userId"
+        }
+      },
+      "logout": {
+        "route": "POST /api/auth/logout",
+        "body": {
+          "refreshToken": "refreshtoken"
+        },
+        "response": {
+          "message": "Logout success"
+        }
+      },
+      "refreshToken": {
+        "route": "POST /api/auth/refreshtoken",
+        "body": {
+          "refreshToken": "refreshToken"
+        },
+        "response": {
+          "accesstoken": "accessToken"
+        }
+      }
+    },
+    "entries": {
+      "entry": {
+        "route": "GET /api/entries/:id",
+        "header": {
+          "authorization": "Bearer: (token)"
+        },
+        "response": {
+          "entry_id": 1,
+          "name": "Élelmiszer",
+          "description": "Bolt",
+          "amount": -12000,
+          "date": "2026-04-03",
+          "completed": 1
+        }
+      },
+      "entries": {
+        "route": "GET /api/entries?year=2026&month=4",
+        "header": {
+          "authorization": "Bearer: (token)"
+        },
+        "response": "list of entries"
+      },
+      "add": {
+        "route": "POST /api/entries/",
+        "header": {
+          "authorization": "Bearer: (token)"
+        },
+        "body": {
+          "categoryid": "id",
+          "amount": "number",
+          "description": "text",
+          "date": "date"
+        },
+        "response": {
+          "message": "Entry created",
+          "entryid": "id"
+        }
+      },
+      "update": {
+        "route": "PATCH /api/entries/:id",
+        "header": {
+          "authorization": "Bearer: (token)"
+        },
+        "body": {
+          "category_id": "id",
+          "name": "Fizetés",
+          "description": "Fizetés",
+          "amount": 999,
+          "date": "2026-04-01",
+          "completed": 1
+        }
+      },
+      "complete": {
+        "route": "PATCH /api/entries/:id/complete",
+        "header": {
+          "authorization": "Bearer: (token)"
+        },
+        "response": {
+          "message": "Entry status changed"
+        }
+      },
+      "delete": {
+        "route": "DELETE /api/entries/:id",
+        "header": {
+          "authorization": "Bearer: (token)"
+        },
+        "response": {
+          "message": "Entry deleted"
+        }
+      }
+    },
+    "categories": {
+      "categories": {
+        "route": "GET /api/categories/",
+        "header": {
+          "authorization": "Bearer: (token)"
+        },
+        "response": "list of categories"
+      },
+      "add": {
+        "route": "POST /api/categories/add",
+        "header": {
+          "authorization": "Bearer: (token)"
+        },
+        "body": {
+          "name": "Valami",
+          "type": "expense/income",
+          "in_use": 0
+        }
+      },
+      "update": {
+        "route": "PATCH /api/categories/update/:id",
+        "header": {
+          "authorization": "Bearer: (token)"
+        },
+        "body": {
+          "name": "something",
+          "type": "expense/income",
+          "in_use": 0
+        }
+      },
+      "status": {
+        "route": "PATCH /api/categories/status/:id",
+        "header": {
+          "authorization": "Bearer: (token)"
+        }
+      }
+    },
+    "plannedEntries": {
+      "plannedEntries": {
+        "route": "GET /api/planner/",
+        "header": {
+          "authorization": "Bearer: (token)"
+        },
+        "response": "list of planned entries"
+      },
+      "add": {
+        "route": "POST /api/planner",
+        "header": {
+          "authorization": "Bearer: (token)"
+        },
+        "body": {
+          "categoryid": 2,
+          "name": "valami teszt",
+          "amount": 3000000,
+          "dayofmonth": 30
+        }
+      },
+      "status": {
+        "route": "GET /api/planner/:id/status",
+        "header": {
+          "authorization": "Bearer: (token)"
+        }
+      }
+    }
+  }
+}
