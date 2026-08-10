@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Forms\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserControls\Admin\Cards\ControlUserCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\Admin\ControlDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\Admin\ControlFeedback.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\Admin\ControlStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\Admin\ControlUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\User\Cards\Entries\ControlAddEntryCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\User\Cards\Dashboard\ControlDashEntryCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\User\Cards\Entries\ControlEntriesEntryCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\User\Cards\LoginReg\ControlLoginCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\User\Cards\LoginReg\ControlRegistrationCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\User\Cards\Planner\ControlPlanCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\User\Cards\Settings\ControlProfileCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\User\ControlUserDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\User\ControlUserEntries.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\User\ControlUserFeedback.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\User\ControlUserPlanner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\User\ControlUserSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

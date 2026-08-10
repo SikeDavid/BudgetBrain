@@ -1,0 +1,99 @@
+﻿using BudgetBrainDesktop.UserControls.User;
+using BudgetBrainDesktop.UserControls.User.Cards;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+namespace BudgetBrainDesktop.Forms
+{
+    public partial class FormUser : Form
+    {
+        public FormUser()
+        {
+            InitializeComponent();
+
+            btnDashBoard.Click += BtnDashBoardClick;
+            btnEntries.Click += BtnEntriesClick;
+            btnPlanner.Click += BtnPlannerClick;
+            btnFeedback.Click += BtnFeedbackClick;
+            btnSettings.Click += BtnSettingsClick;
+            //btnAdd.Click += BtnAddClick;
+
+            ControlUserDashboard dashboard = new();
+
+            LoadPage(dashboard, dashboard.PageTitle);
+
+            btnDashBoard.Image = Properties.Resources.dashboard_icon;
+            btnDashBoard.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnDashBoard.ImageAlign = ContentAlignment.MiddleLeft;
+
+            btnEntries.Image = Properties.Resources.entries_icon;
+            btnEntries.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnEntries.ImageAlign = ContentAlignment.MiddleLeft;
+
+            btnPlanner.Image = Properties.Resources.planner_icon;
+            btnPlanner.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnPlanner.ImageAlign = ContentAlignment.MiddleLeft;
+
+            btnFeedback.Image = Properties.Resources.feedback_icon;
+            btnFeedback.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnFeedback.ImageAlign = ContentAlignment.MiddleLeft;
+
+            btnSettings.Image = Properties.Resources.settings_icon;
+            btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSettings.ImageAlign = ContentAlignment.MiddleLeft;
+
+            btnLogout.Image = Properties.Resources.logout_icon;
+            btnLogout.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
+        }
+
+        private void LoadPage(UserControl page, string title)
+        {
+            panelContent.Controls.Clear();
+            page.Dock = DockStyle.Fill;
+            panelContent.Controls.Add(page);
+            page.BringToFront();
+            lblPageTitle.Text = title;
+        }
+        private void BtnDashBoardClick(object? sender, EventArgs e)
+        {
+            ControlUserDashboard dashboard = new();
+            LoadPage(dashboard, dashboard.PageTitle);
+        }
+        private void BtnEntriesClick(object? sender, EventArgs e)
+        {
+            ControlUserEntries entries = new();
+            LoadPage(entries, entries.PageTitle);
+        }
+        private void BtnPlannerClick(object? sender, EventArgs e)
+        {
+            ControlUserPlanner planner = new();
+            LoadPage(planner, planner.PageTitle);
+        }
+        private void BtnFeedbackClick(object? sender, EventArgs e)
+        {
+            ControlUserFeedback feedback = new();
+            LoadPage(feedback, feedback.PageTitle);
+        }
+        private void BtnSettingsClick(object? sender, EventArgs e)
+        {
+            ControlUserSettings settings = new();
+            LoadPage(settings, settings.PageTitle);
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+}
