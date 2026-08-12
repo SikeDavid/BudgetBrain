@@ -20,6 +20,7 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
         <script type="text/javascript" src="js/dom-content-loaded.js" defer></script>
         <script type="text/javascript" src="js/element-variables.js" defer></script>
         <script type="text/javascript" src="js/global-variables.js" defer></script>
+        <script type="text/javascript" src="js/copy-to-clipboard.js" defer></script>
         <script type="text/javascript" src="js/test-users.js" defer></script>
 
         <title>BudgetBrain - Budge Your Brain!</title>
@@ -58,6 +59,8 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
                 <input id="id_login_accessToken" placeholder="Access token" readonly>
                 <br>
                 <input id="id_login_refreshToken" placeholder="Refresh token" readonly>
+                <br>
+                <button onclick="copyTokens()">Copy tokens to Clipboard</button>
             </section>
 
             <section style="display:block">
@@ -71,7 +74,15 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
             </section>
 
             <section style="display:block">
-                <button onclick="categories()">Categories</button>
+                <button onclick="categoriesAll()">Categories</button>
+            </section>
+
+            <section style="display:block">
+                <button onclick="categoriesAdd()">Categories - Add</button>
+            </section>
+
+            <section style="display:block">
+                <button onclick="categoriesUpdate(7)">Categories - Update</button>
             </section>
         </main>
 
