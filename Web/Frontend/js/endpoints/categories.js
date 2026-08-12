@@ -8,13 +8,15 @@
       }
 */
 
-function registration() {
+function categories() {
+    console.log(`AccessToken for categories(): ${accessToken}`);
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/api/auth/registration");
+    xhr.open("GET", "http://localhost:5000/api/categories/");
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
+            console.error(xhr.responseText);
             return;
         }
 
@@ -27,23 +29,9 @@ function registration() {
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    //xhr.setRequestHeader("Authorization", "Bearer ...");
+    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
 
-/*
-    const body = {
-        "username": "TestUser01",
-        "email": "testuser01@email.com",
-        "password": "Password01!"
-    };
-*/
-
-    const body = {
-        "username": e_reg_userName.value,
-        "email": e_reg_email.value,
-        "password": e_reg_password.value
-    };
-
-    xhr.send(JSON.stringify(body));
+    xhr.send();
 }
 
 /******************************/

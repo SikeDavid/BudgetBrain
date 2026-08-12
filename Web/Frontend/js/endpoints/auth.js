@@ -24,6 +24,7 @@ function registration() {
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
+            console.error(xhr.responseText);
             return;
         }
 
@@ -53,6 +54,8 @@ function registration() {
     };
 
     xhr.send(JSON.stringify(body));
+
+    //return true;
 }
 
 /******************************/
@@ -83,11 +86,16 @@ function login() {
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
+            console.error(xhr.responseText);
             return;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        accessToken = response.accessToken;
+        e_login_accessToken.value = response.accessToken;
+        refreshToken = response.refreshToken;
+        e_login_refreshToken.value = response.refreshToken;
     };
 
     xhr.onerror = () => {
@@ -131,6 +139,7 @@ function logout() {
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
+            console.error(xhr.responseText);
             return;
         }
 
@@ -145,7 +154,7 @@ function logout() {
     xhr.setRequestHeader("Content-Type", "application/json");
 
     const body = {
-        "refreshToken": ""
+        "refreshToken": refreshToken
     };
 
     xhr.send(JSON.stringify(body));
@@ -166,18 +175,24 @@ function logout() {
 }
 */
 
-function refreshToken() {
+function refreshDaToken() {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:5000/api/auth/refreshtoken");
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
+            console.error(xhr.responseText);
             return;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+// Reported bug: > https://trello.com/c/1POKR1NS/15-bug-accestoken-vs-accesstoken
+/*        accessToken = response.accessToken;
+        e_accessToken.value = response.accessToken;*/
+        accessToken = response.accesstoken;
+        e_accessToken.value = response.accesstoken;
     };
 
     xhr.onerror = () => {
@@ -187,7 +202,7 @@ function refreshToken() {
     xhr.setRequestHeader("Content-Type", "application/json");
 
     const body = {
-        "refreshToken": ""
+        "refreshToken": refreshToken
     };
 
     xhr.send(JSON.stringify(body));

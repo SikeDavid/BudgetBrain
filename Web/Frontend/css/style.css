@@ -1,3 +1,13 @@
+:root {
+    --header-height: 250px;
+    --nav-height: 20px;
+}
+
+@font-face {
+    font-family: "BrainFont";
+    src: url("../font/DynaPuff-VariableFont_wdth-wght.ttf") format("truetype");
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -8,9 +18,51 @@ body {
     background: black;
 }
 
+header {
+    /*min-height: 20vh;*/
+    background-color: #1133ff;
+    font-family: "BrainFont", sans-serif;
 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 1000;
+}
 
+nav {
+    background-color: #ff1133;
+
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    z-index: 999;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    /*flex-direction: row;*/
+}
+
+nav > div {
+    /*padding: 10px 20px;*/
+}
+
+main {
+    background-color: #11ff33;
+
+    /*padding-top: calc(500px);*/
+    padding-top: calc(var(--header-height) + var(--nav-height));
+}
 
 
 

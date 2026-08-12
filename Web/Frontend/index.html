@@ -9,46 +9,73 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta name="description" content="HTML template practice">
         <meta name="theme-color" content="#ffffff">
-        <link rel="icon" type="image/x-icon" href="data:,">
+        <link rel="icon" type="image/x-icon" href="img/organic/budgetbrain_logo_16x16.png">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <script type="text/javascript" src="js/script.js" defer></script>
+
         <script type="text/javascript" src="js/endpoints/auth.js" defer></script>
         <script type="text/javascript" src="js/endpoints/categories.js" defer></script>
         <script type="text/javascript" src="js/endpoints/entries.js" defer></script>
         <script type="text/javascript" src="js/endpoints/planned-entries.js" defer></script>
+
+        <script type="text/javascript" src="js/dom-content-loaded.js" defer></script>
         <script type="text/javascript" src="js/element-variables.js" defer></script>
+        <script type="text/javascript" src="js/global-variables.js" defer></script>
+        <script type="text/javascript" src="js/test-users.js" defer></script>
+
         <title>BudgetBrain - Budge Your Brain!</title>
     </head>
 
     <body>
-        <button onclick="registration()">Registration</button>
-        <br>
-        <input id="id_reg_userName" value="TestUser01">
-        <br>
-        <input id="id_reg_email" value="testuser01@email.com">
-        <br>
-        <input id="id_reg_password" value="Password01!">
+        <header>
+            <div>BudgetBrain</div>
+            <div><img src="img/organic/budgetbrain_logo_256x256.png" id="id_headerLogo"></div>
+        </header>
+        <nav>
+            <div>Menu 1</div>
+            <div>Menu 2</div>
+            <div>Menu 3</div>
+            <div>Menu 4</div>
+            <div>Menu 5</div>
+        </nav>
+        <main>
+            <section style="display:block">
+                <button onclick="registration()">Registration</button>
+                <br>
+                <input id="id_reg_userName" value="TestUser01">
+                <br>
+                <input id="id_reg_email" value="testuser01@email.com">
+                <br>
+                <input id="id_reg_password" value="Password01!">
+            </section>
 
-        <br>
-        <br>
-        <button onclick="login()">Login</button>
-        <br>
-        <input id="id_login_userName" value="TestUser01">
-        <br>
-        <input id="id_login_password" type="password" value="Password01!">
-        <br>
-        <input id="id_login_accessToken" placeholder="Access token" readonly>
-        <br>
-        <input id="id_login_refreshToken" placeholder="Refresh token" readonly>
+            <section style="display:block">
+                <button onclick="login()">Login</button>
+                <br>
+                <input id="id_login_userName" value="TestUser01">
+                <br>
+                <input id="id_login_password" type="password" value="Password01!">
+                <br>
+                <input id="id_login_accessToken" placeholder="Access token" readonly>
+                <br>
+                <input id="id_login_refreshToken" placeholder="Refresh token" readonly>
+            </section>
 
-        <br>
-        <br>
-        <button onclick="logout()">Logout</button>
+            <section style="display:block">
+                <button onclick="logout()">Logout</button>
+            </section>
 
-        <br>
-        <br>
-        <button onclick="refreshToken()">Refresh token</button>
-        <br>
-        <input id="id_login_refreshToken" placeholder="Refresh token" readonly>
+            <section style="display:block">
+                <button onclick="refreshDaToken()">Refresh token</button>
+                <br>
+                <input id="id_accessToken" placeholder="Access token" readonly>
+            </section>
+
+            <section style="display:block">
+                <button onclick="categories()">Categories</button>
+            </section>
+        </main>
+
+        <footer></footer>
+
     </body>
 </html>
