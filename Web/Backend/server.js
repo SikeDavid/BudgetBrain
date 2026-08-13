@@ -1,6 +1,7 @@
 import express, { json, response } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import packageJson from "./package.json" with {type: "json"}
 
 import db from './database.js';
 import { databaseTest } from './database.js';
@@ -33,7 +34,7 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
     res.status(200).json({
         app: "BudgetBrain API",
-        version: "0.1.0",
+        version: packageJson.version,
         status: "running...",
         endpoints: {
             auth: {
@@ -163,7 +164,7 @@ app.get('/', (req, res) => {
                     response: "list of categories"
                 },
                 add: {
-                    route: "POST /api/categories/add",
+                    route: "POST /api/categories/",
                     header: {
                         authorization: "Bearer: (token)"
                     },
@@ -174,7 +175,7 @@ app.get('/', (req, res) => {
                     }
                 },
                 update: {
-                    route: "PATCH /api/categories/update/:id",
+                    route: "PATCH /api/categories/:id/",
                     header: {
                         authorization: "Bearer: (token)"
                     },
@@ -185,7 +186,7 @@ app.get('/', (req, res) => {
                     }
                 },
                 status: {
-                    route: "PATCH /api/categories/status/:id",
+                    route: "PATCH /api/categories/:id/status/",
                     header: {
                         authorization: "Bearer: (token)"
                     }

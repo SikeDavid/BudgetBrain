@@ -1,6 +1,6 @@
 {
   "name": "budgetbrain",
-  "version": "0.7.0",
+  "version": "0.8.1",
   "description": "backend",
   "main": "server.js",
   "type": "module",

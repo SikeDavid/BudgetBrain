@@ -136,7 +136,7 @@ export async function refreshToken(req, res) {
         if (user.user_status != "active") return res.status(403).json({message: "User is not active"});
 
         const accessToken = createAccessToken(user);
-        return res.status(201).json({accesstoken: accessToken});
+        return res.status(201).json({accessToken: accessToken});
 
     } catch (err) {
         console.error(err)
