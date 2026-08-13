@@ -191,8 +191,8 @@ function refreshDaToken() {
 // Reported bug: > https://trello.com/c/1POKR1NS/15-bug-accestoken-vs-accesstoken
 /*        accessToken = response.accessToken;
         e_accessToken.value = response.accessToken;*/
-        accessToken = response.accesstoken;
-        e_accessToken.value = response.accesstoken;
+        accessToken = response.accessToken;
+        e_accessToken.value = response.accessToken;
     };
 
     xhr.onerror = () => {
