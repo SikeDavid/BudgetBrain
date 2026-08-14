@@ -12,7 +12,7 @@ export async function controllerEntryPlannerCreate(req, res) {
     const {categoryid, name, amount, dayofmonth} = req.body;
 
     try {
-        const result = await modelEntryPlannerAdd(userid, categoryid, name, amount, dayofmonth);
+        const result = await modelEntryPlannerCreate(userid, categoryid, name, amount, dayofmonth);
 
         if (result.affectedRows === 0) return res.status(400).json({message: "Error"});
 
