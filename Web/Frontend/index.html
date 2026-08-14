@@ -73,8 +73,10 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
                 <input id="id_accessToken" placeholder="Access token" readonly>
             </section>
 
+            <br>
+
             <section style="display:block">
-                <button onclick="categoriesAll()">Categories</button>
+                <button onclick="categoriesAll()">Categories - All</button>
             </section>
 
             <section style="display:block">
@@ -82,7 +84,51 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
             </section>
 
             <section style="display:block">
-                <button onclick="categoriesUpdate(7)">Categories - Update</button>
+                <button onclick="categoriesUpdate(10)">Categories - Update</button>
+            </section>
+
+            <section style="display:block">
+                <button onclick="categoriesStatus(10)">Categories - Status</button>
+            </section>
+
+            <br>
+
+            <section style="display:block">
+                <button onclick="entriesGet(10)">Entries - Get</button>
+            </section>
+
+            <section style="display:block">
+                <button onclick="entriesGetForMonth(2026, 4)">Entries - Get for month</button>
+            </section>
+
+            <section style="display:block">
+                <button onclick="entriesAdd()">Entries - Add</button>
+            </section>
+
+            <section style="display:block">
+                <button onclick="entriesUpdate(20)">Entries - Update</button>
+            </section>
+
+            <section style="display:block">
+                <button onclick="entriesComplete(20)">Entries - Complete</button>
+            </section>
+
+            <section style="display:block">
+                <button onclick="entriesDelete(20)">Entries - Delete</button>
+            </section>
+
+            <br>
+
+            <section style="display:block">
+                <button onclick="plannedEntriesAll()">Planned Entries - Get All</button>
+            </section>
+
+            <section style="display:block">
+                <button onclick="plannedEntriesAdd()">Planned Entries - Add</button>
+            </section>
+
+            <section style="display:block">
+                <button onclick="plannedEntriesStatus(1)">Planned Entries - Status</button>
             </section>
         </main>
 

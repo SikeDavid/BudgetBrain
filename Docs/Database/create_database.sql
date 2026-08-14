@@ -1,6 +1,8 @@
 -- ====================
 -- 1. Database
 -- ====================
+
+--DROP DATABASE IF EXISTS budgetbrain_db;
 CREATE DATABASE IF NOT EXISTS budgetbrain_db;
 USE budgetbrain_db;
 
@@ -170,3 +172,4 @@ CREATE TABLE refresh_token (
 --        DAY(LAST_DAY(DATE(CONCAT(p_year, '-', p_month, '-01'))))
 --    ) - 1 DAY
 -- )
+;
