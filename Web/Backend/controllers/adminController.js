@@ -57,7 +57,7 @@ export async function controllerSetUserPassword(req, res) {
             return res.status(400).json({message: "User not found"});
         }
 
-        return res.status(200).json({message: "Password successful reseted"});
+        return res.status(200).json({message: "Password successful reseted to default"});
     } 
     catch (err) {
         console.error("Server error", err);
