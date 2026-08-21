@@ -76,7 +76,7 @@ export async function modelUserRegistration (username, password, email) {
 
 export async function findUserById(userId) {
     const sql = `
-        SELECT user_id, username, user_status
+        SELECT user_id, username, user_status, role
         FROM users
         WHERE user_id = ?
     `;

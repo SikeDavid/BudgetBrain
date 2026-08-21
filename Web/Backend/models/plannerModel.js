@@ -41,7 +41,7 @@ export async function modelEntryPlannerGet(userid) {
         ORDER BY p.day_of_month Asc;
     `;
 
-    const [result] = await db.query(sql, userid);
+    const [result] = await db.query(sql, [userid]);
     
     return result.map(plan => ({
         ...plan, active: plan.active === 1

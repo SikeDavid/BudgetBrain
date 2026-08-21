@@ -55,7 +55,7 @@ export async function controllerEntriesGet(req, res) {
     const month = Number(req.query.month) || now.getMonth() + 1;
 
     if (month < 1 || month > 12) {
-        return res.status.status(400).json({message: "Invalid month"});
+        return res.status(400).json({message: "Invalid month"});
     }
 
     const currentDate = now.getFullYear() * 12 + now.getMonth() + 1;

@@ -14,6 +14,7 @@ import categoryRoutes from './routes/categoryRoutes.js';
 import plannerRouter from './routes/plannerRoutes.js';
 import { allowRoles } from './middleware/adminMiddleware.js';
 import adminRouter from './routes/adminRoutes.js';
+import feedbackRouter from './routes/feedbackRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -223,6 +224,10 @@ app.get('/', (req, res) => {
     });
 });
 
+
+// Feedback test
+app.use('/test/feedback', feedbackRouter);
+
 // Login, Registration
 app.use('/api/auth', authRoutes);
 
@@ -234,6 +239,7 @@ app.get('/test/token', authMiddleware, (req, res) => {
         username: req.user.username
     });
 });
+
 
 app.use('/api/entries', authMiddleware, entryRoutes);
 app.use('/api/categories', authMiddleware, categoryRoutes);
