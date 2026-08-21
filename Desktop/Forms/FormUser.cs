@@ -1,4 +1,6 @@
-﻿using BudgetBrainDesktop.UserControls.User;
+﻿using BudgetBrainDesktop.Models;
+using BudgetBrainDesktop.Services;
+using BudgetBrainDesktop.UserControls.User;
 using BudgetBrainDesktop.UserControls.User.Cards;
 using System;
 using System.Collections.Generic;
@@ -12,16 +14,23 @@ namespace BudgetBrainDesktop.Forms
 {
     public partial class FormUser : Form
     {
-        public FormUser()
+        private readonly FormLogin loginForm;
+        private bool logoutInProgress = false;
+        private bool allowClose = false;
+        public FormUser(FormLogin loginForm)
         {
             InitializeComponent();
+
+            this.loginForm = loginForm;
 
             btnDashBoard.Click += BtnDashBoardClick;
             btnEntries.Click += BtnEntriesClick;
             btnPlanner.Click += BtnPlannerClick;
             btnFeedback.Click += BtnFeedbackClick;
             btnSettings.Click += BtnSettingsClick;
+            btnLogout.Click += BtnLogoutClick;
             //btnAdd.Click += BtnAddClick;
+            this.FormClosing += FormUserFormClosing;
 
             ControlUserDashboard dashboard = new();
 
@@ -50,6 +59,66 @@ namespace BudgetBrainDesktop.Forms
             btnLogout.Image = Properties.Resources.logout_icon;
             btnLogout.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
+        }
+
+        private async void BtnLogoutClick(object? sender, EventArgs e)
+        {
+            if (allowClose) return;
+            //e.Cancel = true;
+            if (logoutInProgress) return;
+            logoutInProgress = true;
+            btnLogout.Text = "Logging out...";
+
+            try
+            {
+                TokenStorage.LogoutToken body = new()
+                {
+                    RefreshToken = TokenStorage.RefreshToken
+                };
+
+                await ApiService.PostAsync<TokenStorage.LogoutToken, MessageModel>(
+                    "auth/logout", body);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Server error: {ex.Message}", "Logout error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                TokenStorage.Clear();
+                allowClose = true;
+                loginForm.Show();
+                Close();
+            }
+        }
+
+        private async void FormUserFormClosing(object? sender, FormClosingEventArgs e)
+        {
+            if (allowClose) return;
+            e.Cancel = true;
+            if (logoutInProgress) return;
+            logoutInProgress = true;
+
+            try
+            {
+                TokenStorage.LogoutToken body = new()
+                {
+                    RefreshToken = TokenStorage.RefreshToken
+                };
+
+                await ApiService.PostAsync<TokenStorage.LogoutToken, MessageModel>(
+                    "auth/logout", body);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Server error: {ex.Message}", "Logout error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                TokenStorage.Clear();
+                allowClose = true;
+                Application.Exit();
+            }
         }
 
         private void LoadPage(UserControl page, string title)

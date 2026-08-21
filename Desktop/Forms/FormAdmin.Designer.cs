@@ -38,6 +38,7 @@
             panel1 = new Panel();
             lblPageTitle = new Label();
             panelContent = new Panel();
+            btnLogout = new Button();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panel1.SuspendLayout();
@@ -46,6 +47,7 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(51, 51, 76);
+            panelMenu.Controls.Add(btnLogout);
             panelMenu.Controls.Add(btnFeedback);
             panelMenu.Controls.Add(btnStatistic);
             panelMenu.Controls.Add(btnUsers);
@@ -164,7 +166,20 @@
             panelContent.Size = new Size(1304, 647);
             panelContent.TabIndex = 2;
             // 
-            // FormMain
+            // btnLogout
+            // 
+            btnLogout.Dock = DockStyle.Bottom;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.ForeColor = Color.WhiteSmoke;
+            btnLogout.Location = new Point(0, 692);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(320, 80);
+            btnLogout.TabIndex = 5;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = true;
+            // 
+            // FormAdmin
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -172,7 +187,7 @@
             Controls.Add(panelContent);
             Controls.Add(panel1);
             Controls.Add(panelMenu);
-            Name = "FormMain";
+            Name = "FormAdmin";
             Text = "FormMain";
             panelMenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
@@ -194,5 +209,6 @@
         private Label lblPageTitle;
         private Label label2;
         private Panel panelContent;
+        private Button btnLogout;
     }
 }

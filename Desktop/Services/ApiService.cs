@@ -1,11 +1,11 @@
-﻿using System;
+﻿using BudgetBrainDesktop.Models;
+using BudgetBrainDesktop.Properties;
+using System;
 using System.Collections.Generic;
-using System.Text;
-
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using BudgetBrainDesktop.Models;
-using BudgetBrainDesktop.Properties;
+using System.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace BudgetBrainDesktop.Services
 {
@@ -127,6 +127,18 @@ namespace BudgetBrainDesktop.Services
 
             HttpResponseMessage response = await client.PatchAsJsonAsync(endpoint, body);
 
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized &&
+                !string.IsNullOrWhiteSpace(TokenStorage.RefreshToken))
+            {
+                bool refreshSuccess = await RefreshAccessToken();
+
+                if (refreshSuccess)
+                {
+                    AddToken();
+                    response = await client.PatchAsJsonAsync(endpoint, body);
+                }
+            }
+
             if (!response.IsSuccessStatusCode)
             {
                 MessageModel? error = await response.Content.ReadFromJsonAsync<MessageModel>();
@@ -144,17 +156,32 @@ namespace BudgetBrainDesktop.Services
             return result;
         }
 
-        public static async Task DeleteAsync(string endpoint)
+        public static async Task<MessageModel> DeleteAsync(string endpoint)
         {
             AddToken();
 
             HttpResponseMessage response = await client.DeleteAsync(endpoint);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized &&
+                !string.IsNullOrWhiteSpace(TokenStorage.RefreshToken))
+            {
+                bool refreshSuccess = await RefreshAccessToken();
+
+                if (refreshSuccess)
+                {
+                    AddToken();
+                    response = await client.DeleteAsync(endpoint);
+                }
+            }
 
             if (!response.IsSuccessStatusCode)
             {
                 MessageModel? error = await response.Content.ReadFromJsonAsync<MessageModel>();
                 throw new Exception(error?.Message ?? "unknown error");
             }
+
+            MessageModel result = await response.Content.ReadFromJsonAsync<MessageModel>();
+            return result;
         }
     }
 }

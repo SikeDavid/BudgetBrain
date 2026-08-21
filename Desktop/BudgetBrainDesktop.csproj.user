@@ -34,10 +34,10 @@
     <Compile Update="UserControls\User\Cards\Entries\ControlEntriesEntryCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\User\Cards\LoginReg\ControlLoginCard.cs">
+    <Compile Update="UserControls\Login\ControlLoginCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\User\Cards\LoginReg\ControlRegistrationCard.cs">
+    <Compile Update="UserControls\Login\ControlRegistrationCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\User\Cards\Planner\ControlPlanCard.cs">

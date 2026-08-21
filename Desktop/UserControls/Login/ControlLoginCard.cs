@@ -40,6 +40,51 @@ namespace BudgetBrainDesktop.UserControls.User.Cards.LoginReg
             btnLogin.Enabled = !string.IsNullOrWhiteSpace(txtUsername.Text) && !string.IsNullOrWhiteSpace(txtPassword.Text);
         }
 
+        //private async void BtnLoginClick(object? sender, EventArgs e)
+        //{
+        //    lblError.Text = string.Empty;
+        //    btnLogin.Enabled = false;
+
+        //    string username = txtUsername.Text.Trim();
+        //    string password = txtPassword.Text;
+
+        //    try
+        //    {
+        //        btnLogin.Enabled = false;
+        //        btnLogin.Text = "Logging in...";
+
+        //        LoginModel.LoginRequest body = new LoginModel.LoginRequest { Username = username, Password = password };
+
+        //        LoginModel.LoginResponse response = await ApiService.PostAsync<LoginModel.LoginRequest, LoginModel.LoginResponse>("auth/login", body);
+
+        //        TokenStorage.AccessToken = response.AccessToken;
+        //        TokenStorage.RefreshToken = response.RefreshToken;
+
+        //        //MessageBox.Show("Sikeres bejelentkezés", caption: "Sikeres bejelentkezés", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        FormAdmin admin = new FormAdmin();
+        //        FormUser user = new();
+
+        //        if (response.User.Role == "admin")
+        //        {
+        //            admin.Show();
+        //        }
+        //        else
+        //        {
+        //            user.Show();
+        //        }
+        //        Hide();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblError.Text = ex.Message;
+        //    }
+        //    finally
+        //    {
+        //        btnLogin.Enabled = true;
+        //        btnLogin.Text = "Login";
+        //        //MessageBox.Show($"Üdv, {loginResponse.User?.Username}!");
+        //    }
+        //}
         private async void BtnLoginClick(object? sender, EventArgs e)
         {
             lblError.Text = string.Empty;
@@ -60,19 +105,24 @@ namespace BudgetBrainDesktop.UserControls.User.Cards.LoginReg
                 TokenStorage.AccessToken = response.AccessToken;
                 TokenStorage.RefreshToken = response.RefreshToken;
 
-                //MessageBox.Show("Sikeres bejelentkezés", caption: "Sikeres bejelentkezés", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormAdmin admin = new FormAdmin();
-                FormUser user = new();
+                FormLogin loginForm = FindForm() as FormLogin;
 
+                if (loginForm == null)
+                {
+                    return;
+                }
                 if (response.User.Role == "admin")
                 {
+                    loginForm.Hide();
+                    FormAdmin admin = new(loginForm);
                     admin.Show();
                 }
                 else
                 {
+                    loginForm.Hide();
+                    FormUser user = new(loginForm);
                     user.Show();
                 }
-                Hide();
             }
             catch (Exception ex)
             {
@@ -80,9 +130,11 @@ namespace BudgetBrainDesktop.UserControls.User.Cards.LoginReg
             }
             finally
             {
+                txtUsername.Clear();
+                txtPassword.Clear();
                 btnLogin.Enabled = true;
                 btnLogin.Text = "Login";
-                //MessageBox.Show($"Üdv, {loginResponse.User?.Username}!");
+
             }
         }
     }

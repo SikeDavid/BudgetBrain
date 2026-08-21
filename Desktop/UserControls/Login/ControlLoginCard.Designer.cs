@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             tlpLogin = new TableLayoutPanel();
-            btnLogin = new Button();
             txtUsername = new TextBox();
             txtPassword = new TextBox();
             lblError = new Label();
+            btnLogin = new Button();
             tlpLogin.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,17 +58,6 @@
             tlpLogin.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tlpLogin.Size = new Size(616, 520);
             tlpLogin.TabIndex = 6;
-            // 
-            // btnLogin
-            // 
-            btnLogin.Anchor = AnchorStyles.None;
-            btnLogin.BackColor = Color.Transparent;
-            btnLogin.Location = new Point(220, 435);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(175, 40);
-            btnLogin.TabIndex = 2;
-            btnLogin.Text = "login";
-            btnLogin.UseVisualStyleBackColor = false;
             // 
             // txtUsername
             // 
@@ -103,6 +92,17 @@
             lblError.TabIndex = 3;
             lblError.Text = "errormsg";
             lblError.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnLogin
+            // 
+            btnLogin.Anchor = AnchorStyles.None;
+            btnLogin.BackColor = Color.Transparent;
+            btnLogin.Location = new Point(220, 435);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(175, 40);
+            btnLogin.TabIndex = 2;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = false;
             // 
             // ControlLoginCard
             // 
