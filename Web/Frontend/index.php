@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="hu">
 <!--
-http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-native/git/index.html
+http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-native/git/index.php
 
 -->
     <head>
@@ -12,16 +12,22 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
         <link rel="icon" type="image/x-icon" href="img/organic/budgetbrain_logo_16x16.png">
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
+        <script type="text/javascript" src="js/endpoints/ajax.js" defer></script>
         <script type="text/javascript" src="js/endpoints/auth.js" defer></script>
         <script type="text/javascript" src="js/endpoints/categories.js" defer></script>
         <script type="text/javascript" src="js/endpoints/entries.js" defer></script>
         <script type="text/javascript" src="js/endpoints/planned-entries.js" defer></script>
 
-        <script type="text/javascript" src="js/dom-content-loaded.js" defer></script>
-        <script type="text/javascript" src="js/element-variables.js" defer></script>
-        <script type="text/javascript" src="js/global-variables.js" defer></script>
+        <script type="text/javascript" src="js/storage/cookies.js" defer></script>
+        <script type="text/javascript" src="js/storage/local-storage.js" defer></script>
+
+        <script type="text/javascript" src="js/constants-global.js" defer></script>
         <script type="text/javascript" src="js/copy-to-clipboard.js" defer></script>
+        <script type="text/javascript" src="js/dom-content-loaded.js" defer></script>
+        <script type="text/javascript" src="js/mix.js" defer></script>
         <script type="text/javascript" src="js/test-users.js" defer></script>
+        <script type="text/javascript" src="js/variables-elements.js" defer></script>
+        <script type="text/javascript" src="js/variables-global.js" defer></script>
 
         <title>BudgetBrain - Budge Your Brain!</title>
     </head>
@@ -32,14 +38,21 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
             <div><img src="img/organic/budgetbrain_logo_256x256.png" id="id_headerLogo"></div>
         </header>
         <nav>
-            <div>Menu 1</div>
-            <div>Menu 2</div>
-            <div>Menu 3</div>
-            <div>Menu 4</div>
-            <div>Menu 5</div>
+            <div id="id_div_notLoggedIn">
+                <div id="id_div_LoginRegClickable" onclick="showLoginRegiser()">Login/Register</div>
+            </div>
+            <div id="id_div_loggedIn">
+                <div>Logged in: <span id="id_sp_name"></span> | ID: <span id="id_sp_id"></span></div>
+                <div>Menu 1</div>
+                <div>Menu 2</div>
+                <div>Menu 3</div>
+                <div>Menu 4</div>
+                <div>Menu 5</div>
+                <div onclick="logout()">Logout</div>
+            </div>
         </nav>
         <main>
-            <section style="display:block">
+            <section id="id_sec_logReg" style="display:none">
                 <button onclick="registration()">Registration</button>
                 <br>
                 <input id="id_reg_userName" value="TestUser01">
@@ -47,9 +60,8 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
                 <input id="id_reg_email" value="testuser01@email.com">
                 <br>
                 <input id="id_reg_password" value="Password01!">
-            </section>
-
-            <section style="display:block">
+                <br>
+                <br>
                 <button onclick="login()">Login</button>
                 <br>
                 <input id="id_login_userName" value="TestUser01">
@@ -63,72 +75,39 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
                 <button onclick="copyTokens()">Copy tokens to Clipboard</button>
             </section>
 
-            <section style="display:block">
-                <button onclick="logout()">Logout</button>
-            </section>
-
-            <section style="display:block">
+            <section id="id_sec_test" style="display:block">
                 <button onclick="refreshDaToken()">Refresh token</button>
                 <br>
                 <input id="id_accessToken" placeholder="Access token" readonly>
-            </section>
-
-            <br>
-
-            <section style="display:block">
+                <br>
+                <br>
                 <button onclick="categoriesAll()">Categories - All</button>
-            </section>
-
-            <section style="display:block">
+                <br>
                 <button onclick="categoriesAdd()">Categories - Add</button>
-            </section>
-
-            <section style="display:block">
+                <br>
                 <button onclick="categoriesUpdate(10)">Categories - Update</button>
-            </section>
-
-            <section style="display:block">
+                <br>
                 <button onclick="categoriesStatus(10)">Categories - Status</button>
-            </section>
-
-            <br>
-
-            <section style="display:block">
-                <button onclick="entriesGet(10)">Entries - Get</button>
-            </section>
-
-            <section style="display:block">
+                <br>
+                <br>
+                <button onclick="entriesGet(4)">Entries - Get</button>
+                <br>
                 <button onclick="entriesGetForMonth(2026, 4)">Entries - Get for month</button>
-            </section>
-
-            <section style="display:block">
+                <br>
                 <button onclick="entriesAdd()">Entries - Add</button>
-            </section>
-
-            <section style="display:block">
+                <br>
                 <button onclick="entriesUpdate(20)">Entries - Update</button>
-            </section>
-
-            <section style="display:block">
+                <br>
                 <button onclick="entriesComplete(20)">Entries - Complete</button>
-            </section>
-
-            <section style="display:block">
+                <br>
                 <button onclick="entriesDelete(20)">Entries - Delete</button>
-            </section>
-
-            <br>
-
-            <section style="display:block">
+                <br>
+                <br>
                 <button onclick="plannedEntriesAll()">Planned Entries - Get All</button>
-            </section>
-
-            <section style="display:block">
+                <br>
                 <button onclick="plannedEntriesAdd()">Planned Entries - Add</button>
-            </section>
-
-            <section style="display:block">
-                <button onclick="plannedEntriesStatus(1)">Planned Entries - Status</button>
+                <br>
+                <button onclick="plannedEntriesStatus(9)">Planned Entries - Status</button>
             </section>
         </main>
 

@@ -1,0 +1,6 @@
+- @260818-2-2057
+
+Debug key:
+
+http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-native/git/index.php?debug=
+

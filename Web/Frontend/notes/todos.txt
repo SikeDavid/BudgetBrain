@@ -4,3 +4,11 @@
 - @260812-3-1750
 Switchable theme (organic + cyber)
 
+- @260816-7-2039
+> register -> auto login -> auto load categories, auto get entries for current month
+
+- Ha a refreshToken is elhasal, üzi:
+Session expired.
+Please login again.
+
+

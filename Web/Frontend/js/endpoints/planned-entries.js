@@ -10,27 +10,32 @@
 
 function plannedEntriesAll() {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", `http://localhost:5000/api/planner`);
+    xhr.open("GET", `${API_PATH}/planner`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
     xhr.send();
+
+    return true;
 }
 
 /******************************/
@@ -54,25 +59,28 @@ function plannedEntriesAll() {
 
 function plannedEntriesAdd() {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", `http://localhost:5000/api/planner`);
+    xhr.open("POST", `${API_PATH}/planner`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
     const body = {
         "categoryid": 2,
@@ -82,6 +90,8 @@ function plannedEntriesAdd() {
     };
 
     xhr.send(JSON.stringify(body));
+
+    return true;
 }
 
 /******************************/
@@ -99,25 +109,30 @@ function plannedEntriesAdd() {
 
 function plannedEntriesStatus(id) {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", `http://localhost:5000/api/planner/${id}/status`);
+    xhr.open("GET", `${API_PATH}/planner/${id}/status`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
     xhr.send();
+
+    return true;
 }

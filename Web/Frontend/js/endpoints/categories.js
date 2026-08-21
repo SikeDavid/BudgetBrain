@@ -10,27 +10,32 @@
 
 function categoriesAll() {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:5000/api/categories/");
+    xhr.open("GET", `${API_PATH}/categories/`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         categories = JSON.parse(xhr.responseText);
         console.log(categories);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
     xhr.send();
+
+    return true;
 }
 
 /******************************/
@@ -53,25 +58,28 @@ function categoriesAll() {
 
 function categoriesAdd() {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/api/categories");
+    xhr.open("POST", `${API_PATH}/categories`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 /*
     const body = {
         "name": "Valami",
@@ -82,11 +90,13 @@ function categoriesAdd() {
 
     const body = {
         "name": "Valami3",
-        "type": "expense2",
+        "type": "expense",
         "in_use": 1
     };
 
     xhr.send(JSON.stringify(body));
+
+    return true;
 }
 
 /******************************/
@@ -109,25 +119,28 @@ function categoriesAdd() {
 
 function categoriesUpdate(id) {
     const xhr = new XMLHttpRequest();
-    xhr.open("PATCH", `http://localhost:5000/api/categories/${id}`);
+    xhr.open("PATCH", `${API_PATH}/categories/${id}`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
     const body = {
         "name": "Valami",
@@ -136,6 +149,8 @@ function categoriesUpdate(id) {
     };
 
     xhr.send(JSON.stringify(body));
+
+    return true;
 }
 
 /******************************/
@@ -153,27 +168,32 @@ function categoriesUpdate(id) {
 
 function categoriesStatus(id) {
     const xhr = new XMLHttpRequest();
-    xhr.open("PATCH", `http://localhost:5000/api/categories/${id}/status/`);
+    xhr.open("PATCH", `${API_PATH}/categories/${id}/status/`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
     xhr.send();
+
+    return true;
 }
 
 

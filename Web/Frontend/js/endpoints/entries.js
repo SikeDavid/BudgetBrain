@@ -17,27 +17,32 @@
 
 function entriesGet(id) {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", `http://localhost:5000/api/entries/${id}`);
+    xhr.open("GET", `${API_PATH}/entries/${id}`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
     xhr.send();
+
+    return true;
 }
 
 /******************************/
@@ -56,27 +61,32 @@ function entriesGet(id) {
 
 function entriesGetForMonth(year, month) {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", `http://localhost:5000/api/entries?year=${year}&month=${month}`);
+    xhr.open("GET", `${API_PATH}/entries?year=${year}&month=${month}`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
     xhr.send();
+
+    return true;
 }
 
 /******************************/
@@ -104,25 +114,28 @@ function entriesGetForMonth(year, month) {
 
 function entriesAdd() {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", `http://localhost:5000/api/entries`);
+    xhr.open("POST", `${API_PATH}/entries`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
     const body = {
         "categoryid": "1",
@@ -132,6 +145,8 @@ function entriesAdd() {
     };
 
     xhr.send(JSON.stringify(body));
+
+    return true;
 }
 
 /******************************/
@@ -157,25 +172,28 @@ function entriesAdd() {
 
 function entriesUpdate(id) {
     const xhr = new XMLHttpRequest();
-    xhr.open("PATCH", `http://localhost:5000/api/entries/${id}`);
+    xhr.open("PATCH", `${API_PATH}/entries/${id}`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
     const body = {
         "category_id": 1,
@@ -187,6 +205,8 @@ function entriesUpdate(id) {
     };
 
     xhr.send(JSON.stringify(body));
+
+    return true;
 }
 
 /******************************/
@@ -207,27 +227,32 @@ function entriesUpdate(id) {
 
 function entriesComplete(id) {
     const xhr = new XMLHttpRequest();
-    xhr.open("PATCH", `http://localhost:5000/api/entries/${id}/complete`);
+    xhr.open("PATCH", `${API_PATH}/entries/${id}/complete`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
     xhr.send();
+
+    return true;
 }
 
 /******************************/
@@ -248,25 +273,30 @@ function entriesComplete(id) {
 
 function entriesDelete(id) {
     const xhr = new XMLHttpRequest();
-    xhr.open("DELETE", `http://localhost:5000/api/entries/${id}`);
+    xhr.open("DELETE", `${API_PATH}/entries/${id}`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+    xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
     xhr.send();
+
+    return true;
 }

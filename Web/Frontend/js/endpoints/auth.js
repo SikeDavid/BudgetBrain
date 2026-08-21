@@ -18,34 +18,6 @@
 */
 
 function registration() {
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/api/auth/registration");
-
-    xhr.onload = () => {
-        if (xhr.status < 200 || xhr.status >= 300) {
-            console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
-        }
-
-        let response = JSON.parse(xhr.responseText);
-        console.log(response);
-    };
-
-    xhr.onerror = () => {
-        console.error("Network error.");
-    };
-
-    xhr.setRequestHeader("Content-Type", "application/json");
-    //xhr.setRequestHeader("Authorization", "Bearer ...");
-
-/*
-    const body = {
-        "username": "TestUser01",
-        "email": "testuser01@email.com",
-        "password": "Password01!"
-    };
-*/
 
     const body = {
         "username": e_reg_userName.value,
@@ -53,9 +25,47 @@ function registration() {
         "password": e_reg_password.value
     };
 
-    xhr.send(JSON.stringify(body));
+    ajax({method: "POST", url: `${API_PATH}/auth/registration`, body: body, callbackSuccess: () => {alert("Success!");}, callbackError: () => {alert("Error!");}});
 
-    //return true;
+    return;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `${API_PATH}/auth/registration`);
+
+    xhr.onload = () => {
+        if (xhr.status < 200 || xhr.status >= 300) {
+            console.error(`Request failed. Status: ${xhr.status}`);
+            console.error(xhr.responseText);
+            alert("Regisztráció sikertelen!\nFelhasználói név vagy e-mail cím már foglalt.");
+            return false;
+        }
+
+        let response = JSON.parse(xhr.responseText);
+        console.log(response);
+        alert("Sikeres regisztráció!");
+        //currentUser.id = ;
+        currentUser.name = e_reg_userName;
+        //loginDirect();
+
+        return true;
+    };
+
+    xhr.onerror = () => {
+        console.error("Network error.");
+        return false;
+    };
+
+    xhr.setRequestHeader("Content-Type", "application/json");
+/*
+    const body = {
+        "username": e_reg_userName.value,
+        "email": e_reg_email.value,
+        "password": e_reg_password.value
+    };
+
+    xhr.send(JSON.stringify(body));
+*/
+    return true;
 }
 
 /******************************/
@@ -80,41 +90,47 @@ function registration() {
 */
 
 function login() {
+
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/api/auth/login");
+    xhr.open("POST", `${API_PATH}/auth/login`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            alert(`Belépés sikertelen!\n${response.message}`);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
-        accessToken = response.accessToken;
+
+        currentUser.accessToken = response.accessToken;
+        currentUser.refreshToken = response.refreshToken;
+
         e_login_accessToken.value = response.accessToken;
-        refreshToken = response.refreshToken;
         e_login_refreshToken.value = response.refreshToken;
+        copyTokens();
+
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
-/*
-    const body = {
-        "username": "TestUser01",
-        "password": "Password01!"
-    };
-*/
+
     const body = {
         "username": e_login_userName.value,
         "password": e_login_password.value
     };
 
     xhr.send(JSON.stringify(body));
+
+    return true;
 }
 
 /******************************/
@@ -134,17 +150,19 @@ function login() {
 
 function logout() {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/api/auth/logout");
+    xhr.open("POST", `${API_PATH}/auth/logout`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
         console.log(response);
+        return true;
     };
 
     xhr.onerror = () => {
@@ -154,10 +172,12 @@ function logout() {
     xhr.setRequestHeader("Content-Type", "application/json");
 
     const body = {
-        "refreshToken": refreshToken
+        "refreshToken": currentUser.refreshToken
     };
 
     xhr.send(JSON.stringify(body));
+
+    return true;
 }
 
 /******************************/
@@ -177,13 +197,14 @@ function logout() {
 
 function refreshDaToken() {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/api/auth/refreshtoken");
+    xhr.open("POST", `${API_PATH}/auth/refreshtoken`);
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
-            console.error(xhr.responseText);
-            return;
+            let response = JSON.parse(xhr.responseText);
+            console.error(response);
+            return false;
         }
 
         let response = JSON.parse(xhr.responseText);
@@ -191,21 +212,26 @@ function refreshDaToken() {
 // Reported bug: > https://trello.com/c/1POKR1NS/15-bug-accestoken-vs-accesstoken
 /*        accessToken = response.accessToken;
         e_accessToken.value = response.accessToken;*/
-        accessToken = response.accessToken;
+        currentUser.accessToken = response.accessToken;
         e_accessToken.value = response.accessToken;
+
+        return true;
     };
 
     xhr.onerror = () => {
         console.error("Network error.");
+        return false;
     };
 
     xhr.setRequestHeader("Content-Type", "application/json");
 
     const body = {
-        "refreshToken": refreshToken
+        "refreshToken": currentUser.refreshToken
     };
 
     xhr.send(JSON.stringify(body));
+
+    return true;
 }
 
 
