@@ -226,7 +226,7 @@ app.get('/', (req, res) => {
 
 
 // Feedback test
-app.use('/test/feedback', feedbackRouter);
+app.use('/api/test/feedback', feedbackRouter);
 
 // Login, Registration
 app.use('/api/auth', authRoutes);

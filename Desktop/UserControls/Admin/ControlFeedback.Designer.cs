@@ -28,31 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            panelHeader = new Panel();
+            panelContent = new FlowLayoutPanel();
             SuspendLayout();
             // 
-            // label1
+            // panelHeader
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(686, 231);
-            label1.Name = "label1";
-            label1.Size = new Size(97, 30);
-            label1.TabIndex = 0;
-            label1.Text = "feedback";
+            panelHeader.BackColor = Color.IndianRed;
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(1327, 105);
+            panelHeader.TabIndex = 0;
+            // 
+            // panelContent
+            // 
+            panelContent.AutoScroll = true;
+            panelContent.Dock = DockStyle.Fill;
+            panelContent.FlowDirection = FlowDirection.TopDown;
+            panelContent.Location = new Point(0, 105);
+            panelContent.Name = "panelContent";
+            panelContent.Size = new Size(1327, 676);
+            panelContent.TabIndex = 1;
+            panelContent.WrapContents = false;
             // 
             // ControlFeedback
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label1);
+            Controls.Add(panelContent);
+            Controls.Add(panelHeader);
             Name = "ControlFeedback";
-            Size = new Size(1237, 762);
+            Size = new Size(1327, 781);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Panel panelHeader;
+        private FlowLayoutPanel panelContent;
     }
 }

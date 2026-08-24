@@ -48,6 +48,7 @@ export async function controllerFeedbackQuest(req, res) {
 export async function controllerFeedbackGet(req, res) {
     try {
         const result = await modelFeedbackGet();
+        console.log(result);
         return res.status(200).json(result)
     }
     catch (err) {

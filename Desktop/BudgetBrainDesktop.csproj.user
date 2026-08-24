@@ -10,6 +10,9 @@
     <Compile Update="Forms\FormUser.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UserControls\Admin\Cards\ControlFeedbackCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\Admin\Cards\ControlUserCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
