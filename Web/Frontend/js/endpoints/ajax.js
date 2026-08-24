@@ -1,5 +1,12 @@
 
-function ajax({method = "GET", url = `${PROTOCOL}://${API_HOST}:${API_PORT}`, body = {}, auth = false, callbackSuccess = null, callbackError = null} = {}) {
+function ajax({
+        method = "GET",
+        url = `${PROTOCOL}://${API_HOST}:${API_PORT}`,
+        body = null,
+        auth = false,
+        callbackSuccess = null,
+        callbackError = null
+    } = {}) {
     const xhr = new XMLHttpRequest();
     xhr.open(method, url);
 
@@ -7,20 +14,22 @@ function ajax({method = "GET", url = `${PROTOCOL}://${API_HOST}:${API_PORT}`, bo
         if (xhr.status < 200 || xhr.status >= 300) {
             console.error(`Request failed. Status: ${xhr.status}`);
             let response = JSON.parse(xhr.responseText);
-            console.error(response);
             if (callbackError !== null)
                 callbackError(response);
-            else
-                console.log("callbackError is null");
+            else {
+                console.log("callbackError function is null; XHR response is:");
+                console.error(response);
+            }
             return false;
         }
 
         let response = JSON.parse(xhr.responseText);
-        console.log(response);
         if (callbackSuccess !== null)
             callbackSuccess(response);
-        else
-            console.log("callbackSuccess is null");
+        else {
+            console.log("callbackSuccess function is null; XHR response is:");
+            console.log(response);
+        }
         return true;
     };
 
@@ -34,7 +43,7 @@ function ajax({method = "GET", url = `${PROTOCOL}://${API_HOST}:${API_PORT}`, bo
     if (auth)
         xhr.setRequestHeader("Authorization", `Bearer ${currentUser.accessToken}`);
 
-    if (body !== {})
+    if (body !== null)
         xhr.send(JSON.stringify(body));
     else
         xhr.send();

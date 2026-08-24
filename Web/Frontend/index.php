@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="hu">
-<!--
+
+<?php
+/*
+#Source:
 http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-native/git/index.php
 
--->
+With debug:
+http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-native/git/index.php?debug=517e498b4ae834bca6b046324f226bf4fcea1ee4
+
+*/
+    const DEBUG_TOKEN = "517e498b4ae834bca6b046324f226bf4fcea1ee4";
+    $debug = isset($_GET["debug"]) ? $_GET["debug"] === DEBUG_TOKEN : false;
+
+?>
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,10 +24,27 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <script type="text/javascript" src="js/endpoints/ajax.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/auth.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/categories.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/entries.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/planned-entries.js" defer></script>
+
+        <script type="text/javascript" src="js/endpoints/auth/auth-login.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/auth/auth-logout.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/auth/auth-refresh-token.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/auth/auth-registration.js" defer></script>
+
+        <script type="text/javascript" src="js/endpoints/categories/categories-add.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/categories/categories-all.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/categories/categories-status.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/categories/categories-update.js" defer></script>
+
+        <script type="text/javascript" src="js/endpoints/entries/entries-add.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/entries/entries-complete.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/entries/entries-delete.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/entries/entries-get-for-month.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/entries/entries-get.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/entries/entries-update.js" defer></script>
+
+        <script type="text/javascript" src="js/endpoints/planned-entries/planned-entries-add.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/planned-entries/planned-entries-all.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/planned-entries/planned-entries-status.js" defer></script>
 
         <script type="text/javascript" src="js/storage/cookies.js" defer></script>
         <script type="text/javascript" src="js/storage/local-storage.js" defer></script>
@@ -37,9 +65,10 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
             <div>BudgetBrain</div>
             <div><img src="img/organic/budgetbrain_logo_256x256.png" id="id_headerLogo"></div>
         </header>
+
         <nav>
             <div id="id_div_notLoggedIn">
-                <div id="id_div_LoginRegClickable" onclick="showLoginRegiser()">Login/Register</div>
+                <div id="id_div_LoginRegClickable" onclick="showLoginRegister()">Login/Register</div>
             </div>
             <div id="id_div_loggedIn">
                 <div>Logged in: <span id="id_sp_name"></span> | ID: <span id="id_sp_id"></span></div>
@@ -52,63 +81,9 @@ http://127.0.0.1/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-n
             </div>
         </nav>
         <main>
-            <section id="id_sec_logReg" style="display:none">
-                <button onclick="registration()">Registration</button>
-                <br>
-                <input id="id_reg_userName" value="TestUser01">
-                <br>
-                <input id="id_reg_email" value="testuser01@email.com">
-                <br>
-                <input id="id_reg_password" value="Password01!">
-                <br>
-                <br>
-                <button onclick="login()">Login</button>
-                <br>
-                <input id="id_login_userName" value="TestUser01">
-                <br>
-                <input id="id_login_password" type="password" value="Password01!">
-                <br>
-                <input id="id_login_accessToken" placeholder="Access token" readonly>
-                <br>
-                <input id="id_login_refreshToken" placeholder="Refresh token" readonly>
-                <br>
-                <button onclick="copyTokens()">Copy tokens to Clipboard</button>
-            </section>
 
-            <section id="id_sec_test" style="display:block">
-                <button onclick="refreshDaToken()">Refresh token</button>
-                <br>
-                <input id="id_accessToken" placeholder="Access token" readonly>
-                <br>
-                <br>
-                <button onclick="categoriesAll()">Categories - All</button>
-                <br>
-                <button onclick="categoriesAdd()">Categories - Add</button>
-                <br>
-                <button onclick="categoriesUpdate(10)">Categories - Update</button>
-                <br>
-                <button onclick="categoriesStatus(10)">Categories - Status</button>
-                <br>
-                <br>
-                <button onclick="entriesGet(4)">Entries - Get</button>
-                <br>
-                <button onclick="entriesGetForMonth(2026, 4)">Entries - Get for month</button>
-                <br>
-                <button onclick="entriesAdd()">Entries - Add</button>
-                <br>
-                <button onclick="entriesUpdate(20)">Entries - Update</button>
-                <br>
-                <button onclick="entriesComplete(20)">Entries - Complete</button>
-                <br>
-                <button onclick="entriesDelete(20)">Entries - Delete</button>
-                <br>
-                <br>
-                <button onclick="plannedEntriesAll()">Planned Entries - Get All</button>
-                <br>
-                <button onclick="plannedEntriesAdd()">Planned Entries - Add</button>
-                <br>
-                <button onclick="plannedEntriesStatus(9)">Planned Entries - Status</button>
-            </section>
+            <?php if ($debug) echo file_get_contents("debug/debug.html") ?>
+
         </main>
 
         <footer></footer>

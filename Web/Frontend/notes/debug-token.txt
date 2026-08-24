@@ -1,0 +1,7 @@
+- @260823-7-2317
+
+> https://www.md5hashgenerator.com/
+
+Your String	bedug
+MD5 Hash	f4883d101a736c4f2e08759ca16a73f0
+SHA1 Hash	517e498b4ae834bca6b046324f226bf4fcea1ee4

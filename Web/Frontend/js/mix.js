@@ -82,8 +82,8 @@ function hideLoginBar() {
 /******************************/
 /******************************/
 
-function showLoginRegiser() {
-    showSection(e_sec_logReg);
+function showLoginRegister() {
+    //showSection(e_sec_logReg);
 }
 
 /******************************/
@@ -100,3 +100,10 @@ function loginDirect() {
 /******************************/
 /******************************/
 
+function refreshTokenExpired() {
+
+}
+
+/******************************/
+/******************************/
+/******************************/

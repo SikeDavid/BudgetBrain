@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", (event) => {
     setLoginUser(3);
 
-    ajax();
+    //ajax();
 
     if (!loadUser()) {
         showLoginBar();
