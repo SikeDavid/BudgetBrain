@@ -14,12 +14,13 @@
 
 function categoriesAdd() {
     const body = {
-        "name": "Valami3",
-        "type": "expense",
-        "in_use": 1
+        "name": e_in_cat_addName.value,
+        "type": e_sel_cat_item.options[e_sel_cat_item.selectedIndex].value,
+        "in_use": e_cbx_cat_inUse.checked ? 1 : 0
     };
 
     ajax({
+        caller: categoriesAdd,
         method: "POST",
         url: `${API_PATH}/categories`,
         body: body,
@@ -27,8 +28,6 @@ function categoriesAdd() {
         callbackSuccess: categoriesAddSuccess,
         callbackError: categoriesAddError
     });
-
-    return true;
 }
 
 /******************************/
@@ -37,8 +36,6 @@ function categoriesAdd() {
 
 function categoriesAddSuccess(response) {
     console.log(response);
-
-    return true;
 }
 
 /******************************/
@@ -47,6 +44,4 @@ function categoriesAddSuccess(response) {
 
 function categoriesAddError(response) {
     console.error(response);
-
-    return false;
 }

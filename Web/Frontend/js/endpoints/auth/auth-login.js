@@ -1,7 +1,3 @@
-
-/******************************/
-/******************************/
-/******************************/
 /*
 "login": {
     "route": "POST /api/auth/login",
@@ -27,6 +23,7 @@ function login() {
     };
 
     ajax({
+        caller: login,
         method: "POST",
         url: `${API_PATH}/auth/login`,
         body: body,
@@ -34,8 +31,6 @@ function login() {
         callbackSuccess: loginSuccess,
         callbackError: loginError
     });
-
-    return true;
 }
 
 /******************************/
@@ -51,8 +46,6 @@ function loginSuccess(response) {
     e_login_accessToken.value = response.accessToken;
     e_login_refreshToken.value = response.refreshToken;
     copyTokens();
-
-    return true;
 }
 
 /******************************/
@@ -62,5 +55,4 @@ function loginSuccess(response) {
 function loginError(response) {
     console.error(response);
     alert(`Belépés sikertelen!\n${response.message}`);
-    return false;
 }

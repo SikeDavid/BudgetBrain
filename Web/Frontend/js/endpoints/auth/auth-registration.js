@@ -1,7 +1,3 @@
-
-/******************************/
-/******************************/
-/******************************/
 /*
 "registration": {
     "route": "POST /api/auth/registration",
@@ -18,7 +14,6 @@
 */
 
 function registration() {
-
     const body = {
         "username": e_reg_userName.value,
         "email": e_reg_email.value,
@@ -26,6 +21,7 @@ function registration() {
     };
 
     ajax({
+        caller: registration,
         method: "POST",
         url: `${API_PATH}/auth/registration`,
         body: body,
@@ -33,8 +29,6 @@ function registration() {
         callbackSuccess: registrationSuccess,
         callbackError: registrationError
     });
-
-    return true;
 }
 
 /******************************/
@@ -46,8 +40,6 @@ function registrationSuccess(response) {
     //currentUser.id = ;
     currentUser.name = e_reg_userName;
     //loginDirect();
-
-    return true;
 }
 
 /******************************/
@@ -56,5 +48,4 @@ function registrationSuccess(response) {
 
 function registrationError(response) {
     alert("Regisztráció sikertelen!\nFelhasználói név vagy e-mail cím már foglalt.");
-    return false;
 }

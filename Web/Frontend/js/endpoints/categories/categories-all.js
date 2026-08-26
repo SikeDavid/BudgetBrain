@@ -13,6 +13,7 @@ function categoriesAll() {
     };
 
     ajax({
+        caller: categoriesAll,
         method: "GET",
         url: `${API_PATH}/categories`,
         //body: body,

@@ -15,6 +15,7 @@ function entriesComplete(id) {
     };
 
     ajax({
+        caller: entriesComplete,
         method: "PATCH",
         url: `${API_PATH}/entries/${id}/complete`,
         //body: body,

@@ -22,6 +22,7 @@ function plannedEntriesAdd() {
     };
 
     ajax({
+        caller: plannedEntriesAdd,
         method: "POST",
         url: `${API_PATH}/planner`,
         body: body,

@@ -16,6 +16,7 @@ function logout() {
     };
 
     ajax({
+        caller: logout,
         method: "POST",
         url: `${API_PATH}/`,
         body: body,
@@ -23,24 +24,22 @@ function logout() {
         callbackSuccess: Success,
         callbackError: Error
     });
-
-    return true;
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function logoutSuccess(response) {
-    alert("Sikeres kilépés!");
+function Success(response) {
+    console.log(response);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function logoutError(response) {
-    alert("Sikertelen kilépés!");
+function Error(response) {
+    console.log(response);
 }
 
 

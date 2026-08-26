@@ -13,6 +13,7 @@ function plannedEntriesAll() {
     };
 
     ajax({
+        caller: plannedEntriesAll,
         method: "GET",
         url: `${API_PATH}/planner`,
         //body: body,

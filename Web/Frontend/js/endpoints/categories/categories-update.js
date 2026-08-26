@@ -20,6 +20,7 @@ function categoriesUpdate(id) {
     };
 
     ajax({
+        caller: categoriesUpdate,
         method: "PATCH",
         url: `${API_PATH}/categories/${id}`,
         body: body,

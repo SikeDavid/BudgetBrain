@@ -12,6 +12,7 @@ function plannedEntriesStatus(id) {
     };
 
     ajax({
+        caller: plannedEntriesStatus,
         method: "GET",
         url: `${API_PATH}/planner/${id}/status`,
         //body: body,

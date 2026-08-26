@@ -1,4 +1,3 @@
-
 /*
 "refreshToken": {
     "route": "POST /api/auth/refreshtoken",
@@ -12,39 +11,19 @@
 */
 
 function refreshToken() {
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", `${API_PATH}/auth/refreshtoken`);
-
-    xhr.onload = () => {
-        if (xhr.status < 200 || xhr.status >= 300) {
-            console.error(`Request failed. Status: ${xhr.status}`);
-            let response = JSON.parse(xhr.responseText);
-            console.error(response);
-            return false;
-        }
-
-        let response = JSON.parse(xhr.responseText);
-        console.log(response);
-        currentUser.accessToken = response.accessToken;
-        e_accessToken.value = response.accessToken;
-
-        return true;
-    };
-
-    xhr.onerror = () => {
-        console.error("Network error.");
-        return false;
-    };
-
-    xhr.setRequestHeader("Content-Type", "application/json");
-
     const body = {
         "refreshToken": currentUser.refreshToken
     };
 
-    xhr.send(JSON.stringify(body));
-
-    return true;
+    ajax({
+        caller: refreshToken,
+        method: "POST",
+        url: `${API_PATH}/auth/refreshtoken`,
+        body: body,
+        auth: false,
+        callbackSuccess: refreshTokenSuccess,
+        callbackError: refreshTokenError
+    });
 }
 
 /******************************/
@@ -52,7 +31,9 @@ function refreshToken() {
 /******************************/
 
 function refreshTokenSuccess(response) {
-
+    console.log(response);
+    currentUser.accessToken = response.accessToken;
+    e_accessToken.value = response.accessToken;
 }
 
 /******************************/
@@ -60,6 +41,7 @@ function refreshTokenSuccess(response) {
 /******************************/
 
 function refreshTokenError(response) {
-
+    console.error("Token refresh is a no-no! refreshToken expired!");
+    console.log(response);
 }
 

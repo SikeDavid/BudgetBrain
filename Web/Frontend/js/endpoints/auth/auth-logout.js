@@ -1,4 +1,3 @@
-
 /*
 "logout": {
     "route": "POST /api/auth/logout",
@@ -17,15 +16,14 @@ function logout() {
     };
 
     ajax({
+        caller: logout,
         method: "POST",
         url: `${API_PATH}/auth/logout`,
         body: body,
-        auth: true,
+        auth: false,
         callbackSuccess: logoutSuccess,
         callbackError: logoutError
     });
-
-    return true;
 }
 
 /******************************/
@@ -33,6 +31,7 @@ function logout() {
 /******************************/
 
 function logoutSuccess(response) {
+    console.log(response);
     alert("Sikeres kilépés!");
 }
 
@@ -41,7 +40,6 @@ function logoutSuccess(response) {
 /******************************/
 
 function logoutError(response) {
+    console.log(response);
     alert("Sikertelen kilépés!");
 }
-
-

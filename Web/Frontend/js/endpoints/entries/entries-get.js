@@ -20,6 +20,7 @@ function entriesGet(id) {
     };
 
     ajax({
+        caller: entriesGet,
         method: "GET",
         url: `${API_PATH}/entries/${id}`,
         //body: body,

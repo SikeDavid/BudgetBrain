@@ -15,6 +15,7 @@ function entriesDelete(id) {
     };
 
     ajax({
+        caller: entriesDelete,
         method: "DELETE",
         url: `${API_PATH}/entries/${id}`,
         //body: body,

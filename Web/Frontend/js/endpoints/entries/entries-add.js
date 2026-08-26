@@ -26,6 +26,7 @@ function entriesAdd() {
     };
 
     ajax({
+        caller: entriesAdd,
         method: "POST",
         url: `${API_PATH}/entries`,
         body: body,
@@ -33,8 +34,6 @@ function entriesAdd() {
         callbackSuccess: entriesAddSuccess,
         callbackError: entriesAddError
     });
-
-    return true;
 }
 
 /******************************/
@@ -43,8 +42,6 @@ function entriesAdd() {
 
 function entriesAddSuccess(response) {
     console.log(response);
-
-    return true;
 }
 
 /******************************/
@@ -53,6 +50,4 @@ function entriesAddSuccess(response) {
 
 function entriesAddError(response) {
     console.error(response);
-
-    return false;
 }
