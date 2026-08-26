@@ -28,8 +28,6 @@ function entriesGet(id) {
         callbackSuccess: entriesGetSuccess,
         callbackError: entriesGetError
     });
-
-    return true;
 }
 
 /******************************/
@@ -38,8 +36,6 @@ function entriesGet(id) {
 
 function entriesGetSuccess(response) {
     console.log(response);
-
-    return true;
 }
 
 /******************************/
@@ -48,6 +44,4 @@ function entriesGetSuccess(response) {
 
 function entriesGetError(response) {
     console.error(response);
-
-    return false;
 }

@@ -21,8 +21,6 @@ function plannedEntriesAll() {
         callbackSuccess: plannedEntriesAllSuccess,
         callbackError: plannedEntriesAllError
     });
-
-    return true;
 }
 
 /******************************/
@@ -31,8 +29,6 @@ function plannedEntriesAll() {
 
 function plannedEntriesAllSuccess(response) {
     console.log(response);
-
-    return true;
 }
 
 /******************************/
@@ -41,6 +37,4 @@ function plannedEntriesAllSuccess(response) {
 
 function plannedEntriesAllError(response) {
     console.error(response);
-
-    return false;
 }

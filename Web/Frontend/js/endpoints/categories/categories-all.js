@@ -21,8 +21,6 @@ function categoriesAll() {
         callbackSuccess: categoriesAllSuccess,
         callbackError: categoriesAllError
     });
-
-    return true;
 }
 
 /******************************/
@@ -31,8 +29,6 @@ function categoriesAll() {
 
 function categoriesAllSuccess(response) {
     console.log(response);
-
-    return true;
 }
 
 /******************************/
@@ -41,6 +37,4 @@ function categoriesAllSuccess(response) {
 
 function categoriesAllError(response) {
     console.error(response);
-
-    return false;
 }

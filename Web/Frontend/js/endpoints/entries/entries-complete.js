@@ -23,8 +23,6 @@ function entriesComplete(id) {
         callbackSuccess: entriesCompleteSuccess,
         callbackError: entriesCompleteError
     });
-
-    return true;
 }
 
 /******************************/
@@ -33,8 +31,6 @@ function entriesComplete(id) {
 
 function entriesCompleteSuccess(response) {
     console.log(response);
-
-    return true;
 }
 
 /******************************/
@@ -43,6 +39,4 @@ function entriesCompleteSuccess(response) {
 
 function entriesCompleteError(response) {
     console.error(response);
-
-    return false;
 }

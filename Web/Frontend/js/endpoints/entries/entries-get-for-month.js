@@ -21,8 +21,6 @@ function entriesGetForMonth(year, month) {
         callbackSuccess: entriesGetForMonthSuccess,
         callbackError: entriesGetForMonthError
     });
-
-    return true;
 }
 
 /******************************/
@@ -31,8 +29,6 @@ function entriesGetForMonth(year, month) {
 
 function entriesGetForMonthSuccess(response) {
     console.log(response);
-
-    return true;
 }
 
 /******************************/
@@ -41,6 +37,4 @@ function entriesGetForMonthSuccess(response) {
 
 function entriesGetForMonthError(response) {
     console.error(response);
-
-    return false;
 }

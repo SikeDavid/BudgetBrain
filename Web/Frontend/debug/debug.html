@@ -56,17 +56,37 @@
 
     <hr>
 
-    <button onclick="categoriesUpdate(10)">Categories - Update</button>
-
-    <hr>
-
-    <button onclick="categoriesStatus(10)">Categories - Status</button>
-
-    <hr>
-    <hr>
-
-    <button onclick="entriesGet(4)">Entries - Get</button>
+    <button onclick="categoriesUpdate(e_in_catUp_id.value)">Categories - Update</button>
     <br>
+    <input id="id_in_catUp_id" type="number" placeholder="Category ID" value="7">
+    <br>
+    <input id="id_in_catUp_addName" placeholder="Category name">
+    <br>
+    <label for="id_sel_catUp_item">Item type:</label>
+    <br>
+    <select id="id_sel_catUp_item" name="id_sel_catUp_item">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+    </select>
+    <br>
+    <label for="id_cbx_catUp_inUse">In use:</label>
+    <input type="checkbox" id="id_cbx_catUp_inUse" name="id_cbx_catUp_inUse" checked>
+
+    <hr>
+
+    <button onclick="categoriesStatus(e_in_catStat_id.value)">Categories - Status</button>
+    <br>
+    <input id="id_in_catStat_id" type="number" placeholder="Category ID" value="7">
+
+    <hr>
+    <hr>
+
+    <button onclick="entriesGet(e_in_entGet_id.value)">Entries - Get</button>
+    <br>
+    <input id="id_in_entGet_id" type="number" placeholder="ID" value="7">
+
+    <hr>
+
     <button onclick="entriesGetForMonth(2026, 4)">Entries - Get for month</button>
     <br>
     <button onclick="entriesAdd()">Entries - Add</button>
@@ -112,5 +132,14 @@ const e_accessToken = document.getElementById("id_accessToken");
 const e_in_cat_addName = document.getElementById("id_in_cat_addName");
 const e_sel_cat_item = document.getElementById("id_sel_cat_item");
 const e_cbx_cat_inUse = document.getElementById("id_cbx_cat_inUse");
+
+const e_in_catUp_id = document.getElementById("id_in_catUp_id");
+const e_in_catUp_addName = document.getElementById("id_in_catUp_addName");
+const e_sel_catUp_item = document.getElementById("id_sel_catUp_item");
+const e_cbx_catUp_inUse = document.getElementById("id_cbx_catUp_inUse");
+
+const e_in_catStat_id = document.getElementById("id_in_catStat_id");
+
+const e_in_entGet_id = document.getElementById("id_in_entGet_id");
 
 </script>

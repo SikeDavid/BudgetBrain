@@ -23,8 +23,6 @@ function entriesDelete(id) {
         callbackSuccess: entriesDeleteSuccess,
         callbackError: entriesDeleteError
     });
-
-    return true;
 }
 
 /******************************/
@@ -33,8 +31,6 @@ function entriesDelete(id) {
 
 function entriesDeleteSuccess(response) {
     console.log(response);
-
-    return true;
 }
 
 /******************************/
@@ -43,6 +39,4 @@ function entriesDeleteSuccess(response) {
 
 function entriesDeleteError(response) {
     console.error(response);
-
-    return false;
 }

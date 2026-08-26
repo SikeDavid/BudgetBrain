@@ -34,8 +34,6 @@ function entriesUpdate(id) {
         callbackSuccess: entriesUpdateSuccess,
         callbackError: entriesUpdateError
     });
-
-    return true;
 }
 
 /******************************/
@@ -44,8 +42,6 @@ function entriesUpdate(id) {
 
 function entriesUpdateSuccess(response) {
     console.log(response);
-
-    return true;
 }
 
 /******************************/
@@ -54,6 +50,4 @@ function entriesUpdateSuccess(response) {
 
 function entriesUpdateError(response) {
     console.error(response);
-
-    return false;
 }

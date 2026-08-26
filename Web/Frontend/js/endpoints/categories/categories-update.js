@@ -14,9 +14,9 @@
 
 function categoriesUpdate(id) {
     const body = {
-        "name": "Valami",
-        "type": "income",
-        "in_use": 10
+        "name": e_in_catUp_addName.value,
+        "type": e_sel_catUp_item.options[e_sel_catUp_item.selectedIndex].value,
+        "in_use": e_cbx_catUp_inUse.checked ? 1 : 0
     };
 
     ajax({
@@ -28,8 +28,6 @@ function categoriesUpdate(id) {
         callbackSuccess: categoriesUpdateSuccess,
         callbackError: categoriesUpdateError
     });
-
-    return true;
 }
 
 /******************************/
@@ -38,8 +36,6 @@ function categoriesUpdate(id) {
 
 function categoriesUpdateSuccess(response) {
     console.log(response);
-
-    return true;
 }
 
 /******************************/
@@ -48,6 +44,4 @@ function categoriesUpdateSuccess(response) {
 
 function categoriesUpdateError(response) {
     console.error(response);
-
-    return false;
 }

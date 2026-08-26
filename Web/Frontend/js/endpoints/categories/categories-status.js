@@ -20,8 +20,6 @@ function categoriesStatus(id) {
         callbackSuccess: categoriesStatusSuccess,
         callbackError: categoriesStatusError
     });
-
-    return true;
 }
 
 /******************************/
@@ -30,8 +28,6 @@ function categoriesStatus(id) {
 
 function categoriesStatusSuccess(response) {
     console.log(response);
-
-    return true;
 }
 
 /******************************/
@@ -40,6 +36,4 @@ function categoriesStatusSuccess(response) {
 
 function categoriesStatusError(response) {
     console.error(response);
-
-    return false;
 }
