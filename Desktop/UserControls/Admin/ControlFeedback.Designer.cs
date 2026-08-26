@@ -30,11 +30,16 @@
         {
             panelHeader = new Panel();
             panelContent = new FlowLayoutPanel();
+            tbSearch = new TextBox();
+            label1 = new Label();
+            panelHeader.SuspendLayout();
             SuspendLayout();
             // 
             // panelHeader
             // 
             panelHeader.BackColor = Color.IndianRed;
+            panelHeader.Controls.Add(tbSearch);
+            panelHeader.Controls.Add(label1);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
             panelHeader.Name = "panelHeader";
@@ -52,6 +57,22 @@
             panelContent.TabIndex = 1;
             panelContent.WrapContents = false;
             // 
+            // tbSearch
+            // 
+            tbSearch.Location = new Point(164, 40);
+            tbSearch.Name = "tbSearch";
+            tbSearch.Size = new Size(556, 35);
+            tbSearch.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(44, 40);
+            label1.Name = "label1";
+            label1.Size = new Size(80, 30);
+            label1.TabIndex = 2;
+            label1.Text = "Search:";
+            // 
             // ControlFeedback
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
@@ -60,6 +81,8 @@
             Controls.Add(panelHeader);
             Name = "ControlFeedback";
             Size = new Size(1327, 781);
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -67,5 +90,7 @@
 
         private Panel panelHeader;
         private FlowLayoutPanel panelContent;
+        private TextBox tbSearch;
+        private Label label1;
     }
 }

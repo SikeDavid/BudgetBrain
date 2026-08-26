@@ -28,36 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnExpand = new Button();
-            cbReaded = new CheckBox();
             lblTitle = new Label();
             lblId = new Label();
             panelContent = new Panel();
             rtbMessage = new RichTextBox();
             panelBase = new Panel();
+            tlpButtons = new TableLayoutPanel();
+            btnDelete = new Button();
+            btnRead = new Button();
+            btnExpand = new Button();
             lblUser = new Label();
             panelContent.SuspendLayout();
             panelBase.SuspendLayout();
+            tlpButtons.SuspendLayout();
             SuspendLayout();
-            // 
-            // btnExpand
-            // 
-            btnExpand.Location = new Point(1066, 40);
-            btnExpand.Name = "btnExpand";
-            btnExpand.Size = new Size(131, 40);
-            btnExpand.TabIndex = 3;
-            btnExpand.Text = "ˇ";
-            btnExpand.UseVisualStyleBackColor = true;
-            // 
-            // cbReaded
-            // 
-            cbReaded.AutoSize = true;
-            cbReaded.Location = new Point(923, 44);
-            cbReaded.Name = "cbReaded";
-            cbReaded.Size = new Size(108, 34);
-            cbReaded.TabIndex = 2;
-            cbReaded.Text = "Readed";
-            cbReaded.UseVisualStyleBackColor = true;
             // 
             // lblTitle
             // 
@@ -100,9 +84,8 @@
             // 
             // panelBase
             // 
+            panelBase.Controls.Add(tlpButtons);
             panelBase.Controls.Add(lblUser);
-            panelBase.Controls.Add(btnExpand);
-            panelBase.Controls.Add(cbReaded);
             panelBase.Controls.Add(lblTitle);
             panelBase.Controls.Add(lblId);
             panelBase.Dock = DockStyle.Top;
@@ -111,10 +94,64 @@
             panelBase.Size = new Size(1300, 100);
             panelBase.TabIndex = 2;
             // 
+            // tlpButtons
+            // 
+            tlpButtons.ColumnCount = 3;
+            tlpButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpButtons.Controls.Add(btnDelete, 1, 0);
+            tlpButtons.Controls.Add(btnRead, 0, 0);
+            tlpButtons.Controls.Add(btnExpand, 2, 0);
+            tlpButtons.Location = new Point(849, 28);
+            tlpButtons.Name = "tlpButtons";
+            tlpButtons.RowCount = 1;
+            tlpButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpButtons.Size = new Size(389, 66);
+            tlpButtons.TabIndex = 5;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.FromArgb(34, 46, 59);
+            btnDelete.Dock = DockStyle.Fill;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Location = new Point(197, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(91, 60);
+            btnDelete.TabIndex = 2;
+            btnDelete.Text = "button2";
+            btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnRead
+            // 
+            btnRead.BackColor = Color.FromArgb(34, 46, 59);
+            btnRead.Dock = DockStyle.Fill;
+            btnRead.FlatStyle = FlatStyle.Flat;
+            btnRead.ForeColor = Color.FromArgb(246, 247, 247);
+            btnRead.Location = new Point(3, 3);
+            btnRead.Name = "btnRead";
+            btnRead.Size = new Size(188, 60);
+            btnRead.TabIndex = 0;
+            btnRead.Text = "button1";
+            btnRead.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnRead.UseVisualStyleBackColor = false;
+            // 
+            // btnExpand
+            // 
+            btnExpand.BackColor = Color.FromArgb(34, 46, 59);
+            btnExpand.Dock = DockStyle.Fill;
+            btnExpand.FlatStyle = FlatStyle.Flat;
+            btnExpand.Location = new Point(294, 3);
+            btnExpand.Name = "btnExpand";
+            btnExpand.Size = new Size(92, 60);
+            btnExpand.TabIndex = 1;
+            btnExpand.Text = "button2";
+            btnExpand.UseVisualStyleBackColor = false;
+            // 
             // lblUser
             // 
             lblUser.AutoSize = true;
-            lblUser.Location = new Point(710, 48);
+            lblUser.Location = new Point(453, 45);
             lblUser.Name = "lblUser";
             lblUser.Size = new Size(68, 30);
             lblUser.TabIndex = 4;
@@ -131,18 +168,20 @@
             panelContent.ResumeLayout(false);
             panelBase.ResumeLayout(false);
             panelBase.PerformLayout();
+            tlpButtons.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Button btnExpand;
-        private CheckBox cbReaded;
         private Label lblTitle;
         private Label lblId;
         private Panel panelContent;
         private RichTextBox rtbMessage;
         private Panel panelBase;
         private Label lblUser;
+        private TableLayoutPanel tlpButtons;
+        private Button btnRead;
+        private Button btnExpand;
+        private Button btnDelete;
     }
 }
