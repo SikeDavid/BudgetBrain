@@ -71,6 +71,26 @@ namespace BudgetBrainDesktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_downward_icon {
+            get {
+                object obj = ResourceManager.GetObject("arrow_downward_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_upward_icon {
+            get {
+                object obj = ResourceManager.GetObject("arrow_upward_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to http://localhost:5050/api/.
         /// </summary>
         internal static string BaseAddress {
@@ -155,6 +175,26 @@ namespace BudgetBrainDesktop.Properties {
         internal static System.Drawing.Bitmap settings_icon {
             get {
                 object obj = ResourceManager.GetObject("settings_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visibility_off_icon {
+            get {
+                object obj = ResourceManager.GetObject("visibility_off_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visibility_on_icon {
+            get {
+                object obj = ResourceManager.GetObject("visibility_on_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

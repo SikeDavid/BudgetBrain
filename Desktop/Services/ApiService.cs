@@ -120,7 +120,7 @@ namespace BudgetBrainDesktop.Services
 
             return await response.Content.ReadFromJsonAsync<Res>();
         }
-
+        // Patch with body
         public static async Task<MessageModel> PatchAsync<Req>(string endpoint, Req body)
         {
             AddToken();
@@ -155,7 +155,51 @@ namespace BudgetBrainDesktop.Services
 
             return result;
         }
+        // Patch without body
+        public static async Task<MessageModel> PatchAsync(string endpoint)
+        {
+            AddToken();
 
+            HttpResponseMessage response = await client.PatchAsync(endpoint, null);
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized &&
+                !string.IsNullOrWhiteSpace(TokenStorage.RefreshToken))
+            {
+                bool refreshSuccess = await RefreshAccessToken();
+
+                if (refreshSuccess)
+                {
+                    AddToken();
+                    response = await client.PatchAsync(endpoint, null);
+                }
+            }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                MessageModel? error = await response.Content.ReadFromJsonAsync<MessageModel>();
+
+                throw new Exception(error?.Message ?? "unknown error");
+            }
+
+            MessageModel? result = await response.Content.ReadFromJsonAsync<MessageModel>();
+
+            if (result is null)
+            {
+                throw new Exception("unknown response");
+            }
+
+            return result;
+
+
+
+
+
+
+
+
+
+
+
+        }
         public static async Task<MessageModel> DeleteAsync(string endpoint)
         {
             AddToken();

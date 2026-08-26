@@ -23,6 +23,12 @@ namespace BudgetBrainDesktop.UserControls
             InitializeComponent();
 
             this.Load += ControlFeedback_Load;
+            tbSearch.TextChanged += TbSearchTextChanged;
+        }
+
+        private void TbSearchTextChanged(object? sender, EventArgs e)
+        {
+            FilterUsers();
         }
 
         private async void ControlFeedback_Load(object? sender, EventArgs e)
@@ -53,6 +59,25 @@ namespace BudgetBrainDesktop.UserControls
                 ControlFeedbackCard card = new (feed);
                 panelContent.Controls.Add(card);
             }
+        }
+
+        private void FilterUsers()
+        {
+            string searchText = tbSearch.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                DisplayFeedbacks(feedbacks);
+                return;
+            }
+
+            List<FeedbackModel> filteredFeeds = feedbacks
+                .Where(feedbacks =>
+                    feedbacks.Title.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+                    feedbacks.Message.Contains(searchText, StringComparison.OrdinalIgnoreCase)
+                ).ToList();
+
+            DisplayFeedbacks(filteredFeeds);
         }
     }
 }
