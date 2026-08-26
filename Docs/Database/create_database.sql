@@ -2,6 +2,8 @@
 -- 1. Database
 -- ====================
 
+SET NAMES utf8mb4;
+
 DROP DATABASE IF EXISTS budgetbrain_db;
 CREATE DATABASE IF NOT EXISTS budgetbrain_db;
 USE budgetbrain_db;

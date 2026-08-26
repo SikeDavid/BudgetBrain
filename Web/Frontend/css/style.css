@@ -58,6 +58,7 @@ nav > div {
 }
 
 main {
+    color: black;
     background-color: #11ff33;
 
     /*padding-top: calc(500px);*/

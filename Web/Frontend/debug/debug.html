@@ -1,0 +1,112 @@
+<div>
+    <hr>
+
+    <button onclick="registration()">Registration</button>
+    <br>
+    <input id="id_reg_userName" value="TestUser01">
+    <br>
+    <input id="id_reg_email" value="testuser01@email.com">
+    <br>
+    <input id="id_reg_password" value="Password01!">
+
+    <hr>
+    <hr>
+
+    <button onclick="login()">Login</button>
+    <br>
+    <input id="id_login_userName" value="TestUser01">
+    <br>
+    <input id="id_login_password" type="password" value="Password01!">
+    <br>
+    <input id="id_login_accessToken" placeholder="Access token" readonly>
+    <br>
+    <input id="id_login_refreshToken" placeholder="Refresh token" readonly>
+    <br>
+    <button onclick="copyTokens()">Copy tokens to Clipboard</button>
+
+    <hr>
+    <hr>
+
+    <button onclick="refreshToken()">Refresh token</button>
+    <br>
+    <input id="id_accessToken" placeholder="Access token" readonly>
+
+    <hr>
+    <hr>
+
+    <button onclick="categoriesAll()">Categories - All</button>
+
+    <hr>
+
+    <button onclick="categoriesAdd()">Categories - Add</button>
+    <br>
+    <input id="id_in_cat_addName" placeholder="Category name">
+    <br>
+    <label for="id_sel_cat_item">Item type:</label>
+    <br>
+    <select id="id_sel_cat_item" name="id_sel_cat_item">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+    </select>
+    <br>
+    <label for="id_cbx_cat_inUse">In use:</label>
+    <input type="checkbox" id="id_cbx_cat_inUse" name="id_cbx_cat_inUse" checked>
+
+    <hr>
+
+    <button onclick="categoriesUpdate(10)">Categories - Update</button>
+
+    <hr>
+
+    <button onclick="categoriesStatus(10)">Categories - Status</button>
+
+    <hr>
+    <hr>
+
+    <button onclick="entriesGet(4)">Entries - Get</button>
+    <br>
+    <button onclick="entriesGetForMonth(2026, 4)">Entries - Get for month</button>
+    <br>
+    <button onclick="entriesAdd()">Entries - Add</button>
+    <br>
+    <button onclick="entriesUpdate(20)">Entries - Update</button>
+    <br>
+    <button onclick="entriesComplete(20)">Entries - Complete</button>
+    <br>
+    <button onclick="entriesDelete(20)">Entries - Delete</button>
+
+    <hr>
+    <hr>
+
+    <button onclick="plannedEntriesAll()">Planned Entries - Get All</button>
+    <br>
+    <button onclick="plannedEntriesAdd()">Planned Entries - Add</button>
+    <br>
+    <button onclick="plannedEntriesStatus(9)">Planned Entries - Status</button>
+</div>
+
+
+
+<script>
+
+/*
+
+const e_ = document.getElementById("id_");
+*/
+
+const e_reg_userName = document.getElementById("id_reg_userName");
+const e_reg_email = document.getElementById("id_reg_email");
+const e_reg_password = document.getElementById("id_reg_password");
+
+const e_login_userName = document.getElementById("id_login_userName");
+const e_login_password = document.getElementById("id_login_password");
+const e_login_accessToken = document.getElementById("id_login_accessToken");
+const e_login_refreshToken = document.getElementById("id_login_refreshToken");
+
+const e_accessToken = document.getElementById("id_accessToken");
+
+const e_in_cat_addName = document.getElementById("id_in_cat_addName");
+const e_sel_cat_item = document.getElementById("id_sel_cat_item");
+const e_cbx_cat_inUse = document.getElementById("id_cbx_cat_inUse");
+
+</script>
