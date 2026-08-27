@@ -1,6 +1,16 @@
 import db from "../database.js";
 
 async function modelCategoriesGet(userid) {
+    // const sql = ` 
+    //     SELECT
+    //         c.category_id,
+    //         c.name,
+    //         c.type
+    //     FROM categories c
+    //     WHERE c.user_id = ?
+    //     AND c.in_use = 1
+    // `;
+
     const sql = ` 
         SELECT
             c.category_id,
@@ -8,7 +18,6 @@ async function modelCategoriesGet(userid) {
             c.type
         FROM categories c
         WHERE c.user_id = ?
-        AND c.in_use = 1
     `;
 
     const [result] = await db.query(sql, [userid]);

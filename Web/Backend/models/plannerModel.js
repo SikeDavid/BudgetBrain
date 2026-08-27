@@ -43,9 +43,10 @@ export async function modelEntryPlannerGet(userid) {
 
     const [result] = await db.query(sql, [userid]);
     
-    return result.map(plan => ({
-        ...plan, active: plan.active === 1
-    }));
+    // return result.map(plan => ({
+    //     ...plan, active: plan.active === 1
+    // }));
+    return result;
 }
 // Update
 export async function modelEntryPlannerUpdate(userid, plannedEntryId, data) {

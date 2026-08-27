@@ -213,7 +213,7 @@ app.get('/', (req, res) => {
                     }  
                 },
                 status: {
-                    route: "GET /api/planner/:id/status",
+                    route: "PATCH /api/planner/:id/status",
                     header: {
                         authorization: "Bearer: (token)"
                     },

@@ -40,8 +40,8 @@ export async function controllerSetUserStatus(req, res) {
         return res.status(200).json({message: "Status successful changed"});
     }
     catch (err) {
-        return res.status(500).json({message: "Server error"})
         console.error("User status update error", err);
+        return res.status(500).json({message: "Server error"});
     }
 }
 
