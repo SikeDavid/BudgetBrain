@@ -20,8 +20,9 @@ function authMiddleware(req, res, next) {
 
         next();
     } catch (err) {
-        console.error("Server error", err);
-        return res.status(500).json({message: err.message});
+        return res.status(401).json({message: "Invalid or expired accesstoken"});
+        // console.error("Server error", err);
+        // return res.status(500).json({message: err.message});
     }
     // req.user = { id: 2}
     // if (!req.user.id) return res.status(401).json({message: "You are not loged in"});

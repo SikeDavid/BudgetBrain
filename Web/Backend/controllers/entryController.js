@@ -68,7 +68,7 @@ export async function controllerEntriesGet(req, res) {
 
         const data = await modelEntriesGet(userid, year, month);
 
-        if (data.length === 0) return res.status(404).json({message: "no entry"});
+        if (data.length === 0) return res.status(200).json([]);
 
         return res.status(200).json(data);
     }
@@ -96,6 +96,10 @@ export async function controllerEntryUpdate(req, res) {
     const userid = req.user.id;
     const entryid = req.params.id;
     const data = req.body;
+
+    if (!req.body) {
+        return res.status(400).json({message: "No data to update"})
+    }
 
     try {
         const result = await modelEntryUpdate(userid, entryid, data);

@@ -12,7 +12,7 @@ export async function controllerCategoriesGet(req, res) {
     try {
         const data = await modelCategoriesGet(userid);
         if (data.length === 0) {
-            return res.status(404).json({message: "Categories not found"});
+            return res.status(200).json([]);
         }
 
         return res.status(200).json(data);
@@ -49,6 +49,10 @@ export async function controllerCategoryUpdate(req, res) {
     const userid = req.user.id;
     const categoryid = req.params.id;
     const data = req.body;
+
+    if (!req.body) {
+        return res.status(400).json({message: "No data to update"})
+    }
 
     try {
         const result = await modelCategoryUpdate(userid, categoryid, data);

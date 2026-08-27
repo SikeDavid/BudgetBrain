@@ -8,8 +8,8 @@ import {
 
 // CREATE
 export async function controllerFeedbackUser(req, res) {
-    // const userid = req.user.id;
-    const userid = 1;
+    const userid = req.user.id;
+    // const userid = 1;
     const {title, message} = req.body;
 
     try {
