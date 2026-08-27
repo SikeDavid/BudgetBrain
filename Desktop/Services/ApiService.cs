@@ -41,7 +41,7 @@ namespace BudgetBrainDesktop.Services
                 refreshToken = TokenStorage.RefreshToken
             };
 
-            HttpResponseMessage response = await client.PostAsJsonAsync("auth/refresh", body);
+            HttpResponseMessage response = await client.PostAsJsonAsync("auth/refreshtoken", body);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -118,7 +118,14 @@ namespace BudgetBrainDesktop.Services
                 throw new Exception(error?.Message ?? "unknown error");
             }
 
-            return await response.Content.ReadFromJsonAsync<Res>();
+            Res? data = await response.Content.ReadFromJsonAsync<Res>();
+
+            if (data is null)
+            {
+                throw new Exception("Server returned an empty response");
+            }
+
+            return data;
         }
         // Patch with body
         public static async Task<MessageModel> PatchAsync<Req>(string endpoint, Req body)

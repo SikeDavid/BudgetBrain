@@ -22,7 +22,6 @@ namespace BudgetBrainDesktop.UserControls.User
         {
             InitializeComponent();
 
-            //this.Load += ControlUserPlannerLoad;
             this.Load += ControlUserCategoriesLoad;
         }
 
@@ -35,7 +34,7 @@ namespace BudgetBrainDesktop.UserControls.User
         {
             try
             {
-                categories = await ApiService.GetAsync<List<CategoriesModel>>("entries");
+                categories = await ApiService.GetAsync<List<CategoriesModel>>("categories");
 
                 DisplayEntry(categories);
             } 
@@ -53,25 +52,11 @@ namespace BudgetBrainDesktop.UserControls.User
             {
                 ControlCategoriesCard card = new(category);
 
-                //card.Dock = DockStyle.None;
-                //card.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                //card.Margin = new Padding(5);
+                card.Dock = DockStyle.None;
+                card.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                card.Margin = new Padding(5);
                 panelContent.Controls.Add(card);
             }
         }
-        //private void DisplayEntry(IEnumerable<PlannerModel> plansToDisplay)
-        //{
-        //    panelContent.Controls.Clear();
-
-        //    foreach (PlannerModel plan in plansToDisplay)
-        //    {
-        //        ControlPlanCard card = new(plan);
-
-        //        card.Dock = DockStyle.None;
-        //        card.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-        //        card.Margin = new Padding(5);
-        //        panelContent.Controls.Add(card);
-        //    }
-        //}
     }
 }
