@@ -19,10 +19,11 @@
 
 function entriesAdd() {
     const body = {
-        "categoryid": "1",
-        "amount": "300",
-        "description": "text",
-        "date": "2021-12-1" //> In db corrects to 2021-12-01
+        "categoryid": e_in_entAdd_catId.value,
+        "amount": e_in_entAdd_amt.value,
+        "description": e_in_entAdd_desc.value,
+        //> In db corrects to 2021-12-01 :
+        "date": e_in_entAdd_date.value
     };
 
     ajax({

@@ -87,23 +87,62 @@
 
     <hr>
 
-    <button onclick="entriesGetForMonth(2026, 4)">Entries - Get for month</button>
+    <button onclick="entriesGetForMonth(e_in_entGetY.value, e_in_entGetM.value)">Entries - Get for month</button>
     <br>
+    <input id="id_in_entGetY" type="number" placeholder="Year" value="2026">
+    <br>
+    <input id="id_in_entGetM" type="number" placeholder="Month" value="4">
+
+    <hr>
+
     <button onclick="entriesAdd()">Entries - Add</button>
     <br>
-    <button onclick="entriesUpdate(20)">Entries - Update</button>
+    <input id="id_in_entAdd_catId" type="number" placeholder="Category ID" value="7">
     <br>
+    <input id="id_in_entAdd_amt" type="number" placeholder="Amount" value="1000">
+    <br>
+    <input id="id_in_entAdd_desc" placeholder="Description" value="Some basic text.">
+    <br>
+    <input id="id_in_entAdd_date" placeholder="Date" value="2026-04-01">
+
+    <hr>
+
+    <button onclick="entriesUpdate(e_in_entUp_entId.value)">Entries - Update</button>
+    <br>
+    <input id="id_in_entUp_entId" type="number" placeholder="Entry ID" value="11">
+    <br>
+    <input id="id_in_entUp_catId" type="number" placeholder="Category ID" value="7"><!-- 8 -->
+    <br>
+    <input id="id_in_entUp_name" placeholder="Category name" value="Fizetés"><!-- Rezsi -->
+    <br>
+    <input id="id_in_entUp_amt" type="number" placeholder="Amount" value="2000">
+    <br>
+    <input id="id_in_entUp_desc" placeholder="Description" value="Some basic text as well.">
+    <br>
+    <input id="id_in_entUp_date" placeholder="Date" value="2026-04-02">
+    <br>
+    <label for="id_cbx_entUp_comp">Completed:</label>
+    <input type="checkbox" id="id_cbx_entUp_comp" name="id_cbx_entUp_comp" checked>
+
+    <hr>
+
     <button onclick="entriesComplete(20)">Entries - Complete</button>
-    <br>
+
+    <hr>
+
     <button onclick="entriesDelete(20)">Entries - Delete</button>
 
     <hr>
     <hr>
 
     <button onclick="plannedEntriesAll()">Planned Entries - Get All</button>
-    <br>
+
+    <hr>
+
     <button onclick="plannedEntriesAdd()">Planned Entries - Add</button>
-    <br>
+
+    <hr>
+
     <button onclick="plannedEntriesStatus(9)">Planned Entries - Status</button>
 
     <hr>
@@ -141,5 +180,21 @@ const e_cbx_catUp_inUse = document.getElementById("id_cbx_catUp_inUse");
 const e_in_catStat_id = document.getElementById("id_in_catStat_id");
 
 const e_in_entGet_id = document.getElementById("id_in_entGet_id");
+
+const e_in_entGetY = document.getElementById("id_in_entGetY");
+const e_in_entGetM = document.getElementById("id_in_entGetM");
+
+const e_in_entAdd_catId = document.getElementById("id_in_entAdd_catId");
+const e_in_entAdd_amt = document.getElementById("id_in_entAdd_amt");
+const e_in_entAdd_desc = document.getElementById("id_in_entAdd_desc");
+const e_in_entAdd_date = document.getElementById("id_in_entAdd_date");
+
+const e_in_entUp_entId = document.getElementById("id_in_entUp_entId");
+const e_in_entUp_catId = document.getElementById("id_in_entUp_catId");
+const e_in_entUp_name = document.getElementById("id_in_entUp_name");
+const e_in_entUp_amt = document.getElementById("id_in_entUp_amt");
+const e_in_entUp_desc = document.getElementById("id_in_entUp_desc");
+const e_in_entUp_date = document.getElementById("id_in_entUp_date");
+const e_cbx_entUp_comp = document.getElementById("id_cbx_entUp_comp");
 
 </script>

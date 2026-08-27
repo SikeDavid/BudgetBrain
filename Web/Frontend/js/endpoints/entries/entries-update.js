@@ -17,12 +17,12 @@
 
 function entriesUpdate(id) {
     const body = {
-        "category_id": 1,
-        "name": "Fizetés",
-        "description": "Fizetés",
-        "amount": 999,
-        "date": "2026-04-01",
-        "completed": 1
+        "category_id": e_in_entUp_catId.value,
+        "name": e_in_entUp_name.value,
+        "amount": e_in_entUp_amt.value,
+        "description": e_in_entUp_desc.value,
+        "date": e_in_entUp_date.value,
+        "completed": e_cbx_entUp_comp.checked ? 1 : 0
     };
 
     ajax({
