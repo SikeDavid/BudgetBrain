@@ -130,7 +130,6 @@ app.get('/', (req, res) => {
                     },
                     body: {
                         category_id: "id",
-                        name: "Fizetés",
                         description: "Fizetés",
                         amount: 999,
                         date: "2026-04-01",

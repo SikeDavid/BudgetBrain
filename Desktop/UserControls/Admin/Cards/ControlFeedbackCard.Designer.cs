@@ -47,6 +47,7 @@
             // 
             lblTitle.Anchor = AnchorStyles.None;
             lblTitle.AutoSize = true;
+            lblTitle.ForeColor = Color.FromArgb(246, 247, 247);
             lblTitle.Location = new Point(137, 45);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(52, 30);
@@ -57,6 +58,7 @@
             // 
             lblId.Anchor = AnchorStyles.Left;
             lblId.AutoSize = true;
+            lblId.ForeColor = Color.FromArgb(246, 247, 247);
             lblId.Location = new Point(69, 45);
             lblId.Name = "lblId";
             lblId.Size = new Size(31, 30);
@@ -115,6 +117,7 @@
             btnDelete.BackColor = Color.FromArgb(34, 46, 59);
             btnDelete.Dock = DockStyle.Fill;
             btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.ForeColor = Color.FromArgb(246, 247, 247);
             btnDelete.Location = new Point(197, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(91, 60);
@@ -141,6 +144,7 @@
             btnExpand.BackColor = Color.FromArgb(34, 46, 59);
             btnExpand.Dock = DockStyle.Fill;
             btnExpand.FlatStyle = FlatStyle.Flat;
+            btnExpand.ForeColor = Color.FromArgb(246, 247, 247);
             btnExpand.Location = new Point(294, 3);
             btnExpand.Name = "btnExpand";
             btnExpand.Size = new Size(92, 60);
@@ -151,6 +155,7 @@
             // lblUser
             // 
             lblUser.AutoSize = true;
+            lblUser.ForeColor = Color.FromArgb(246, 247, 247);
             lblUser.Location = new Point(453, 45);
             lblUser.Name = "lblUser";
             lblUser.Size = new Size(68, 30);
@@ -161,6 +166,7 @@
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(34, 46, 59);
             Controls.Add(panelContent);
             Controls.Add(panelBase);
             Name = "ControlFeedbackCard";

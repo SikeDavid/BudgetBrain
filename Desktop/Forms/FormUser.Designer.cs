@@ -30,17 +30,18 @@
         {
             panel1 = new Panel();
             btnLogout = new Button();
-            btnSettings = new Button();
             btnFeedback = new Button();
             btnPlanner = new Button();
+            btnCategories = new Button();
             btnEntries = new Button();
             btnDashBoard = new Button();
             panelLogo = new Panel();
-            label1 = new Label();
-            llbLogo = new Label();
+            lblLogo2 = new Label();
+            llbLogo1 = new Label();
             panel2 = new Panel();
             lblPageTitle = new Label();
             panelContent = new Panel();
+            btnSettings = new Button();
             panel1.SuspendLayout();
             panelLogo.SuspendLayout();
             panel2.SuspendLayout();
@@ -49,10 +50,11 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(34, 46, 59);
-            panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(btnSettings);
+            panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(btnFeedback);
             panel1.Controls.Add(btnPlanner);
+            panel1.Controls.Add(btnCategories);
             panel1.Controls.Add(btnEntries);
             panel1.Controls.Add(btnDashBoard);
             panel1.Controls.Add(panelLogo);
@@ -78,21 +80,6 @@
             btnLogout.Text = "  Logout";
             btnLogout.UseVisualStyleBackColor = true;
             // 
-            // btnSettings
-            // 
-            btnSettings.Dock = DockStyle.Top;
-            btnSettings.FlatAppearance.BorderSize = 0;
-            btnSettings.FlatStyle = FlatStyle.Flat;
-            btnSettings.Font = new Font("Segoe UI", 12F);
-            btnSettings.ForeColor = Color.WhiteSmoke;
-            btnSettings.Location = new Point(0, 400);
-            btnSettings.Name = "btnSettings";
-            btnSettings.Padding = new Padding(12, 0, 0, 0);
-            btnSettings.Size = new Size(241, 80);
-            btnSettings.TabIndex = 6;
-            btnSettings.Text = "  Settings";
-            btnSettings.UseVisualStyleBackColor = true;
-            // 
             // btnFeedback
             // 
             btnFeedback.Dock = DockStyle.Top;
@@ -100,12 +87,12 @@
             btnFeedback.FlatStyle = FlatStyle.Flat;
             btnFeedback.Font = new Font("Segoe UI", 12F);
             btnFeedback.ForeColor = Color.WhiteSmoke;
-            btnFeedback.Location = new Point(0, 320);
+            btnFeedback.Location = new Point(0, 400);
             btnFeedback.Name = "btnFeedback";
             btnFeedback.Padding = new Padding(12, 0, 0, 0);
             btnFeedback.Size = new Size(241, 80);
-            btnFeedback.TabIndex = 5;
-            btnFeedback.Text = "  Feedback";
+            btnFeedback.TabIndex = 6;
+            btnFeedback.Text = "  Feedbacks";
             btnFeedback.UseVisualStyleBackColor = true;
             // 
             // btnPlanner
@@ -115,13 +102,28 @@
             btnPlanner.FlatStyle = FlatStyle.Flat;
             btnPlanner.Font = new Font("Segoe UI", 12F);
             btnPlanner.ForeColor = Color.WhiteSmoke;
-            btnPlanner.Location = new Point(0, 240);
+            btnPlanner.Location = new Point(0, 320);
             btnPlanner.Name = "btnPlanner";
             btnPlanner.Padding = new Padding(12, 0, 0, 0);
             btnPlanner.Size = new Size(241, 80);
-            btnPlanner.TabIndex = 4;
+            btnPlanner.TabIndex = 5;
             btnPlanner.Text = "  Planner";
             btnPlanner.UseVisualStyleBackColor = true;
+            // 
+            // btnCategories
+            // 
+            btnCategories.Dock = DockStyle.Top;
+            btnCategories.FlatAppearance.BorderSize = 0;
+            btnCategories.FlatStyle = FlatStyle.Flat;
+            btnCategories.Font = new Font("Segoe UI", 12F);
+            btnCategories.ForeColor = Color.WhiteSmoke;
+            btnCategories.Location = new Point(0, 240);
+            btnCategories.Name = "btnCategories";
+            btnCategories.Padding = new Padding(12, 0, 0, 0);
+            btnCategories.Size = new Size(241, 80);
+            btnCategories.TabIndex = 4;
+            btnCategories.Text = "  Categories";
+            btnCategories.UseVisualStyleBackColor = true;
             // 
             // btnEntries
             // 
@@ -156,37 +158,37 @@
             // panelLogo
             // 
             panelLogo.BackColor = Color.FromArgb(24, 36, 49);
-            panelLogo.Controls.Add(label1);
-            panelLogo.Controls.Add(llbLogo);
+            panelLogo.Controls.Add(lblLogo2);
+            panelLogo.Controls.Add(llbLogo1);
             panelLogo.Dock = DockStyle.Top;
             panelLogo.Location = new Point(0, 0);
             panelLogo.Name = "panelLogo";
             panelLogo.Size = new Size(241, 80);
             panelLogo.TabIndex = 1;
             // 
-            // label1
+            // lblLogo2
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15F);
-            label1.ForeColor = Color.FromArgb(38, 194, 129);
-            label1.Location = new Point(125, 17);
-            label1.Margin = new Padding(0, 0, 3, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(98, 47);
-            label1.TabIndex = 0;
-            label1.Text = "Brain";
+            lblLogo2.AutoSize = true;
+            lblLogo2.Font = new Font("Segoe UI", 15F);
+            lblLogo2.ForeColor = Color.FromArgb(38, 194, 129);
+            lblLogo2.Location = new Point(125, 17);
+            lblLogo2.Margin = new Padding(0, 0, 3, 0);
+            lblLogo2.Name = "lblLogo2";
+            lblLogo2.Size = new Size(98, 47);
+            lblLogo2.TabIndex = 0;
+            lblLogo2.Text = "Brain";
             // 
-            // llbLogo
+            // llbLogo1
             // 
-            llbLogo.AutoSize = true;
-            llbLogo.Font = new Font("Segoe UI", 15F);
-            llbLogo.ForeColor = Color.FromArgb(245, 247, 250);
-            llbLogo.Location = new Point(3, 17);
-            llbLogo.Margin = new Padding(3, 0, 0, 0);
-            llbLogo.Name = "llbLogo";
-            llbLogo.Size = new Size(132, 47);
-            llbLogo.TabIndex = 0;
-            llbLogo.Text = "Budget";
+            llbLogo1.AutoSize = true;
+            llbLogo1.Font = new Font("Segoe UI", 15F);
+            llbLogo1.ForeColor = Color.FromArgb(245, 247, 250);
+            llbLogo1.Location = new Point(3, 17);
+            llbLogo1.Margin = new Padding(3, 0, 0, 0);
+            llbLogo1.Name = "llbLogo1";
+            llbLogo1.Size = new Size(132, 47);
+            llbLogo1.TabIndex = 0;
+            llbLogo1.Text = "Budget";
             // 
             // panel2
             // 
@@ -219,6 +221,21 @@
             panelContent.Size = new Size(1359, 756);
             panelContent.TabIndex = 3;
             // 
+            // btnSettings
+            // 
+            btnSettings.Dock = DockStyle.Top;
+            btnSettings.FlatAppearance.BorderSize = 0;
+            btnSettings.FlatStyle = FlatStyle.Flat;
+            btnSettings.Font = new Font("Segoe UI", 12F);
+            btnSettings.ForeColor = Color.WhiteSmoke;
+            btnSettings.Location = new Point(0, 480);
+            btnSettings.Name = "btnSettings";
+            btnSettings.Padding = new Padding(12, 0, 0, 0);
+            btnSettings.Size = new Size(241, 80);
+            btnSettings.TabIndex = 8;
+            btnSettings.Text = "  Settings";
+            btnSettings.UseVisualStyleBackColor = true;
+            // 
             // FormUser
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
@@ -245,15 +262,16 @@
         private Panel panel1;
         private Panel panel2;
         private Panel panelLogo;
-        private Label llbLogo;
-        private Button btnPlanner;
+        private Label llbLogo1;
+        private Button btnCategories;
         private Button btnEntries;
         private Button btnDashBoard;
         private Label lblPageTitle;
         private Panel panelContent;
-        private Button btnSettings;
         private Button btnFeedback;
+        private Button btnPlanner;
         private Button btnLogout;
-        private Label label1;
+        private Label lblLogo2;
+        private Button btnSettings;
     }
 }

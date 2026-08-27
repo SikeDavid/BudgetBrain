@@ -25,9 +25,9 @@ namespace BudgetBrainDesktop.Forms
 
             btnDashBoard.Click += BtnDashBoardClick;
             btnEntries.Click += BtnEntriesClick;
-            btnPlanner.Click += BtnPlannerClick;
-            btnFeedback.Click += BtnFeedbackClick;
-            btnSettings.Click += BtnSettingsClick;
+            btnCategories.Click += BtnPlannerClick;
+            btnPlanner.Click += BtnFeedbackClick;
+            btnFeedback.Click += BtnSettingsClick;
             btnLogout.Click += BtnLogoutClick;
             //btnAdd.Click += BtnAddClick;
             this.FormClosing += FormUserFormClosing;
@@ -44,17 +44,17 @@ namespace BudgetBrainDesktop.Forms
             btnEntries.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnEntries.ImageAlign = ContentAlignment.MiddleLeft;
 
-            btnPlanner.Image = Properties.Resources.planner_icon;
+            btnCategories.Image = Properties.Resources.planner_icon;
+            btnCategories.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCategories.ImageAlign = ContentAlignment.MiddleLeft;
+
+            btnPlanner.Image = Properties.Resources.feedback_icon;
             btnPlanner.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnPlanner.ImageAlign = ContentAlignment.MiddleLeft;
 
-            btnFeedback.Image = Properties.Resources.feedback_icon;
+            btnFeedback.Image = Properties.Resources.settings_icon;
             btnFeedback.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnFeedback.ImageAlign = ContentAlignment.MiddleLeft;
-
-            btnSettings.Image = Properties.Resources.settings_icon;
-            btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSettings.ImageAlign = ContentAlignment.MiddleLeft;
 
             btnLogout.Image = Properties.Resources.logout_icon;
             btnLogout.TextImageRelation = TextImageRelation.ImageBeforeText;

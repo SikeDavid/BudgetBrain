@@ -149,9 +149,9 @@ export async function modelEntryUpdate(userid, entryid, data) {
     const fields = [];
     const values = [];
 
-    if (data.categoryid !== undefined) {
+    if (data.category_id !== undefined) {
         fields.push("category_id = ?");
-        values.push(data.categoryid);
+        values.push(data.category_id);
     }
 
     if (data.amount !== undefined) {
