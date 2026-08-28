@@ -135,6 +135,7 @@ export async function modelEntryGet(userid, entryid) {
             CASE
                 WHEN c.type = 'expense' THEN -e.amount
                 ELSE e.amount END AS amount,
+        c.type,
         e.date,
         e.completed
         FROM entries e

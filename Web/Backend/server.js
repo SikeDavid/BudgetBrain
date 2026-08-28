@@ -46,6 +46,7 @@ app.get('/', (req, res) => {
                         password: "password"
                     },
                     response: {
+                        status: 200,
                         user: {
                             userId: "user_id",
                             username: "username"
@@ -62,8 +63,8 @@ app.get('/', (req, res) => {
                         password: "password"
                     },
                     response: {
+                        status: 201,
                         message: "Registration successful",
-                        userid: "userId"
                     }
                 },
                 logout: {
@@ -72,6 +73,7 @@ app.get('/', (req, res) => {
                         refreshToken: "refreshtoken"
                     },
                     response: {
+                        status: 200,
                         message: "Logout success"
                     }
                 },
@@ -81,6 +83,7 @@ app.get('/', (req, res) => {
                         refreshToken: "refreshToken"
                     },
                     response: {
+                        status: 201,
                         accesstoken: "accessToken"
                     }
                 }
@@ -92,8 +95,10 @@ app.get('/', (req, res) => {
                         authorization: "Bearer: (token)"
                     },
                     response: {
+                        status: 200,
                         "entry_id": 1,
-                        "name": "Élelmiszer",
+                        "category_id": 2,
+                        "category": "Élelmiszer",
                         "description": "Bolt",
                         "amount": -12000,
                         "date": "2026-04-03",
@@ -105,7 +110,20 @@ app.get('/', (req, res) => {
                     header: {
                         authorization: "Bearer: (token)"
                     },
-                    response: "list of entries"
+                    response: {
+                        status: 200,
+                        data: "list of entries"
+                    }
+                },
+                dashboard: {
+                    route: "GET /api/entries/dashboard",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    response: {
+                        status: 200,
+                        data: "current month balance, income, expense, last 5 entry"
+                    }
                 },
                 add: {
                     route: "POST /api/entries/",
@@ -119,6 +137,7 @@ app.get('/', (req, res) => {
                         date: "date"
                     },
                     response: {
+                        status: 201,
                         message: "Entry created",
                         entryid: "id"
                     }
@@ -134,6 +153,10 @@ app.get('/', (req, res) => {
                         amount: 999,
                         date: "2026-04-01",
                         completed: 1
+                    },
+                    response: {
+                        status: 200,
+                        message: "Entry updated"
                     }
                 },
                 complete: {
@@ -142,8 +165,9 @@ app.get('/', (req, res) => {
                         authorization: "Bearer: (token)"
                     },
                     response: {
+                        status: 200,
                         message: "Entry status changed"
-                    },
+                    }
                 },
                 delete: {
                     route: "DELETE /api/entries/:id",
@@ -151,6 +175,7 @@ app.get('/', (req, res) => {
                         authorization: "Bearer: (token)"
                     },
                     response: {
+                        status: 200,
                         message: "Entry deleted"
                     }
                 }
@@ -161,7 +186,10 @@ app.get('/', (req, res) => {
                     header: {
                         authorization: "Bearer: (token)"
                     },
-                    response: "list of categories"
+                    response: {
+                        status: 200,
+                        message: "list of categories"
+                    }
                 },
                 add: {
                     route: "POST /api/categories/",
@@ -172,6 +200,10 @@ app.get('/', (req, res) => {
                         name: "Valami",
                         type : "expense/income",
                         in_use : 0/1
+                    },
+                    response: {
+                        status: 201,
+                        message: "Category created"
                     }
                 },
                 update: {
@@ -183,12 +215,20 @@ app.get('/', (req, res) => {
                         name: "something",
                         type : "expense/income",
                         in_use : 0/1
+                    },
+                    response: {
+                        status: 200,
+                        message: "Category updated"
                     }
                 },
                 status: {
                     route: "PATCH /api/categories/:id/status/",
                     header: {
                         authorization: "Bearer: (token)"
+                    },
+                    response: {
+                        status: 200,
+                        message: "Category status changed"
                     }
                 }
             },
@@ -198,7 +238,10 @@ app.get('/', (req, res) => {
                     header: {
                         authorization: "Bearer: (token)"
                     },
-                    response: "list of planned entries"
+                    response: {
+                        status: 200,
+                        data: "list of planned entries"
+                    }
                 },
                 add: {
                     route: "POST /api/planner",
@@ -210,13 +253,37 @@ app.get('/', (req, res) => {
                         name: "valami teszt",
                         amount: 3000000,
                         dayofmonth: 30
-                    }  
+                    },
+                    response: {
+                        status: 201,
+                        message: "Planned entry created"
+                    }
+                },
+                update: {
+                    route: "PATCH /api/planner/:id",
+                    header: {
+                        authorization: "Bearer: (token)"
+                    },
+                    body: {
+                        categoryid: 2,
+                        name: "valami teszt",
+                        amount: 3000000,
+                        dayofmonth: 30
+                    },
+                    response: {
+                        status: 200,
+                        message: "Entry updated"
+                    }
                 },
                 status: {
                     route: "PATCH /api/planner/:id/status",
                     header: {
                         authorization: "Bearer: (token)"
                     },
+                    response: {
+                        status: 200,
+                        message: "Planned entry status changed"
+                    }
                 }
             }
         }
