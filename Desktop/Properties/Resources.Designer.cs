@@ -112,6 +112,16 @@ namespace BudgetBrainDesktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap check_icon {
+            get {
+                object obj = ResourceManager.GetObject("check_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dashboard_icon {
             get {
                 object obj = ResourceManager.GetObject("dashboard_icon", resourceCulture);
@@ -172,9 +182,29 @@ namespace BudgetBrainDesktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap money_bag_icon {
+            get {
+                object obj = ResourceManager.GetObject("money_bag_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap planner_icon {
             get {
                 object obj = ResourceManager.GetObject("planner_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap restore_from_trash_icon {
+            get {
+                object obj = ResourceManager.GetObject("restore_from_trash_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

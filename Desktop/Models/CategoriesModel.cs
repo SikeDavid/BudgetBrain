@@ -13,6 +13,8 @@ namespace BudgetBrainDesktop.Models
         public string Name { get; set; }
         [JsonPropertyName("type")]
         public string Type { get; set; }
+        [JsonPropertyName("in_use")]
+        public int inUse { get; set; }
 
         public class Get
         {
@@ -22,6 +24,8 @@ namespace BudgetBrainDesktop.Models
             public string Name { get; set; }
             [JsonPropertyName("type")]
             public string Type { get; set; }
+            [JsonPropertyName("in_use")]
+            public int inUse { get; set; }
         }
     }
 }

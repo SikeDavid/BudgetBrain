@@ -109,7 +109,6 @@ namespace BudgetBrainDesktop.UserControls.Cards
                     btnDelete.Enabled = true;
                     btnDelete.Text = "Delete";
                 }
-
             }
         }
     }

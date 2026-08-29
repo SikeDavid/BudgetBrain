@@ -34,13 +34,16 @@
             lblDate = new Label();
             lblCategory = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
-            button1 = new Button();
-            button2 = new Button();
+            btnModify = new Button();
+            btnDelete = new Button();
             panel1 = new Panel();
             lblAmount = new Label();
+            panel2 = new Panel();
+            btnPaid = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -111,10 +114,10 @@
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Controls.Add(button1, 0, 0);
-            tableLayoutPanel2.Controls.Add(button2, 0, 1);
+            tableLayoutPanel2.Controls.Add(btnModify, 0, 0);
+            tableLayoutPanel2.Controls.Add(btnDelete, 0, 1);
             tableLayoutPanel2.Dock = DockStyle.Right;
-            tableLayoutPanel2.Location = new Point(964, 0);
+            tableLayoutPanel2.Location = new Point(1068, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
@@ -122,40 +125,39 @@
             tableLayoutPanel2.Size = new Size(193, 166);
             tableLayoutPanel2.TabIndex = 1;
             // 
-            // button1
+            // btnModify
             // 
-            button1.BackColor = Color.FromArgb(48, 58, 59);
-            button1.Dock = DockStyle.Fill;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = Color.FromArgb(246, 247, 247);
-            button1.Location = new Point(6, 6);
-            button1.Margin = new Padding(6);
-            button1.Name = "button1";
-            button1.Size = new Size(181, 71);
-            button1.TabIndex = 0;
-            button1.Text = "Modify";
-            button1.UseVisualStyleBackColor = false;
+            btnModify.BackColor = Color.FromArgb(48, 58, 59);
+            btnModify.Dock = DockStyle.Fill;
+            btnModify.FlatAppearance.BorderSize = 0;
+            btnModify.FlatStyle = FlatStyle.Flat;
+            btnModify.ForeColor = Color.FromArgb(246, 247, 247);
+            btnModify.Location = new Point(6, 6);
+            btnModify.Margin = new Padding(6);
+            btnModify.Name = "btnModify";
+            btnModify.Size = new Size(181, 71);
+            btnModify.TabIndex = 0;
+            btnModify.Text = "Modify";
+            btnModify.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnDelete
             // 
-            button2.BackColor = Color.FromArgb(48, 58, 59);
-            button2.Dock = DockStyle.Fill;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = Color.FromArgb(246, 247, 247);
-            button2.Location = new Point(6, 89);
-            button2.Margin = new Padding(6);
-            button2.Name = "button2";
-            button2.Size = new Size(181, 71);
-            button2.TabIndex = 1;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = false;
+            btnDelete.BackColor = Color.FromArgb(48, 58, 59);
+            btnDelete.Dock = DockStyle.Fill;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.ForeColor = Color.FromArgb(246, 247, 247);
+            btnDelete.Location = new Point(6, 89);
+            btnDelete.Margin = new Padding(6);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(181, 71);
+            btnDelete.TabIndex = 1;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
             panel1.Controls.Add(lblAmount);
-            panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(703, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(261, 166);
@@ -173,21 +175,43 @@
             lblAmount.TabIndex = 0;
             lblAmount.Text = "amount";
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(btnPaid);
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(970, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(98, 166);
+            panel2.TabIndex = 3;
+            // 
+            // btnPaid
+            // 
+            btnPaid.Dock = DockStyle.Fill;
+            btnPaid.FlatStyle = FlatStyle.Flat;
+            btnPaid.Location = new Point(0, 0);
+            btnPaid.Name = "btnPaid";
+            btnPaid.Size = new Size(98, 166);
+            btnPaid.TabIndex = 0;
+            btnPaid.Text = "button3";
+            btnPaid.UseVisualStyleBackColor = true;
+            // 
             // ControlEntriesEntryCard
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(34, 46, 59);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
             Name = "ControlEntriesEntryCard";
-            Size = new Size(1157, 166);
+            Size = new Size(1261, 166);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -198,10 +222,12 @@
         private Label lblType;
         private Label lblDate;
         private TableLayoutPanel tableLayoutPanel2;
-        private Button button1;
-        private Button button2;
+        private Button btnModify;
+        private Button btnDelete;
         private Panel panel1;
         private Label lblAmount;
         private Label lblCategory;
+        private Panel panel2;
+        private Button btnPaid;
     }
 }

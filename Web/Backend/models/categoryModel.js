@@ -15,7 +15,8 @@ async function modelCategoriesGet(userid) {
         SELECT
             c.category_id,
             c.name,
-            c.type
+            c.type,
+            c.in_use
         FROM categories c
         WHERE c.user_id = ?
     `;
