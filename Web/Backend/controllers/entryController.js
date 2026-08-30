@@ -3,6 +3,7 @@ import {
     modelEntryDashboard,
     modelEntriesGet,
     modelEntryGet,
+    modelEntrySearch,
     modelEntryPlannerGenerate,
     modelEntryUpdate,
     modelEntryComplete,
@@ -81,12 +82,28 @@ export async function controllerEntriesGet(req, res) {
 export async function controllerEntryGet(req, res) {
     const userid = req.user.id;
     const entryid = req.params.id;
+    
     try {
         const data = await modelEntryGet(userid, entryid);
         if (data.length === 0) return res.status(404).json({message: "Entry not found"});
 
         return res.status(200).json(data);
     } catch (err) {
+        console.error("Server error", err);
+        return res.status(500).json({message: "Server error"});
+    }
+}
+// Read
+export async function controllerEntrySearch(req, res) {
+    const userid = req.user.id;
+    const search = req.query.s
+
+    try {
+        const data = await modelEntrySearch(userid, search.trim());
+        
+        return res.status(200).json(data);
+    }
+    catch (err) {
         console.error("Server error", err);
         return res.status(500).json({message: "Server error"});
     }

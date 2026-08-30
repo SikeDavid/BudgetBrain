@@ -58,15 +58,16 @@
             tableLayoutPanel1.Controls.Add(label2, 1, 0);
             tableLayoutPanel1.Controls.Add(cbCategorySort, 1, 1);
             tableLayoutPanel1.Controls.Add(tbSearch, 2, 1);
-            tableLayoutPanel1.Controls.Add(btnAdd, 3, 1);
             tableLayoutPanel1.Controls.Add(label3, 2, 0);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
+            tableLayoutPanel1.Controls.Add(btnAdd, 3, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(10, 10);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(1160, 121);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -127,9 +128,10 @@
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 14F);
             btnAdd.ForeColor = Color.FromArgb(246, 247, 247);
-            btnAdd.Location = new Point(994, 70);
+            btnAdd.Location = new Point(994, 32);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(131, 40);
+            tableLayoutPanel1.SetRowSpan(btnAdd, 2);
+            btnAdd.Size = new Size(131, 56);
             btnAdd.TabIndex = 4;
             btnAdd.Text = "+";
             btnAdd.UseVisualStyleBackColor = false;

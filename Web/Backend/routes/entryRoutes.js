@@ -3,6 +3,7 @@ import {
     controllerEntryDashboard,
     controllerEntriesGet,
     controllerEntryGet,
+    controllerEntrySearch,
     controllerEntryCreate,
     controllerEntryToggleComplete,
     controllerEntryDelete,
@@ -14,7 +15,9 @@ const router = express.Router();
 router.get('/dashboard', controllerEntryDashboard);
 
 router.get('/', controllerEntriesGet);
+router.get('/search', controllerEntrySearch);
 router.get('/:id', controllerEntryGet);
+
 router.post('/', controllerEntryCreate);
 router.patch('/:id', controllerEntryUpdate);
 router.patch('/:id/complete', controllerEntryToggleComplete);

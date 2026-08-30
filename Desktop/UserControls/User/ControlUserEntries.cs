@@ -17,6 +17,7 @@ namespace BudgetBrainDesktop.UserControls.User
     {
         public string PageTitle { get; } = "Entries";
         private List<EntriesModel> entries = new();
+        private List<CategoriesModel> categories = new();
 
         private DateTime currentDate = DateTime.Today;
         public ControlUserEntries()
@@ -55,6 +56,7 @@ namespace BudgetBrainDesktop.UserControls.User
         private async void ControlUserEntriesLoad(object? sender, EventArgs e)
         {
             lblCurrentMonth.Text = currentDate.ToString("yyyy. MMMM");
+            await LoadCategoriesAsync();
             await LoadEntriesAsync();
         }
 
@@ -80,12 +82,24 @@ namespace BudgetBrainDesktop.UserControls.User
 
             foreach (EntriesModel entry in entriesToDisplay)
             {
-                ControlEntriesEntryCard card = new (entry);
-
+                ControlEntriesEntryCard card = new (entry, categories);
                 card.Dock = DockStyle.None;
                 card.Anchor = AnchorStyles.Top | AnchorStyles.Left;
                 card.Margin = new Padding(5);
                 panelContentEntries.Controls.Add(card);
+            }
+        }
+
+        private async Task LoadCategoriesAsync()
+        {
+            try
+            {
+                categories = await ApiService.GetAsync<List<CategoriesModel>>(
+                    $"categories");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

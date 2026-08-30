@@ -14,7 +14,6 @@ export async function controllerCategoriesGet(req, res) {
         if (data.length === 0) {
             return res.status(200).json([]);
         }
-
         return res.status(200).json(data);
     }
     catch (err) {

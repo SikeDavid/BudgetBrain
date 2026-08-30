@@ -145,6 +145,23 @@ export async function modelEntryGet(userid, entryid) {
     const [result] = await db.query(sql, [userid, entryid]);
     return result;
 }
+// Read
+export async function modelEntrySearch(userid, search) {
+    const sql = `
+        SELECT
+            c.category_id,
+            c.name,
+            e.description
+        FROM entries e
+        JOIN categories c on c.category_id = e.category_id
+        WHERE e.user_id = ?
+        AND e.description LIKE ?
+        `;
+
+    const [result] = await db.query(sql, [userid, `%${search}%`]);
+
+    return result;
+}
 // Update
 export async function modelEntryUpdate(userid, entryid, data) {
     const fields = [];
