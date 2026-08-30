@@ -125,6 +125,16 @@ app.get('/', (req, res) => {
                         data: "current month balance, income, expense, last 5 entry"
                     }
                 },
+                search: {
+                    route: "GET /api/entries?s=",
+                    header: {
+                        authorization: "Bearer (token)"
+                    },
+                    response: {
+                        status: 200,
+                        data: "categoryid, categoryname, entrydescription"
+                    }
+                },
                 add: {
                     route: "POST /api/entries/",
                     header: {

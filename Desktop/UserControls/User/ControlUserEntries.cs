@@ -86,6 +86,7 @@ namespace BudgetBrainDesktop.UserControls.User
                 card.Dock = DockStyle.None;
                 card.Anchor = AnchorStyles.Top | AnchorStyles.Left;
                 card.Margin = new Padding(5);
+                card.EntryChanged += CardEntryChanged;
                 panelContentEntries.Controls.Add(card);
             }
         }
@@ -101,6 +102,11 @@ namespace BudgetBrainDesktop.UserControls.User
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private async void CardEntryChanged(object? sender, EventArgs e)
+        {
+            await LoadEntriesAsync();
         }
     }
 }

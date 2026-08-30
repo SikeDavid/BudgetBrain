@@ -129,8 +129,12 @@ namespace BudgetBrainDesktop.UserControls.User.Cards
                     EntryChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
-            MessageBox.Show("Delete");
-            return;
+            else
+            {
+                MessageBox.Show("Delete");
+                return;
+            }
+
         }
 
         private async void BtnModifyClick(object? sender, EventArgs e)
