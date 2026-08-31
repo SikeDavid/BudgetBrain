@@ -1,0 +1,9 @@
+tömegközlekedési bérlet
+vonatjegy
+buszjegy
+villamosjegy
+metrójegy
+repülőjegy
+taxi
+telekocsi
+autókölcsönzés

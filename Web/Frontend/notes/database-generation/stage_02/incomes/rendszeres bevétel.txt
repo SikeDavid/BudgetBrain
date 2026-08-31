@@ -1,0 +1,6 @@
+nyugdíj
+öregségi nyugdíj
+özvegyi nyugdíj
+járadék
+életjáradék
+rendszeres járadék

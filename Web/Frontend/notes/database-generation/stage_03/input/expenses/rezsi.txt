@@ -1,0 +1,20 @@
+vezetékes telefon
+közös költség
+villanyszámla
+gázszámla
+vízdíj
+csatornadíj
+távhő
+szemétszállítás
+fűtésszámla
+hűtésszámla
+internet
+mobiltelefon-előfizetés
+televízió-előfizetés
+streaming
+zene-előfizetés
+felhőtárhely
+domainnév
+webtárhely
+szoftver-előfizetés
+alkalmazás-előfizetés

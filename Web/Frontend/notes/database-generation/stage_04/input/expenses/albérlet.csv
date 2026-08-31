@@ -1,0 +1,15 @@
+tárolóbox bérlés,1,10000,10000
+havi lakbér,1,150000,150000
+albérleti közvetítői díj,0,50000,50000
+rezsiátalány,1,10000,15000
+közös költség elmaradása,0,5000,50000
+villanyóra-leolvasás,0,0,10000
+gázóra-leolvasás,0,0,10000
+vízóra-leolvasás,0,0,10000
+villanyóra-csere,0,10000,15000
+vízóra-csere,0,10000,30000
+gázóra-csere,0,10000,15000
+mérőóra-hitelesítés,0,5000,10000
+fűtési elszámolás,0,5000,30000
+felújítási alap,1,11000,12000
+társasházi rendkívüli befizetés,0,10000,60000

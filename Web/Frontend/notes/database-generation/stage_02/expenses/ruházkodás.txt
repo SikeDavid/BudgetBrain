@@ -1,0 +1,13 @@
+ruházat
+ruha
+póló
+nadrág
+ing
+pulóver
+kabát
+fehérnemű
+zokni
+cipő
+sportcipő
+papucs
+csizma

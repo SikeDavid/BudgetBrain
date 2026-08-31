@@ -20,7 +20,6 @@ function categoriesAdd() {
     };
 
     ajax({
-        caller: categoriesAdd,
         method: "POST",
         url: `${API_PATH}/categories`,
         body: body,

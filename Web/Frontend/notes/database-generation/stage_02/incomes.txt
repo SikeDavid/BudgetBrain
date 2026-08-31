@@ -1,0 +1,326 @@
+cafeteria
+
+
+
+#
+vállalkozói bevétel
+egyéni vállalkozás bevétele
+webfejlesztés bevétele
+személyi edzői bevétel
+kutyakozmetikai bevétel
+kézműves termék eladása
+saját készítésű termék bevétele
+rendezvényen szerzett bevétel
+zenélésből származó bevétel
+fellépési díj
+előadói díj
+művészeti bevétel
+magánóra
+
+
+#
+alkalmi munka
+diákmunkából származó bevétel
+hétvégi munka
+szezonális munka
+idénymunka
+másodállás
+mellékállás
+beugrós műszak
+helyettesítésért kapott pénz
+alkalmi segítségért kapott pénz
+költöztetésért kapott pénz
+szerelésért kapott pénz
+fűnyírásért kapott pénz
+hóeltakarításért kapott pénz
+magánóra bevétele
+szövegírásból származó bevétel
+online munka bevétele
+mikrofeladatokból származó bevétel
+kérdőívek kitöltéséből származó bevétel
+
+
+
+#
+vállalkozás osztaléka
+osztalék
+részvényosztalék
+ETF osztaléka
+befektetési alap hozama
+kötvénykamat
+állampapír kamata
+bankbetét kamata
+lekötött betét kamata
+megtakarítási számla kamata
+pénzpiaci befektetés hozama
+befektetés árfolyamnyeresége
+részvény eladásából származó nyereség
+kriptovaluta eladásából származó nyereség
+értékpapír eladásából származó bevétel
+kamatjövedelem
+
+
+
+#
+szobakiadás
+telek bérbeadása
+online piactéren történő értékesítés
+
+
+
+
+lakáskiadás
+garázskiadás
+parkolóhely kiadása
+tárolóhely kiadása
+pince kiadása
+földterület bérbeadása
+üzlethelyiség bérbeadása
+irodahelyiség bérbeadása
+nyaraló kiadása
+apartmankiadás
+rövid távú szálláshely bevétele
+lakókocsi kiadása
+gépkocsi kiadása
+eszközbérbeadás
+szerszámkölcsönzésből származó bevétel
+fotófelszerelés bérbeadása
+rendezvényfelszerelés bérbeadása
+
+
+#
+visszatérítés
+banki visszatérítés
+téves utalás visszafizetése
+téves terhelés visszatérítése
+bankkártyás vásárlás visszatérítése
+webshopos visszatérítés
+visszaküldött termék ára
+túlfizetés visszatérítése
+közüzemi túlfizetés visszatérítése
+adó-visszatérítés
+adójóváírás
+biztosítási kártérítés
+biztosítói térítés
+egészségbiztosítási térítés
+utasbiztosítási térítés
+lakásbiztosítási kártérítés
+gépjármű-biztosítási kártérítés
+biztosítási önrész visszatérítése
+garanciális visszatérítés
+jótállási visszatérítés
+hibás termék miatti kompenzáció
+webshop kupon helyett visszautalás
+szállítási díj visszatérítése
+
+
+
+#
+ajándékba kapott pénz
+születésnapi pénzajándék
+karácsonyi pénzajándék
+esküvői pénzajándék
+ballagási pénzajándék
+keresztelői pénzajándék
+névnapi pénzajándék
+évfordulós pénzajándék
+ünnepi pénzajándék
+zsebpénz
+gyermeknek adott pénz
+szülőtől kapott pénz
+nagyszülőtől kapott pénz
+családi támogatás
+baráttól kapott pénz
+közös ajándékból visszamaradt pénz
+közös kasszából visszakapott pénz
+
+
+
+#
+kölcsön visszafizetése
+barátnak kölcsönadott pénz visszakapása
+családtagnak kölcsönadott pénz visszakapása
+munkatársnak kölcsönadott pénz visszakapása
+közös vacsora után visszakapott pénz
+közös nyaralás elszámolása
+közös bevásárlás elszámolása
+lakótárstól kapott rezsihozzájárulás
+lakótárstól kapott lakbér
+közös előfizetésből visszakapott rész
+közös ajándékhoz kapott hozzájárulás
+közös tankolás költségtérítése
+
+
+
+#
+anyasági támogatás
+gyermeknevelési támogatás
+lakhatási támogatás
+vállalkozásfejlesztési támogatás
+otthonteremtési támogatás
+felújítási támogatás
+energiahatékonysági támogatás
+
+
+
+#
+rokkantsági ellátás
+rehabilitációs ellátás
+
+
+
+
+
+
+
+
+
+
+#
+táppénz
+betegszabadságra kapott jövedelem
+baleseti ellátás
+kártérítés
+peres ügyből kapott kártérítés
+munkajogi kártérítés
+elmaradt munkabér megtérítése
+
+
+
+#
+örökség
+örökölt pénz
+örökölt ingatlan eladásából származó pénz
+hagyatékból kapott értékpapír
+hagyatékból kapott értéktárgy eladása
+kedvezményezettként kapott biztosítási összeg
+temetési támogatás
+
+
+
+#
+
+
+vetélkedő nyereménye
+tombola nyereménye
+nyereményjáték nyereménye
+cashback
+hűségprogram pénzvisszatérítése
+banki cashback
+hitelkártyás cashback
+kuponjóváírás
+webshopos pontbeváltásból származó jóváírás
+palackvisszaváltásból kapott pénz
+
+
+
+#
+borravaló
+online borravaló
+készpénzes borravaló
+digitális borravaló
+adományként kapott pénz
+támogatói pénz
+rajongói támogatás
+livestream bevétel
+Patreon-bevétel
+előfizetői támogatás
+közösségi finanszírozásból származó bevétel
+crowdfunding bevétel
+reklámbevétel
+YouTube-bevétel
+videómegtekintésekből származó bevétel
+podcast reklámbevétel
+blog reklámbevétele
+affiliate jutalék
+ajánlói jutalék
+partnerprogramból származó bevétel
+hirdetési jutalék
+
+
+
+#
+webshop bevétele
+online bolt bevétele
+digitális termék értékesítése
+e-book eladás
+online tananyag értékesítése
+sablon eladása
+grafikai sablon eladása
+weboldalsablon eladása
+programkód értékesítése
+plugin értékesítése
+alkalmazás értékesítése
+mobilalkalmazás bevétele
+játékbevétel
+játékbeli vásárlásokból származó bevétel
+előfizetéses szolgáltatás bevétele
+tagsági díj bevétele
+
+
+
+#
+jutalék
+értékesítési jutalék
+közvetítői jutalék
+biztosításközvetítői jutalék
+ingatlanközvetítői jutalék
+értékesítői prémium
+forgalmi bónusz
+ajánlási bónusz
+belépési bónusz
+ügyfélszerzési jutalék
+
+
+
+#
+munkáltatói költségtérítés
+parkolási költségtérítés
+kilométertérítés
+munkaruha-visszatérítés
+képzési költség megtérítése
+telefonköltség megtérítése
+internetköltség megtérítése
+reprezentációs költség elszámolása
+céges előleg visszafizetése
+túlfizetett céges előleg visszautalása
+
+
+
+#
+pénzfelvétel helyett visszarakott készpénz
+persely kiürítése
+megtakarításból átcsoportosított pénz
+másik bankszámláról átvezetett pénz
+lekötésből felszabadult pénz
+megtakarítás feltörése
+befektetésből kivett pénz
+értékpapír eladásából befolyt összeg
+kriptó kiutalása
+PayPal-egyenleg kiutalása
+Revolut-egyenleg visszautalása
+digitális pénztárcából kiutalt pénz
+
+
+
+#
+talált pénz
+visszaadott kölcsön
+elfelejtett tartozás rendezése
+régi előleg visszakapása
+túlfizetés
+aprópénz összegyűjtése
+perselypénz
+kabátzsebben talált pénz
+régi pénztárcából előkerült pénz
+eladott kacat
+„ezt már úgysem használom”
+„valaki végre kifizette”
+„fogalmam sincs, de örülök neki”
+„váratlan bevétel”
+„egyéb bevétel”
+
+
+
+#
+véletlen vásárlás visszatérítése

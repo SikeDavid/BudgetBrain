@@ -1,0 +1,77 @@
+lakhatás
+rezsi
+élelmiszer
+háztartás
+higiénia
+egészségügy
+háziállat
+tömegközlekedés
+autó
+üzemanyag
+sport
+szabadidő
+hobbi
+szórakozás
+kultúra
+utazás
+nyaralás
+szállás
+repülés
+ruházkodás
+elektronika
+számítástechnika
+telefon
+tanulás
+könyv
+újságok
+szakmai kiadások
+ember
+asszony
+gyerek
+baba
+büdös kölyök
+ajándék
+család
+adomány
+jótékonykodás
+banki költség
+hitel
+megtakarítás
+befektetés
+ingatlan
+lakásfelújítás
+javítás
+kert
+költözés
+csomag
+felújítás
+munkával kapcsolatos kiadások
+üzleti kiadások
+vállalkozási költségek
+készpénzfelvétel
+pénzforgalmi költségek
+alapvető szükségletek
+életvitel
+otthon
+közlekedés
+étel-ital
+egészség
+személyes kiadások
+munka
+vásárlás
+szolgáltatások
+előfizetések
+pénzügyek
+biztosítás
+adózás
+tartozások
+ajándékok
+társadalmi/jótékonysági kiadások
+vagyonfenntartás
+beruházások
+megtakarítások
+befektetések
+váratlan kiadások
+személyes
+vagyon
+egyéb

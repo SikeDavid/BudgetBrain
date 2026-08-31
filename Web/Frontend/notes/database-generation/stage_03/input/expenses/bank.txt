@@ -1,0 +1,26 @@
+számlavezetési díj
+bankkártya
+lakáshitel
+jelzáloghitel
+banki költség
+számlavezetési díj
+bankkártyadíj
+átutalási díj
+készpénzfelvételi díj
+hitelkártyadíj
+hiteltörlesztés
+személyi kölcsön törlesztése
+diákhitel
+készpénzfelvétel
+bankkártya pótlása
+bankkártya sürgősségi pótlása
+bankkártya külföldi használati díja
+devizaváltási veszteség
+ATM-használati díj
+külföldi ATM-díj
+banki SMS-díj
+push értesítési díj
+számlakivonat díja
+banki igazolás
+bankszámlanyitási díj
+számlazárási díj

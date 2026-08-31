@@ -1,0 +1,91 @@
+só
+bors
+paprika
+curry
+fahéj
+vanília
+sütőpor
+élesztő
+zselatin
+étkezési keményítő
+ételfesték
+csokoládé sütéshez
+dekorcukor
+hűtőszekrény
+fagyasztóláda
+borhűtő
+sütő
+főzőlap
+indukciós főzőlap
+elszívó
+mosogatógép
+mosógép
+szárítógép
+robotporszívó
+gőztisztító
+varrógép
+kenyérsütő
+dagasztógép
+konyhai robotgép
+air fryer
+kontaktgrill
+szendvicssütő
+gofrisütő
+rizsfőző
+lassúfőző
+elektromos grill
+kávédaráló
+tejhabosító
+botmixer
+aprítógép
+gyümölcscentrifuga
+jégkockakészítő
+konyhai mérleg
+digitális mérleg elem
+húshőmérő
+sütőhőmérő
+tojásszeletelő
+konzervnyitó
+dugóhúzó
+fokhagymanyomó
+reszelő
+szűrő
+vágódeszka
+ételhordó
+ételtároló edény
+vákuumfólia
+vákuumcsomagoló tasak
+befőttesüveg
+befőzőgumi
+befőzőcukor
+lekvárfőzés alapanyaga
+savanyítás alapanyaga
+házi sörfőző kellék
+tortasütő forma
+muffinpapír
+habzsák
+sütődekoráció
+konyhai kés élezése
+késélező
+evőeszközpótlás
+pohárpótlás
+tányértörés miatti pótlás
+bögrék
+termoszbögre
+étkészlet
+lábas
+fazék
+wok
+tepsi
+sütőrács
+sütőtál
+fedő
+konyharuha
+edényfogó
+kötény
+asztalterítő
+tányéralátét
+szalvétatartó
+kenyértartó
+fűszertartó
+ételízesítő

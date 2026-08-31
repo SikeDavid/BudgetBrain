@@ -21,7 +21,6 @@ function registration() {
     };
 
     ajax({
-        caller: registration,
         method: "POST",
         url: `${API_PATH}/auth/registration`,
         body: body,

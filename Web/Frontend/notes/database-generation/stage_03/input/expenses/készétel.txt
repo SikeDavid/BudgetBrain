@@ -1,0 +1,78 @@
+étterem
+gyorsétterem
+pizzarendelés
+házhozszállítás
+kávézó
+pékség
+cukrászda
+fagylalt
+büfé
+munkahelyi ebéd
+menza
+reggeli péksütemény
+croissant
+kakaós csiga
+pogácsa
+szendvics
+saláta
+leves
+napi menü
+desszert
+palacsinta
+gofri
+sült krumpli
+hamburger
+gyros
+kebab
+sushi
+kínai étel
+thai étel
+indiai étel
+mexikói étel
+pizza feltét
+pizza szósz
+pizzatészta
+fagyasztott pizza
+popcorn
+nachos
+mozis snack
+energiaital
+sportital
+limonádé
+smoothie
+frissen facsart narancslé
+jegeskávé
+cappuccino
+latte
+espresso
+kávészirup
+kávétejszín
+palackozott víz
+szódavíz
+sörmentes ital
+borhoz kapcsolódó kiegészítő
+éttermi asztalfoglalás díja
+éttermi kiszállítási díj
+extra feltét
+extra szósz
+kenyérkosár
+terítékdíj
+brunch
+svédasztalos reggeli
+büféebéd
+céges vacsora
+üzleti ebéd
+randivacsora
+éjszakai étel
+fesztiválétel
+strandbüfé
+sípálya büfé
+benzinkúti étkezés
+automatás kávé
+automatás édesség
+munkahelyi italautomata
+irodai közös reggeli
+közös pizza rendelés
+születésnapi torta szeletek
+háziállatnak vásárolt jutalomfalat
+maradék étel kidobása miatti veszteség

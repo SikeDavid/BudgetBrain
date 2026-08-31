@@ -1,0 +1,39 @@
+szállás
+hotel
+apartman
+kemping
+repülőtéri transzfer
+csomagdíj
+poggyászdíj
+benzinkúti kávé
+út közbeni étkezés
+hotel reggeli
+hotel parkolás
+hotel wellness
+szállodai minibár
+késői kijelentkezés
+korai bejelentkezés
+szállodai idegenforgalmi adó
+szobaszerviz
+takarítási díj
+apartman takarítási díja
+ágyneműdíj
+törölköződíj
+kisállat-felár
+extra ágy
+gyermekágy
+reptéri transzfer
+taxi várakozási díj
+fuvarmegosztó
+bérautó
+bérautó üzemanyag
+bérautó takarítási díj
+bérautó kár
+parkolóház
+autópályadíj
+komp
+helyjegy
+hálókocsi
+sífelszerelés-bérlés
+rollerbérlés
+kenu bérlés

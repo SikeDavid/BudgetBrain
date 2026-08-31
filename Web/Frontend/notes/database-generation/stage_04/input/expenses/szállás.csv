@@ -1,0 +1,39 @@
+szállás,0,5000,300000
+hotel,0,10000,300000
+apartman,0,10000,200000
+kemping,0,3000,50000
+repülőtéri transzfer,0,3000,50000
+csomagdíj,0,1000,30000
+poggyászdíj,0,3000,100000
+benzinkúti kávé,0,300,2000
+út közbeni étkezés,0,1000,10000
+hotel reggeli,0,2000,10000
+hotel parkolás,0,1000,10000
+hotel wellness,0,3000,30000
+szállodai minibár,0,500,20000
+késői kijelentkezés,0,1000,30000
+korai bejelentkezés,0,1000,30000
+szállodai idegenforgalmi adó,0,500,10000
+szobaszerviz,0,1000,20000
+takarítási díj,0,2000,50000
+apartman takarítási díja,0,3000,50000
+ágyneműdíj,0,1000,15000
+törölköződíj,0,500,10000
+kisállat-felár,0,1000,20000
+extra ágy,0,2000,20000
+gyermekágy,0,1000,15000
+reptéri transzfer,0,3000,50000
+taxi várakozási díj,0,500,10000
+fuvarmegosztó,0,2000,50000
+bérautó,0,10000,200000
+bérautó üzemanyag,0,3000,50000
+bérautó takarítási díj,0,5000,50000
+bérautó kár,0,10000,1000000
+parkolóház,0,500,10000
+autópályadíj,0,1000,50000
+komp,0,1000,50000
+helyjegy,0,500,5000
+hálókocsi,0,5000,50000
+sífelszerelés-bérlés,0,5000,50000
+rollerbérlés,0,1000,20000
+kenu bérlés,0,3000,30000

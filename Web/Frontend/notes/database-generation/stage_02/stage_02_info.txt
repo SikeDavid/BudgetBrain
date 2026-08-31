@@ -1,0 +1,4 @@
+- @260829-6-0012
+
+Partially processed base data files.
+I won't spend the time to categorise all expense types.

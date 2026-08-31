@@ -1,0 +1,102 @@
+függöny
+ágynemű
+törölköző
+párna
+takaró
+matrac
+bútor
+asztal
+szék
+polc
+szekrény
+háztartási gép
+porszívó
+kávéfőző
+vízforraló
+mikrohullámú sütő
+kenyérpirító
+turmixgép
+edény
+serpenyő
+kés
+tányér
+pohár
+evőeszköz
+lakásdekoráció
+képkeret
+növény
+virágföld
+növényápoló szer
+karácsonyfadísz
+karácsonyfa
+elemlámpa
+gyertya
+mécses
+rovarirtó
+szúnyogháló
+ágyrács
+ágyláb
+ágyjavítás
+kanapéhuzat
+kanapépárna
+díszpárna
+párnahuzat
+pléd
+paplan
+paplanhuzat
+kéztörlő
+fürdőköpeny
+fürdőszobai kilépő
+sötétítő
+roló
+reluxa
+redőny
+futószőnyeg
+falióra
+ébresztőóra
+asztali óra
+falikép
+poszter
+tükör
+dekorációs tárgy
+váza
+gyertyatartó
+mécsestartó
+virágcserép
+kaspó
+növénytartó
+könyvtámasz
+könyvespolc
+lakásbiztosítás
+lakáskulcs másolása
+kapukulcs másolása
+postaláda kulcs másolása
+lakásriasztó elem
+kaputelefon elem
+ajtózár csere
+biztonsági ajtólánc
+ajtókilincs
+bútorfogantyú
+bútorzsanér
+fióksín
+függönykarika
+függönykarnis
+reluxa javítása
+redőnyzsinór
+szúnyogháló javítása
+ablakpárkány javítása
+ablaküveg csere
+ajtóüveg csere
+ablakszigetelés
+ajtószigetelés
+huzatfogó
+radiátorfestés
+radiátortakaró
+termosztátfej
+hőmérő
+páratartalom-mérő
+vízszivárgás keresése
+vízóra-szivárgás miatti többletfogyasztás
+duguláselhárítás kiszállási díja
+villanyszerelő kiszállási díja
+szerelő sürgősségi felára

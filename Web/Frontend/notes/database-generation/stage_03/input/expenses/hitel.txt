@@ -1,0 +1,3 @@
+hitel előtörlesztési díj
+hitel végtörlesztési díj
+hitelbírálati díj

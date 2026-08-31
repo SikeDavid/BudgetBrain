@@ -1,0 +1,84 @@
+laptop
+asztali számítógép
+monitor
+billentyűzet
+egér
+fejhallgató
+webkamera
+pendrive
+külső merevlemez
+SSD
+memóriakártya
+jelszókezelő-előfizetés
+vírusirtó-előfizetés
+biztonsági mentés
+felhőmentés
+domain
+tárhelycsomag
+szerver-előfizetés
+CDN-szolgáltatás
+e-mail tárhely
+üzleti e-mail
+digitális aláírás
+elektronikus tanúsítvány
+távoli asztal szolgáltatás
+online fax
+virtuális telefonszám
+SMS-szolgáltatás
+online számlázó
+könyvelőprogram
+irodai szoftvercsomag
+PDF-szerkesztő
+képszerkesztő
+videószerkesztő
+zenei szoftver
+fejlesztői eszköz
+AI-szolgáltatás
+online fordító prémium
+felhőalapú fejlesztőkörnyezet
+kód-tárhely
+privát repository
+csapatkommunikációs szolgáltatás
+projektmenedzsment szolgáltatás
+online naptár prémium
+laptop akkumulátorcsere
+laptop billentyűzetcsere
+laptop kijelzőjavítás
+laptop töltő
+laptop táska
+laptop tok
+notebook állvány
+monitor kábel
+monitor tápegység
+monitorjavítás
+dokkolóállomás
+memóriabővítés
+RAM
+HDD
+külső SSD
+külső HDD
+NAS-lemez
+NAS-bővítés
+kártyaolvasó
+router firmware-frissítés
+Wi-Fi extender
+mesh Wi-Fi
+hálózati kábel
+patch kábel
+hálózati adapter
+UPS akkumulátor
+szünetmentes tápegység
+túlfeszültségvédő
+okosotthon-hub
+USB Bluetooth-dongle
+DVD-meghajtó
+külső optikai meghajtó
+nyomtató
+multifunkciós nyomtató
+tintapatron
+nyomtatófej
+laminálógép
+projektor
+projektorlámpa
+vetítővászon
+prezentációs távirányító

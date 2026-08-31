@@ -1,0 +1,34 @@
+telefonfeltöltés,0,1000,20000
+mobilinternet-adatcsomag,1,1000,20000
+extra mobiladat,0,500,10000
+roaming adatjegy,0,1000,30000
+SMS-csomag,1,500,5000
+nemzetközi telefonhívás,0,500,30000
+emelt díjas SMS,0,500,10000
+eSIM,0,1000,10000
+SIM-kártya csere,0,1000,10000
+SIM-kártya pótlása,0,1000,10000
+telefonszám megtartása szolgáltatóváltáskor,0,0,10000
+telefonfüggetlenítés,0,0,20000
+telefon akkumulátorcsere,0,10000,50000
+telefon kijelzőcsere,0,20000,150000
+telefon hátlapcsere,0,10000,80000
+telefonkamera javítása,0,10000,80000
+telefon hangszórójavítás,0,5000,30000
+telefon mikrofonjavítás,0,5000,30000
+telefoncsatlakozó javítása,0,5000,40000
+telefon fertőtlenítése,0,1000,10000
+telefon adatmentése,0,5000,50000
+telefon tok,0,1000,30000
+ütésálló tok,0,2000,40000
+vízálló tok,0,2000,50000
+kijelzővédő fólia,0,500,10000
+edzett üveg,0,1000,10000
+kamera lencsevédő,0,500,10000
+MagSafe-kiegészítő,0,1000,30000
+autós töltő,0,2000,20000
+hálózati töltő,0,2000,30000
+gyorstöltő,0,3000,40000
+töltőkábel,0,1000,15000
+USB-C kábel,0,500,10000
+Lightning-kábel,0,1000,15000

@@ -1,0 +1,73 @@
+állatorvosi éves kontroll,0,5000,30000
+állatorvosi sürgősségi vizsgálat,0,10000,100000
+oltás,0,3000,20000
+chipbeültetés,0,5000,20000
+féreghajtó,0,500,10000
+kullancs elleni szer,0,1000,15000
+bolha elleni szer,0,1000,15000
+szívférgesség elleni kezelés,0,2000,20000
+állatorvosi röntgen,0,10000,50000
+állatorvosi ultrahang,0,10000,50000
+műtét,0,30000,500000
+ivartalanítás,0,30000,150000
+vérvizsgálat állatnak,0,5000,50000
+rágócsont,0,500,1000
+alomzsák,1,500,1500
+hordozó,0,5000,50000
+póráz,0,2000,30000
+hám,0,3000,30000
+biléta,0,500,10000
+kutyajáték,0,500,20000
+macskajáték,0,500,20000
+kutyapanzió,0,5000,30000
+macskapanzió,0,5000,30000
+kutyakiképzés,0,5000,50000
+engedelmességi tanfolyam,0,20000,150000
+kutyaiskola,0,10000,100000
+kutyatartási díj,1,1000,30000
+ebadó,0,1000,30000
+állatregisztráció,0,1000,20000
+mikrochip-beültetés,0,5000,20000
+kisállat-útlevél,0,3000,15000
+kutyaoltás,0,3000,20000
+macskaoltás,0,3000,20000
+féreghajtás,0,500,10000
+bolha elleni kezelés,0,1000,15000
+kullancs elleni kezelés,0,1000,15000
+állatorvosi kontroll,0,5000,30000
+fogkő-eltávolítás kutyának,0,20000,100000
+kutyatáp,1,5000,50000
+macskatáp,1,3000,40000
+jutalomfalat,1,500,15000
+rágóka,0,500,10000
+alomlapát,0,500,10000
+kaparófa,0,3000,100000
+fekhely,0,3000,50000
+állatketrec,0,5000,150000
+akvárium,0,5000,300000
+akváriumtisztítás,0,2000,30000
+haleleség,1,500,10000
+terráriumfelszerelés,0,2000,100000
+kisállatjáték,0,500,20000
+kutyapóráz,0,2000,30000
+kutyahám,0,3000,30000
+nyakörv,0,1000,20000
+kutyabiléta,0,500,10000
+szájkosár,0,2000,20000
+kutyaruha,0,2000,30000
+kutyafekhely,0,3000,50000
+kutyaszállító box,0,5000,100000
+állatpanzió,0,5000,50000
+állatfelügyelet,0,2000,20000
+állatfotózás,0,5000,50000
+állatkozmetika,0,3000,30000
+állatgyógyszer,0,500,50000
+állatorvosi sürgősségi ellátás,0,15000,500000
+állattemetés,0,20000,200000
+urnás kisállat-emlék,0,10000,100000
+állatorvos,0,5000,100000
+kutyakozmetika,0,3000,30000
+kutyasétáltatás,0,2000,15000
+macskaalom,1,1000,15000
+állatorvosi gyógyszer,0,500,50000
+állatfelszerelés,0,500,200000

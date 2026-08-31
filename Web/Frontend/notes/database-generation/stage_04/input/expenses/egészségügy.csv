@@ -1,0 +1,70 @@
+orvosi vizit,0,3000,30000
+szakorvosi vizsgálat,0,5000,50000
+magánorvosi vizsgálat,0,10000,100000
+labor,0,1000,50000
+vérvétel,0,1000,30000
+ultrahang,0,5000,50000
+röntgen,0,3000,30000
+MR,0,20000,100000
+CT,0,20000,100000
+fizioterápia,0,3000,20000
+masszázsterápia,0,5000,30000
+rehabilitáció,0,5000,50000
+vényköteles gyógyszer,0,500,50000
+vény nélküli gyógyszer,0,500,30000
+étrend-kiegészítő,0,500,30000
+vitamin,0,500,20000
+ásványi anyag,0,500,15000
+ragtapasz,0,100,5000
+sebkezelő készítmény,0,500,15000
+inhalátor,0,5000,50000
+inhalátor tartozék,0,500,20000
+hallásvizsgálat,0,3000,30000
+hallókészülék,0,50000,1500000
+hallókészülék elem,0,500,10000
+hallókészülék javítás,0,2000,100000
+fogorvosi kontroll,0,3000,30000
+fogtömés,0,10000,50000
+ideiglenes tömés,0,5000,30000
+gyökérkezelés,0,20000,150000
+foghúzás,0,10000,80000
+bölcsességfog eltávolítás,0,20000,150000
+fogpolírozás,0,5000,30000
+korona,0,50000,250000
+híd,0,100000,500000
+implantátum,0,150000,600000
+fogpótlás,0,50000,500000
+műfogsor,0,50000,400000
+fogszabályzó,0,100000,1000000
+fogszabályzó kontroll,0,5000,30000
+fogászati röntgen,0,2000,20000
+panorámaröntgen,0,5000,30000
+CT vizsgálat,0,20000,100000
+fogorvosi érzéstelenítés,0,1000,10000
+fogászati konzultáció,0,3000,30000
+szemvizsgálat,0,3000,30000
+látásvizsgálat,0,3000,30000
+szemfenék-vizsgálat,0,3000,30000
+szemnyomásmérés,0,2000,20000
+szemüveglencse,0,5000,150000
+multifokális lencse,0,30000,200000
+kékfényszűrős lencse,0,10000,100000
+napszemüveglencse,0,5000,100000
+szemüvegjavítás,0,1000,50000
+szemüvegszár csere,0,2000,30000
+szemüvegcsavar,0,100,5000
+szemüvegbeállítás,0,0,10000
+kontaktlencse kontroll,0,3000,30000
+fogászat,0,1000,500000
+fogkő-eltávolítás,0,10000,40000
+fogszabályozás,0,50000,1000000
+szemészet,0,3000,100000
+optikus,0,1000,30000
+szemüveg,0,10000,300000
+kontaktlencse,0,2000,50000
+gyógyszer,0,500,50000
+vitaminok,0,500,30000
+magánorvos,0,10000,100000
+laborvizsgálat,0,1000,50000
+gyógytorna,0,3000,30000
+pszichológus,0,10000,40000

@@ -1,0 +1,63 @@
+mosószer,1,1000,10000
+öblítő,1,500,5000
+mosogatószer,1,500,5000
+súrolószer,0,500,5000
+fertőtlenítőszer,0,500,10000
+WC-papír,1,1000,10000
+papírtörlő,1,500,5000
+papírzsebkendő,1,200,3000
+szemeteszsák,1,500,5000
+alufólia,0,500,3000
+sütőpapír,0,300,3000
+szivacs,1,200,3000
+tisztítószer,1,500,10000
+könyvjelző,0,200,5000
+olvasólámpa,0,3000,50000
+könyvtartó,0,1000,20000
+papírzacskó,0,50,2000
+újrahasznosítható zacskó,0,100,3000
+bevásárlótáska,0,500,10000
+textiltáska,0,500,10000
+zipzáras tasak,0,200,3000
+fólia,0,300,5000
+ajándéktasak,0,300,5000
+ragasztószalag,0,300,3000
+csomagolószalag,0,500,5000
+címke,0,100,5000
+csomagküldő doboz,0,300,10000
+boríték,0,50,3000
+buborékos boríték,0,100,3000
+térkitöltő anyag,0,500,10000
+csomagolási díj,0,100,10000
+mosogatószivacs,0,200,3000
+mosogatókefe,0,500,5000
+üvegmosó kefe,0,500,5000
+mosogatógép-só,1,500,5000
+mosogatógép-öblítő,0,500,5000
+mosópor,0,1000,10000
+mosókapszula,0,2000,15000
+folttisztító,0,500,5000
+fehérítő,0,500,5000
+textilöblítő,0,500,5000
+ruhafertőtlenítő,0,500,5000
+mosógéptisztító,0,500,5000
+hangyairtó,0,1000,10000
+csótányirtó,0,1000,15000
+egércsapda,0,500,10000
+légycsapda,0,500,5000
+szúnyogirtó,0,500,10000
+elektromos szúnyogriasztó,0,3000,20000
+hangyacsapda,0,500,5000
+rovarirtó szakember,0,10000,100000
+kártevőirtás,0,10000,200000
+fertőtlenítő takarítás,0,10000,100000
+költözés utáni takarítás,0,20000,200000
+építkezés utáni takarítás,0,30000,500000
+kanapétisztítás,0,10000,50000
+matractisztítás,0,10000,50000
+szőnyegtisztítás,0,5000,50000
+függönymosás,0,3000,30000
+kárpittisztítás,0,5000,50000
+sütőtisztítás,0,5000,30000
+hűtőtisztítás,0,3000,20000
+vízkőtelenítés,0,500,10000

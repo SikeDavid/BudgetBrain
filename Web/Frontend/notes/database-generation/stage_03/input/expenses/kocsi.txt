@@ -1,0 +1,83 @@
+benzin
+dízel
+elektromosautó-töltés
+autópályamatrica
+parkolás
+parkolóbérlet
+autómosás
+autóporszívózás
+autószerviz
+olajcsere
+olajszűrő
+levegőszűrő
+pollenszűrő
+fékbetét
+féktárcsa
+gumiabroncs
+gumicsere
+gumijavítás
+kerékcentírozás
+téli gumi
+nyári gumi
+autóbiztosítás
+kötelező biztosítás
+casco
+műszaki vizsga
+eredetvizsga
+autómentés
+autóklub-tagság
+ablaktörlő
+autóizzó
+autóalkatrész
+autószőnyeg
+autóápolási szer
+elsősegélydoboz
+autómosó
+önkiszolgáló autómosó
+kézi autómosás
+autóviaszolás
+polírozás
+fényszórópolírozás
+belső takarítás
+motor tisztítás
+alvázmosás
+ózonos fertőtlenítés
+autóklíma-tisztítás
+autóklíma-töltés
+guminyomás-ellenőrzés
+gumiszelep
+keréktárolás
+gumihotel
+téli kerékcsere
+nyári kerékcsere
+defektjavítás
+centrírozás
+fékellenőrzés
+fékbetétcsere
+féktárcsacsere
+lengéscsillapító
+kuplungcsere
+vezérműszíj
+vezérműlánc
+akkumulátorteszt
+ablaktörlőlapát
+szélvédőmosó
+üzemanyagszűrő
+biztosíték
+autókulcs elem
+autókulcsmásolás
+távirányító javítás
+rendszámtábla
+rendszámtábla-tartó
+csomagtértálca
+tetőcsomagtartó
+tetőbox
+tetőbox-bérlés
+assistance szolgáltatás
+autópálya-matrica
+parkolójegy
+parkolóautomata
+mélygarázs
+utcai parkolás
+pótdíj
+autómentő kiszállási díja

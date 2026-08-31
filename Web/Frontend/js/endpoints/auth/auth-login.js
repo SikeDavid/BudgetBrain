@@ -23,7 +23,6 @@ function login() {
     };
 
     ajax({
-        caller: login,
         method: "POST",
         url: `${API_PATH}/auth/login`,
         body: body,

@@ -1,0 +1,9 @@
+tömegközlekedési bérlet,1,5000,30000
+vonatjegy,0,1000,50000
+buszjegy,0,500,5000
+villamosjegy,0,500,5000
+metrójegy,0,500,5000
+repülőjegy,0,10000,300000
+taxi,0,2000,50000
+telekocsi,0,1000,30000
+autókölcsönzés,0,10000,200000

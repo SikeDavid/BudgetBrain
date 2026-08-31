@@ -1,0 +1,102 @@
+függöny,0,3000,100000
+ágynemű,0,3000,50000
+törölköző,0,1000,20000
+párna,0,1000,30000
+takaró,0,2000,50000
+matrac,0,30000,300000
+bútor,0,10000,1000000
+asztal,0,10000,300000
+szék,0,5000,100000
+polc,0,3000,150000
+szekrény,0,20000,500000
+háztartási gép,0,10000,500000
+porszívó,0,15000,300000
+kávéfőző,0,5000,300000
+vízforraló,0,3000,50000
+mikrohullámú sütő,0,20000,150000
+kenyérpirító,0,3000,50000
+turmixgép,0,5000,100000
+edény,0,1000,30000
+serpenyő,0,2000,50000
+kés,0,500,50000
+tányér,0,500,10000
+pohár,0,300,10000
+evőeszköz,0,500,30000
+lakásdekoráció,0,1000,100000
+képkeret,0,500,30000
+növény,0,500,50000
+virágföld,0,500,10000
+növényápoló szer,0,500,10000
+karácsonyfadísz,0,500,30000
+karácsonyfa,0,5000,50000
+elemlámpa,0,1000,30000
+gyertya,0,300,10000
+mécses,0,200,5000
+rovarirtó,0,500,15000
+szúnyogháló,0,2000,50000
+ágyrács,0,10000,100000
+ágyláb,0,1000,20000
+ágyjavítás,0,5000,100000
+kanapéhuzat,0,5000,100000
+kanapépárna,0,2000,30000
+díszpárna,0,1000,20000
+párnahuzat,0,500,10000
+pléd,0,2000,30000
+paplan,0,3000,50000
+paplanhuzat,0,2000,30000
+kéztörlő,0,500,10000
+fürdőköpeny,0,3000,30000
+fürdőszobai kilépő,0,1000,15000
+sötétítő,0,3000,80000
+roló,0,3000,80000
+reluxa,0,3000,50000
+redőny,0,10000,150000
+futószőnyeg,0,3000,50000
+falióra,0,1000,30000
+ébresztőóra,0,1000,20000
+asztali óra,0,1000,30000
+falikép,0,1000,50000
+poszter,0,500,15000
+tükör,0,2000,100000
+dekorációs tárgy,0,500,50000
+váza,0,500,30000
+gyertyatartó,0,500,20000
+mécsestartó,0,500,20000
+virágcserép,0,300,20000
+kaspó,0,500,30000
+növénytartó,0,1000,50000
+könyvtámasz,0,500,10000
+könyvespolc,0,5000,200000
+lakásbiztosítás,1,2000,30000
+lakáskulcs másolása,0,1000,10000
+kapukulcs másolása,0,1000,10000
+postaláda kulcs másolása,0,1000,10000
+lakásriasztó elem,0,500,5000
+kaputelefon elem,0,200,3000
+ajtózár csere,0,5000,80000
+biztonsági ajtólánc,0,2000,15000
+ajtókilincs,0,2000,30000
+bútorfogantyú,0,500,10000
+bútorzsanér,0,300,10000
+fióksín,0,1000,20000
+függönykarika,0,300,5000
+függönykarnis,0,2000,30000
+reluxa javítása,0,3000,30000
+redőnyzsinór,0,500,10000
+szúnyogháló javítása,0,2000,30000
+ablakpárkány javítása,0,3000,50000
+ablaküveg csere,0,10000,100000
+ajtóüveg csere,0,10000,100000
+ablakszigetelés,0,3000,50000
+ajtószigetelés,0,3000,50000
+huzatfogó,0,1000,10000
+radiátorfestés,0,5000,50000
+radiátortakaró,0,5000,50000
+termosztátfej,0,2000,15000
+hőmérő,0,500,10000
+páratartalom-mérő,0,2000,20000
+vízszivárgás keresése,0,5000,50000
+vízóra-szivárgás miatti többletfogyasztás,0,5000,200000
+duguláselhárítás kiszállási díja,0,5000,30000
+villanyszerelő kiszállási díja,0,5000,30000
+szerelő sürgősségi felára,0,3000,30000

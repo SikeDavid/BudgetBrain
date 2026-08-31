@@ -1,0 +1,72 @@
+laptop,0,100000,1000000
+asztali számítógép,0,100000,1500000
+monitor,0,30000,500000
+billentyűzet,0,2000,100000
+egér,0,1000,50000
+fejhallgató,0,2000,150000
+webkamera,0,3000,100000
+pendrive,0,14000,16000
+külső merevlemez,0,20000,150000
+SSD,0,10000,200000
+memóriakártya,0,2000,100000
+vírusirtó-előfizetés,1,2000,2000
+biztonsági mentés,0,1000,100000
+felhőmentés,1,1000,50000
+domain,1,1000,20000
+tárhelycsomag,1,1000,1000
+szerver-előfizetés,0,3000,20000
+e-mail tárhely,1,500,30000
+üzleti e-mail,1,500,30000
+digitális aláírás,1,1000,2000
+elektronikus tanúsítvány,1,1000,50000
+távoli asztal szolgáltatás,1,1000,30000
+online fax,1,1000,30000
+virtuális telefonszám,1,1000,30000
+SMS-szolgáltatás,1,1000,2000
+online számlázó,0,1000,3000
+könyvelőprogram,0,1000,50000
+irodai szoftvercsomag,0,1000,50000
+AI-szolgáltatás,1,1000,10000
+privát repository,1,0,50000
+online naptár prémium,1,1500,1500
+laptop akkumulátorcsere,0,20000,100000
+laptop billentyűzetcsere,0,15000,100000
+laptop kijelzőjavítás,0,30000,200000
+laptop töltő,0,5000,50000
+laptop táska,0,3000,50000
+laptop tok,0,2000,30000
+notebook állvány,0,3000,30000
+monitor kábel,0,1000,15000
+monitor tápegység,0,3000,30000
+monitorjavítás,0,5000,100000
+dokkolóállomás,0,10000,150000
+memóriabővítés,0,5000,100000
+RAM,0,5000,100000
+HDD,0,10000,150000
+külső SSD,0,20000,200000
+külső HDD,0,20000,150000
+NAS-lemez,0,20000,200000
+NAS-bővítés,0,10000,500000
+kártyaolvasó,0,1000,20000
+router firmware-frissítés,0,0,30000
+Wi-Fi extender,0,5000,50000
+mesh Wi-Fi,0,20000,200000
+hálózati kábel,0,300,10000
+patch kábel,0,300,5000
+hálózati adapter,0,1000,30000
+UPS akkumulátor,0,10000,100000
+szünetmentes tápegység,0,20000,300000
+túlfeszültségvédő,0,2000,30000
+okosotthon-hub,0,10000,100000
+USB Bluetooth-dongle,0,1000,10000
+DVD-meghajtó,0,5000,30000
+külső optikai meghajtó,0,5000,50000
+nyomtató,0,20000,300000
+multifunkciós nyomtató,0,30000,500000
+tintapatron,0,3000,30000
+nyomtatófej,0,5000,100000
+laminálógép,0,10000,100000
+projektor,0,50000,1000000
+projektorlámpa,0,10000,150000
+vetítővászon,0,10000,200000
+prezentációs távirányító,0,3000,30000

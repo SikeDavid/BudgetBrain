@@ -27,7 +27,6 @@ function entriesAdd() {
     };
 
     ajax({
-        caller: entriesAdd,
         method: "POST",
         url: `${API_PATH}/entries`,
         body: body,

@@ -12,7 +12,6 @@ function categoriesStatus(id) {
     };
 
     ajax({
-        caller: categoriesStatus,
         method: "PATCH",
         url: `${API_PATH}/categories/${id}/status`,
         //body: body,

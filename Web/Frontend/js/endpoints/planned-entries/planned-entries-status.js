@@ -1,6 +1,6 @@
 /*
 "status": {
-    "route": "GET /api/planner/:id/status",
+    "route": "GET /api/planner/:id/status", -> PATCH!!!
     "header": {
         "authorization": "Bearer: (token)"
     }
@@ -12,8 +12,7 @@ function plannedEntriesStatus(id) {
     };
 
     ajax({
-        caller: plannedEntriesStatus,
-        method: "GET",
+        method: "PATCH",
         url: `${API_PATH}/planner/${id}/status`,
         //body: body,
         auth: true,

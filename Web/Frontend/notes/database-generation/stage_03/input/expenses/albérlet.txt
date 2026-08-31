@@ -1,0 +1,18 @@
+tárolóbox bérlés
+pincehelyiség bérlés
+havi lakbér
+albérleti kaució
+albérleti közvetítői díj
+rezsiátalány
+közös költség elmaradása
+villanyóra-leolvasás
+gázóra-leolvasás
+vízóra-leolvasás
+villanyóra-csere
+vízóra-csere
+gázóra-csere
+mérőóra-hitelesítés
+fűtési elszámolás
+közös költség különbefizetés
+felújítási alap
+társasházi rendkívüli befizetés

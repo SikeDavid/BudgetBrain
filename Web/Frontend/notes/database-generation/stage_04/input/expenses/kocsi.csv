@@ -1,0 +1,83 @@
+benzin,1,5000,100000
+dízel,1,5000,100000
+elektromosautó-töltés,1,2000,50000
+autópályamatrica,0,5000,100000
+parkolás,1,500,30000
+parkolóbérlet,1,5000,50000
+autómosás,0,2000,20000
+autóporszívózás,0,500,5000
+autószerviz,0,5000,500000
+olajcsere,0,15000,60000
+olajszűrő,0,2000,10000
+levegőszűrő,0,2000,10000
+pollenszűrő,0,2000,10000
+fékbetét,0,10000,80000
+féktárcsa,0,20000,150000
+gumiabroncs,0,15000,100000
+gumicsere,0,5000,30000
+gumijavítás,0,2000,20000
+kerékcentírozás,0,2000,15000
+téli gumi,0,15000,100000
+nyári gumi,0,15000,100000
+autóbiztosítás,1,3000,100000
+kötelező biztosítás,1,2000,60000
+casco,1,5000,150000
+műszaki vizsga,0,25000,50000
+eredetvizsga,0,15000,30000
+autómentés,0,20000,150000
+autóklub-tagság,1,1000,30000
+ablaktörlő,0,2000,20000
+autóizzó,0,500,10000
+autóalkatrész,0,1000,500000
+autószőnyeg,0,5000,50000
+autóápolási szer,0,500,15000
+elsősegélydoboz,0,2000,10000
+autómosó,0,2000,20000
+önkiszolgáló autómosó,0,1000,10000
+kézi autómosás,0,3000,20000
+autóviaszolás,0,5000,50000
+polírozás,0,10000,100000
+fényszórópolírozás,0,5000,30000
+belső takarítás,0,3000,30000
+motor tisztítás,0,5000,30000
+alvázmosás,0,2000,15000
+ózonos fertőtlenítés,0,5000,30000
+autóklíma-tisztítás,0,5000,30000
+autóklíma-töltés,0,10000,50000
+guminyomás-ellenőrzés,0,0,5000
+gumiszelep,0,500,5000
+keréktárolás,0,3000,30000
+gumihotel,1,5000,40000
+téli kerékcsere,0,5000,20000
+nyári kerékcsere,0,5000,20000
+defektjavítás,0,3000,30000
+centrírozás,0,2000,15000
+fékellenőrzés,0,0,10000
+fékbetétcsere,0,10000,80000
+féktárcsacsere,0,20000,150000
+lengéscsillapító,0,20000,150000
+kuplungcsere,0,80000,400000
+vezérműszíj,0,10000,100000
+vezérműlánc,0,20000,200000
+akkumulátorteszt,0,0,5000
+ablaktörlőlapát,0,2000,20000
+szélvédőmosó,0,500,5000
+üzemanyagszűrő,0,2000,15000
+biztosíték,0,100,3000
+autókulcs elem,0,200,5000
+autókulcsmásolás,0,3000,50000
+távirányító javítás,0,3000,50000
+rendszámtábla,0,5000,30000
+rendszámtábla-tartó,0,1000,10000
+csomagtértálca,0,5000,50000
+tetőcsomagtartó,0,20000,150000
+tetőbox,0,30000,300000
+tetőbox-bérlés,0,5000,30000
+assistance szolgáltatás,1,1000,30000
+autópálya-matrica,0,5000,100000
+parkolójegy,0,300,10000
+parkolóautomata,0,300,10000
+mélygarázs,0,500,10000
+utcai parkolás,0,300,5000
+pótdíj,0,5000,50000
+autómentő kiszállási díja,0,10000,100000

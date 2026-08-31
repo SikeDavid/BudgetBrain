@@ -1,0 +1,23 @@
+számlavezetési díj,1,3000,5000
+bankkártya,0,5000,30000
+lakáshitel,1,150000,160000
+banki költség,0,100,50000
+számlavezetési díj,1,2000,5000
+bankkártyadíj,0,10000,30000
+átutalási díj,1,0,10000
+készpénzfelvételi díj,1,0,20000
+hitelkártyadíj,1,0,30000
+diákhitel,1,20000,30000
+készpénzfelvétel,0,1000,1000000
+bankkártya pótlása,0,1000,3000
+bankkártya sürgősségi pótlása,0,5000,10000
+bankkártya külföldi használati díja,0,0,50000
+devizaváltási veszteség,0,100,100000
+ATM-használati díj,0,0,20000
+külföldi ATM-díj,0,500,30000
+banki SMS-díj,1,0,5000
+push értesítési díj,1,0,3000
+számlakivonat díja,0,0,5000
+banki igazolás,0,0,20000
+bankszámlanyitási díj,0,0,30000
+számlazárási díj,0,0,30000

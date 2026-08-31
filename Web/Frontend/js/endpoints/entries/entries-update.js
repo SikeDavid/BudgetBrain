@@ -26,7 +26,6 @@ function entriesUpdate(id) {
     };
 
     ajax({
-        caller: entriesUpdate,
         method: "PATCH",
         url: `${API_PATH}/entries/${id}`,
         body: body,

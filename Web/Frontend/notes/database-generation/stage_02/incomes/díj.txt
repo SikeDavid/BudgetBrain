@@ -1,0 +1,34 @@
+ügyeleti díj
+készenléti díj
+napidíj
+kiküldetési díj
+szabadúszó munkadíj
+tanácsadói díj
+konzultációs díj
+projektmunkadíj
+megbízási díj
+szakértői díj
+óradíj
+fejlesztési munkadíj
+programozási munkadíj
+grafikai munka díja
+fotózás díja
+videózás díja
+fordítási díj
+tolmácsolási díj
+korrepetálás díja
+magántanítás díja
+nyelvóra díja
+edzői díj
+szerelési munkadíj
+javítási munkadíj
+karbantartási díj
+takarítási díj
+kertészeti munkadíj
+babysitter díja
+kutyasétáltatás díja
+gyermekgondozási díj
+csecsemőgondozási díj
+sérelemdíj
+verseny pénzdíja
+pályázati díj

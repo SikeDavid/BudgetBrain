@@ -1,5 +1,4 @@
 function ajax({
-        caller = null,
         method = "GET",
         url = `${PROTOCOL}://${API_HOST}:${API_PORT}`,
         body = null,
@@ -10,11 +9,6 @@ function ajax({
         tokenRefreshed = false
     } = {}) {
 
-    if (caller === null) {
-        console.error('Parameter "caller" isn\'t provided in "ajax()" call!');
-        return;
-    }
-
     const xhr = new XMLHttpRequest();
     xhr.open(method, url);
 
@@ -23,18 +17,21 @@ function ajax({
             console.error(`Request failed. Status: ${xhr.status}`);
             let response = JSON.parse(xhr.responseText);
 
-            if (xhr.status == 500) {
+//> accessToken expiry: 401 / jwt expired
+//> refreshToken expiry: 403 / jwt malformed / jwt not found
+
+            //if (xhr.status == 500) {
                 /*>
                     > tokenRefreshed = true -> Theoretical possibility / Edge case: The second non-refreshToken ajax call on a go. Preventing infinite loop: if a token is refreshed but expires by the time we receive it.
                     > response.message == "jwt malformed" -> illegal / nonexisting accessToken
                     > In these cases -> Logout
                 <*/
-                if (tokenRefreshed || response.message == "jwt malformed") {
+                if (tokenRefreshed || xhr.status == 403/*response.message == "jwt malformed"*/) {
                     refreshTokenError(response);
                     return;
                 }
                 //> AccessToken expired, refreshing:
-                if (response.message == "jwt expired") {
+                if (xhr.status == 401 /*response.message == "jwt expired"*/) {
                     console.error(response);
                     console.error("AccessToken expired, refreshing...");
                     const body = {
@@ -42,7 +39,6 @@ function ajax({
                     };
 
                     ajax({
-                        caller: ajax,
                         method: "POST",
                         url: `${API_PATH}/auth/refreshtoken`,
                         body: body,
@@ -50,7 +46,6 @@ function ajax({
                         callbackSuccess: refreshTokenSuccess,
                         callbackError: refreshTokenError,
                         callbackData: {
-                            caller: caller,
                             method: method,
                             url: url,
                             body: body,
@@ -59,10 +54,10 @@ function ajax({
                             callbackError: callbackError
                         }
                     });
-                }
+                /*}
                 else {
                     console.error("Unhandled server error.");
-                }
+                }*/
             }
 
             else if (callbackError !== null)
@@ -80,7 +75,6 @@ function ajax({
             console.log("Token refresh successful!");
             callbackSuccess(response);
             ajax({
-                caller: callbackData.caller,
                 method: callbackData.method,
                 url: callbackData.url,
                 body: callbackData.body,

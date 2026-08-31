@@ -1,0 +1,70 @@
+orvosi vizit
+szakorvosi vizsgálat
+magánorvosi vizsgálat
+labor
+vérvétel
+ultrahang
+röntgen
+MR
+CT
+fizioterápia
+masszázsterápia
+rehabilitáció
+vényköteles gyógyszer
+vény nélküli gyógyszer
+étrend-kiegészítő
+vitamin
+ásványi anyag
+ragtapasz
+sebkezelő készítmény
+inhalátor
+inhalátor tartozék
+hallásvizsgálat
+hallókészülék
+hallókészülék elem
+hallókészülék javítás
+fogorvosi kontroll
+fogtömés
+ideiglenes tömés
+gyökérkezelés
+foghúzás
+bölcsességfog eltávolítás
+fogpolírozás
+korona
+híd
+implantátum
+fogpótlás
+műfogsor
+fogszabályzó
+fogszabályzó kontroll
+fogászati röntgen
+panorámaröntgen
+CT vizsgálat
+fogorvosi érzéstelenítés
+fogászati konzultáció
+szemvizsgálat
+látásvizsgálat
+szemfenék-vizsgálat
+szemnyomásmérés
+szemüveglencse
+multifokális lencse
+kékfényszűrős lencse
+napszemüveglencse
+szemüvegjavítás
+szemüvegszár csere
+szemüvegcsavar
+szemüvegbeállítás
+kontaktlencse kontroll
+fogászat
+fogkő-eltávolítás
+fogszabályozás
+szemészet
+optikus
+szemüveg
+kontaktlencse
+gyógyszer
+vitaminok
+magánorvos
+laborvizsgálat
+gyógytorna
+pszichológus

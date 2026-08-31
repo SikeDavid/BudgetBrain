@@ -1,0 +1,7 @@
+
+Generating the basic data:
+> https://chatgpt.com/c/6a9111ed-276c-83ed-8df4-8dbafd3fe2f0 : war
+
+This stage is about getting rid of duplicates.
+During the next stages words will change and inside and among categories duplicates can arise, so duplicate check will be necessary later as well.
+

@@ -1,0 +1,16 @@
+borravaló
+koncertjegy
+színházjegy
+mozijegy
+fesztiválbelépő
+múzeumbelépő
+állatkerti belépő
+vidámpark
+bowling
+biliárd
+gokart
+szabadulószoba
+paintball
+koncert
+sportesemény
+focimeccs

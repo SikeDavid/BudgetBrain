@@ -1,0 +1,20 @@
+vezetékes telefon,1,2000,15000
+közös költség,1,10000,100000
+villanyszámla,1,5000,100000
+gázszámla,1,5000,150000
+vízdíj,1,2000,50000
+csatornadíj,1,1000,30000
+távhő,1,5000,100000
+szemétszállítás,1,1000,20000
+fűtésszámla,1,5000,150000
+hűtésszámla,1,1000,50000
+internet,1,5000,30000
+mobiltelefon-előfizetés,1,3000,30000
+televízió-előfizetés,1,3000,30000
+streaming,1,1500,15000
+zene-előfizetés,1,1000,10000
+felhőtárhely,1,1500,2000
+domainnév,0,1000,30000
+webtárhely,0,1000,50000
+szoftver-előfizetés,1,1000,100000
+alkalmazás-előfizetés,1,500,50000

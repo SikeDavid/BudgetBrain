@@ -19,13 +19,22 @@ With debug:
 http://0.0.0.0:8080/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-native/git/index.php?debug=517e498b4ae834bca6b046324f226bf4fcea1ee42
 
 */
+    class g {
+        public static $t;
+        public static $URLv;
+
+        public static function init(): void {
+            self::$t = time();
+            self::$URLv = "?v=".self::$t;
+        }
+    }
+    g::init();
+
     const DEBUG_TOKEN_PC = "517e498b4ae834bca6b046324f226bf4fcea1ee4";
     const DEBUG_TOKEN_ANDROID = "517e498b4ae834bca6b046324f226bf4fcea1ee42";
 
     const DEBUG_PC = 1;
     const DEBUG_ANDROID = 2;
-
-    //$debug = isset($_GET["debug"]) ? $_GET["debug"] === DEBUG_TOKEN : false;
 
     $debug = 0;
     if (isset($_GET["debug"])) {
@@ -49,7 +58,7 @@ if ($debug == DEBUG_ANDROID)
         echo '<script type="text/javascript" src="external/mobile-console-main_v2/hnl.mobileconsole.min.js"></script>';
 ?>
 
-        <script type="text/javascript" src="js/endpoints/fn_ajax.js" defer></script>
+        <script type="text/javascript" src="js/endpoints/fn_ajax.js<?= g::$URLv ?>" defer></script>
 
         <script type="text/javascript" src="js/endpoints/auth/auth-login.js" defer></script>
         <script type="text/javascript" src="js/endpoints/auth/auth-logout.js" defer></script>
@@ -108,7 +117,7 @@ if ($debug == DEBUG_ANDROID)
         </nav>
         <main>
 
-            <?php if ($debug) echo file_get_contents("debug/debug.html") ?>
+            <?php if ($debug) require_once("debug/debug.php"); ?>
 
         </main>
 

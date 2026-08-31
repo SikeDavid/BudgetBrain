@@ -1,0 +1,8 @@
+jogdíj
+licencdíj
+szerzői jogdíj
+zenei jogdíj
+könyv jogdíja
+fotólicenc bevétele
+szoftverlicenc bevétele
+szellemi termék licencdíja

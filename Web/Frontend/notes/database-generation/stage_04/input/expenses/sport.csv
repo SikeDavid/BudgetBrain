@@ -1,0 +1,55 @@
+teniszbérlet,1,5000,100000
+konditerem bérlet,1,5000,50000
+uszoda,0,1000,10000
+edzőterem,0,1000,10000
+személyi edző,0,5000,30000
+jóga,0,2000,15000
+pilates,0,2000,15000
+táncóra,0,2000,15000
+sportklub-tagság,1,3000,50000
+sportfelszerelés,0,2000,200000
+futócipő,0,10000,100000
+kerékpár,0,30000,1000000
+sífelszerelés,0,10000,500000
+úszószemüveg,0,2000,30000
+horgászfelszerelés,0,2000,300000
+horgászengedély,0,5000,30000
+vadászengedély,0,10000,100000
+sporttape,0,500,5000
+sportzokni,0,1000,10000
+sportmelltartó,0,3000,30000
+sportnadrág,0,3000,40000
+futópóló,0,2000,30000
+túrabakancs,0,10000,100000
+túrazokni,0,1000,10000
+hidratációs hátizsák,0,5000,50000
+személyi edzés,0,5000,30000
+edzőtermi napijegy,0,1500,5000
+uszodabelépő,0,1000,5000
+szaunabelépő,0,2000,10000
+spinning,0,2000,10000
+crossfit,0,3000,20000
+falmászás,0,2000,15000
+mászóterem,0,2000,15000
+teniszpálya,0,3000,15000
+squash,0,3000,15000
+tollaslabda,0,1000,5000
+pingpong,0,1000,5000
+focipálya-bérlés,0,5000,50000
+kosárlabdapálya-bérlés,0,5000,50000
+jégpálya,0,1500,8000
+snowboardoktatás,0,10000,50000
+társastánc,0,2000,15000
+salsaóra,0,2000,15000
+balettóra,0,2000,15000
+harcművészeti edzés,0,2000,20000
+úszásoktatás,0,3000,20000
+futóklub,1,1000,15000
+sportegyesületi tagdíj,0,1000,30000
+versenynevezési díj,0,2000,50000
+futóverseny nevezés,0,3000,20000
+maraton nevezés,0,10000,50000
+rajtcsomag,0,1000,20000
+sportorvosi vizsgálat,0,5000,30000
+sportmasszázs,0,5000,30000
+regeneráló kezelés,0,5000,50000

@@ -16,7 +16,6 @@ function logout() {
     };
 
     ajax({
-        caller: logout,
         method: "POST",
         url: `${API_PATH}/auth/logout`,
         body: body,

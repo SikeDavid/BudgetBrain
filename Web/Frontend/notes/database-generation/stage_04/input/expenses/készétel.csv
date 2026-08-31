@@ -1,0 +1,80 @@
+Meki,1,4000,50000
+KFC,1,4000,50000
+étterem,0,3000,100000
+gyorsétterem,0,1500,30000
+pizzarendelés,0,3000,30000
+házhozszállítás,0,500,5000
+kávézó,0,500,10000
+pékség,0,300,10000
+cukrászda,0,500,20000
+fagylalt,0,300,5000
+büfé,0,500,15000
+munkahelyi ebéd,1,1000,30000
+menza,1,1000,30000
+reggeli péksütemény,1,300,5000
+croissant,0,300,3000
+kakaós csiga,0,300,3000
+pogácsa,0,200,3000
+szendvics,0,500,5000
+saláta,0,500,6000
+leves,0,500,5000
+napi menü,0,1500,5000
+desszert,0,500,5000
+palacsinta,0,500,5000
+gofri,0,500,5000
+sült krumpli,0,500,5000
+hamburger,0,1000,6000
+gyros,0,1000,6000
+kebab,0,1000,6000
+sushi,0,2000,20000
+kínai étel,0,1500,10000
+thai étel,0,1500,10000
+indiai étel,0,1500,10000
+mexikói étel,0,1500,10000
+pizza feltét,0,300,3000
+pizza szósz,0,300,3000
+pizzatészta,0,300,3000
+fagyasztott pizza,0,1000,5000
+popcorn,0,300,3000
+nachos,0,500,5000
+mozis snack,0,500,5000
+energiaital,0,300,1500
+sportital,0,300,2000
+limonádé,0,500,3000
+smoothie,0,800,4000
+frissen facsart narancslé,0,800,4000
+jegeskávé,0,600,3000
+cappuccino,0,600,3000
+latte,0,600,3000
+espresso,0,400,2500
+kávészirup,0,500,5000
+kávétejszín,0,300,3000
+palackozott víz,0,200,1500
+szódavíz,0,200,1500
+sörmentes ital,0,300,3000
+borhoz kapcsolódó kiegészítő,0,500,20000
+éttermi asztalfoglalás díja,0,0,10000
+éttermi kiszállítási díj,0,500,5000
+extra feltét,0,300,3000
+extra szósz,0,200,2000
+kenyérkosár,0,200,3000
+terítékdíj,0,200,3000
+brunch,0,2000,15000
+svédasztalos reggeli,0,3000,20000
+büféebéd,0,1500,8000
+céges vacsora,0,5000,50000
+üzleti ebéd,0,3000,30000
+randivacsora,0,5000,50000
+éjszakai étel,0,1000,15000
+fesztiválétel,0,1500,10000
+strandbüfé,0,500,10000
+sípálya büfé,0,1000,15000
+benzinkúti étkezés,0,500,10000
+automatás kávé,0,200,1500
+automatás édesség,0,200,2000
+munkahelyi italautomata,0,200,2000
+irodai közös reggeli,0,500,10000
+közös pizza rendelés,0,1000,10000
+születésnapi torta szeletek,0,500,5000
+háziállatnak vásárolt jutalomfalat,0,500,5000
+maradék étel kidobása miatti veszteség,0,100,10000

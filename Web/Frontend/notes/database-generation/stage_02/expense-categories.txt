@@ -1,0 +1,93 @@
+#PÉNZ (csak pénz, pénz a pénzért, pénz a pénzhez)
+adózás
+bank
+biztosítás
+befektetés
+beruházás
+üzleti kiadás
+pénzforgalmi költség
+vállalkozási költség
+vagyonfenntartás
+hivatal
+megtakarítás
+hitel
+tartozás
+büntetés
+
+#CSALÁD (élőlények érzelmi kötődéssel)
+család
+ember
+asszony
+baba
+büdös kölyök
+gyerek
+Mucikám
+Nyaligátor
+háziállat
+temetés
+
+#ALKOTÁS (építés)
+barkács
+felújítás
+javíttatás
+szerelő
+
+#KIKAPCSOLÓDÁS
+készétel
+utazás
+nyaralás
+strand
+szállás
+sport
+edzés
+kultúra
+szabadidő
+hobbi
+szórakozás
+
+#MUNKA
+munka
+
+#EMBERI ÉLET
+élelmiszer
+egészség
+egészségügy
+háztartás
+bútor
+ruházkodás
+szépségápolás
+tisztálkodás
+papír-írószer
+tanulás
+konyha
+
+#TECHNOLÓGIA
+digitális
+elektronika
+telefon
+előfizetés
+informatika
+
+#JÁRMŰ
+közlekedés
+kocsi
+jármű
+motor
+
+#INGATLAN
+kert
+költözés
+ingatlan
+albérlet
+lakás
+lakásfelújítás
+lakhatás
+rezsi
+
+#EGYÉB
+rendelés
+jótékonykodás
+ajándék
+személyes
+váratlan kiadás
+egyéb

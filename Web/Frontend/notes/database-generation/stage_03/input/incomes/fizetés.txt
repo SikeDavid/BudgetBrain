@@ -1,0 +1,6 @@
+fizetés
+nettó munkabér
+bruttó munkabér
+órabér
+túlóra
+túlóradíj

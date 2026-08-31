@@ -1,0 +1,958 @@
+
+
+
+
+
+
+kulcsmásolás
+zárjavítás
+vízvezeték-szerelő
+villanyszerelő
+fűtésszerelő
+klímaszerelés
+kéményseprés
+duguláselhárítás
+takarítás
+ablaktisztítás
+
+kertész
+fűnyírás
+sövénynyírás
+favágás
+tűzifa
+hóeltakarítás
+költöztetés
+raktárbérlés
+csomagmegőrző
+gyermekfelügyelet
+bébiszitter
+óvoda
+bölcsőde
+iskolai étkezés
+különóra
+gyermekruha
+gyerekcipő
+játék
+babakocsi
+gyerekülés
+pelenkázó
+tápszer
+gyerekorvosi vizit
+állatmenhelyi adomány
+adomány
+pénz utcai zenésznek
+pénz koldusnak
+Vöröskereszt adomány
+Unicef adomány
+egyházi adomány
+esküvői szolgáltató
+menyasszonyi ruha
+öltöny
+fodrász esküvőre
+sminkes
+fotós
+videós
+esküvői helyszín
+esküvői torta
+házasságkötési illeték
+nászút
+születésnapi torta
+ételrendelés vendégeknek
+házibuli költsége
+társasági program
+randi
+kávézás barátokkal
+sörözés
+szórakozóhely
+klubbelépő
+karaoke
+kaszinó
+lottó
+sportfogadás
+dohánytermék
+
+ajándékkártya
+online vásárlás
+csomagautomatás szállítás
+utánvét díja
+visszaküldési postaköltség
+használtcikk-vásárlás
+garázsvásár
+bolhapiaci vásárlás
+aukciós vásárlás
+antik tárgy
+gyűjtemény bővítése
+bélyeggyűjtés
+érmegyűjtés
+modellautó
+barkácsprojekt
+hobbi alapanyag
+fotózás
+fényképelőhívás
+fotónyomtatás
+videóelőfizetés
+podcast-előfizetés
+játék-előfizetés
+társkereső prémium
+tárhelybővítés
+VPN-előfizetés
+vírusirtó
+jelszókezelő
+digitális újság-előfizetés
+domain hosszabbítás
+SSL-tanúsítvány
+webfejlesztési szolgáltatás
+grafikai szolgáltatás
+nyomtatás
+fénymásolás
+laminálás
+spirálozás
+bélyegzőkészítés
+névjegykártya
+plakát
+szórólap
+fodrászhoz hajápoló termék
+szakállápoló olaj
+szakállvágás
+borotválás
+tetoválás
+piercing
+szolárium
+kozmetikai kezelés
+arctisztítás
+gyantázás
+szemöldökformázás
+műszempilla
+fogfehérítés
+plasztikai beavatkozás
+wellnesshétvége
+termálfürdő
+nyaralás
+síelés
+kirándulás
+túrafelszerelés
+sátor
+hálózsák
+túracipő
+túraengedély
+strandbelépő
+napernyő
+strandfelszerelés
+hajóbérlés
+kajakbérlés
+kerékpárbérlés
+idegenvezetés
+utazási biztosítás
+valutaváltási díj
+külföldi mobilnet
+roaming
+reptéri parkolás
+szállásadó idegenforgalmi adó
+poggyászbiztosítás
+vízumdíj
+oltás utazás előtt
+útikönyv
+térkép
+szuvenír
+képeslap
+hűtőmágnes
+nyaralási zsebpénz
+költözés
+új lakás kaució
+ingatlanközvetítői díj
+lakásfelújítás
+burkolás
+festés
+parkettázás
+nyílászáró-javítás
+redőnyjavítás
+bútorösszeszerelés
+konyhafelújítás
+fürdőszoba-felújítás
+háztartási javítás
+sürgősségi szerelő
+elveszett kulcs pótlása
+elveszett okmány pótlása
+elveszett bankkártya pótlása
+telefonjavítás
+laptopjavítás
+adatmentés
+számítógépjavítás
+konzoljavítás
+televíziójavítás
+háztartási gép javítása
+garancián túli szerviz
+csomagküldés
+nemzetközi csomagküldés
+postai utánvét
+kézbesítési díj
+futár borravaló
+költöztető borravaló
+szerelő borravaló
+fodrász borravaló
+éttermi szervizdíj
+váratlan javítás
+elvesztett tárgy pótlása
+lopás miatt vásárlás
+sürgős repülőjegy
+sürgős szállás
+sürgősségi fogorvos
+sürgősségi állatorvos
+elromlott telefon cseréje
+elromlott hűtő cseréje
+elromlott mosógép cseréje
+lakás beázásának javítása
+csőtörés javítása
+viharkár javítása
+kötelező gépjármű-felelősségbiztosítás éves díja
+éves előfizetés
+havi előfizetés
+negyedéves előfizetés
+féléves előfizetés
+éves szerviz
+szezonális karbantartás
+tavaszi nagytakarítás
+őszi nagytakarítás
+karácsonyi bevásárlás
+húsvéti bevásárlás
+szilveszteri buli
+születésnapi buli
+nyaralási előleg
+biztosítási önrész
+hitelkamat
+hitelfelvételi díj
+bankszámlára utalt fizetéshez kapcsolódó díj
+készpénzes vásárlás
+aprópénzes kiadás
+spontán vásárlás
+impulzusvásárlás
+sürgős online rendelés
+ajándék magamnak
+"csak mert megérdemlem" vásárlás
+elveszett eszköz pótlása
+véletlenül megrongált tárgy javítása
+büntetőparkolás
+pótdíjas tömegközlekedési jegy
+késői számlafizetés díja
+lemondott előfizetés utáni elszámolás
+próbaidőszak után levont előfizetés
+közös ajándék barátoknak
+családi hozzájárulás
+szülő támogatása
+gyermek zsebpénze
+háziállat zsebpénze helyett állatorvosi kiadás
+lakáskulcs átadása miatti kulcsmásolás
+szomszédnak kölcsönadott pénz
+kölcsön visszafizetése
+kölcsönadott pénz elvesztése
+apró javítások
+egyéb
+mosógép-tisztító
+mosógéptisztító tabletta
+vízkőoldó
+mosógép vízkőtelenítés
+mosogatógép só
+mosogatógép öblítő
+mosogatógép-tisztító
+WC-illatosító
+légfrissítő
+
+illatgyertya
+aromadiffúzor
+illóolaj
+papucsbetét
+cipőfűző
+cipőkrém
+cipősarok javítás
+
+esernyő
+esőkabát
+napszemüveg
+hátizsák
+kézitáska
+pénztárca
+
+öv
+sapka
+sál
+kesztyű
+esőcsizma
+
+bőrönd
+
+bőröndjavítás
+bőröndfóliázás
+
+ruhafogas
+vállfa
+cipőtartó
+ruhaszárító
+vasalódeszka
+vasaló
+ruhagőzölő
+szennyeskosár
+varrókészlet
+cipőápoló készlet
+mosózsák
+ruhamolyirtó
+molycsapda
+ruhatároló doboz
+vákuumzsák
+ágyneműhuzat
+matracvédő
+lepedő
+ágytakaró
+függönyrúd
+sötétítőfüggöny
+szőnyeg
+lábtörlő
+zuhanyfüggöny
+fürdőszobaszőnyeg
+WC-kefe
+WC-ülőke
+zuhanyfej
+csaptelep
+vízszűrő
+vízszűrőbetét
+konyhai csaptelep javítása
+szifontisztítás
+lefolyótisztító
+lefolyószűrő
+mosdókagyló javítása
+zuhanykabin tömítés
+szilikon
+fugázóanyag
+fugatisztító
+penészirtó
+páramentesítő
+páramentesítő tabletta
+légtisztító szűrő
+klímatisztító spray
+klímakarbantartás
+ventilátor
+állóventilátor
+asztali ventilátor
+párásító
+párásító szűrő
+hősugárzó
+elektromos radiátor
+termosztát
+okos termosztát
+radiátorszelep
+radiátor légtelenítése
+kazánkarbantartás
+kazánjavítás
+tüzelőanyag
+pellet
+brikett
+tűzifa behordása
+kandalló tisztítása
+kéménybélelés
+füstérzékelő
+szén-monoxid-érzékelő
+tűzoltó készülék
+elsősegélydoboz
+kötszer
+sebtapasz
+fertőtlenítő
+lázmérő
+hideg-meleg borogatás
+szemcsepp
+orrspray
+torokfertőtlenítő
+köhögés elleni készítmény
+fájdalomcsillapító
+emésztést segítő készítmény
+napégés utáni krém
+rovarcsípés elleni készítmény
+kullancseltávolító
+kézkrém
+ajakápoló
+körömolló
+körömreszelő
+csipesz
+fültisztító
+hajkefe
+hajgumi
+hajszárító
+hajvasaló
+hajgöndörítő
+elektromos borotva
+borotvafej
+elektromos fogkefe
+fogkefefej
+fogselyem
+szájvíz
+fogköztisztító kefe
+műfogsorragasztó
+protézistisztító
+kontaktlencse-folyadék
+kontaktlencsetartó
+szemüvegtok
+szemüvegtisztító
+napszemüveg javítás
+hallókészülék-elem
+hallókészülék-karbantartás
+masszázspisztoly
+vérnyomásmérő
+otthoni egészségügyi eszköz
+gyógyászati segédeszköz
+talpbetét
+térdrögzítő
+csuklórögzítő
+bokarögzítő
+ortopéd cipő
+munkavédelmi szemüveg
+füldugó
+zajvédő fejhallgató
+munkavédelmi kesztyű
+bukósisak
+láthatósági mellény
+kerékpárlámpa
+kerékpárzár
+pumpa
+defektjavító készlet
+kerékpáros kulacs
+kulacstartó
+biciklitáska
+kerékpáros nadrág
+kerékpáros kesztyű
+futózokni
+sportkulacs
+sporttáska
+jógaszőnyeg
+gumiszalag
+súlyzó
+kettlebell
+ugrókötél
+túrabot
+fejlámpa
+iránytű
+termosz
+piknikkosár
+hűtőtáska
+piknikpléd
+napozóágy
+kempingszék
+kempingasztal
+gázfőző
+kempinggáz
+sátorcövek
+sátorjavító készlet
+hálózsákbélés
+fejlámpaelem
+túrahátizsák
+túratérkép
+kullancsriasztó
+szúnyogriasztó
+napozókrém
+strandtörölköző
+úszónadrág
+fürdőruha
+úszósapka
+strandpapucs
+búvárszemüveg
+strandjáték
+felfújható matrac
+úszógumi
+napozóágy-bérlés
+napernyőbérlés
+csomagmegőrzés
+zuhanyzójegy
+nyilvános WC díja
+reptéri étkezés
+repülőtéri lounge
+ülőhelyválasztás repülőn
+elsőbbségi beszállás
+vonathelyjegy
+hálókocsijegy
+kerékpárjegy
+kutyajegy tömegközlekedésen
+kisállat-szállítás
+poggyászmegőrzés
+autópályadíj külföldön
+útdíj
+kompjegy
+hajójegy
+városi turista-pass
+idegenforgalmi adó
+múzeumi audio guide
+túravezető
+felvonójegy
+síbérlet
+síoktatás
+snowboardbérlés
+síléc szerviz
+korcsolyabérlés
+korcsolyaélezés
+bowlingcipő-bérlés
+biliárdasztal használat
+darts
+társasjáték-kávézó
+könyvtári tagság
+koncertmerchandise
+zenekari póló
+fesztiválkarszalag
+fesztiválkemping
+fesztiválzseton
+ruhatári díj
+színházi ruhatár
+mozi popcorn
+mozi üdítő
+3D szemüveg
+DVD
+Blu-ray
+lemez
+CD
+bakelit
+zenei hangszer
+hangszerjavítás
+hangszerhangolás
+gitárhúr
+pengető
+kotta
+zongoraóra
+énekóra
+zenekari próbahely
+stúdióbérlés
+fotózás kellék
+fényképezőgép
+fényképezőgép-objektív
+fényképezőgép-akkumulátor
+fényképezőgép-táska
+állvány
+mikrofon
+mikrofonállvány
+hangszóró
+hangfalállvány
+HDMI-kábel
+DisplayPort-kábel
+Ethernet-kábel
+router
+Wi-Fi-jelerősítő
+hálózati switch
+modem
+NAS-meghajtó
+merevlemez
+SSD-hűtő
+laptopállvány
+laptopdokkoló
+monitorállvány
+monitorfal
+USB-hub
+Bluetooth-adapter
+Wi-Fi-adapter
+egérpad
+mechanikus billentyűzet-kapcsoló
+billentyűzetkupak
+egértalp
+monitor tisztítása
+laptop tisztítása
+számítógép portalanítása
+hővezető paszta
+ventilátorcsere
+kábelrendező
+kábelcsatorna
+kábelkötegelő
+töltőállomás
+vezeték nélküli töltő
+autós telefontartó
+autós telefontöltő
+Bluetooth FM-transmitter
+dashcam
+dashcam memóriakártya
+GPS-navigáció
+GPS-tartó
+autós elsősegélycsomag
+elakadásjelző háromszög
+láthatósági mellény autóba
+jégkaparó
+hókefe
+ablakmosó folyadék
+fagyálló
+motorolaj
+AdBlue
+defektjavító hab
+vontatókötél
+bikakábel
+autóakkumulátor
+akkumulátortöltő
+kerékcsavar
+dísztárcsa
+rendszámtábla-keret
+rendszámtábla pótlása
+autókulcs másolása
+távirányítós kulcs eleme
+autóklíma töltés
+klímatisztítás
+futóműállítás
+kerékcsapágycsere
+kuplungjavítás
+akkumulátorcsere
+vezérműszíjcsere
+kipufogójavítás
+katalizátorjavítás
+szélvédőjavítás
+szélvédőcsere
+kavicsfelverődés javítása
+karosszériajavítás
+fényezés
+horpadásjavítás
+autóbelső takarítás
+ózonos autófertőtlenítés
+autókárpit-tisztítás
+autókozmetika
+téli felkészítés
+nyári felkészítés
+bérautó önrész
+közlekedési pótdíj
+behajtási engedély
+garázsbérlet
+garázsajtó-javítás
+tárolóhelyiség bérlése
+csomagautomata rekesz
+postafiók bérlése
+kulcstartó
+gravírozás
+névtábla
+postaláda
+kaputelefon-javítás
+riasztórendszer
+riasztó távfelügyelet
+biztonsági kamera
+kamera tárhely-előfizetés
+okoszár
+ajtócsengő
+mozgásérzékelő
+okosizzó
+okoskonnektor
+okoslámpa
+LED-szalag
+gyufa
+öngyújtó
+gombelem
+tölthető akkumulátor
+hosszabbító kábel
+adapter
+feszültségátalakító
+forrasztópáka
+forrasztóón
+csiszolópapír
+ragasztó
+pillanatragasztó
+kétoldalas ragasztó
+szigetelőszalag
+teflonszalag
+csavarhúzó
+imbuszkulcs
+villáskulcs
+fogó
+kalapács
+mérőszalag
+vízmérték
+fúrófej
+tipli
+szög
+kampó
+bútorjavító készlet
+bútorápoló
+faápoló olaj
+bőrápoló
+üvegtisztító
+rozsdamentesacél-tisztító
+sütőtisztító
+hűtőtisztító
+mikroszálas kendő
+gumikesztyű
+takarítóeszköz
+seprű
+lapát
+felmosó
+felmosófej
+vödör
+felmosószer
+porszívózsák
+porszívószűrő
+robotporszívó-kiegészítő
+szárítógépszűrő
+hűtőszekrény szűrő
+kávéfőző vízkőtelenítés
+kávékapszula
+kávébab
+őrölt kávé
+teafilter
+méz
+cukorhelyettesítő
+reggelizőpehely
+proteinital
+ásványvíz automata
+munkahelyi kávéautomata
+automatás snack
+ételautomata
+munkahelyi büfé
+ebédkiszállítás
+ételcsomagolási díj
+borravaló futárnak
+bevásárlószatyor
+újrahasznosítható bevásárlótáska
+piacozás
+termelői piac
+házhoz szállított élelmiszer
+online bevásárlás
+bevásárlókocsi-zseton
+palackvisszaváltási egyenleg
+ásványvízballon
+vízadagoló
+konyhai papíráru
+sütőforma
+tortadísz
+sütési alapanyag
+főzési alapanyag
+ételtároló doboz
+uzsonnásdoboz
+kulacs
+folpack
+sütőzacskó
+kávéfilter
+szalvéta
+papírtányér
+műanyag pohár
+eldobható evőeszköz
+grillfaszén
+tűzgyújtó
+grillrács
+grillgáz
+piknikhez vásárolt étel
+vendégségre vásárolt ital
+vendégségre vásárolt sütemény
+házibuli dekoráció
+lufi
+tortagyertya
+konfetti
+társasági vacsora
+családi ebéd
+baráti vacsora
+munkahelyi közös ajándék
+kolléga búcsúajándéka
+kolléga születésnapi ajándéka
+főnök ajándéka
+esküvői ruhaigazítás
+menyasszonyi cipő
+esküvői frizura
+esküvői smink
+esküvői autó
+esküvői dekoráció
+esküvői meghívó
+esküvői postázás
+esküvői gyűrű
+gyűrűméretre igazítás
+eljegyzési gyűrű
+ékszerjavítás
+ékszertisztítás
+óraelem
+óraszíj
+órajavítás
+szemüvegkeret
+táskajavítás
+pénztárcacsere
+ajándékcsomag
+karácsonyi csomagküldés
+húsvéti ajándék
+mikuláscsomag
+adventi naptár
+húsvéti tojás
+locsolkodásra adott pénz
+diplomaosztó ajándék
+keresztelői ajándék
+babalátogató ajándék
+gyermek születésére ajándék
+házassági évfordulós ajándék
+évfordulós vacsora
+Valentin-napi ajándék
+anyák napi ajándék
+apák napi ajándék
+nőnapi virág
+Halloween dekoráció
+jelmez
+farsangi jelmez
+jelmezkellék
+karácsonyi dekoráció
+karácsonyi fényfüzér
+karácsonyi égősor
+karácsonyi csomagolóanyag
+karácsonyi postázás
+ünnepi étkezés
+ünnepi sütemény
+ünnepi ital
+szilveszteri tűzijáték
+szilveszteri kellék
+újévi fogadalomhoz vett sporteszköz
+impulzív online tanfolyam
+impulzív kütyüvásárlás
+később soha nem használt előfizetés
+elfelejtett próbaelőfizetés
+duplikált előfizetés
+alkalmazáson belüli vásárlás
+videojáték DLC
+videojáték-kiegészítő
+játékbeli valuta
+prémium karakter
+digitális matrica
+emoji-csomag
+háttérkép-vásárlás
+stockfotó
+betűtípus-licenc
+szoftverlicenc
+fejlesztői eszköz előfizetés
+AI-előfizetés
+online tárhely
+domain regisztráció
+domain átregisztrálás
+szerver bérlés
+VPS
+VPN
+digitális tanúsítvány
+SMS-küldési díj
+kétfaktoros hitelesítő szolgáltatás
+online fizetési díj
+Patreon-tagság
+alkotói támogatás
+livestream támogatás
+podcast támogatás
+online borravaló
+digitális ajándékkártya
+alkalmazás prémium verziója
+mobiljáték-előfizetés
+fotótárhely
+családi streaming csomag
+felhőalapú irodai csomag
+online biztonsági mentés
+számítógépes játék előrendelés
+digitális könyvvásárlás
+online újság előfizetés
+nyomtatott újság előfizetés
+magazinelőfizetés
+hírlevél prémium
+szakmai tagsági díj
+klubtagság
+egyesületi tagdíj
+kamarai tagdíj
+bankkártya éves díja
+SMS-bank szolgáltatás
+devizaszámla díja
+valutaváltás
+ATM-díj
+banki értesítési díj
+készpénzbefizetési díj
+átutalási költség
+csoportos beszedés díja
+csekkbefizetés
+postai csekk díja
+hitelkártya kamat
+folyószámlahitel kamata
+hitelkártya késedelmi díja
+közüzemi késedelmi kamat
+számlázási adminisztrációs díj
+biztosítási díj
+kárszakértői díj
+lakásbiztosítás éves díja
+utasbiztosítás napi díja
+gépjármű-biztosítás éves díja
+életbiztosítás havi díja
+balesetbiztosítás havi díja
+telefonbiztosítás havi díja
+jogvédelmi biztosítás
+kisállat-biztosítás
+nyugdíjbiztosítás
+megtakarítási számla
+lekötött betét
+befektetési alap vásárlása
+részvényvásárlás
+értékpapírszámla díja
+brókeri jutalék
+osztalék újrabefektetése
+pénzügyi tanácsadás
+könyvelési díj
+adóbevallás elkészítése
+adóigazolás
+jövedelemigazolás
+hitelügyintézési díj
+közjegyzői okirat
+hiteles másolat
+dokumentumhitelesítés
+fordítás
+hivatalos fordítás
+tolmács
+ügyvédi konzultáció
+szerződés átnézése
+meghatalmazás készítése
+postai ajánlott levél
+tértivevény
+expressz levél
+csomagolási anyag
+költöztetődoboz
+buborékfólia
+költöztető fólia
+költöztető takaró
+teherautó-bérlés
+utánfutó-bérlés
+rakodó munkadíja
+lomtalanítás
+hulladékudvar díja
+elektronikai hulladék elszállítása
+zöldhulladék elszállítása
+sitt elszállítása
+konténerbérlés
+felesleges bútor elszállítása
+használt bútor szállítása
+antik bútor restaurálása
+festménykeretezés
+képkeretezés
+fotóalbum
+fotókönyv
+naptárkészítés
+személyre szabott ajándék
+gravírozott ajándék
+pólónyomtatás
+bögrenyomtatás
+egyedi matrica
+névjegykártya újranyomtatás
+bélyegző újratöltése
+irodai kellék
+iratrendező
+mappa
+lefűző
+irattartó
+címkenyomtató
+címkenyomtató-szalag
+vonalkódnyomtató kellékanyag
+nyomtatópapír
+fotópapír
+tinta
+toner
+spirálfüzet
+post-it
+gemkapocs
+tűzőkapocs
+tűzőgép
+lyukasztó
+olló
+ragasztóstift
+hibajavító
+filctoll
+szövegkiemelő
+fehértábla-marker
+határidőnapló
+naptár
+falinaptár
+asztali naptár
+tolltartó
+ceruza
+radír
+hegyező
+vonalzó
+számológép
+elemlámpaelem
+személyes széf
+iratmegsemmisítő
+laminálófólia

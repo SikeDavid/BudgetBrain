@@ -1,0 +1,21 @@
+kenyér
+tej
+tojás
+hús
+felvágott
+sajt
+zöldség
+gyümölcs
+édesség
+chips
+üdítő
+ásványvíz
+kávé
+tea
+fűszer
+olaj
+liszt
+cukor
+konzerv
+mirelit étel
+bébiétel

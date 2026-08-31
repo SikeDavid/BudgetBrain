@@ -15,14 +15,13 @@
 
 function plannedEntriesAdd() {
     const body = {
-        "categoryid": 2,
-        "name": "valami teszt",
-        "amount": 3000000,
-        "dayofmonth": 30
+        "categoryid": e_in_PlEntAdd_catId.value,
+        "name": e_in_PlEntAdd_name.value,
+        "amount": e_in_PlEntAdd_amt.value,
+        "dayofmonth": e_in_PlEntAdd_dom.value
     };
 
     ajax({
-        caller: plannedEntriesAdd,
         method: "POST",
         url: `${API_PATH}/planner`,
         body: body,

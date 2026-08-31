@@ -16,7 +16,6 @@ function refreshToken() {
     };
 
     ajax({
-        caller: refreshToken,
         method: "POST",
         url: `${API_PATH}/auth/refreshtoken`,
         body: body,

@@ -13,7 +13,6 @@ function entriesGetForMonth(year, month) {
     };
 
     ajax({
-        caller: entriesGetForMonth,
         method: "GET",
         url: `${API_PATH}/entries?year=${year}&month=${month}`,
         //body: body,

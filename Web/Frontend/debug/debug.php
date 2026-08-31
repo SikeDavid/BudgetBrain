@@ -1,3 +1,15 @@
+<?php
+    $testUser = [
+        "name" => "BitMiller",
+        "email" => "bitmiller@test.com",
+        "password" => "Almafa123-"
+    ];
+?>
+<script>
+    const testUser = <?= json_encode($testUser); ?>;
+    //console.log(testUser);
+</script>
+
 <div>
     <hr>
 
@@ -83,7 +95,7 @@
 
     <button onclick="entriesGet(e_in_entGet_id.value)">Entries - Get</button>
     <br>
-    <input id="id_in_entGet_id" type="number" placeholder="ID" value="7">
+    <input id="id_in_entGet_id" type="number" placeholder="ID" value="11">
 
     <hr>
 
@@ -126,11 +138,15 @@
 
     <hr>
 
-    <button onclick="entriesComplete(20)">Entries - Complete</button>
+    <button onclick="entriesComplete(e_in_entComp_entId.value)">Entries - Complete</button>
+    <br>
+    <input id="id_in_entComp_entId" type="number" placeholder="Entry ID" value="11">
 
     <hr>
 
-    <button onclick="entriesDelete(20)">Entries - Delete</button>
+    <button onclick="entriesDelete(e_in_entDel_entId.value)">Entries - Delete</button>
+    <br>
+    <input id="id_in_entDel_entId" type="number" placeholder="Entry ID" value="11">
 
     <hr>
     <hr>
@@ -140,10 +156,20 @@
     <hr>
 
     <button onclick="plannedEntriesAdd()">Planned Entries - Add</button>
+    <br>
+    <input id="id_in_PlEntAdd_catId" type="number" placeholder="Category ID" value="7">
+    <br>
+    <input id="id_in_PlEntAdd_name" placeholder="Name" value="Fizetés">
+    <br>
+    <input id="id_in_PlEntAdd_amt" type="number" placeholder="Amount" value="7000">
+    <br>
+    <input id="id_in_PlEntAdd_dom" type="number" placeholder="Day of month" value="12">
 
     <hr>
 
-    <button onclick="plannedEntriesStatus(9)">Planned Entries - Status</button>
+    <button onclick="plannedEntriesStatus(e_in_PlEntStat_PlEntId.value)">Planned Entries - Status</button>
+    <br>
+    <input id="id_in_PlEntStat_PlEntId" type="number" placeholder="Planned entry ID" value="7">
 
     <hr>
 </div>
@@ -196,5 +222,17 @@ const e_in_entUp_amt = document.getElementById("id_in_entUp_amt");
 const e_in_entUp_desc = document.getElementById("id_in_entUp_desc");
 const e_in_entUp_date = document.getElementById("id_in_entUp_date");
 const e_cbx_entUp_comp = document.getElementById("id_cbx_entUp_comp");
+
+const e_in_entComp_entId = document.getElementById("id_in_entComp_entId");
+
+const e_in_entDel_entId = document.getElementById("id_in_entDel_entId");
+
+/* Hogy lehet megadni egy tervezett bejegyzésnek az érvényességi idejét? Hogy melyik hónaptól melyikig kell vele számolni? */
+const e_in_PlEntAdd_catId = document.getElementById("id_in_PlEntAdd_catId");
+const e_in_PlEntAdd_name = document.getElementById("id_in_PlEntAdd_name");
+const e_in_PlEntAdd_amt = document.getElementById("id_in_PlEntAdd_amt");
+const e_in_PlEntAdd_dom = document.getElementById("id_in_PlEntAdd_dom");
+
+const e_in_PlEntStat_PlEntId = document.getElementById("id_in_PlEntStat_PlEntId");
 
 </script>

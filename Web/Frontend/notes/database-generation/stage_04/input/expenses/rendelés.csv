@@ -1,0 +1,15 @@
+csomagautomata,0,500,5000
+expressz kézbesítés,0,1000,10000
+hétvégi kézbesítés,0,1000,10000
+időablakos kézbesítés,0,500,5000
+utánvét,0,300,3000
+visszaküldés,0,1000,10000
+garanciális visszaküldés,0,0,10000
+termékcsere szállítási díja,0,500,10000
+elveszett csomag miatti ügyintézés,0,0,30000
+vámkezelési díj,0,1000,30000
+importáfa,0,1000,500000
+vám,0,1000,500000
+vámügynöki díj,0,5000,100000
+külföldi rendelés szállítása,0,2000,100000
+csomagbiztosítás,0,500,20000
