@@ -43,7 +43,11 @@ app.get('/', (req, res) => {
                     route: "POST /api/auth/login",
                     body: {
                         username: "username",
-                        password: "password"
+                        password: "password",
+                        optional:
+                            {
+                                "magicword": "please"
+                            }
                     },
                     response: {
                         status: 200,

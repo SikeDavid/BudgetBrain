@@ -22,6 +22,6 @@ namespace BudgetBrainDesktop.Models
         [JsonPropertyName("day_of_month")]
         public int DayofMonth { get; set; }
         [JsonPropertyName("active")]
-        public bool Active { get; set; }
+        public int Active { get; set; }
     }
 }

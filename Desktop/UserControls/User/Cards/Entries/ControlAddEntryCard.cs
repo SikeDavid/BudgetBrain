@@ -1,4 +1,5 @@
 ﻿using BudgetBrainDesktop.Models;
+using BudgetBrainDesktop.Properties;
 using BudgetBrainDesktop.Services;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,25 @@ namespace BudgetBrainDesktop.UserControls.User.Cards
     {
         public string PageTitle { get; } = "Add";
         public List<CategoriesModel.Get> categories = new();
-        public ControlAddEntryCard()
+        public ControlAddEntryCard(List<CategoriesModel> categories)
         {
             InitializeComponent();
 
             this.Load += ControlAddEntryCardLoad;
-            btnCancel.Click += Btncancel_Click;
+
+            btnSave.Text = "";
+            btnSave.Image = Resources.save_icon;
+
+            var activeCategories = categories.Where(c => c.inUse == 1).ToList();
+            cbCategory.DisplayMember = nameof(CategoriesModel.Name);
+            cbCategory.ValueMember = nameof(CategoriesModel.Id);
+            cbCategory.DataSource = activeCategories;
+
             btnSave.Click += BtnsaveClick;
 
         }
+
+        public event EventHandler? EntryChanged;
 
         private async void BtnsaveClick(object? sender, EventArgs e)
         {
@@ -42,7 +53,6 @@ namespace BudgetBrainDesktop.UserControls.User.Cards
             try
             {
                 btnSave.Enabled = false;
-                btnSave.Text = "Saving...";
 
                 MessageModel response = await ApiService.PostAsync<EntriesModel.Post, MessageModel>("entries", body);
 
@@ -64,7 +74,8 @@ namespace BudgetBrainDesktop.UserControls.User.Cards
             finally
             {
                 btnSave.Enabled = true;
-                btnSave.Text = "Save";
+                this.Dispose();
+                EntryChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -77,7 +88,8 @@ namespace BudgetBrainDesktop.UserControls.User.Cards
             try
             {
                 categories = await ApiService.GetAsync<List<CategoriesModel.Get>>("categories");
-                cbCategory.DataSource = categories;
+                var activeCategories = categories.Where(c => c.inUse == 1).ToList();
+                cbCategory.DataSource = activeCategories;
                 cbCategory.DisplayMember = "Name";
                 cbCategory.ValueMember = "Id";
             }
@@ -85,13 +97,6 @@ namespace BudgetBrainDesktop.UserControls.User.Cards
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-
-        private void Btncancel_Click(object? sender, EventArgs e)
-        {
-            Parent.Controls.Remove(this);
-            Dispose();
         }
     }
 }

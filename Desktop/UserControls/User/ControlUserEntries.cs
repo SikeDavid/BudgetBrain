@@ -1,4 +1,5 @@
 ﻿using BudgetBrainDesktop.Models;
+using BudgetBrainDesktop.Properties;
 using BudgetBrainDesktop.Services;
 using BudgetBrainDesktop.UserControls.Cards;
 using BudgetBrainDesktop.UserControls.User.Cards;
@@ -20,9 +21,13 @@ namespace BudgetBrainDesktop.UserControls.User
         private List<CategoriesModel> categories = new();
 
         private DateTime currentDate = DateTime.Today;
+        private ControlAddEntryCard? addControl;
         public ControlUserEntries()
         {
             InitializeComponent();
+
+            btnAdd.Text = "";
+            btnAdd.Image = Resources.add_icon;
 
             this.Load += ControlUserEntriesLoad;
             btnNextMonth.Click += BtnnextmonthClick;
@@ -33,10 +38,39 @@ namespace BudgetBrainDesktop.UserControls.User
 
         private void BtnaddClick(object? sender, EventArgs e)
         {
-            ControlAddEntryCard addControl = new();
-            addControl.Dock = DockStyle.Fill;
-            panelContent.Controls.Add(addControl);
-            addControl.BringToFront();
+            if (addControl == null)
+            {
+                btnAdd.Image = Resources.close_icon;
+                btnAdd.BackColor = Color.FromArgb(244, 79, 80);
+                lblMonth.Visible = false;
+                lblCategory.Visible = false;
+                lblSearch.Visible = false;
+                tlpMonthSelect.Visible = false;
+                cbCategorySort.Visible = false;
+                tbSearch.Visible = false;
+
+                addControl = new(categories);
+                addControl.Dock = DockStyle.Fill;
+                addControl.EntryChanged += CardEntryChanged;
+                panelContent.Controls.Add(addControl);
+                addControl.BringToFront();
+            }
+            else
+            {
+                btnAdd.Image = Resources.add_icon;
+                btnAdd.BackColor = Color.FromArgb(36, 182, 110);
+                lblMonth.Visible = true;
+                lblCategory.Visible = true;
+                lblSearch.Visible = true;
+                tlpMonthSelect.Visible = true;
+                cbCategorySort.Visible = true;
+                tbSearch.Visible = true;
+
+                panelContent.Controls.Remove(addControl);
+                addControl.Dispose();
+                addControl = null;
+            }
+
         }
 
         private async void BtnprevmonthClick(object? sender, EventArgs e)
@@ -71,7 +105,7 @@ namespace BudgetBrainDesktop.UserControls.User
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
                 panelContent.Controls.Clear();
             }
         }

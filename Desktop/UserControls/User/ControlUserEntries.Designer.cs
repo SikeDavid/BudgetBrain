@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            label1 = new Label();
-            label2 = new Label();
+            lblMonth = new Label();
+            lblCategory = new Label();
             cbCategorySort = new ComboBox();
             tbSearch = new TextBox();
-            btnAdd = new Button();
-            label3 = new Label();
-            tableLayoutPanel2 = new TableLayoutPanel();
+            lblSearch = new Label();
+            tlpMonthSelect = new TableLayoutPanel();
             btnPrevMonth = new Button();
             btnNextMonth = new Button();
             lblCurrentMonth = new Label();
+            btnAdd = new Button();
             panelContent = new Panel();
             panelContentEntries = new FlowLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
+            tlpMonthSelect.SuspendLayout();
             panelContent.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,12 +54,12 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 240F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
-            tableLayoutPanel1.Controls.Add(label1, 0, 0);
-            tableLayoutPanel1.Controls.Add(label2, 1, 0);
+            tableLayoutPanel1.Controls.Add(lblMonth, 0, 0);
+            tableLayoutPanel1.Controls.Add(lblCategory, 1, 0);
             tableLayoutPanel1.Controls.Add(cbCategorySort, 1, 1);
             tableLayoutPanel1.Controls.Add(tbSearch, 2, 1);
-            tableLayoutPanel1.Controls.Add(label3, 2, 0);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
+            tableLayoutPanel1.Controls.Add(lblSearch, 2, 0);
+            tableLayoutPanel1.Controls.Add(tlpMonthSelect, 0, 1);
             tableLayoutPanel1.Controls.Add(btnAdd, 3, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(10, 10);
@@ -71,31 +71,31 @@
             tableLayoutPanel1.Size = new Size(1160, 121);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // label1
+            // lblMonth
             // 
-            label1.Anchor = AnchorStyles.Left;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10F);
-            label1.ForeColor = Color.FromArgb(246, 247, 247);
-            label1.Location = new Point(3, 14);
-            label1.Name = "label1";
-            label1.Size = new Size(86, 32);
-            label1.TabIndex = 0;
-            label1.Text = "Month";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            lblMonth.Anchor = AnchorStyles.Left;
+            lblMonth.AutoSize = true;
+            lblMonth.Font = new Font("Segoe UI", 10F);
+            lblMonth.ForeColor = Color.FromArgb(246, 247, 247);
+            lblMonth.Location = new Point(3, 14);
+            lblMonth.Name = "lblMonth";
+            lblMonth.Size = new Size(86, 32);
+            lblMonth.TabIndex = 0;
+            lblMonth.Text = "Month";
+            lblMonth.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // lblCategory
             // 
-            label2.Anchor = AnchorStyles.Left;
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10F);
-            label2.ForeColor = Color.FromArgb(246, 247, 247);
-            label2.Location = new Point(303, 14);
-            label2.Name = "label2";
-            label2.Size = new Size(110, 32);
-            label2.TabIndex = 1;
-            label2.Text = "Category";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
+            lblCategory.Anchor = AnchorStyles.Left;
+            lblCategory.AutoSize = true;
+            lblCategory.Font = new Font("Segoe UI", 10F);
+            lblCategory.ForeColor = Color.FromArgb(246, 247, 247);
+            lblCategory.Location = new Point(303, 14);
+            lblCategory.Name = "lblCategory";
+            lblCategory.Size = new Size(110, 32);
+            lblCategory.TabIndex = 1;
+            lblCategory.Text = "Category";
+            lblCategory.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // cbCategorySort
             // 
@@ -120,50 +120,34 @@
             tbSearch.Size = new Size(380, 35);
             tbSearch.TabIndex = 3;
             // 
-            // btnAdd
+            // lblSearch
             // 
-            btnAdd.Anchor = AnchorStyles.None;
-            btnAdd.BackColor = Color.FromArgb(36, 182, 110);
-            btnAdd.FlatAppearance.BorderSize = 0;
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Segoe UI", 14F);
-            btnAdd.ForeColor = Color.FromArgb(246, 247, 247);
-            btnAdd.Location = new Point(994, 32);
-            btnAdd.Name = "btnAdd";
-            tableLayoutPanel1.SetRowSpan(btnAdd, 2);
-            btnAdd.Size = new Size(131, 56);
-            btnAdd.TabIndex = 4;
-            btnAdd.Text = "+";
-            btnAdd.UseVisualStyleBackColor = false;
+            lblSearch.Anchor = AnchorStyles.Left;
+            lblSearch.AutoSize = true;
+            lblSearch.Font = new Font("Segoe UI", 10F);
+            lblSearch.ForeColor = Color.FromArgb(246, 247, 247);
+            lblSearch.Location = new Point(543, 14);
+            lblSearch.Name = "lblSearch";
+            lblSearch.Size = new Size(85, 32);
+            lblSearch.TabIndex = 5;
+            lblSearch.Text = "Search";
             // 
-            // label3
+            // tlpMonthSelect
             // 
-            label3.Anchor = AnchorStyles.Left;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10F);
-            label3.ForeColor = Color.FromArgb(246, 247, 247);
-            label3.Location = new Point(543, 14);
-            label3.Name = "label3";
-            label3.Size = new Size(85, 32);
-            label3.TabIndex = 5;
-            label3.Text = "Search";
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel2.Controls.Add(btnPrevMonth, 0, 0);
-            tableLayoutPanel2.Controls.Add(btnNextMonth, 2, 0);
-            tableLayoutPanel2.Controls.Add(lblCurrentMonth, 1, 0);
-            tableLayoutPanel2.Location = new Point(3, 63);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(294, 52);
-            tableLayoutPanel2.TabIndex = 6;
+            tlpMonthSelect.ColumnCount = 3;
+            tlpMonthSelect.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            tlpMonthSelect.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpMonthSelect.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            tlpMonthSelect.Controls.Add(btnPrevMonth, 0, 0);
+            tlpMonthSelect.Controls.Add(btnNextMonth, 2, 0);
+            tlpMonthSelect.Controls.Add(lblCurrentMonth, 1, 0);
+            tlpMonthSelect.Location = new Point(3, 63);
+            tlpMonthSelect.Name = "tlpMonthSelect";
+            tlpMonthSelect.RowCount = 1;
+            tlpMonthSelect.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpMonthSelect.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tlpMonthSelect.Size = new Size(294, 52);
+            tlpMonthSelect.TabIndex = 6;
             // 
             // btnPrevMonth
             // 
@@ -204,6 +188,22 @@
             lblCurrentMonth.TabIndex = 2;
             lblCurrentMonth.Text = "label4";
             // 
+            // btnAdd
+            // 
+            btnAdd.Anchor = AnchorStyles.None;
+            btnAdd.BackColor = Color.FromArgb(36, 182, 110);
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 14F);
+            btnAdd.ForeColor = Color.FromArgb(246, 247, 247);
+            btnAdd.Location = new Point(994, 32);
+            btnAdd.Name = "btnAdd";
+            tableLayoutPanel1.SetRowSpan(btnAdd, 2);
+            btnAdd.Size = new Size(131, 56);
+            btnAdd.TabIndex = 4;
+            btnAdd.Text = "add";
+            btnAdd.UseVisualStyleBackColor = false;
+            // 
             // panelContent
             // 
             panelContent.Controls.Add(panelContentEntries);
@@ -237,8 +237,8 @@
             Size = new Size(1180, 753);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
+            tlpMonthSelect.ResumeLayout(false);
+            tlpMonthSelect.PerformLayout();
             panelContent.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -246,13 +246,13 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Label label1;
-        private Label label2;
+        private Label lblMonth;
+        private Label lblCategory;
         private ComboBox cbCategorySort;
         private TextBox tbSearch;
         private Button btnAdd;
-        private Label label3;
-        private TableLayoutPanel tableLayoutPanel2;
+        private Label lblSearch;
+        private TableLayoutPanel tlpMonthSelect;
         private Button btnPrevMonth;
         private Button btnNextMonth;
         private Label lblCurrentMonth;

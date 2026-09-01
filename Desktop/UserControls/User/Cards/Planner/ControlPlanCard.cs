@@ -27,7 +27,7 @@ namespace BudgetBrainDesktop.UserControls.User.Cards.Planner
             {
                 lblType.ForeColor = Color.FromArgb(244, 79, 80);
             }
-            if (plan.Active)
+            if (plan.Active == 1)
             {
                 lblStatus.Text = "active";
                 lblStatus.ForeColor = Color.FromArgb(36, 182, 110);
