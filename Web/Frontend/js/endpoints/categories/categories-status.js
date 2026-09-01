@@ -8,9 +8,6 @@
 */
 
 function categoriesStatus(id) {
-    const body = {
-    };
-
     ajax({
         method: "PATCH",
         url: `${API_PATH}/categories/${id}/status`,
@@ -25,14 +22,14 @@ function categoriesStatus(id) {
 /******************************/
 /******************************/
 
-function categoriesStatusSuccess(response) {
-    console.log(response);
+function categoriesStatusSuccess(result) {
+    console.log(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function categoriesStatusError(response) {
-    console.error(response);
+function categoriesStatusError(result) {
+    console.error(result);
 }

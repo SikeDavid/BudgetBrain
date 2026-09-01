@@ -17,15 +17,7 @@
 },
 */
 
-function entriesAdd() {
-    const body = {
-        "categoryid": e_in_entAdd_catId.value,
-        "amount": e_in_entAdd_amt.value,
-        "description": e_in_entAdd_desc.value,
-        //> In db corrects to 2021-12-01 :
-        "date": e_in_entAdd_date.value
-    };
-
+function entriesAdd(body) {
     ajax({
         method: "POST",
         url: `${API_PATH}/entries`,
@@ -40,14 +32,14 @@ function entriesAdd() {
 /******************************/
 /******************************/
 
-function entriesAddSuccess(response) {
-    console.log(response);
+function entriesAddSuccess(result) {
+    console.log(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function entriesAddError(response) {
-    console.error(response);
+function entriesAddError(result) {
+    console.error(result);
 }

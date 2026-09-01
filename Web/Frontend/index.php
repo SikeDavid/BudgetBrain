@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="hu-HU">
 
 <?php
 /*
@@ -19,6 +19,13 @@ With debug:
 http://0.0.0.0:8080/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/frontend-native/git/index.php?debug=517e498b4ae834bca6b046324f226bf4fcea1ee42
 
 */
+    const BR = "<br>";
+    const NS = "&nbsp;";
+    const HTML_TAB = NS.NS.NS.NS;
+    const LF = "\n";
+    const CR = "\r";
+    const TAB = "\t";
+
     class g {
         public static $t;
         public static $URLv;
@@ -43,6 +50,8 @@ http://0.0.0.0:8080/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/fronten
         else if ($_GET["debug"] == DEBUG_TOKEN_ANDROID)
             $debug = DEBUG_ANDROID;
     }
+
+    require_once("php/mix.php");
 ?>
 
     <head>
@@ -53,71 +62,41 @@ http://0.0.0.0:8080/Dropbox/WhiteAndRoll/webprogs/_verebely/_budgetbrain/fronten
         <link rel="icon" type="image/x-icon" href="img/organic/budgetbrain_logo_16x16.png">
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
-<?php
-if ($debug == DEBUG_ANDROID)
-        echo '<script type="text/javascript" src="external/mobile-console-main_v2/hnl.mobileconsole.min.js"></script>';
-?>
+        <?php
+            if ($debug == DEBUG_ANDROID)
+                echo '<script type="text/javascript" src="external/mobile-console-main_v2/hnl.mobileconsole.min.js"></script>';
+            echo "<script>const debug = ".json_encode($debug).";</script>";
+            loadJavaScriptFiles();
+        ?>
 
-        <script type="text/javascript" src="js/endpoints/fn_ajax.js<?= g::$URLv ?>" defer></script>
-
-        <script type="text/javascript" src="js/endpoints/auth/auth-login.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/auth/auth-logout.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/auth/auth-refresh-token.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/auth/auth-registration.js" defer></script>
-
-        <script type="text/javascript" src="js/endpoints/categories/categories-add.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/categories/categories-all.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/categories/categories-status.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/categories/categories-update.js" defer></script>
-
-        <script type="text/javascript" src="js/endpoints/entries/entries-add.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/entries/entries-complete.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/entries/entries-delete.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/entries/entries-get-for-month.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/entries/entries-get.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/entries/entries-update.js" defer></script>
-
-        <script type="text/javascript" src="js/endpoints/planned-entries/planned-entries-add.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/planned-entries/planned-entries-all.js" defer></script>
-        <script type="text/javascript" src="js/endpoints/planned-entries/planned-entries-status.js" defer></script>
-
-        <script type="text/javascript" src="js/storage/cookies.js" defer></script>
-        <script type="text/javascript" src="js/storage/local-storage.js" defer></script>
-
-        <script type="text/javascript" src="js/constants-global.js" defer></script>
-        <script type="text/javascript" src="js/copy-to-clipboard.js" defer></script>
-        <script type="text/javascript" src="js/dom-content-loaded.js" defer></script>
-        <script type="text/javascript" src="js/mix.js" defer></script>
-        <script type="text/javascript" src="js/test-users.js" defer></script>
-        <script type="text/javascript" src="js/variables-elements.js" defer></script>
-        <script type="text/javascript" src="js/variables-global.js" defer></script>
+        <script type="text/javascript" src="external/chart-js/chart.umd.min.js"></script>
 
         <title>BudgetBrain - Budge Your Brain!</title>
     </head>
 
     <body>
-        <header>
+        <!--<header>
             <div>BudgetBrain</div>
             <div><img src="img/organic/budgetbrain_logo_256x256.png" id="id_headerLogo"></div>
-        </header>
+        </header>-->
 
-        <nav>
-            <div id="id_div_notLoggedIn">
-                <div id="id_div_LoginRegClickable" onclick="showLoginRegister()">Login/Register</div>
-            </div>
-            <div id="id_div_loggedIn">
-                <div>Logged in: <span id="id_sp_name"></span> | ID: <span id="id_sp_id"></span></div>
-                <div>Menu 1</div>
-                <div>Menu 2</div>
-                <div>Menu 3</div>
-                <div>Menu 4</div>
-                <div>Menu 5</div>
-                <div onclick="logout()">Logout</div>
-            </div>
-        </nav>
         <main>
 
+            <div id="id_div_languageSelector">
+                <img src="img/flag/hu.svg" onclick="fetchLanguage('hu')" class="cl_flagImage">
+                <img src="img/flag/en.svg" onclick="fetchLanguage('en')" class="cl_flagImage">
+            </div>
+
+            <div><input type="date"></div>
+
+            <div data-l10n="div.test1">Placeholder</div>
+            <div data-l10n="div.test2">Placeholder</div>
+
             <?php if ($debug) require_once("debug/debug.php"); ?>
+
+            <div>
+                <canvas id="id_chartTest"></chart>
+            </div>
 
         </main>
 

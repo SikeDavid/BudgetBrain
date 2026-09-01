@@ -8,9 +8,6 @@
 */
 
 function plannedEntriesStatus(id) {
-    const body = {
-    };
-
     ajax({
         method: "PATCH",
         url: `${API_PATH}/planner/${id}/status`,
@@ -25,14 +22,14 @@ function plannedEntriesStatus(id) {
 /******************************/
 /******************************/
 
-function plannedEntriesStatusSuccess(response) {
-    console.log(response);
+function plannedEntriesStatusSuccess(result) {
+    console.log(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function plannedEntriesStatusError(response) {
-    console.error(response);
+function plannedEntriesStatusError(result) {
+    console.error(result);
 }

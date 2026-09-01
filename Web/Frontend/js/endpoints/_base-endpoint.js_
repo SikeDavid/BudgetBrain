@@ -29,16 +29,16 @@ function logout() {
 /******************************/
 /******************************/
 
-function Success(response) {
-    console.log(response);
+function Success(result) {
+    console.log(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function Error(response) {
-    console.log(response);
+function Error(result) {
+    console.log(result);
 }
 
 

@@ -15,16 +15,7 @@
 },
 */
 
-function entriesUpdate(id) {
-    const body = {
-        "category_id": e_in_entUp_catId.value,
-        "name": e_in_entUp_name.value,
-        "amount": e_in_entUp_amt.value,
-        "description": e_in_entUp_desc.value,
-        "date": e_in_entUp_date.value,
-        "completed": e_cbx_entUp_comp.checked ? 1 : 0
-    };
-
+function entriesUpdate(id, body) {
     ajax({
         method: "PATCH",
         url: `${API_PATH}/entries/${id}`,
@@ -39,14 +30,14 @@ function entriesUpdate(id) {
 /******************************/
 /******************************/
 
-function entriesUpdateSuccess(response) {
-    console.log(response);
+function entriesUpdateSuccess(result) {
+    console.log(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function entriesUpdateError(response) {
-    console.error(response);
+function entriesUpdateError(result) {
+    console.error(result);
 }

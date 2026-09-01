@@ -12,13 +12,7 @@
 }
 */
 
-function categoriesAdd() {
-    const body = {
-        "name": e_in_cat_addName.value,
-        "type": e_sel_cat_item.options[e_sel_cat_item.selectedIndex].value,
-        "in_use": e_cbx_cat_inUse.checked ? 1 : 0
-    };
-
+function categoriesAdd(body) {
     ajax({
         method: "POST",
         url: `${API_PATH}/categories`,
@@ -33,14 +27,14 @@ function categoriesAdd() {
 /******************************/
 /******************************/
 
-function categoriesAddSuccess(response) {
-    console.log(response);
+function categoriesAddSuccess(result) {
+    console.log(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function categoriesAddError(response) {
-    console.error(response);
+function categoriesAddError(result) {
+    console.error(result);
 }

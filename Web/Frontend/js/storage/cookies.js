@@ -7,13 +7,13 @@ function getCookies() {
     /*console.log(`document.cookie:`);
     console.log(document.cookie);*/
 
-    cookies = {};
+    let cookies = {};
 
     if (document.cookie != "") {
         let cook = document.cookie.split(";");
 
-        console.log(`cook:`);
-        console.log(cook);
+        /*console.log(`cook:`);
+        console.log(cook);*/
 
         for (let i = 0; i < cook.length; i++) {
             cook[i] = cook[i].trimStart().split("=");
@@ -21,8 +21,10 @@ function getCookies() {
         }
     }
 
-    console.log("cookies:");
-    console.log(cookies);
+    /*console.log("cookies:");
+    console.log(cookies);*/
+
+    return cookies;
 }
 
 /******************************/

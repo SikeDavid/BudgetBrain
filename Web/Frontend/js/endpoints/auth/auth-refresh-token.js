@@ -10,11 +10,7 @@
 }
 */
 
-function refreshToken() {
-    const body = {
-        "refreshToken": currentUser.refreshToken
-    };
-
+function refreshToken(body) {
     ajax({
         method: "POST",
         url: `${API_PATH}/auth/refreshtoken`,
@@ -29,18 +25,19 @@ function refreshToken() {
 /******************************/
 /******************************/
 
-function refreshTokenSuccess(response) {
-    console.log(response);
-    currentUser.accessToken = response.accessToken;
-    e_accessToken.value = response.accessToken;
+function refreshTokenSuccess(result) {
+    console.log(result);
+    currentUser.accessToken = result.response.accessToken;
+    if (debug != 0)
+        e_in_dbgApi_accessToken.value = result.response.accessToken;
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function refreshTokenError(response) {
-    console.error("Token refresh is a no-no! refreshToken expired!");
-    console.log(response);
+function refreshTokenError(result) {
+    console.error("Oh no! Token refresh is a no-no! Refresh token must have expired!");
+    console.error(result);
 }
 

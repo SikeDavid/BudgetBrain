@@ -1,0 +1,26 @@
+{
+    "languages": {
+        "hu": {
+            "name": "Magyar",
+            "englishName": "Hungarian",
+            "abbrev": "HU",
+            "icon": "img/flag/hu.svg"
+        },
+        "en": {
+            "name": "English",
+            "englishName": "English",
+            "abbrev": "EN",
+            "icon": "img/flag/en.svg"
+        }
+    },
+    "data": {
+        "div.test1": {
+            "hu": "Bejelentkezés",
+            "en": "Login"
+        },
+        "div.test2": {
+            "hu": "Regisztráció",
+            "en": "Registration"
+        }
+    }
+}

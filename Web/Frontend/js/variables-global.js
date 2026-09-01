@@ -1,7 +1,7 @@
 
 let categories = undefined;
 
-let cookies = null;
+let cookies = {};
 
 let nullUser = {
     "id": null,
@@ -15,3 +15,11 @@ clearUser();
 
 let sections = [
 ];
+
+
+let userSelectedLanguage = "";
+
+let lclTxt = {};
+let languages = {};
+
+

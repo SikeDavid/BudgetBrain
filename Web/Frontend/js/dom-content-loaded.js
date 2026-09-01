@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-    setLoginUser(3);
+    if (debug != 0)
+        setLoginUser(6);
 
-    //ajax();
+    cookies = getCookies();
 
-    if (!loadUser()) {
-        showLoginBar();
-    }
+    //fetchLanguage();
+    fetchLanguage("hu");
+
 });
 
 

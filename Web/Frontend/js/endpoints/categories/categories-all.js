@@ -9,9 +9,6 @@
 */
 
 function categoriesAll() {
-    const body = {
-    };
-
     ajax({
         method: "GET",
         url: `${API_PATH}/categories`,
@@ -26,14 +23,14 @@ function categoriesAll() {
 /******************************/
 /******************************/
 
-function categoriesAllSuccess(response) {
-    console.log(response);
+function categoriesAllSuccess(result) {
+    console.log(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function categoriesAllError(response) {
-    console.error(response);
+function categoriesAllError(result) {
+    console.error(result);
 }

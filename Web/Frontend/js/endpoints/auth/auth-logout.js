@@ -10,11 +10,7 @@
 }
 */
 
-function logout() {
-    const body = {
-        "refreshToken": currentUser.refreshToken
-    };
-
+function logout(body) {
     ajax({
         method: "POST",
         url: `${API_PATH}/auth/logout`,
@@ -29,8 +25,8 @@ function logout() {
 /******************************/
 /******************************/
 
-function logoutSuccess(response) {
-    console.log(response);
+function logoutSuccess(result) {
+    console.log(result);
     alert("Sikeres kilépés!");
 }
 
@@ -38,7 +34,7 @@ function logoutSuccess(response) {
 /******************************/
 /******************************/
 
-function logoutError(response) {
-    console.log(response);
+function logoutError(result) {
+    console.error(result);
     alert("Sikertelen kilépés!");
 }

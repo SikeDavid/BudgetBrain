@@ -12,13 +12,8 @@
 }
 */
 
-function categoriesUpdate(id) {
-    const body = {
-        "name": e_in_catUp_addName.value,
-        "type": e_sel_catUp_item.options[e_sel_catUp_item.selectedIndex].value,
-        "in_use": e_cbx_catUp_inUse.checked ? 1 : 0
-    };
-
+function categoriesUpdate(id, body) {
+    console.log(body);
     ajax({
         method: "PATCH",
         url: `${API_PATH}/categories/${id}`,
@@ -33,14 +28,14 @@ function categoriesUpdate(id) {
 /******************************/
 /******************************/
 
-function categoriesUpdateSuccess(response) {
-    console.log(response);
+function categoriesUpdateSuccess(result) {
+    console.log(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function categoriesUpdateError(response) {
-    console.error(response);
+function categoriesUpdateError(result) {
+    console.error(result);
 }

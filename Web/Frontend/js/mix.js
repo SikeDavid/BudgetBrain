@@ -64,44 +64,10 @@ function showSection(el) {
 /******************************/
 /******************************/
 
-function showLoginBar() {
-    e_div_loggedIn.style.display = "none";
-    e_div_notLoggedIn.style.display = "block";
-}
-
-/******************************/
-/******************************/
-/******************************/
-
-function hideLoginBar() {
-    e_div_loggedIn.style.display = "block";
-    e_div_notLoggedIn.style.display = "none";
-}
-
-/******************************/
-/******************************/
-/******************************/
-
-function showLoginRegister() {
-    //showSection(e_sec_logReg);
-}
-
-/******************************/
-/******************************/
-/******************************/
-
 function loginDirect() {
     e_login_userName.value = e_reg_userName.value;
     e_login_password.value = e_reg_password.value;
     login();
-}
-
-/******************************/
-/******************************/
-/******************************/
-
-function refreshTokenExpired() {
-
 }
 
 /******************************/

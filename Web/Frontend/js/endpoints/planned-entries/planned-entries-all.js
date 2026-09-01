@@ -9,9 +9,6 @@
 */
 
 function plannedEntriesAll() {
-    const body = {
-    };
-
     ajax({
         method: "GET",
         url: `${API_PATH}/planner`,
@@ -26,14 +23,14 @@ function plannedEntriesAll() {
 /******************************/
 /******************************/
 
-function plannedEntriesAllSuccess(response) {
-    console.log(response);
+function plannedEntriesAllSuccess(result) {
+    console.log(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function plannedEntriesAllError(response) {
-    console.error(response);
+function plannedEntriesAllError(result) {
+    console.error(result);
 }

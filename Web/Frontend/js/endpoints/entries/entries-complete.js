@@ -28,14 +28,14 @@ function entriesComplete(id) {
 /******************************/
 /******************************/
 
-function entriesCompleteSuccess(response) {
-    console.log(response);
+function entriesCompleteSuccess(result) {
+    console.log(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function entriesCompleteError(response) {
-    console.error(response);
+function entriesCompleteError(result) {
+    console.error(result);
 }

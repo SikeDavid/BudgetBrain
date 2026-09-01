@@ -19,6 +19,10 @@ class g {
     public static $t = "";
     public static $outDir = "";
     public static $balance = 0;
+    public static $catsFromFiles = [
+        "incomes" => [],
+        "expenses" => []
+    ];
     public static $incomeFixData = [];
     public static $expenseFixData = [];
     public static $incomeCasualData = [];
@@ -88,11 +92,6 @@ class Entry {
 
 //echo g::$t;
 
-$categories = [
-    "incomes" => [],
-    "expenses" => []
-];
-
 $inputPath = "input/incomes";
 $incomeFiles = scandir($inputPath);
 
@@ -105,7 +104,7 @@ $incomeFiles = array_values($incomeFiles);
 foreach ($incomeFiles as $f) {
     //echo BR.$inputPath."/".$f;
     $categoryName = mb_substr($f, 0, -4);
-    $categories["incomes"][] = $categoryName;
+    g::$catsFromFiles["incomes"][] = $categoryName;
     $entryData = readCSV($inputPath."/".$f, $categoryName, 0.6);
     g::$incomeFixData = array_merge(g::$incomeFixData, $entryData["fixes"]);
     g::$incomeCasualData = array_merge(g::$incomeCasualData, $entryData["casuals"]);
@@ -132,7 +131,7 @@ $expenseFiles = array_values($expenseFiles);
 foreach ($expenseFiles as $f) {
     //echo BR.$inputPath."/".$f;
     $categoryName = mb_substr($f, 0, -4);
-    $categories["expenses"][] = $categoryName;
+    g::$catsFromFiles["expenses"][] = $categoryName;
     $entryData = readCSV($inputPath."/".$f, $categoryName, 0.45);
     g::$expenseFixData = array_merge(g::$expenseFixData, $entryData["fixes"]);
     g::$expenseCasualData = array_merge(g::$expenseCasualData, $entryData["casuals"]);
@@ -140,39 +139,14 @@ foreach ($expenseFiles as $f) {
 
 $fixExpenses = testMonthlyFixEntries(g::$expenseFixData);
 
-//echo str_replace("\t", TAB, preg_replace("/\r\n|\n|\r/", BR, var_export($expenseData, true)));
-//echo str_replace("\t", TAB, preg_replace("/\r\n|\n|\r/", BR, var_export($categories, true)));
+
+
 
 mkdir(g::$outDir);
 
-
-/*
-$strCat = "INSERT INTO categories (user_id, name, type) VALUES".LF;
-
-for ($i = 0; $i < count($categories["incomes"]); $i++) {
-    $strCat .= "(".BITMILLER_USER_ID.", '".$categories["incomes"][$i]."', 'income')";
-    if ($i+1 == count($categories["incomes"]))
-        $strCat .= ";".LF;
-    else
-        $strCat .= ",".LF;
-}
-
-$strCat .= LF."INSERT INTO categories (user_id, name, type) VALUES".LF;
-
-for ($i = 0; $i < count($categories["expenses"]); $i++) {
-    $strCat .= "(".BITMILLER_USER_ID.", '".$categories["expenses"][$i]."', 'expense')";
-    if ($i+1 == count($categories["expenses"]))
-        $strCat .= ";".LF;
-    else
-        $strCat .= ",".LF;
-}
-
-file_put_contents(g::$outDir."/02_add-categories.sql", $strCat);
-*/
-
-
 echo BR."Fix incomes: $fixIncomes".BR."Fix expenses: $fixExpenses".BR.BR;
 
+generateCategoryData();
 generateData("2024-02", "2024-04");
 
 
@@ -470,6 +444,34 @@ function exportEntriesInDateRange($dateStart, $dateEnd) {
     }
 
     file_put_contents(g::$outDir."/03_add-entries.sql", $strEnt);
+}
+
+/******************************/
+/******************************/
+/******************************/
+
+function generateCategoryData() {
+    $strCat = "INSERT INTO categories (user_id, name, type) VALUES".LF;
+
+    for ($i = 0; $i < count(g::$catsFromFiles["incomes"]); $i++) {
+        $strCat .= "(".BITMILLER_USER_ID.", '".g::$catsFromFiles["incomes"][$i]."', 'income')";
+        if ($i+1 == count(g::$catsFromFiles["incomes"]))
+            $strCat .= ";".LF;
+        else
+            $strCat .= ",".LF;
+    }
+
+    $strCat .= LF."INSERT INTO categories (user_id, name, type) VALUES".LF;
+
+    for ($i = 0; $i < count(g::$catsFromFiles["expenses"]); $i++) {
+        $strCat .= "(".BITMILLER_USER_ID.", '".g::$catsFromFiles["expenses"][$i]."', 'expense')";
+        if ($i+1 == count(g::$catsFromFiles["expenses"]))
+            $strCat .= ";".LF;
+        else
+            $strCat .= ",".LF;
+    }
+
+    file_put_contents(g::$outDir."/02_add-categories.sql", $strCat);
 }
 
 ?>

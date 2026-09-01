@@ -16,19 +16,15 @@
 }
 */
 
-function login() {
-    const body = {
-        "username": e_login_userName.value,
-        "password": e_login_password.value
-    };
-
+function login(body) {
     ajax({
         method: "POST",
         url: `${API_PATH}/auth/login`,
         body: body,
         auth: false,
         callbackSuccess: loginSuccess,
-        callbackError: loginError
+        callbackError: loginError,
+        resultAttachable: body
     });
 }
 
@@ -36,22 +32,49 @@ function login() {
 /******************************/
 /******************************/
 
-function loginSuccess(response) {
-    console.log(response);
+function loginSuccess(result) {
+    console.log(result);
 
-    currentUser.accessToken = response.accessToken;
-    currentUser.refreshToken = response.refreshToken;
+    currentUser.accessToken = result.response.accessToken;
+    currentUser.refreshToken = result.response.refreshToken;
 
-    e_login_accessToken.value = response.accessToken;
-    e_login_refreshToken.value = response.refreshToken;
-    copyTokens();
+    if (debug != 0) {
+        e_in_dbgApi_login_accessToken.value = result.response.accessToken;
+        e_in_dbgApi_login_refreshToken.value = result.response.refreshToken;
+        copyTokens();
+    }
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function loginError(response) {
-    console.error(response);
-    alert(`Belépés sikertelen!\n${response.message}`);
+function loginError(result) {
+    console.error(result);
+
+    if (result.status == 403 &&
+        result.response.message == "User is not yet activated" &&
+        result.data != null &&
+        (typeof result.data.callBackTimes != "number" ||
+        typeof result.data.callBackTimes == "number" &&
+        result.data.callBackTimes <= 3)) {
+
+        result.data.magicword = "please";
+        if (typeof result.data.callBackTimes == "number")
+            result.data.callBackTimes++;
+        else
+            result.data.callBackTimes = 1;
+        console.log("Callback time, PLEASE!");
+        ajax({
+            method: "POST",
+            url: `${API_PATH}/auth/login`,
+            body: result.data,
+            auth: false,
+            callbackSuccess: loginSuccess,
+            callbackError: loginError,
+            resultAttachable: result.data
+        });
+    }
+
+    alert(`Belépés sikertelen!\n${result.response.message}`);
 }
