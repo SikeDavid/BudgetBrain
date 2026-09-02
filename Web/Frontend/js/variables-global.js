@@ -22,4 +22,3 @@ let userSelectedLanguage = "";
 let lclTxt = {};
 let languages = {};
 
-

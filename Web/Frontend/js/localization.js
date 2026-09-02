@@ -3,7 +3,9 @@
 /******************************/
 /******************************/
 
-function t(key) {
+function translate(key) {
+    if (lclTxt[key] == null)
+        conError("Cannot find localization data for element-key: " + key);
     return lclTxt[key] ?? key;
 }
 
@@ -13,11 +15,11 @@ function t(key) {
 
 function localizePage() {
     document.querySelectorAll("[data-l10n]").forEach(element => {
-        element.textContent = t(element.dataset.l10n);
+        element.textContent = translate(element.dataset.l10n);
     });
 
     document.querySelectorAll("[data-l10n-placeholder]").forEach(element => {
-        element.placeholder = t(element.dataset.l10nPlaceholder);
+        element.placeholder = translate(element.dataset.l10nPlaceholder);
     });
 }
 
@@ -51,17 +53,17 @@ async function fetchLanguage(lang) {
             throw new Error(`Response status: ${response.status}`);
         }
         const result = await response.json();
-        console.log("Result:");
-        console.log(result);
+        conLog("Result:");
+        conLog(result);
         if (lang != "") {
             lclTxt = result.data;
             localizePage();
-            console.log(lclTxt);
+            conLog(lclTxt);
         }
         else
             languages = result;
     } catch (error) {
-        console.error("Fetch error:");
-        console.error(error.message);
+        conError("Fetch error:");
+        conError(error.message);
     }
 }

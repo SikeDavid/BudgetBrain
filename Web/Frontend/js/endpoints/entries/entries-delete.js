@@ -26,7 +26,7 @@ function entriesDelete(id) {
 /******************************/
 
 function entriesDeleteSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -34,5 +34,5 @@ function entriesDeleteSuccess(result) {
 /******************************/
 
 function entriesDeleteError(result) {
-    console.error(result);
+    conError(result);
 }

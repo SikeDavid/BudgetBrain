@@ -29,10 +29,10 @@ function registration(body) {
 /******************************/
 
 function registrationSuccess(result) {
-    console.log(result);
+    conLog(result);
     alert("Sikeres regisztráció!");
 
-    if (debug != 0) {
+    if (isDebug()) {
         currentUser.name = e_in_dbgApi_reg_userName.value;
         e_in_dbgApi_authLogin_userName.value = e_in_dbgApi_reg_userName.value;
         e_in_dbgApi_authLogin_password.value = e_in_dbgApi_reg_password.value;
@@ -46,6 +46,6 @@ function registrationSuccess(result) {
 /******************************/
 
 function registrationError(result) {
-    console.error(result);
+    conError(result);
     alert("Regisztráció sikertelen!\nFelhasználói név vagy e-mail cím már foglalt.");
 }

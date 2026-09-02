@@ -31,7 +31,7 @@ function entriesGet(id) {
 /******************************/
 
 function entriesGetSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -39,5 +39,5 @@ function entriesGetSuccess(result) {
 /******************************/
 
 function entriesGetError(result) {
-    console.error(result);
+    conError(result);
 }

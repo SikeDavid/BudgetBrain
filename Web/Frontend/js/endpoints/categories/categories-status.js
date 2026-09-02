@@ -23,7 +23,7 @@ function categoriesStatus(id) {
 /******************************/
 
 function categoriesStatusSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -31,5 +31,5 @@ function categoriesStatusSuccess(result) {
 /******************************/
 
 function categoriesStatusError(result) {
-    console.error(result);
+    conError(result);
 }

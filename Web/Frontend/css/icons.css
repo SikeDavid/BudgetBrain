@@ -1,0 +1,75 @@
+
+
+.cl_sidebarIcon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.cl_bkgcol_black {
+    background-color: black;
+}
+
+/*==============================*/
+/*> ICON MASKS                 <*/
+/*==============================*/
+
+.cl_iconMask_menu {
+    mask: url("../img/icon/list.svg") center / contain no-repeat;
+    -webkit-mask: url("../img/icon/list.svg") center / contain no-repeat;
+}
+
+.cl_iconMask_close {
+    mask: url("../img/icon/close.svg") center / contain no-repeat;
+    -webkit-mask: url("../img/icon/close.svg") center / contain no-repeat;
+}
+
+.cl_iconMask_login {
+    mask: url("../img/icon/login.svg") center / contain no-repeat;
+    -webkit-mask: url("../img/icon/login.svg") center / contain no-repeat;
+}
+
+.cl_iconMask_register {
+    mask: url("../img/icon/person_add.svg") center / contain no-repeat;
+    -webkit-mask: url("../img/icon/person_add.svg") center / contain no-repeat;
+}
+
+.cl_iconMask_user {
+    mask: url("../img/icon/person.svg") center / contain no-repeat;
+    -webkit-mask: url("../img/icon/person.svg") center / contain no-repeat;
+}
+
+.cl_iconMask_income {
+    mask: url("../img/icon/attach_money.svg") center / contain no-repeat;
+    -webkit-mask: url("../img/icon/attach_money.svg") center / contain no-repeat;
+}
+
+.cl_iconMask_expenses {
+    mask: url("../img/icon/checkbook.svg") center / contain no-repeat;
+    -webkit-mask: url("../img/icon/checkbook.svg") center / contain no-repeat;
+}
+
+.cl_iconMask_statistics {
+    mask: url("../img/icon/finance.svg") center / contain no-repeat;
+    -webkit-mask: url("../img/icon/finance.svg") center / contain no-repeat;
+}
+
+.cl_iconMask_savings {
+    mask: url("../img/icon/savings.svg") center / contain no-repeat;
+    -webkit-mask: url("../img/icon/savings.svg") center / contain no-repeat;
+}
+
+.cl_iconMask_settings {
+    mask: url("../img/icon/settings.svg") center / contain no-repeat;
+    -webkit-mask: url("../img/icon/settings.svg") center / contain no-repeat;
+}
+
+.cl_iconMask_debug {
+    mask: url("../img/icon/build.svg") center / contain no-repeat;
+    -webkit-mask: url("../img/icon/build.svg") center / contain no-repeat;
+}
+
+.cl_iconMask_logout {
+    mask: url("../img/icon/logout.svg") center / contain no-repeat;
+    -webkit-mask: url("../img/icon/logout.svg") center / contain no-repeat;
+}

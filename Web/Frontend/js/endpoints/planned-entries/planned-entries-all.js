@@ -24,7 +24,7 @@ function plannedEntriesAll() {
 /******************************/
 
 function plannedEntriesAllSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -32,5 +32,5 @@ function plannedEntriesAllSuccess(result) {
 /******************************/
 
 function plannedEntriesAllError(result) {
-    console.error(result);
+    conError(result);
 }

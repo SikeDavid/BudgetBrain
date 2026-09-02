@@ -33,14 +33,14 @@ function login(body) {
 /******************************/
 
 function loginSuccess(result) {
-    console.log(result);
+    conLog(result);
 
     currentUser.accessToken = result.response.accessToken;
     currentUser.refreshToken = result.response.refreshToken;
 
     if (debug != 0) {
-        e_in_dbgApi_login_accessToken.value = result.response.accessToken;
-        e_in_dbgApi_login_refreshToken.value = result.response.refreshToken;
+        e_in_dbgApi_authLogin_accessToken.value = result.response.accessToken;
+        e_in_dbgApi_authLogin_refreshToken.value = result.response.refreshToken;
         copyTokens();
     }
 }
@@ -50,7 +50,7 @@ function loginSuccess(result) {
 /******************************/
 
 function loginError(result) {
-    console.error(result);
+    conError(result);
 
     if (result.status == 403 &&
         result.response.message == "User is not yet activated" &&
@@ -64,7 +64,7 @@ function loginError(result) {
             result.data.callBackTimes++;
         else
             result.data.callBackTimes = 1;
-        console.log("Callback time, PLEASE!");
+        conLog("Callback time, PLEASE!");
         ajax({
             method: "POST",
             url: `${API_PATH}/auth/login`,

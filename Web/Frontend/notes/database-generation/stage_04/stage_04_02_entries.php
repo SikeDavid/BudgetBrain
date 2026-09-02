@@ -39,6 +39,8 @@ class g {
         self::$categories = getCategoriesFromDatabase();
         self::$bitmillerUserId = self::$users["BitMiller"];
         //echo self::$bitmillerUserId.BR.BR;
+
+        mkdir(g::$outDir);
     }
 }
 g::init();
@@ -52,18 +54,7 @@ class db {
     public static $pass = "";
     public static $port = 3307;
 }
-/*
-class Category {
-    public $category_id;
-    public $name;
-    public $type;
 
-    public function __construct($category_id, $name) {
-
-    }
-}
-*/
-//> user_id, category_id, amount, description, date, completed
 class Entry {
     public $user_id;
     public $category_id;
@@ -92,68 +83,86 @@ class Entry {
 
 //echo g::$t;
 
-$inputPath = "input/incomes";
-$incomeFiles = scandir($inputPath);
 
-foreach ($incomeFiles as $k => $v) {
-    if ($v == "." || $v == ".." || mb_substr($v, -4) != ".csv")
-        unset($incomeFiles[$k]);
+
+
+processSourceDataFiles();
+
+//generateCategoryData();
+
+generateEntryDataIterator("2024-01", "2026-10");
+
+
+
+
+/******************************/
+/******************************/
+/******************************/
+
+function processSourceDataFiles() {
+    $inputPath = "input/incomes";
+    $incomeFiles = scandir($inputPath);
+
+    foreach ($incomeFiles as $k => $v) {
+        if ($v == "." || $v == ".." || mb_substr($v, -4) != ".csv")
+            unset($incomeFiles[$k]);
+    }
+    $incomeFiles = array_values($incomeFiles);
+
+    foreach ($incomeFiles as $f) {
+        //echo BR.$inputPath."/".$f;
+        $categoryName = mb_substr($f, 0, -4);
+        g::$catsFromFiles["incomes"][] = $categoryName;
+        $entryData = readCSV($inputPath."/".$f, $categoryName, 0.6);
+        g::$incomeFixData = array_merge(g::$incomeFixData, $entryData["fixes"]);
+        g::$incomeCasualData = array_merge(g::$incomeCasualData, $entryData["casuals"]);
+    }
+
+    $fixIncomes = testMonthlyFixEntries(g::$incomeFixData);
+
+    echo BR.BR;
+
+    $inputPath = "input/expenses";
+    $expenseFiles = scandir($inputPath);
+
+    foreach ($expenseFiles as $k => $v) {
+        if ($v == "." || $v == ".." || mb_substr($v, -4) != ".csv")
+            unset($expenseFiles[$k]);
+    }
+    $expenseFiles = array_values($expenseFiles);
+
+    foreach ($expenseFiles as $f) {
+        //echo BR.$inputPath."/".$f;
+        $categoryName = mb_substr($f, 0, -4);
+        g::$catsFromFiles["expenses"][] = $categoryName;
+        $entryData = readCSV($inputPath."/".$f, $categoryName, 0.45);
+        g::$expenseFixData = array_merge(g::$expenseFixData, $entryData["fixes"]);
+        g::$expenseCasualData = array_merge(g::$expenseCasualData, $entryData["casuals"]);
+    }
+
+    $fixExpenses = testMonthlyFixEntries(g::$expenseFixData);
+
+    echo BR."Fix incomes: $fixIncomes".BR."Fix expenses: $fixExpenses".BR.BR;
 }
-$incomeFiles = array_values($incomeFiles);
 
-foreach ($incomeFiles as $f) {
-    //echo BR.$inputPath."/".$f;
-    $categoryName = mb_substr($f, 0, -4);
-    g::$catsFromFiles["incomes"][] = $categoryName;
-    $entryData = readCSV($inputPath."/".$f, $categoryName, 0.6);
-    g::$incomeFixData = array_merge(g::$incomeFixData, $entryData["fixes"]);
-    g::$incomeCasualData = array_merge(g::$incomeCasualData, $entryData["casuals"]);
+/******************************/
+/******************************/
+/******************************/
+
+function generateEntryDataIterator($dateStart, $dateEnd) {
+    $dateStart = new DateTime($dateStart."-01");
+    $dateEnd = new DateTime($dateEnd."-01");
+    $dateEnd->modify("+1 month");
+
+    $datePeriod = new DatePeriod(
+        $dateStart,
+        new DateInterval("P1M"),
+        $dateEnd
+    );
+
+    foreach ($datePeriod as $dp)
+        generateData($dp->format("Y-m"), $dp->format("Y-m"));
 }
-
-$fixIncomes = testMonthlyFixEntries(g::$incomeFixData);
-
-
-
-echo BR.BR;
-
-
-
-
-$inputPath = "input/expenses";
-$expenseFiles = scandir($inputPath);
-
-foreach ($expenseFiles as $k => $v) {
-    if ($v == "." || $v == ".." || mb_substr($v, -4) != ".csv")
-        unset($expenseFiles[$k]);
-}
-$expenseFiles = array_values($expenseFiles);
-
-foreach ($expenseFiles as $f) {
-    //echo BR.$inputPath."/".$f;
-    $categoryName = mb_substr($f, 0, -4);
-    g::$catsFromFiles["expenses"][] = $categoryName;
-    $entryData = readCSV($inputPath."/".$f, $categoryName, 0.45);
-    g::$expenseFixData = array_merge(g::$expenseFixData, $entryData["fixes"]);
-    g::$expenseCasualData = array_merge(g::$expenseCasualData, $entryData["casuals"]);
-}
-
-$fixExpenses = testMonthlyFixEntries(g::$expenseFixData);
-
-
-
-
-mkdir(g::$outDir);
-
-echo BR."Fix incomes: $fixIncomes".BR."Fix expenses: $fixExpenses".BR.BR;
-
-generateCategoryData();
-generateData("2024-02", "2024-04");
-
-
-
-
-
-
 
 /******************************/
 /******************************/
@@ -318,8 +327,8 @@ function generateData($yearMonthStart, $yearMonthEnd) {
     entriesSortByDate();
     exportEntriesInDateRange($dateStart->format("Y-m-d"), (clone $dateEnd)->modify("-1 day")->format("Y-m-d"));
 
-    echo preg_replace("/\r\n|\n|\r/", BR, var_export(g::$entries, true));
-    echo BR.BR;
+    /*echo preg_replace("/\r\n|\n|\r/", BR, var_export(g::$entries, true));
+    echo BR.BR;*/
 }
 
 /******************************/
@@ -443,7 +452,14 @@ function exportEntriesInDateRange($dateStart, $dateEnd) {
             $strEnt .= ",".LF;
     }
 
-    file_put_contents(g::$outDir."/03_add-entries.sql", $strEnt);
+    $fileName = "03_add-entries_".$dateStart."--".$dateEnd;
+
+    $strBat = "chcp 65001".PHP_EOL;
+    $strBat .= "C:\\xampp\\mysql\\bin\\mysql -u root -P 3307 budgetbrain_db < \"$fileName.sql\"".PHP_EOL;
+    $strBat .= "pause";
+
+    file_put_contents(g::$outDir."/".$fileName.".sql", $strEnt);
+    file_put_contents(g::$outDir."/".$fileName.".bat", $strBat);
 }
 
 /******************************/
@@ -471,7 +487,14 @@ function generateCategoryData() {
             $strCat .= ",".LF;
     }
 
-    file_put_contents(g::$outDir."/02_add-categories.sql", $strCat);
+    $fileName = "02_add-categories";
+
+    $strBat = "chcp 65001".PHP_EOL;
+    $strBat .= "C:\\xampp\\mysql\\bin\\mysql -u root -P 3307 budgetbrain_db < \"$fileName.sql\"".PHP_EOL;
+    $strBat .= "pause";
+
+    file_put_contents(g::$outDir."/".$fileName.".sql", $strCat);
+    file_put_contents(g::$outDir."/".$fileName.".bat", $strBat);
 }
 
 ?>

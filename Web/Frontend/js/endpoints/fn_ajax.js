@@ -15,13 +15,13 @@ function ajax({
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
-            console.error(`Request failed. Status: ${xhr.status}`);
+            conError(`Request failed. Status: ${xhr.status}`);
             let result = {
                 "status": xhr.status,
                 "response": JSON.parse(xhr.responseText),
                 "data": resultAttachable
             };
-            //console.log(result);
+            //conLog(result);
 //> accessToken expiry: 401 / jwt expired
 //> refreshToken expiry: 403 / jwt malformed / jwt not found
 
@@ -40,8 +40,8 @@ function ajax({
                 }
                 //> AccessToken expired, refreshing:
                 if (xhr.status == 401 /*response.message == "Invalid or expired accesstoken"*/) {
-                    console.error(result);
-                    console.error("AccessToken expired, refreshing...");
+                    conError(result);
+                    conError("AccessToken expired, refreshing...");
                     const body = {
                         "refreshToken": currentUser.refreshToken
                     };
@@ -64,15 +64,15 @@ function ajax({
                     });
                 /*}
                 else {
-                    console.error("Unhandled server error.");
+                    conError("Unhandled server error.");
                 }*/
             }
 
             else if (callbackError !== null)
                 callbackError(result);
             else {
-                console.log("callbackError function is null; XHR response is:");
-                console.error(result);
+                conLog("callbackError function is null; XHR response is:");
+                conError(result);
             }
             return;
         }
@@ -84,7 +84,7 @@ function ajax({
         };
 
         if (callbackData !== null) {
-            console.log("Token refresh successful!");
+            conLog("Token refresh successful!");
             callbackSuccess(result);
             ajax({
                 method: callbackData.method,
@@ -103,13 +103,13 @@ function ajax({
                 callbackSuccess(result);
         }
         else {
-            console.log("callbackSuccess function is null; XHR response is:");
-            console.log(result);
+            conLog("callbackSuccess function is null; XHR response is:");
+            conLog(result);
         }
     };
 
     xhr.onerror = () => {
-        console.error("Network error.");
+        conError("Network error.");
         alert("There was a network error.");
     };
 

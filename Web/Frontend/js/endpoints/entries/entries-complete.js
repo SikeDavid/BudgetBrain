@@ -29,7 +29,7 @@ function entriesComplete(id) {
 /******************************/
 
 function entriesCompleteSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -37,5 +37,5 @@ function entriesCompleteSuccess(result) {
 /******************************/
 
 function entriesCompleteError(result) {
-    console.error(result);
+    conError(result);
 }

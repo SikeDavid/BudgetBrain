@@ -1,0 +1,68 @@
+
+
+.cl_background {
+    position: fixed;
+    inset: 0;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    z-index: -1;
+    filter: blur(2px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 1s ease,
+        visibility 0s linear 1s;
+}
+
+.cl_background.active {
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 1s ease,
+        visibility 0s linear 0s;
+}
+
+
+
+
+#id_bkg_login {
+    background-image: url("../img/background/bkg_login.jpg");
+}
+
+#id_bkg_register {
+    background-image: url("../img/background/bkg_register.jpg");
+}
+
+#id_bkg_user {
+    background-image: url("../img/background/bkg_user.jpg");
+}
+
+#id_bkg_income {
+    background-image: url("../img/background/bkg_income.jpg");
+}
+
+#id_bkg_expenses {
+    background-image: url("../img/background/bkg_expenses.jpg");
+}
+
+#id_bkg_statistics {
+    background-image: url("../img/background/bkg_statistics.jpg");
+}
+
+#id_bkg_savings {
+    background-image: url("../img/background/bkg_savings.jpg");
+}
+
+#id_bkg_settings {
+    background-image: url("../img/background/bkg_settings.jpg");
+}
+
+#id_bkg_logout {
+    background-image: url("../img/background/bkg_logout.jpg");
+}

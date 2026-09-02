@@ -28,7 +28,7 @@ function categoriesAdd(body) {
 /******************************/
 
 function categoriesAddSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -36,5 +36,5 @@ function categoriesAddSuccess(result) {
 /******************************/
 
 function categoriesAddError(result) {
-    console.error(result);
+    conError(result);
 }

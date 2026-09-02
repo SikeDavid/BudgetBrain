@@ -31,7 +31,7 @@ function entriesUpdate(id, body) {
 /******************************/
 
 function entriesUpdateSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -39,5 +39,5 @@ function entriesUpdateSuccess(result) {
 /******************************/
 
 function entriesUpdateError(result) {
-    console.error(result);
+    conError(result);
 }

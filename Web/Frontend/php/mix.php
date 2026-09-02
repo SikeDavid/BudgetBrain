@@ -76,4 +76,29 @@ function includeScript($filePath) {
         echo "<script type='text/javascript' src='".$filePath.g::$URLv."' defer></script>";
 } // &func includeScript
 
+/******************************/
+/******************************/
+/******************************/
+
+function loadCSSFiles() {
+    $res = recurGetDir("css");
+
+    //echo preg_replace("/\r\n|\n|\r/", BR, var_export($res, true));
+    //return;
+
+    foreach ($res["files"] as $file) {
+        includeCSS($file); //> This is wrong.
+        //includeScript(substr($file, strlen(Pg::$projectRootPath)+1));
+    } // &foreach
+}
+
+/******************************/
+/******************************/
+/******************************/
+
+function includeCSS($filePath) {
+    if (substr($filePath, -4) == ".css")
+        echo "<link rel='stylesheet' type='text/css' href='".$filePath.g::$URLv."'>";
+} // &func includeCSS
+
 ?>

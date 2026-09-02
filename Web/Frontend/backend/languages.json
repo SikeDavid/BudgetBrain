@@ -14,13 +14,49 @@
         }
     },
     "data": {
-        "div.test1": {
+        "sidebar.login": {
             "hu": "Bejelentkezés",
             "en": "Login"
         },
-        "div.test2": {
+        "sidebar.register": {
             "hu": "Regisztráció",
-            "en": "Registration"
+            "en": "Register"
+        },
+        "sidebar.user": {
+            "hu": "Felhasználó",
+            "en": "User"
+        },
+        "sidebar.income": {
+            "hu": "Bevétel",
+            "en": "Income"
+        },
+        "sidebar.expenses": {
+            "hu": "Kiadás",
+            "en": "Expenses"
+        },
+        "sidebar.statistics": {
+            "hu": "Statisztika",
+            "en": "Statistics"
+        },
+        "sidebar.savings": {
+            "hu": "Megtakarítás",
+            "en": "Savings"
+        },
+        "sidebar.settings": {
+            "hu": "Beállítások",
+            "en": "Settings"
+        },
+        "sidebar.debug": {
+            "hu": "Hibakereső",
+            "en": "Debug"
+        },
+        "sidebar.logout": {
+            "hu": "Kijelentkezés",
+            "en": "Logout"
+        },
+        "EOL dummy": {
+            "hu": "",
+            "en": ""
         }
     }
 }

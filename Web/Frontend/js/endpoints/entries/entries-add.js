@@ -33,7 +33,7 @@ function entriesAdd(body) {
 /******************************/
 
 function entriesAddSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -41,5 +41,5 @@ function entriesAddSuccess(result) {
 /******************************/
 
 function entriesAddError(result) {
-    console.error(result);
+    conError(result);
 }

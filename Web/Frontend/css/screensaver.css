@@ -1,0 +1,294 @@
+
+#id_div_screensaverContainer {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    background-color: black;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 1s ease,
+        visibility 0s linear 1s;
+
+    font-family: Consolas, monospace;
+    color: #FFF;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*overflow: hidden;*/
+    white-space: pre;
+}
+
+#id_div_screensaverContainer.active {
+    cursor: none;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 1s ease,
+        visibility 0s linear 0s;
+}
+
+
+:root {
+    --color-4bits-black: #000000;
+    --color-4bits-white: #FFFFFF;
+    --color-4bits-red: #FF0000;
+    --color-4bits-lime: #00FF00;
+    --color-4bits-blue: #0000FF;
+    --color-4bits-yellow: #FFFF00;
+    --color-4bits-cyan: #00FFFF;
+    --color-4bits-magenta: #FF00FF;
+    --color-4bits-silver: #C0C0C0;
+    --color-4bits-gray: #808080;
+    --color-4bits-maroon: #800000;
+    --color-4bits-olive: #808000;
+    --color-4bits-green: #008000;
+    --color-4bits-purple: #800080;
+    --color-4bits-teal: #008080;
+    --color-4bits-navy: #000080;
+}
+
+.cl_mirrorY {
+    transform: rotateY(180deg);
+}
+
+.cl_bold {
+    font-weight: bold;
+}
+
+.cl_blind {
+    opacity: 0;
+}
+
+.cl_displayNone {
+    display: none !important;
+}
+
+.cl_mask_bkg_0 {
+    background-color: #F00;
+}
+
+.cl_mask_bkg_1 {
+    background-color: #D00;
+}
+
+.cl_mask_bkg_2 {
+    background-color: #B00;
+}
+
+.cl_mask_bkg_3 {
+    background-color: #900;
+}
+
+.cl_mask_bkg_4 {
+    background-color: #700;
+}
+
+.cl_mask_bkg_5 {
+    background-color: #500;
+}
+
+.cl_mask_bkg_6 {
+    background-color: #300;
+}
+
+
+.cl_debugBlind_bkg {
+    background-color: #666;
+}
+
+.cl_debugIgniter_bkg {
+    background-color: #F00;
+}
+
+.cl_debugExtinguisher_bkg {
+    background-color: #00F;
+}
+
+.cl_debugIgniterBlind_bkg {
+    background-color: #FF0;
+}
+
+.cl_debugExtinguisherBlind_bkg {
+    background-color: #0FF;
+}
+
+
+.cl_state_06 {
+    color: #FFF;
+    text-shadow:
+        0px 0px 05px #FFF,
+        0px 0px 05px #FFF,
+        0px 0px 05px #FFF,
+        0px 0px 15px #FFF,
+        0px 0px 25px #FFF,
+        0px 0px 35px #AFA,
+        0px 0px 35px #AFA,
+        0px 0px 35px #AFA,
+        0px 0px 35px #AFA,
+        0px 0px 35px #0F0,
+        0px 0px 45px #0F0,
+        0px 0px 55px #0F0;
+    z-index: 11;
+}
+
+.cl_state_05 {
+    color: #BFB;
+    text-shadow:
+        0px 0px 05px #BFB,
+        0px 0px 15px #BFB,
+        0px 0px 25px #9F9,
+        0px 0px 35px #3F3,
+        0px 0px 35px #0F0,
+        0px 0px 45px #0F0;
+}
+
+.cl_state_04 {
+    color: #3F3;
+    text-shadow:
+        0px 0px 05px #3F3,
+        0px 0px 15px #3F3,
+        0px 0px 25px #0C0,
+        0px 0px 35px #0A0,
+        0px 0px 35px #090;
+}
+
+.cl_state_03 {
+    color: #0A0;
+    text-shadow:
+        0px 0px 05px #0A0,
+        0px 0px 15px #090,
+        0px 0px 25px #060;
+}
+
+.cl_state_02 {
+    color: #070;
+    text-shadow:
+        0px 0px 05px #070,
+        0px 0px 15px #050,
+        0px 0px 25px #030;
+}
+
+.cl_state_01 {
+    color: #030;
+    text-shadow:
+        0px 0px 05px #030,
+        0px 0px 15px #020;
+}
+
+.cl_state_00 {
+    color: black;
+    text-shadow: none;
+    opacity: 0;
+}
+
+
+.cl_screenPage {
+    margin: 0 auto;
+    display: grid;
+    /*grid-template-columns: repeat(screenSpaceX, ...);*/
+    /*grid-auto-rows: 1.2em;*/
+    place-items: center;
+    line-height: 1;
+    font-family: 'M+ 1m', 'Noto Sans Mono CJK JP', Consolas, monospace;
+    position: absolute;
+    z-index: 1;
+    /*transition: opacity 0.2s ease;*/
+}
+
+.cl_visiblePage {
+    opacity: 1;
+    /*transition: opacity 0.2s ease;*/
+    z-index: 2;
+}
+
+.cl_drawingPage {
+    opacity: 0;
+}
+
+.cl_restingPage {
+    opacity: 0;
+    /*transition: opacity 0.2s 0.4s ease;*/
+    z-index: 1;
+}
+
+.cl_screenPage span {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+#id_menu_container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    padding: 10px;
+    user-select: none;
+    z-index: 15;
+    line-height: normal;
+    white-space: normal;
+    background-color: green;
+}
+
+#id_debugMask {
+    position: absolute;
+    display: grid;
+    /*grid-auto-rows: 1.2em;*/
+    place-items: center;
+    line-height: 1;
+    border: 2px solid white;
+    z-index: 2;
+    /*background-color: grey;*/
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+#id_crtScreenMask {
+    /*width: 990px;
+    height: 720px;*/
+    /*width: 190px;
+    height: 120px;*/
+    /*background-color: orange;*/
+    color: white;
+
+    background-image: url("../img/crt_screen_mask.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-color: red;*/
+/*
+    mask-image: url(images/crt_screen_mask.png);
+    mask-mode: alpha;
+    mask-repeat: no-repeat;
+    mask-size: cover;
+*/
+    position: absolute;
+    z-index: 10;
+}
+
+#id_menu_container div {
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#id_frameLengthSet {
+    padding-top: 10px;
+}
+
+#id_frameLengthSet input {
+    display: block;
+}

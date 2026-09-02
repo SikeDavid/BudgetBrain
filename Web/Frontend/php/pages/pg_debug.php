@@ -7,212 +7,214 @@
 ?>
 <script>
     const testUser = <?= json_encode($testUser); ?>;
-    //console.log(testUser);
+    //conLog(testUser);
 </script>
 
-<div id="id_div_debugContainer">
-    <hr>
-    <h3>Auth:</h3>
-    <hr>
+<div id="id_div_page_debug" class="cl_page" style="background-color: white;">
+    <div id="id_div_debugContainer">
+        <hr>
+        <h3>Auth:</h3>
+        <hr>
 
-<!--=====================================-->
-<!-- ENDPOINT COLLECTION: Auth -->
-<!--=====================================-->
+    <!--=====================================-->
+    <!-- ENDPOINT COLLECTION: Auth -->
+    <!--=====================================-->
 
-<!-- ELEMENT COLLECTION: Registration -->
-    <button id="id_btn_dbgApi_auth_reg">Registration</button>
-    <br>
-    <input id="id_in_dbgApi_authReg_userName" value="TestUser01">
-    <br>
-    <input id="id_in_dbgApi_authReg_email" value="testuser01@email.com">
-    <br>
-    <input id="id_in_dbgApi_authReg_password" value="Password01!">
+    <!-- ELEMENT COLLECTION: Registration -->
+        <button id="id_btn_dbgApi_auth_reg">Registration</button>
+        <br>
+        <input id="id_in_dbgApi_authReg_userName" value="TestUser01">
+        <br>
+        <input id="id_in_dbgApi_authReg_email" value="testuser01@email.com">
+        <br>
+        <input id="id_in_dbgApi_authReg_password" value="Password01!">
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Login -->
-    <button id="id_btn_dbgApi_auth_login">Login</button>
-    <br>
-    <input id="id_in_dbgApi_authLogin_userName" value="TestUser01">
-    <br>
-    <input id="id_in_dbgApi_authLogin_password" type="password" value="Password01!">
-    <br>
-    <input id="id_in_dbgApi_authLogin_accessToken" placeholder="Access token" readonly>
-    <br>
-    <input id="id_in_dbgApi_authLogin_refreshToken" placeholder="Refresh token" readonly>
-    <br>
-    <button onclick="copyTokens()">Copy tokens to Clipboard</button>
+    <!-- ELEMENT COLLECTION: Login -->
+        <button id="id_btn_dbgApi_auth_login">Login</button>
+        <br>
+        <input id="id_in_dbgApi_authLogin_userName" value="TestUser01">
+        <br>
+        <input id="id_in_dbgApi_authLogin_password" type="password" value="Password01!">
+        <br>
+        <input id="id_in_dbgApi_authLogin_accessToken" placeholder="Access token" readonly>
+        <br>
+        <input id="id_in_dbgApi_authLogin_refreshToken" placeholder="Refresh token" readonly>
+        <br>
+        <button onclick="copyTokens()">Copy tokens to Clipboard</button>
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Refresh token -->
-    <button id="id_btn_dbgApi_auth_refresh">Refresh token</button>
-    <br>
-    <input id="id_in_dbgApi_authRefresh_accessToken" placeholder="Access token" readonly>
+    <!-- ELEMENT COLLECTION: Refresh token -->
+        <button id="id_btn_dbgApi_auth_refresh">Refresh token</button>
+        <br>
+        <input id="id_in_dbgApi_authRefresh_accessToken" placeholder="Access token" readonly>
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Logout -->
-    <button id="id_btn_dbgApi_auth_logout">Logout</button>
+    <!-- ELEMENT COLLECTION: Logout -->
+        <button id="id_btn_dbgApi_auth_logout">Logout</button>
 
-    <hr>
-    <hr>
-    <h3>Categories:</h3>
-    <hr>
+        <hr>
+        <hr>
+        <h3>Categories:</h3>
+        <hr>
 
-<!--=====================================-->
-<!-- ENDPOINT COLLECTION: Categories -->
-<!--=====================================-->
+    <!--=====================================-->
+    <!-- ENDPOINT COLLECTION: Categories -->
+    <!--=====================================-->
 
-<!-- ELEMENT COLLECTION: Categories Get all -->
-    <button id="id_btn_dbgApi_cat_all">Categories - All</button>
+    <!-- ELEMENT COLLECTION: Categories Get all -->
+        <button id="id_btn_dbgApi_cat_all">Categories - All</button>
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Category Add -->
-    <button id="id_btn_dbgApi_cat_add">Categories - Add</button>
-    <br>
-    <input id="id_in_dbgApi_catAdd_name" placeholder="Category name">
-    <br>
-    <label for="id_sel_dbgApi_catAdd_item">Item type:</label>
-    <br>
-    <select id="id_sel_dbgApi_catAdd_item" name="id_sel_dbgApi_catAdd_item">
-        <option value="income">Income</option>
-        <option value="expense">Expense</option>
-    </select>
-    <br>
-    <label for="id_cbx_dbgApi_catAdd_inUse">In use:</label>
-    <input type="checkbox" id="id_cbx_dbgApi_catAdd_inUse" name="id_cbx_dbgApi_catAdd_inUse" checked>
+    <!-- ELEMENT COLLECTION: Category Add -->
+        <button id="id_btn_dbgApi_cat_add">Categories - Add</button>
+        <br>
+        <input id="id_in_dbgApi_catAdd_name" placeholder="Category name">
+        <br>
+        <label for="id_sel_dbgApi_catAdd_item">Item type:</label>
+        <br>
+        <select id="id_sel_dbgApi_catAdd_item" name="id_sel_dbgApi_catAdd_item">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select>
+        <br>
+        <label for="id_cbx_dbgApi_catAdd_inUse">In use:</label>
+        <input type="checkbox" id="id_cbx_dbgApi_catAdd_inUse" name="id_cbx_dbgApi_catAdd_inUse" checked>
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Category Update -->
-    <button id="id_btn_dbgApi_cat_up">Categories - Update</button>
-    <br>
-    <input id="id_in_dbgApi_catUp_id" type="number" placeholder="Category ID" value="7">
-    <br>
-    <input id="id_in_dbgApi_catUp_name" placeholder="Category name">
-    <br>
-    <label for="id_sel_dbgApi_catUp_item">Item type:</label>
-    <br>
-    <select id="id_sel_dbgApi_catUp_item" name="id_sel_dbgApi_catUp_item">
-        <option value="income">Income</option>
-        <option value="expense">Expense</option>
-    </select>
-    <br>
-    <label for="id_cbx_dbgApi_catUp_inUse">In use:</label>
-    <input type="checkbox" id="id_cbx_dbgApi_catUp_inUse" name="id_cbx_dbgApi_catUp_inUse" checked>
+    <!-- ELEMENT COLLECTION: Category Update -->
+        <button id="id_btn_dbgApi_cat_up">Categories - Update</button>
+        <br>
+        <input id="id_in_dbgApi_catUp_id" type="number" placeholder="Category ID" value="7">
+        <br>
+        <input id="id_in_dbgApi_catUp_name" placeholder="Category name">
+        <br>
+        <label for="id_sel_dbgApi_catUp_item">Item type:</label>
+        <br>
+        <select id="id_sel_dbgApi_catUp_item" name="id_sel_dbgApi_catUp_item">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select>
+        <br>
+        <label for="id_cbx_dbgApi_catUp_inUse">In use:</label>
+        <input type="checkbox" id="id_cbx_dbgApi_catUp_inUse" name="id_cbx_dbgApi_catUp_inUse" checked>
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Category Status -->
-    <button id="id_btn_dbgApi_cat_stat">Categories - Status</button>
-    <br>
-    <input id="id_in_dbgApi_catStat_id" type="number" placeholder="Category ID" value="7">
+    <!-- ELEMENT COLLECTION: Category Status -->
+        <button id="id_btn_dbgApi_cat_stat">Categories - Status</button>
+        <br>
+        <input id="id_in_dbgApi_catStat_id" type="number" placeholder="Category ID" value="7">
 
-    <hr>
-    <hr>
-    <h3>Entries:</h3>
-    <hr>
+        <hr>
+        <hr>
+        <h3>Entries:</h3>
+        <hr>
 
-<!--=====================================-->
-<!-- ENDPOINT COLLECTION: Entries -->
-<!--=====================================-->
+    <!--=====================================-->
+    <!-- ENDPOINT COLLECTION: Entries -->
+    <!--=====================================-->
 
-<!-- ELEMENT COLLECTION: Entries Get by ID -->
-    <button id="id_btn_dbgApi_ent_get">Entries - Get by ID</button>
-    <br>
-    <input id="id_in_dbgApi_entGet_id" type="number" placeholder="ID" value="11">
+    <!-- ELEMENT COLLECTION: Entries Get by ID -->
+        <button id="id_btn_dbgApi_ent_get">Entries - Get by ID</button>
+        <br>
+        <input id="id_in_dbgApi_entGet_id" type="number" placeholder="ID" value="11">
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Entries Get for month -->
-    <button id="id_btn_dbgApi_ent_getM">Entries - Get for month</button>
-    <br>
-    <input id="id_in_dbgApi_entGetY" type="number" placeholder="Year" value="2026">
-    <br>
-    <input id="id_in_dbgApi_entGetM" type="number" placeholder="Month" value="4">
+    <!-- ELEMENT COLLECTION: Entries Get for month -->
+        <button id="id_btn_dbgApi_ent_getM">Entries - Get for month</button>
+        <br>
+        <input id="id_in_dbgApi_entGetY" type="number" placeholder="Year" value="2026">
+        <br>
+        <input id="id_in_dbgApi_entGetM" type="number" placeholder="Month" value="4">
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Entry Add -->
-    <button id="id_btn_dbgApi_ent_add">Entries - Add</button>
-    <br>
-    <input id="id_in_dbgApi_entAdd_catId" type="number" placeholder="Category ID" value="7">
-    <br>
-    <input id="id_in_dbgApi_entAdd_amt" type="number" placeholder="Amount" value="1000">
-    <br>
-    <input id="id_in_dbgApi_entAdd_desc" placeholder="Description" value="Some basic text.">
-    <br>
-    <input id="id_in_dbgApi_entAdd_date" placeholder="Date" value="2026-04-01">
+    <!-- ELEMENT COLLECTION: Entry Add -->
+        <button id="id_btn_dbgApi_ent_add">Entries - Add</button>
+        <br>
+        <input id="id_in_dbgApi_entAdd_catId" type="number" placeholder="Category ID" value="7">
+        <br>
+        <input id="id_in_dbgApi_entAdd_amt" type="number" placeholder="Amount" value="1000">
+        <br>
+        <input id="id_in_dbgApi_entAdd_desc" placeholder="Description" value="Some basic text.">
+        <br>
+        <input id="id_in_dbgApi_entAdd_date" placeholder="Date" value="2026-04-01">
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Entry Update -->
-    <button id="id_btn_dbgApi_ent_up">Entries - Update</button>
-    <br>
-    <input id="id_in_dbgApi_entUp_entId" type="number" placeholder="Entry ID" value="11">
-    <br>
-    <input id="id_in_dbgApi_entUp_catId" type="number" placeholder="Category ID" value="7">
-    <br>
-    <input id="id_in_dbgApi_entUp_name" placeholder="Category name" value="Fizetés">
-    <br>
-    <input id="id_in_dbgApi_entUp_amt" type="number" placeholder="Amount" value="2000">
-    <br>
-    <input id="id_in_dbgApi_entUp_desc" placeholder="Description" value="Some basic text as well.">
-    <br>
-    <input id="id_in_dbgApi_entUp_date" placeholder="Date" value="2026-04-02">
-    <br>
-    <label for="id_cbx_dbgApi_entUp_comp">Completed:</label>
-    <input type="checkbox" id="id_cbx_dbgApi_entUp_comp" name="id_cbx_dbgApi_entUp_comp" checked>
+    <!-- ELEMENT COLLECTION: Entry Update -->
+        <button id="id_btn_dbgApi_ent_up">Entries - Update</button>
+        <br>
+        <input id="id_in_dbgApi_entUp_entId" type="number" placeholder="Entry ID" value="11">
+        <br>
+        <input id="id_in_dbgApi_entUp_catId" type="number" placeholder="Category ID" value="7">
+        <br>
+        <input id="id_in_dbgApi_entUp_name" placeholder="Category name" value="Fizetés">
+        <br>
+        <input id="id_in_dbgApi_entUp_amt" type="number" placeholder="Amount" value="2000">
+        <br>
+        <input id="id_in_dbgApi_entUp_desc" placeholder="Description" value="Some basic text as well.">
+        <br>
+        <input id="id_in_dbgApi_entUp_date" placeholder="Date" value="2026-04-02">
+        <br>
+        <label for="id_cbx_dbgApi_entUp_comp">Completed:</label>
+        <input type="checkbox" id="id_cbx_dbgApi_entUp_comp" name="id_cbx_dbgApi_entUp_comp" checked>
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Entry Complete -->
-    <button id="id_btn_dbgApi_ent_comp">Entries - Complete</button>
-    <br>
-    <input id="id_in_dbgApi_entComp_entId" type="number" placeholder="Entry ID" value="11">
+    <!-- ELEMENT COLLECTION: Entry Complete -->
+        <button id="id_btn_dbgApi_ent_comp">Entries - Complete</button>
+        <br>
+        <input id="id_in_dbgApi_entComp_entId" type="number" placeholder="Entry ID" value="11">
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Entry Delete -->
-    <button id="id_btn_dbgApi_ent_del">Entries - Delete</button>
-    <br>
-    <input id="id_in_dbgApi_entDel_entId" type="number" placeholder="Entry ID" value="11">
+    <!-- ELEMENT COLLECTION: Entry Delete -->
+        <button id="id_btn_dbgApi_ent_del">Entries - Delete</button>
+        <br>
+        <input id="id_in_dbgApi_entDel_entId" type="number" placeholder="Entry ID" value="11">
 
-    <hr>
-    <hr>
-    <h3>Planned entries:</h3>
-    <hr>
+        <hr>
+        <hr>
+        <h3>Planned entries:</h3>
+        <hr>
 
-<!--=====================================-->
-<!-- ENDPOINT COLLECTION: Planned entries -->
-<!--=====================================-->
+    <!--=====================================-->
+    <!-- ENDPOINT COLLECTION: Planned entries -->
+    <!--=====================================-->
 
-<!-- ELEMENT COLLECTION: Planned entries Get all -->
-    <button id="id_btn_dbgApi_plEnt_all">Planned Entries - Get All</button>
+    <!-- ELEMENT COLLECTION: Planned entries Get all -->
+        <button id="id_btn_dbgApi_plEnt_all">Planned Entries - Get All</button>
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Planned entry Add -->
-    <button id="id_btn_dbgApi_plEnt_add">Planned Entries - Add</button>
-    <br>
-    <input id="id_in_dbgApi_plEntAdd_catId" type="number" placeholder="Category ID" value="7">
-    <br>
-    <input id="id_in_dbgApi_plEntAdd_name" placeholder="Name" value="Fizetés">
-    <br>
-    <input id="id_in_dbgApi_plEntAdd_amt" type="number" placeholder="Amount" value="7000">
-    <br>
-    <input id="id_in_dbgApi_plEntAdd_dom" type="number" placeholder="Day of month" value="12">
+    <!-- ELEMENT COLLECTION: Planned entry Add -->
+        <button id="id_btn_dbgApi_plEnt_add">Planned Entries - Add</button>
+        <br>
+        <input id="id_in_dbgApi_plEntAdd_catId" type="number" placeholder="Category ID" value="7">
+        <br>
+        <input id="id_in_dbgApi_plEntAdd_name" placeholder="Name" value="Fizetés">
+        <br>
+        <input id="id_in_dbgApi_plEntAdd_amt" type="number" placeholder="Amount" value="7000">
+        <br>
+        <input id="id_in_dbgApi_plEntAdd_dom" type="number" placeholder="Day of month" value="12">
 
-    <hr>
+        <hr>
 
-<!-- ELEMENT COLLECTION: Planned entry Status -->
-    <button id="id_btn_dbgApi_plEnt_stat">Planned Entries - Status</button>
-    <br>
-    <input id="id_in_dbgApi_plEntStat_id" type="number" placeholder="Planned entry ID" value="7">
+    <!-- ELEMENT COLLECTION: Planned entry Status -->
+        <button id="id_btn_dbgApi_plEnt_stat">Planned Entries - Status</button>
+        <br>
+        <input id="id_in_dbgApi_plEntStat_id" type="number" placeholder="Planned entry ID" value="7">
 
-    <hr>
+        <!--<hr>-->
+    </div>
 </div>
 
 <!--=====================================-->
@@ -441,7 +443,7 @@ e_btn_dbgApi_plEnt_stat.addEventListener("click", () => {
 /******************************/
 
 async function copyTokens() {
-    await navigator.clipboard.writeText(`Access token:\n${e_in_dbgApi_login_accessToken.value}\n\nRefresh token:\n${e_in_dbgApi_login_refreshToken.value}`);
+    await navigator.clipboard.writeText(`Access token:\n${e_in_dbgApi_authLogin_accessToken.value}\n\nRefresh token:\n${e_in_dbgApi_authLogin_refreshToken.value}`);
 }
 
 </script>

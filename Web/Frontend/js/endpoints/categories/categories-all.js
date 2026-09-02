@@ -24,7 +24,7 @@ function categoriesAll() {
 /******************************/
 
 function categoriesAllSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -32,5 +32,5 @@ function categoriesAllSuccess(result) {
 /******************************/
 
 function categoriesAllError(result) {
-    console.error(result);
+    conError(result);
 }

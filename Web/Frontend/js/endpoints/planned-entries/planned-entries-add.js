@@ -29,7 +29,7 @@ function plannedEntriesAdd(body) {
 /******************************/
 
 function plannedEntriesAddSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -37,5 +37,5 @@ function plannedEntriesAddSuccess(result) {
 /******************************/
 
 function plannedEntriesAddError(result) {
-    console.error(result);
+    conError(result);
 }

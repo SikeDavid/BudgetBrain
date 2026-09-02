@@ -26,10 +26,10 @@ function refreshToken(body) {
 /******************************/
 
 function refreshTokenSuccess(result) {
-    console.log(result);
+    conLog(result);
     currentUser.accessToken = result.response.accessToken;
-    if (debug != 0)
-        e_in_dbgApi_accessToken.value = result.response.accessToken;
+    if (isDebug())
+        e_in_dbgApi_authRefresh_accessToken.value = result.response.accessToken;
 }
 
 /******************************/
@@ -37,7 +37,7 @@ function refreshTokenSuccess(result) {
 /******************************/
 
 function refreshTokenError(result) {
-    console.error("Oh no! Token refresh is a no-no! Refresh token must have expired!");
-    console.error(result);
+    conError("Oh no! Token refresh is a no-no! Refresh token must have expired!");
+    conError(result);
 }
 

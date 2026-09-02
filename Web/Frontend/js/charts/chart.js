@@ -1,3 +1,4 @@
+/*
 const e_chartTest = document.getElementById("id_chartTest");
 
 new Chart(e_chartTest, {
@@ -18,3 +19,4 @@ type: 'bar',
                 }
             }
 });
+*/

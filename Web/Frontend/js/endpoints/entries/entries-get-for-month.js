@@ -24,7 +24,7 @@ function entriesGetForMonth(year, month) {
 /******************************/
 
 function entriesGetForMonthSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -32,5 +32,5 @@ function entriesGetForMonthSuccess(result) {
 /******************************/
 
 function entriesGetForMonthError(result) {
-    console.error(result);
+    conError(result);
 }

@@ -23,7 +23,7 @@ function plannedEntriesStatus(id) {
 /******************************/
 
 function plannedEntriesStatusSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -31,5 +31,5 @@ function plannedEntriesStatusSuccess(result) {
 /******************************/
 
 function plannedEntriesStatusError(result) {
-    console.error(result);
+    conError(result);
 }

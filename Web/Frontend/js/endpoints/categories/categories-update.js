@@ -13,7 +13,6 @@
 */
 
 function categoriesUpdate(id, body) {
-    console.log(body);
     ajax({
         method: "PATCH",
         url: `${API_PATH}/categories/${id}`,
@@ -29,7 +28,7 @@ function categoriesUpdate(id, body) {
 /******************************/
 
 function categoriesUpdateSuccess(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -37,5 +36,5 @@ function categoriesUpdateSuccess(result) {
 /******************************/
 
 function categoriesUpdateError(result) {
-    console.error(result);
+    conError(result);
 }

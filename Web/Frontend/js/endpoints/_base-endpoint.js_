@@ -30,7 +30,7 @@ function logout() {
 /******************************/
 
 function Success(result) {
-    console.log(result);
+    conLog(result);
 }
 
 /******************************/
@@ -38,7 +38,7 @@ function Success(result) {
 /******************************/
 
 function Error(result) {
-    console.log(result);
+    conError(result);
 }
 
 

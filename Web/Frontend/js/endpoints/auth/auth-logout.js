@@ -26,7 +26,7 @@ function logout(body) {
 /******************************/
 
 function logoutSuccess(result) {
-    console.log(result);
+    conLog(result);
     alert("Sikeres kilépés!");
 }
 
@@ -35,6 +35,6 @@ function logoutSuccess(result) {
 /******************************/
 
 function logoutError(result) {
-    console.error(result);
+    conError(result);
     alert("Sikertelen kilépés!");
 }
