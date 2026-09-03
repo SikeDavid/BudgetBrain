@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteRule ^languages$ languages.php [L]
+RewriteRule ^languages/$ languages.php [L]
+RewriteRule ^languages/([^/]+)$ languages.php?lang=$1 [L]

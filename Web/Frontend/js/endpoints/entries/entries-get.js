@@ -16,9 +16,6 @@
 */
 
 function entriesGet(id) {
-    const body = {
-    };
-
     ajax({
         method: "GET",
         url: `${API_PATH}/entries/${id}`,
@@ -33,14 +30,14 @@ function entriesGet(id) {
 /******************************/
 /******************************/
 
-function entriesGetSuccess(response) {
-    console.log(response);
+function entriesGetSuccess(result) {
+    conLog(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function entriesGetError(response) {
-    console.error(response);
+function entriesGetError(result) {
+    conError(result);
 }

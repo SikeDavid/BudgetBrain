@@ -6,7 +6,8 @@ function ajax({
         callbackSuccess = null,
         callbackError = null,
         callbackData = null,
-        tokenRefreshed = false
+        tokenRefreshed = false,
+        resultAttachable = null
     } = {}) {
 
     const xhr = new XMLHttpRequest();
@@ -14,9 +15,13 @@ function ajax({
 
     xhr.onload = () => {
         if (xhr.status < 200 || xhr.status >= 300) {
-            console.error(`Request failed. Status: ${xhr.status}`);
-            let response = JSON.parse(xhr.responseText);
-
+            conError(`Request failed. Status: ${xhr.status}`);
+            let result = {
+                "status": xhr.status,
+                "response": JSON.parse(xhr.responseText),
+                "data": resultAttachable
+            };
+            //conLog(result);
 //> accessToken expiry: 401 / jwt expired
 //> refreshToken expiry: 403 / jwt malformed / jwt not found
 
@@ -26,14 +31,17 @@ function ajax({
                     > response.message == "jwt malformed" -> illegal / nonexisting accessToken
                     > In these cases -> Logout
                 <*/
-                if (tokenRefreshed || xhr.status == 403/*response.message == "jwt malformed"*/) {
-                    refreshTokenError(response);
+                if (xhr.status == 403 && result.response.message == "User is not yet activated") {
+                    //
+                }
+                else if (tokenRefreshed || xhr.status == 403/*response.message == "jwt malformed"*/) {
+                    refreshTokenError(result);
                     return;
                 }
                 //> AccessToken expired, refreshing:
-                if (xhr.status == 401 /*response.message == "jwt expired"*/) {
-                    console.error(response);
-                    console.error("AccessToken expired, refreshing...");
+                if (xhr.status == 401 /*response.message == "Invalid or expired accesstoken"*/) {
+                    conError(result);
+                    conError("AccessToken expired, refreshing...");
                     const body = {
                         "refreshToken": currentUser.refreshToken
                     };
@@ -56,24 +64,28 @@ function ajax({
                     });
                 /*}
                 else {
-                    console.error("Unhandled server error.");
+                    conError("Unhandled server error.");
                 }*/
             }
 
             else if (callbackError !== null)
-                callbackError(response);
+                callbackError(result);
             else {
-                console.log("callbackError function is null; XHR response is:");
-                console.error(response);
+                conLog("callbackError function is null; XHR response is:");
+                conError(result);
             }
             return;
         }
 
-        let response = JSON.parse(xhr.responseText);
+        let result = {
+            "status": xhr.status,
+            "response": JSON.parse(xhr.responseText),
+            "data": resultAttachable
+        };
 
         if (callbackData !== null) {
-            console.log("Token refresh successful!");
-            callbackSuccess(response);
+            conLog("Token refresh successful!");
+            callbackSuccess(result);
             ajax({
                 method: callbackData.method,
                 url: callbackData.url,
@@ -88,16 +100,16 @@ function ajax({
             if (callbackData !== null)
                 callbackSuccess(callbackData);
             else
-                callbackSuccess(response);
+                callbackSuccess(result);
         }
         else {
-            console.log("callbackSuccess function is null; XHR response is:");
-            console.log(response);
+            conLog("callbackSuccess function is null; XHR response is:");
+            conLog(result);
         }
     };
 
     xhr.onerror = () => {
-        console.error("Network error.");
+        conError("Network error.");
         alert("There was a network error.");
     };
 

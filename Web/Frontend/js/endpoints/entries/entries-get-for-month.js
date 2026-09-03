@@ -9,9 +9,6 @@
 */
 
 function entriesGetForMonth(year, month) {
-    const body = {
-    };
-
     ajax({
         method: "GET",
         url: `${API_PATH}/entries?year=${year}&month=${month}`,
@@ -26,14 +23,14 @@ function entriesGetForMonth(year, month) {
 /******************************/
 /******************************/
 
-function entriesGetForMonthSuccess(response) {
-    console.log(response);
+function entriesGetForMonthSuccess(result) {
+    conLog(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function entriesGetForMonthError(response) {
-    console.error(response);
+function entriesGetForMonthError(result) {
+    conError(result);
 }

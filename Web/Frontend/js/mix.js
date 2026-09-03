@@ -53,44 +53,8 @@ function correctUserData(usrDta) {
 /******************************/
 /******************************/
 
-function showSection(el) {
-    for (let i = 0; i < sections.length; i++) {
-        sections[i].style.display = "none";
-    }
-    el.style.display = "block";
-}
-
-/******************************/
-/******************************/
-/******************************/
-
-function showLoginBar() {
-    e_div_loggedIn.style.display = "none";
-    e_div_notLoggedIn.style.display = "block";
-}
-
-/******************************/
-/******************************/
-/******************************/
-
-function hideLoginBar() {
-    e_div_loggedIn.style.display = "block";
-    e_div_notLoggedIn.style.display = "none";
-}
-
-/******************************/
-/******************************/
-/******************************/
-
-function showLoginRegister() {
-    //showSection(e_sec_logReg);
-}
-
-/******************************/
-/******************************/
-/******************************/
-
 function loginDirect() {
+    if (isDebug())
     e_login_userName.value = e_reg_userName.value;
     e_login_password.value = e_reg_password.value;
     login();
@@ -100,8 +64,90 @@ function loginDirect() {
 /******************************/
 /******************************/
 
-function refreshTokenExpired() {
+function conLog(data) {
+    if (debug!=0) console.log(data);
+}
 
+/******************************/
+/******************************/
+/******************************/
+
+function conError(data) {
+    if (debug!=0) console.error(data);
+}
+
+/******************************/
+/******************************/
+/******************************/
+
+function msTime(str) {
+    let errorValue = null;
+
+    str = str.replace(/\s/g, "");
+
+    const units = {
+        h:  60 * 60 * 1000,
+        m:  60 * 1000,
+        s:  1000,
+        ms: 1
+    };
+
+    const regex = /(\d+(?:\.\d+)?)(ms|h|m|s)/g;
+
+    let total = 0;
+    let used = new Set();
+    let position = 0;
+    let match;
+
+    while ((match = regex.exec(str)) !== null) {
+        if (match.index !== position)
+            return errorValue;
+
+        const value = Number(match[1]);
+        const unit = match[2];
+
+        if (used.has(unit))
+            return errorValue;
+
+        used.add(unit);
+        total += value * units[unit];
+
+        position = regex.lastIndex;
+    }
+
+    return position === str.length ? total : null;
+}
+
+/******************************/
+/******************************/
+/******************************/
+
+function isDebug () {
+    let state = false;
+    if (debug != null && debug != 0)
+        state = true;
+    return state;
+}
+
+/******************************/
+/******************************/
+/******************************/
+
+function showPage(pg_id, bkg_id) {
+
+    document.querySelectorAll(".cl_page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.querySelectorAll(".cl_background").forEach(background => {
+        background.classList.remove("active");
+    });
+
+    if (pg_id != null)
+        document.getElementById(pg_id).classList.add("active");
+
+    if (bkg_id != null)
+        document.getElementById(bkg_id).classList.add("active");
 }
 
 /******************************/

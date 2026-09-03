@@ -1,0 +1,26 @@
+/*>
+> https://fonts.google.com/
+> https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face
+<*/
+
+@font-face {
+    font-family: "BrainFont";
+    src: url("../font/DynaPuff-VariableFont_wdth-wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Bodoni Moda";
+    src: url("../font/BodoniModa-VariableFont_opsz,wght.ttf") format("truetype");
+    font-weight: 200 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Bodoni Moda";
+    src: url("../fonts/BodoniModa-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+    font-weight: 200 900;
+    font-style: italic;
+}
+
+
+

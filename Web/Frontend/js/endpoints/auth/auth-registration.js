@@ -13,13 +13,7 @@
 }
 */
 
-function registration() {
-    const body = {
-        "username": e_reg_userName.value,
-        "email": e_reg_email.value,
-        "password": e_reg_password.value
-    };
-
+function registration(body) {
     ajax({
         method: "POST",
         url: `${API_PATH}/auth/registration`,
@@ -34,10 +28,16 @@ function registration() {
 /******************************/
 /******************************/
 
-function registrationSuccess(response) {
+function registrationSuccess(result) {
+    conLog(result);
     alert("Sikeres regisztráció!");
-    //currentUser.id = ;
-    currentUser.name = e_reg_userName;
+
+    if (isDebug()) {
+        currentUser.name = e_in_dbgApi_reg_userName.value;
+        e_in_dbgApi_authLogin_userName.value = e_in_dbgApi_reg_userName.value;
+        e_in_dbgApi_authLogin_password.value = e_in_dbgApi_reg_password.value;
+    }
+
     //loginDirect();
 }
 
@@ -45,6 +45,7 @@ function registrationSuccess(response) {
 /******************************/
 /******************************/
 
-function registrationError(response) {
+function registrationError(result) {
+    conError(result);
     alert("Regisztráció sikertelen!\nFelhasználói név vagy e-mail cím már foglalt.");
 }

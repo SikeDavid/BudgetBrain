@@ -13,14 +13,7 @@
 },
 */
 
-function plannedEntriesAdd() {
-    const body = {
-        "categoryid": e_in_PlEntAdd_catId.value,
-        "name": e_in_PlEntAdd_name.value,
-        "amount": e_in_PlEntAdd_amt.value,
-        "dayofmonth": e_in_PlEntAdd_dom.value
-    };
-
+function plannedEntriesAdd(body) {
     ajax({
         method: "POST",
         url: `${API_PATH}/planner`,
@@ -35,14 +28,14 @@ function plannedEntriesAdd() {
 /******************************/
 /******************************/
 
-function plannedEntriesAddSuccess(response) {
-    console.log(response);
+function plannedEntriesAddSuccess(result) {
+    conLog(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function plannedEntriesAddError(response) {
-    console.error(response);
+function plannedEntriesAddError(result) {
+    conError(result);
 }

@@ -11,9 +11,6 @@
 */
 
 function entriesDelete(id) {
-    const body = {
-    };
-
     ajax({
         method: "DELETE",
         url: `${API_PATH}/entries/${id}`,
@@ -28,14 +25,14 @@ function entriesDelete(id) {
 /******************************/
 /******************************/
 
-function entriesDeleteSuccess(response) {
-    console.log(response);
+function entriesDeleteSuccess(result) {
+    conLog(result);
 }
 
 /******************************/
 /******************************/
 /******************************/
 
-function entriesDeleteError(response) {
-    console.error(response);
+function entriesDeleteError(result) {
+    conError(result);
 }
