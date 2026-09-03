@@ -23,5 +23,17 @@ namespace BudgetBrainDesktop.Models
         public int DayofMonth { get; set; }
         [JsonPropertyName("active")]
         public int Active { get; set; }
+
+        public class Post
+        {
+            [JsonPropertyName("categoryid")]
+            public int CategoryId { get; set; }
+            [JsonPropertyName("name")]
+            public string Description { get; set; }
+            [JsonPropertyName("amount")]
+            public int Amount { get; set; }
+            [JsonPropertyName("dayofmonth")]
+            public int DayofMonth { get; set; }
+        }
     }
 }

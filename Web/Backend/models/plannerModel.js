@@ -2,13 +2,15 @@ import db from "../database.js";
 
 // Create
 export async function modelEntryPlannerCreate(userid, categoryid, name, amount, dayofmonth) {
+    // hotfix bug-ra
+    const day_of_month = dayofmonth;
     const sql = `
         INSERT INTO entry_planner
             (user_id, category_id, name, amount, day_of_month)
             VALUES (?, ?, ?, ?, ?)
     `;
 
-    const [result] = await db.query(sql, [userid, categoryid, name, amount, dayofmonth]);
+    const [result] = await db.query(sql, [userid, categoryid, name, amount, day_of_month]);
 
     return result;
 }

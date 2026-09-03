@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            button1 = new Button();
-            radioButton1 = new RadioButton();
+            cbActive = new CheckBox();
+            btnAddPlan = new Button();
             panelContent = new FlowLayoutPanel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(radioButton1);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(cbActive);
+            panel1.Controls.Add(btnAddPlan);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -46,34 +46,33 @@
             panel1.Size = new Size(1180, 107);
             panel1.TabIndex = 0;
             // 
-            // button1
+            // cbActive
             // 
-            button1.BackColor = Color.FromArgb(36, 182, 110);
-            button1.Dock = DockStyle.Left;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 10F);
-            button1.ForeColor = Color.FromArgb(246, 247, 247);
-            button1.Location = new Point(24, 24);
-            button1.Name = "button1";
-            button1.Size = new Size(232, 59);
-            button1.TabIndex = 0;
-            button1.Text = "+ New plan";
-            button1.UseVisualStyleBackColor = false;
+            cbActive.AutoSize = true;
+            cbActive.Dock = DockStyle.Left;
+            cbActive.ForeColor = Color.FromArgb(246, 247, 247);
+            cbActive.Location = new Point(256, 24);
+            cbActive.Name = "cbActive";
+            cbActive.Padding = new Padding(20, 0, 0, 0);
+            cbActive.Size = new Size(162, 59);
+            cbActive.TabIndex = 2;
+            cbActive.Text = "Only active";
+            cbActive.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // btnAddPlan
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Dock = DockStyle.Left;
-            radioButton1.ForeColor = Color.FromArgb(246, 247, 247);
-            radioButton1.Location = new Point(256, 24);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Padding = new Padding(24, 0, 0, 0);
-            radioButton1.Size = new Size(165, 59);
-            radioButton1.TabIndex = 1;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Only active";
-            radioButton1.UseVisualStyleBackColor = true;
+            btnAddPlan.BackColor = Color.FromArgb(36, 182, 110);
+            btnAddPlan.Dock = DockStyle.Left;
+            btnAddPlan.FlatAppearance.BorderSize = 0;
+            btnAddPlan.FlatStyle = FlatStyle.Flat;
+            btnAddPlan.Font = new Font("Segoe UI", 10F);
+            btnAddPlan.ForeColor = Color.FromArgb(246, 247, 247);
+            btnAddPlan.Location = new Point(24, 24);
+            btnAddPlan.Name = "btnAddPlan";
+            btnAddPlan.Size = new Size(232, 59);
+            btnAddPlan.TabIndex = 0;
+            btnAddPlan.Text = "+ New plan";
+            btnAddPlan.UseVisualStyleBackColor = false;
             // 
             // panelContent
             // 
@@ -104,8 +103,8 @@
         #endregion
 
         private Panel panel1;
-        private Button button1;
-        private RadioButton radioButton1;
+        private Button btnAddPlan;
         private FlowLayoutPanel panelContent;
+        private CheckBox cbActive;
     }
 }

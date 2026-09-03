@@ -46,6 +46,9 @@
     <Compile Update="UserControls\Login\ControlRegistrationCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\User\Cards\Planner\ControlAddPlanCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\User\Cards\Planner\ControlPlanCard.cs">
       <SubType>UserControl</SubType>
     </Compile>

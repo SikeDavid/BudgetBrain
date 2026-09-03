@@ -29,16 +29,31 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            lblDescription = new Label();
-            lblAmount = new Label();
-            lblDayofMonth = new Label();
-            lblType = new Label();
-            lblStatus = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
             btnModify = new Button();
             btnDelete = new Button();
+            panelDescription = new Panel();
+            tbDescription = new TextBox();
+            lblDescription = new Label();
+            panelAmount = new Panel();
+            tbAmount = new TextBox();
+            lblAmount = new Label();
+            panelDay = new Panel();
+            nudDay = new NumericUpDown();
+            lblDayofMonth = new Label();
+            panelType = new Panel();
+            cbCategory = new ComboBox();
+            lblType = new Label();
+            panelStatus = new Panel();
+            lblStatus = new Label();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
+            panelDescription.SuspendLayout();
+            panelAmount.SuspendLayout();
+            panelDay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudDay).BeginInit();
+            panelType.SuspendLayout();
+            panelStatus.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -51,12 +66,12 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 140F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 140F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
-            tableLayoutPanel1.Controls.Add(lblDescription, 0, 0);
-            tableLayoutPanel1.Controls.Add(lblAmount, 1, 0);
-            tableLayoutPanel1.Controls.Add(lblDayofMonth, 2, 0);
-            tableLayoutPanel1.Controls.Add(lblType, 3, 0);
-            tableLayoutPanel1.Controls.Add(lblStatus, 4, 0);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 5, 0);
+            tableLayoutPanel1.Controls.Add(panelDescription, 0, 0);
+            tableLayoutPanel1.Controls.Add(panelAmount, 1, 0);
+            tableLayoutPanel1.Controls.Add(panelDay, 2, 0);
+            tableLayoutPanel1.Controls.Add(panelType, 3, 0);
+            tableLayoutPanel1.Controls.Add(panelStatus, 4, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -64,68 +79,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(1045, 132);
             tableLayoutPanel1.TabIndex = 0;
-            // 
-            // lblDescription
-            // 
-            lblDescription.AutoSize = true;
-            lblDescription.Dock = DockStyle.Fill;
-            lblDescription.ForeColor = Color.FromArgb(246, 247, 247);
-            lblDescription.Location = new Point(3, 0);
-            lblDescription.Name = "lblDescription";
-            lblDescription.Padding = new Padding(10, 0, 0, 0);
-            lblDescription.Size = new Size(299, 132);
-            lblDescription.TabIndex = 0;
-            lblDescription.Text = "description";
-            lblDescription.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblAmount
-            // 
-            lblAmount.AutoSize = true;
-            lblAmount.Dock = DockStyle.Fill;
-            lblAmount.ForeColor = Color.FromArgb(246, 247, 247);
-            lblAmount.Location = new Point(308, 0);
-            lblAmount.Name = "lblAmount";
-            lblAmount.Padding = new Padding(0, 0, 10, 0);
-            lblAmount.Size = new Size(194, 132);
-            lblAmount.TabIndex = 1;
-            lblAmount.Text = "amount";
-            lblAmount.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // lblDayofMonth
-            // 
-            lblDayofMonth.AutoSize = true;
-            lblDayofMonth.Dock = DockStyle.Fill;
-            lblDayofMonth.ForeColor = Color.FromArgb(246, 247, 247);
-            lblDayofMonth.Location = new Point(508, 0);
-            lblDayofMonth.Name = "lblDayofMonth";
-            lblDayofMonth.Size = new Size(94, 132);
-            lblDayofMonth.TabIndex = 2;
-            lblDayofMonth.Text = "dayofmonth";
-            lblDayofMonth.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblType
-            // 
-            lblType.AutoSize = true;
-            lblType.Dock = DockStyle.Fill;
-            lblType.ForeColor = Color.FromArgb(246, 247, 247);
-            lblType.Location = new Point(608, 0);
-            lblType.Name = "lblType";
-            lblType.Size = new Size(134, 132);
-            lblType.TabIndex = 3;
-            lblType.Text = "type";
-            lblType.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblStatus
-            // 
-            lblStatus.AutoSize = true;
-            lblStatus.Dock = DockStyle.Fill;
-            lblStatus.ForeColor = Color.FromArgb(246, 247, 247);
-            lblStatus.Location = new Point(748, 0);
-            lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(134, 132);
-            lblStatus.TabIndex = 4;
-            lblStatus.Text = "status";
-            lblStatus.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
             // 
@@ -170,6 +123,138 @@
             btnDelete.Text = "D";
             btnDelete.UseVisualStyleBackColor = true;
             // 
+            // panelDescription
+            // 
+            panelDescription.Controls.Add(tbDescription);
+            panelDescription.Controls.Add(lblDescription);
+            panelDescription.Location = new Point(3, 3);
+            panelDescription.Name = "panelDescription";
+            panelDescription.Size = new Size(299, 126);
+            panelDescription.TabIndex = 6;
+            // 
+            // tbDescription
+            // 
+            tbDescription.Anchor = AnchorStyles.Left;
+            tbDescription.Location = new Point(3, 45);
+            tbDescription.Name = "tbDescription";
+            tbDescription.Size = new Size(270, 35);
+            tbDescription.TabIndex = 2;
+            // 
+            // lblDescription
+            // 
+            lblDescription.Dock = DockStyle.Fill;
+            lblDescription.ForeColor = Color.FromArgb(246, 247, 247);
+            lblDescription.ImageAlign = ContentAlignment.MiddleLeft;
+            lblDescription.Location = new Point(0, 0);
+            lblDescription.Name = "lblDescription";
+            lblDescription.Padding = new Padding(10, 0, 0, 0);
+            lblDescription.Size = new Size(299, 126);
+            lblDescription.TabIndex = 1;
+            lblDescription.Text = "description";
+            lblDescription.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // panelAmount
+            // 
+            panelAmount.Controls.Add(tbAmount);
+            panelAmount.Controls.Add(lblAmount);
+            panelAmount.Location = new Point(308, 3);
+            panelAmount.Name = "panelAmount";
+            panelAmount.Size = new Size(194, 126);
+            panelAmount.TabIndex = 7;
+            // 
+            // tbAmount
+            // 
+            tbAmount.Location = new Point(22, 45);
+            tbAmount.Name = "tbAmount";
+            tbAmount.Size = new Size(169, 35);
+            tbAmount.TabIndex = 3;
+            // 
+            // lblAmount
+            // 
+            lblAmount.Dock = DockStyle.Fill;
+            lblAmount.ForeColor = Color.FromArgb(246, 247, 247);
+            lblAmount.Location = new Point(0, 0);
+            lblAmount.Name = "lblAmount";
+            lblAmount.Padding = new Padding(0, 0, 10, 0);
+            lblAmount.Size = new Size(194, 126);
+            lblAmount.TabIndex = 2;
+            lblAmount.Text = "amount";
+            lblAmount.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // panelDay
+            // 
+            panelDay.Controls.Add(nudDay);
+            panelDay.Controls.Add(lblDayofMonth);
+            panelDay.Location = new Point(508, 3);
+            panelDay.Name = "panelDay";
+            panelDay.Size = new Size(94, 126);
+            panelDay.TabIndex = 8;
+            // 
+            // nudDay
+            // 
+            nudDay.Location = new Point(14, 46);
+            nudDay.Name = "nudDay";
+            nudDay.Size = new Size(77, 35);
+            nudDay.TabIndex = 4;
+            // 
+            // lblDayofMonth
+            // 
+            lblDayofMonth.Dock = DockStyle.Fill;
+            lblDayofMonth.ForeColor = Color.FromArgb(246, 247, 247);
+            lblDayofMonth.Location = new Point(0, 0);
+            lblDayofMonth.Name = "lblDayofMonth";
+            lblDayofMonth.Size = new Size(94, 126);
+            lblDayofMonth.TabIndex = 3;
+            lblDayofMonth.Text = "dayofmonth";
+            lblDayofMonth.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panelType
+            // 
+            panelType.Controls.Add(cbCategory);
+            panelType.Controls.Add(lblType);
+            panelType.Location = new Point(608, 3);
+            panelType.Name = "panelType";
+            panelType.Size = new Size(134, 126);
+            panelType.TabIndex = 9;
+            // 
+            // cbCategory
+            // 
+            cbCategory.FormattingEnabled = true;
+            cbCategory.Location = new Point(-3, 43);
+            cbCategory.Name = "cbCategory";
+            cbCategory.Size = new Size(137, 38);
+            cbCategory.TabIndex = 5;
+            // 
+            // lblType
+            // 
+            lblType.Dock = DockStyle.Fill;
+            lblType.ForeColor = Color.FromArgb(246, 247, 247);
+            lblType.Location = new Point(0, 0);
+            lblType.Name = "lblType";
+            lblType.Size = new Size(134, 126);
+            lblType.TabIndex = 4;
+            lblType.Text = "type";
+            lblType.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panelStatus
+            // 
+            panelStatus.Controls.Add(lblStatus);
+            panelStatus.Location = new Point(748, 3);
+            panelStatus.Name = "panelStatus";
+            panelStatus.Size = new Size(134, 126);
+            panelStatus.TabIndex = 10;
+            // 
+            // lblStatus
+            // 
+            lblStatus.Dock = DockStyle.Fill;
+            lblStatus.ForeColor = Color.FromArgb(246, 247, 247);
+            lblStatus.Location = new Point(0, 0);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(134, 126);
+            lblStatus.TabIndex = 5;
+            lblStatus.Text = "status";
+            lblStatus.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // ControlPlanCard
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
@@ -180,21 +265,37 @@
             Padding = new Padding(0, 4, 0, 4);
             Size = new Size(1045, 140);
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
+            panelDescription.ResumeLayout(false);
+            panelDescription.PerformLayout();
+            panelAmount.ResumeLayout(false);
+            panelAmount.PerformLayout();
+            panelDay.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)nudDay).EndInit();
+            panelType.ResumeLayout(false);
+            panelStatus.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Label lblDescription;
-        private Label lblAmount;
-        private Label lblDayofMonth;
-        private Label lblType;
-        private Label lblStatus;
         private TableLayoutPanel tableLayoutPanel2;
         private Button btnModify;
         private Button btnDelete;
+        private Panel panelDescription;
+        private Label lblDescription;
+        private Panel panelAmount;
+        private Label lblAmount;
+        private Panel panelDay;
+        private Label lblDayofMonth;
+        private Panel panelType;
+        private TextBox tbDescription;
+        private TextBox tbAmount;
+        private NumericUpDown nudDay;
+        private ComboBox cbCategory;
+        private Label lblType;
+        private Panel panelStatus;
+        private Label lblStatus;
     }
 }

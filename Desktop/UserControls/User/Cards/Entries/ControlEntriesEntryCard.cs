@@ -104,21 +104,21 @@ namespace BudgetBrainDesktop.UserControls.User.Cards
 
                     MessageModel response = await ApiService.PatchAsync<EntriesModel.Post>($"entries/{entryId}", body);
 
-                    modify = !modify;
-                    btnModify.Image = modify ? Resources.close_icon : Resources.modify_icon;
+                    //modify = !modify;
+                    //btnModify.Image = modify ? Resources.close_icon : Resources.modify_icon;
 
-                    btnDelete.Image = modify ? Resources.save_icon : Resources.delete_icon;
+                    //btnDelete.Image = modify ? Resources.save_icon : Resources.delete_icon;
 
-                    lblDate.Visible = !modify;
-                    lblType.Visible = !modify;
-                    lblDescription.Visible = !modify;
-                    lblCategory.Visible = !modify;
-                    lblAmount.Visible = !modify;
+                    //lblDate.Visible = !modify;
+                    //lblType.Visible = !modify;
+                    //lblDescription.Visible = !modify;
+                    //lblCategory.Visible = !modify;
+                    //lblAmount.Visible = !modify;
 
-                    dtpModify.Visible = modify;
-                    tbModifyDescription.Visible = modify;
-                    cbModifyCategory.Visible = modify;
-                    tbModifyAmount.Visible = modify;
+                    //dtpModify.Visible = modify;
+                    //tbModifyDescription.Visible = modify;
+                    //cbModifyCategory.Visible = modify;
+                    //tbModifyAmount.Visible = modify;
                 }
                 catch (Exception ex)
                 {
@@ -131,8 +131,38 @@ namespace BudgetBrainDesktop.UserControls.User.Cards
             }
             else
             {
-                MessageBox.Show("Delete");
-                return;
+                DialogResult result = MessageBox.Show(
+                    $"Deleting {lblDescription.Text} entry?", "Deleting entry",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button2);
+
+                if (result != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                try
+                {
+                    btnDelete.Enabled = false;
+
+                    await ApiService.DeleteAsync($"entries/{entryId}");
+
+                    Parent?.Controls.Remove(this);
+                    Dispose();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Delete failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    if (!IsDisposed)
+                    {
+                        btnDelete.Enabled = true;
+                    }
+                }
             }
 
         }
@@ -154,8 +184,6 @@ namespace BudgetBrainDesktop.UserControls.User.Cards
             tbModifyDescription.Visible = modify;
             cbModifyCategory.Visible = modify;
             tbModifyAmount.Visible = modify;
-
-
         }
 
         private async void BtnPaidClick(object? sender, EventArgs e)
