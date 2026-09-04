@@ -15,6 +15,7 @@ namespace BudgetBrainDesktop.UserControls.User.Cards.Categories
     public partial class ControlCategoriesCard : UserControl
     {
         private readonly int categoryId;
+        private readonly int categoryStatus;
         public ControlCategoriesCard(CategoriesModel category)
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace BudgetBrainDesktop.UserControls.User.Cards.Categories
             btnModify.Image = Resources.arrow_downward_icon;
 
             categoryId = category.Id;
+            categoryStatus = category.inUse;
 
             lblName.Text = category.Name;
             lblType.Text = category.Type;
@@ -101,7 +103,7 @@ namespace BudgetBrainDesktop.UserControls.User.Cards.Categories
         private async void BtnDeleteClick(object? sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                $"Removing {lblName.Text} category", "Removing category",
+                $"{(categoryStatus == 1 ? "Removing" : "Restore")} {lblName.Text} category", $"{(categoryStatus == 1 ? "Removing" : "Restore")} category",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning,
                 MessageBoxDefaultButton.Button2);
@@ -116,10 +118,6 @@ namespace BudgetBrainDesktop.UserControls.User.Cards.Categories
                 btnDelete.Enabled = false;
 
                 await ApiService.PatchAsync($"categories/{categoryId}/status");
-
-                Parent?.Controls.Remove(this);
-                Dispose();
-
             }
             catch (Exception ex)
             {
@@ -127,11 +125,8 @@ namespace BudgetBrainDesktop.UserControls.User.Cards.Categories
             }
             finally
             {
-                if (!IsDisposed)
-                {
-                    btnDelete.Enabled = true;
-                }
-
+                btnDelete.Enabled = true;
+                CategoryChanged?.Invoke(this, EventArgs.Empty);
             }
         }
     }

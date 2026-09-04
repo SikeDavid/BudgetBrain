@@ -27,5 +27,15 @@ namespace BudgetBrainDesktop.Models
             [JsonPropertyName("in_use")]
             public int inUse { get; set; }
         }
+
+        public class Post
+        {
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
+            [JsonPropertyName("type")]
+            public string Type { get; set; }
+            [JsonPropertyName("in_use")]
+            public int InUse { get; set; }
+        }
     }
 }

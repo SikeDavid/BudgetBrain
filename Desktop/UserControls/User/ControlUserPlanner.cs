@@ -24,6 +24,8 @@ namespace BudgetBrainDesktop.UserControls.User
         {
             InitializeComponent();
             cbActive.Checked = activeChecked;
+            btnAddPlan.Text = "";
+            btnAddPlan.Image = Resources.add_icon;
 
             this.Load += ControlUserPlannerLoad;
             cbActive.CheckedChanged += RbActiveCheckedChanged;
@@ -42,7 +44,7 @@ namespace BudgetBrainDesktop.UserControls.User
                 addControl = new(categories);
                 addControl.Dock = DockStyle.Fill;
                 //addControl.EntryChanged += CardEntryChanged;
-                panelContent.Controls.Add(addControl);
+                panelContentAdd.Controls.Add(addControl);
                 addControl.BringToFront();
             }
             else

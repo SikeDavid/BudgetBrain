@@ -28,23 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            panelHeader = new Panel();
             cbActive = new CheckBox();
             btnAddPlan = new Button();
+            panelContentAdd = new Panel();
             panelContent = new FlowLayoutPanel();
-            panel1.SuspendLayout();
+            panelHeader.SuspendLayout();
+            panelContentAdd.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // panelHeader
             // 
-            panel1.Controls.Add(cbActive);
-            panel1.Controls.Add(btnAddPlan);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Padding = new Padding(24, 24, 0, 24);
-            panel1.Size = new Size(1180, 107);
-            panel1.TabIndex = 0;
+            panelHeader.Controls.Add(cbActive);
+            panelHeader.Controls.Add(btnAddPlan);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Padding = new Padding(24, 24, 0, 24);
+            panelHeader.Size = new Size(1180, 107);
+            panelHeader.TabIndex = 0;
             // 
             // cbActive
             // 
@@ -74,16 +76,25 @@
             btnAddPlan.Text = "+ New plan";
             btnAddPlan.UseVisualStyleBackColor = false;
             // 
+            // panelContentAdd
+            // 
+            panelContentAdd.Controls.Add(panelContent);
+            panelContentAdd.Dock = DockStyle.Fill;
+            panelContentAdd.Location = new Point(0, 107);
+            panelContentAdd.Name = "panelContentAdd";
+            panelContentAdd.Size = new Size(1180, 646);
+            panelContentAdd.TabIndex = 1;
+            // 
             // panelContent
             // 
             panelContent.AutoScroll = true;
             panelContent.Dock = DockStyle.Fill;
             panelContent.FlowDirection = FlowDirection.TopDown;
-            panelContent.Location = new Point(0, 107);
+            panelContent.Location = new Point(0, 0);
             panelContent.Name = "panelContent";
             panelContent.Padding = new Padding(24);
             panelContent.Size = new Size(1180, 646);
-            panelContent.TabIndex = 1;
+            panelContent.TabIndex = 2;
             panelContent.WrapContents = false;
             // 
             // ControlUserPlanner
@@ -91,20 +102,22 @@
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
-            Controls.Add(panelContent);
-            Controls.Add(panel1);
+            Controls.Add(panelContentAdd);
+            Controls.Add(panelHeader);
             Name = "ControlUserPlanner";
             Size = new Size(1180, 753);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelContentAdd.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
+        private Panel panelHeader;
         private Button btnAddPlan;
-        private FlowLayoutPanel panelContent;
         private CheckBox cbActive;
+        private Panel panelContentAdd;
+        private FlowLayoutPanel panelContent;
     }
 }

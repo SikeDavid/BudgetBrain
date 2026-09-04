@@ -1,4 +1,5 @@
 ﻿using BudgetBrainDesktop.Models;
+using BudgetBrainDesktop.Properties;
 using BudgetBrainDesktop.Services;
 using BudgetBrainDesktop.UserControls.User.Cards.Categories;
 using BudgetBrainDesktop.UserControls.User.Cards.Planner;
@@ -18,15 +19,45 @@ namespace BudgetBrainDesktop.UserControls.User
         public string PageTitle { get; } = "Categories";
 
         private List<CategoriesModel> categories = new();
+        private ControlCategoriesAddCard? addControl;
         public ControlUserCategories()
         {
             InitializeComponent();
 
             this.Load += ControlUserCategoriesLoad;
+            btnAdd.Text = "";
+            btnAdd.Image = Resources.add_icon;
+            btnAdd.Click += BtnAddClick;
+        }
+
+        private void BtnAddClick(object? sender, EventArgs e)
+        {
+            if (addControl == null)
+            {
+                btnAdd.Image = Resources.close_icon;
+                btnAdd.BackColor = Color.FromArgb(244, 79, 80);
+
+                addControl = new();
+                addControl.Dock = DockStyle.Fill;
+                addControl.CategoriesChanged += ControlUserCategoriesLoad;
+                panelContentAdd.Controls.Add(addControl);
+                addControl.BringToFront();
+            }
+            else
+            {
+                btnAdd.Image = Resources.add_icon;
+                btnAdd.BackColor = Color.FromArgb(36, 182, 110);
+
+                panelContent.Controls.Remove(addControl);
+                addControl.Dispose();
+                addControl = null;
+            }
         }
 
         private async void ControlUserCategoriesLoad(object? sender, EventArgs e)
         {
+            btnAdd.Image = Resources.add_icon;
+            btnAdd.BackColor = Color.FromArgb(36, 182, 110);
             await LoadAsync();
         }
 

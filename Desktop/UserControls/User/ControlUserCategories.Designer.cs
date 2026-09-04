@@ -28,30 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            btnAdd = new Button();
             panel1 = new Panel();
+            panelContentAdd = new Panel();
             panelContent = new FlowLayoutPanel();
             panel1.SuspendLayout();
+            panelContentAdd.SuspendLayout();
             SuspendLayout();
             // 
-            // button1
+            // btnAdd
             // 
-            button1.BackColor = Color.FromArgb(36, 182, 110);
-            button1.Dock = DockStyle.Left;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 10F);
-            button1.ForeColor = Color.FromArgb(246, 247, 247);
-            button1.Location = new Point(24, 24);
-            button1.Name = "button1";
-            button1.Size = new Size(232, 59);
-            button1.TabIndex = 0;
-            button1.Text = "+ New category";
-            button1.UseVisualStyleBackColor = false;
+            btnAdd.BackColor = Color.FromArgb(36, 182, 110);
+            btnAdd.Dock = DockStyle.Left;
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 10F);
+            btnAdd.ForeColor = Color.FromArgb(246, 247, 247);
+            btnAdd.Location = new Point(24, 24);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(232, 59);
+            btnAdd.TabIndex = 0;
+            btnAdd.Text = "+ New category";
+            btnAdd.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnAdd);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -59,16 +61,25 @@
             panel1.Size = new Size(1180, 107);
             panel1.TabIndex = 1;
             // 
+            // panelContentAdd
+            // 
+            panelContentAdd.Controls.Add(panelContent);
+            panelContentAdd.Dock = DockStyle.Fill;
+            panelContentAdd.Location = new Point(0, 107);
+            panelContentAdd.Name = "panelContentAdd";
+            panelContentAdd.Size = new Size(1180, 646);
+            panelContentAdd.TabIndex = 2;
+            // 
             // panelContent
             // 
             panelContent.AutoScroll = true;
             panelContent.Dock = DockStyle.Fill;
             panelContent.FlowDirection = FlowDirection.TopDown;
-            panelContent.Location = new Point(0, 107);
+            panelContent.Location = new Point(0, 0);
             panelContent.Name = "panelContent";
             panelContent.Padding = new Padding(24);
             panelContent.Size = new Size(1180, 646);
-            panelContent.TabIndex = 2;
+            panelContent.TabIndex = 3;
             panelContent.WrapContents = false;
             // 
             // ControlUserCategories
@@ -76,17 +87,19 @@
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
-            Controls.Add(panelContent);
+            Controls.Add(panelContentAdd);
             Controls.Add(panel1);
             Name = "ControlUserCategories";
             Size = new Size(1180, 753);
             panel1.ResumeLayout(false);
+            panelContentAdd.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-        private Button button1;
+        private Button btnAdd;
         private Panel panel1;
+        private Panel panelContentAdd;
         private FlowLayoutPanel panelContent;
     }
 }

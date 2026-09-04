@@ -28,6 +28,9 @@
     <Compile Update="UserControls\Admin\ControlUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\User\Cards\Categories\ControlCategoriesAddCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\User\Cards\Categories\ControlCategoriesCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
