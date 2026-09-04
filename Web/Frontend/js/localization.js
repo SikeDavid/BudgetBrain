@@ -63,7 +63,7 @@ async function fetchLanguage(lang) {
         else
             languages = result;
     } catch (error) {
-        conError("Fetch error:");
+        conError("Fetch error at getting localization data:");
         conError(error.message);
     }
 }

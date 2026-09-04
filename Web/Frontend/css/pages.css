@@ -1,50 +1,5 @@
-.cl_pageHeader {
-    position: relative;
-
-    margin-bottom: 30px;
-    padding: 18px 25px;
-
-    border: 1px solid #222;
-    border-radius: 8px;
-
-    background: linear-gradient(
-        135deg,
-        #ffffff66,
-        #7bc3f366
-    );
-
-    box-shadow:
-        0 3px 8px rgba(0, 0, 0, 0.12);
-}
-
-.cl_pageHeader::before {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-
-    width: 6px;
-
-    border-radius: 8px 0 0 8px;
-
-    background-color: #222;
-}
-
-.cl_pageHeader h1 {
-    margin: 0;
-    padding-left: 10px;
-
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-
-
-
 .cl_page {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     display: none;
     min-height: 100vh;
     padding: 20px;
@@ -55,7 +10,71 @@
 }
 
 
+.cl_pageHeader {
+    position: relative;
 
+    margin-bottom: 30px;
+    padding: 18px 25px;
+
+    border-radius: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff66,
+        #7bc3f366
+    );
+    box-shadow:
+        inset -2px 2px 2px 0 #fffa,
+        -4px 4px 4px 0 #0002;
+}
+
+.cl_h1_pageHeader {
+    margin: 0;
+    padding-left: 10px;
+
+    font-size: 3rem;
+    font-weight: bold;
+
+    /*color: #0965e777;*/
+    /*color: #5d7e7077;*/
+    color: #5d7e7077;
+
+    text-shadow:
+        -1px  1px 2px #fff,
+       1px -1px 1px #0006;
+}
+
+/*> This is quite good: <*/
+/*
+.cl_h1_pageHeader {
+    margin: 0;
+    padding-left: 10px;
+
+    font-size: 5rem;
+    font-weight: bold;
+
+    color: #0f448e22;
+
+    text-shadow:
+        -1px  1px 2px #fff,
+       1px -1px 1px #0006;
+}
+*/
+
+.cl_sidebarItem {
+    margin: 0;
+    padding-left: 10px;
+
+    /*font-size: 3rem;*/
+    font-weight: bold;
+
+    /*color: #5d7e7077;*/
+    color: #2d3d3677;
+
+    text-shadow:
+        -1px  1px 1px #fff6,
+       1px -1px 1px #0003;
+}
 
 
 

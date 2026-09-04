@@ -10,7 +10,9 @@
     //conLog(testUser);
 </script>
 
-<div id="id_div_page_debug" class="cl_page" style="background-color: white;">
+<div id="id_bkg_debug" class="cl_background" style="background-color: white"></div>
+
+<div id="id_div_page_debug" class="cl_page">
     <div id="id_div_debugContainer">
         <hr>
         <h3>Auth:</h3>

@@ -2,7 +2,7 @@
 <div id="id_div_page_login" class="cl_page">
 
     <header class="cl_pageHeader">
-        <h1>Login Page</h1>
+        <h1 class="cl_h1_pageHeader" data-l10n="page.h1.login"></h1>
     </header>
 
     <div>
@@ -12,6 +12,7 @@
         <br>
         <input id="id_in_dbgApi_authLogin_password" type="password" value="Password01!">
     </div>
+    <div data-l10n="">Nincs még fiókja?</div>
 
 </div>
 

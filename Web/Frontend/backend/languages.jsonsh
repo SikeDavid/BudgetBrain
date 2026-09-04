@@ -1,0 +1,114 @@
+# @260903-4-0959
+# .jsonh is JSON with Hash comments, a convention by BitMiller for BitMiller, founded at this exact moment.
+# But it turned out with a Google search on "jsonh format" that there's already a compatible convention:
+# > https://github.com/jsonh-org/Jsonh - JSON for Humans.
+# Since JSONC not supports e.g. hash comments, and Jsonh does. As well as John Doe.
+
+# HTML embedding:
+# data-l10n=""
+{
+    "languages": {
+        "hu": {
+            "name": "Magyar",
+            "englishName": "Hungarian",
+            "abbrev": "HU",
+            "icon": "img/flag/hu.svg"
+        },
+        "en": {
+            "name": "English",
+            "englishName": "English",
+            "abbrev": "EN",
+            "icon": "img/flag/en.svg"
+        }
+    },
+    "data": {
+# Sidebar buttons:
+        "sidebar.login": {
+            "hu": "Bejelentkezés",
+            "en": "Login"
+        },
+        "sidebar.register": {
+            "hu": "Regisztráció",
+            "en": "Registration"
+        },
+        "sidebar.user": {
+            "hu": "Felhasználó",
+            "en": "User"
+        },
+        "sidebar.income": {
+            "hu": "Bevétel",
+            "en": "Income"
+        },
+        "sidebar.expenses": {
+            "hu": "Kiadás",
+            "en": "Expenses"
+        },
+        "sidebar.statistics": {
+            "hu": "Statisztika",
+            "en": "Statistics"
+        },
+        "sidebar.savings": {
+            "hu": "Megtakarítás",
+            "en": "Savings"
+        },
+        "sidebar.settings": {
+            "hu": "Beállítások",
+            "en": "Settings"
+        },
+        "sidebar.debug": {
+            "hu": "Hibakereső",
+            "en": "Debug"
+        },
+        "sidebar.logout": {
+            "hu": "Kijelentkezés",
+            "en": "Logout"
+        },
+
+# Pages' headers:
+        "page.h1.home": {
+            "hu": "BudgetBrain",
+            "en": "BudgetBrain"
+        },
+        "page.h1.login": {
+            "hu": "Bejelentkezés",
+            "en": "Login"
+        },
+        "page.h1.register": {
+            "hu": "Regisztráció",
+            "en": "Registration"
+        },
+        "page.h1.user": {
+            "hu": "Felhasználó",
+            "en": "User"
+        },
+        "page.h1.income": {
+            "hu": "Bevétel",
+            "en": "Income"
+        },
+        "page.h1.expenses": {
+            "hu": "Kiadás",
+            "en": "Expenses"
+        },
+        "page.h1.statistics": {
+            "hu": "Statisztika",
+            "en": "Statistics"
+        },
+        "page.h1.savings": {
+            "hu": "Megtakarítás",
+            "en": "Savings"
+        },
+        "page.h1.settings": {
+            "hu": "Beállítások",
+            "en": "Settings"
+        },
+        "page.h1.logout": {
+            "hu": "Kijelentkezés",
+            "en": "Logout"
+        },
+
+        "EOL dummy": {
+            "hu": "",
+            "en": ""
+        }
+    }
+}
